@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Torsion Pair 等价定义
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="证明">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Def_de_TP">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Torsion Pair 等价定义</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 22, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="证明">证明</h2>
+
+<div class="theorem">
+  <p>(Torsion pair 的等价定义). 称两个对象类 $(𝒯 , ℱ)$ 构成 torsion class, 若以下等价条件满足.</p>
+  <ol>
+    <li>$𝒯 ⟂_o ℱ$. 任意对象 $M$ 可嵌入正合列 $0 → tM → M → fM → 0$, 其中 $tM ∈ 𝒯$ 且 $fM ∈ ℱ$.</li>
+    <li>存在子函子 $t ↪ \mathrm{id}$ 使得 $t^2 ≃ t$, 以及 $t : \operatorname{cok}(t → \mathrm{id}) → 0$. 此时, $\ker t = ℱ$, $\operatorname{im} t = 𝒯$.</li>
+    <li>存在商函子 $\mathrm{id} ↠ f$ 使得 $f ≃ f^2$, 以及 $f : \operatorname{ker}(f ↠ \mathrm{id}) → 0$. 此时, $\ker f = 𝒯$, $\operatorname{im} f = ℱ$.</li>
+    <li>${}^oℱ = 𝒯$, 且 $ℱ = 𝒯^o$.</li>
+    <li>$𝒯$ 对商对象与扩张封闭, $ℱ = 𝒯^o$.</li>
+    <li>$ℱ$ 对子对象与扩张封闭, $𝒯 = {}^oℱ$.</li>
+    <li>任意 $𝐪𝐮𝐨𝐭(𝒯)$-滤过对象属于 $𝒯$, 并取 $ℱ := 𝒯^o$.</li>
+    <li>任意 $𝐬𝐮𝐛(ℱ)$-滤过对象属于 $ℱ$, 并取 $𝒯 := {}^oℱ$.</li>
+  </ol>
+</div>
+
+<div class="proof">
+  <p>见下一引理.</p>
+</div>
+
+<div class="lemma">
+  <p>(Torsion pair 的等价定义, 基于对称性的简化版本). 称两个对象类 $(𝒯 , ℱ)$ 构成 torsion class, 若以下等价条件满足.</p>
+  <ol>
+    <li>$𝒯 ⟂_o ℱ$. 任意对象 $M$ 可嵌入正合列 $0 → tM → M → fM → 0$, 其中 $tM ∈ 𝒯$ 且 $fM ∈ ℱ$.</li>
+    <li>存在子函子 $t ↪ \mathrm{id}$ 使得 $t^2 ≃ t$, 以及 $t : \operatorname{cok}(t → \mathrm{id}) → 0$. 此时, $\ker t = ℱ$, $\operatorname{im} t = 𝒯$.</li>
+    <li>${}^oℱ = 𝒯$, 且 $ℱ = 𝒯^o$.</li>
+    <li>$𝒯$ 对商对象与扩张封闭, $ℱ = 𝒯^o$.</li>
+    <li>任意 $𝐪𝐮𝐨𝐭(𝒯)$-滤过对象属于 $𝒯$, 并取 $ℱ := 𝒯^o$.</li>
+  </ol>
+</div>
+
+<div class="proof">
+  <p>证明顺序是 (1 ⟺ 2) ⇒ 3 ⇒ (4 ⟺ 5). <br /> (1 ⇒ 2). 若 1., 今断言 ses $$
+θ_M : 0 → tM → M → fM → 0
+$$ 是唯一的. 若不然, 核与余核的泛性质给出分解 $$
+\begin{bmatrix}
+tM & \overset{i}{↪ } & M & \overset{π }{↠ } & fM\\
+α  ⇅  β  &  & ∥  &  & γ  ⇅  δ  \\
+t'M & \underset{i'}{↪  } & M & \underset{π '}{↠  } & f'M
+\end{bmatrix},
+$$ 使得 $i ∘ α = i'$, 以及 $i' ∘ β = i$, 这也建立了同构 $tM ≃ t'M$. 同理有 $fM ≃ f'M$. 依照类的选择公理, $t$ 是 $f$ 是函子. 特别地, 考虑 $θ_{tM}$ 知 $t^2M ≃ tM$, 以及 $t fM = 0$. <br /> (2 ⇒ 1). 容易给出 ses 的构造 $$
+0 → tM → M → M / tM → 0.
+$$ 往后证明 $\operatorname {im} t ⟂_o \ker t$. 容易发现, $\operatorname {im} t$ 中对象形如 $tM$, $\ker t$ 中对象形如 $N/tN$. <br /> 对任意 $φ : tM → N/tN$, 显然 $φ$ 形如 $tM \xrightarrow a N ↠ tN$, 且 $a$ 通过 $tN ↪ N$ 分解. 因此 $φ =0$. <br /> (1 ⇒ 3). $t$ 函子给出 $(\operatorname{im} t, \ker t)$. 下证明</p>
+  <ol>
+    <li>$(\operatorname{im} t)^o ⊆ \ker t$. 若 $(-,X)$ 零化一切 $\operatorname{im} t$, 则 $tX ↪ X$ 只能是零态射. 因此, $X ∈ \ker t$.</li>
+    <li>$^o(\ker t) ⊆ \operatorname{im}(t)$. 若 $(Y,-)$ 零化一切 $\ker t$, 则 $Y ↠ Y/tY$ 只能是零态射. 因此, $Y ∈ \operatorname{im} t$.</li>
+  </ol>
+  <p>(3 ⇒ 4). 实际上, 任意对象类的左垂直 $(^o𝒳)$ 对商对象与扩张封闭, 考虑反变 $\mathrm{Hom}$ 的左正合列即可. <br /> (4 ⇒ 5). 若 $𝒯$ 对商对象与扩张封闭, 则自然对滤过封闭. <br /> (5 ⇒ 4). 对任意 $M ∈ 𝐟𝐢𝐥(𝐪𝐮𝐨𝐭(𝒯))$. 取滤过</p>
+  <p>$$
+\textstyle 0 = F_0 M ⊆ F_1 M ⊆ \cdots ⊆ F_n M = M\quad (\frac{F_{p+1}M}{F_p M} ∈ 𝒯).
+$$</p>
+  <ol>
+    <li>($𝐟𝐢𝐥(𝐪𝐮𝐨𝐭(𝒯))$ 对商对象封闭). 假定 $Q$ 是 $M$ 的商对象, 记 $π : M ↠ Q$. 此时, $π(F_∙M)$ 是 $Q$ 的滤过, 且 $\frac{π(F_{p+1}M)}{F_pM}$ 是 $\frac{F_{p+1}M}{F_p(M)}$ 的商.</li>
+    <li>
+      <p>($𝐟𝐢𝐥(𝐪𝐮𝐨𝐭(𝒯))$ 对扩张封闭). 假定 ses</p>
+      <p>$$
+   0 → M \overset i→ E \overset p → N → 0\quad (M,N ∈ 𝐟𝐢𝐥(𝐪𝐮𝐨𝐭(𝒯))).
+   $$</p>
+      <p>记 $F_∙ M$ 与 $G_∙ N$ 是 $M$ 与 $N$ 的 $𝐪𝐮𝐨𝐭(𝒯)$-滤过, 拼接以下两则滤过:</p>
+      <p>$$
+    0 = i(F_0M) ⊆ i(F_1M) ⊆ \cdots ⊆ i(F_nM) = \operatorname{im}(i)
+    $$</p>
+      <p>与</p>
+      <p>$$
+    \ker p = p^{-1}(G_0N) ⊆ p^{-1}(G_1N) ⊆ \cdots ⊆ p^{-1}(G_nN) = E.
+    $$</p>
+      <p>得 $E$ 的 $𝐪𝐮𝐨𝐭(𝒯)$-滤过.</p>
+    </li>
+  </ol>
+  <p>(5 ⇒ 1). 往证 $X ∈ 𝒜$ 存在极大的 $𝒯$ 中子对象, 且这一子对象是最大的. 这要求</p>
+  <ol>
+    <li>$X$ 的子对象构成集合, 且</li>
+    <li>子对象集关于某种归纳极限封闭.</li>
+  </ol>
+  <p>此处选取的 Abel 范畴是 $𝒜 = 𝐦𝐨𝐝_A$, 从而满足以上设定 (特别地, $𝐬𝐮𝐛 (X)$ 有限).</p>
+  <ol>
+    <li>(证明极大元存在性). 今取 $𝒮 := 𝐬𝐮𝐛 (X) ∩ 𝒯$, 显然 $0 ∈ 𝒮$ 非空, 从而存在极大元 $i : S ↪ X$.</li>
+    <li>(证明极大元唯一性). 若 $𝒮$ 存在另一极大元 $i' : S' ↪ X$, 则单态射的推出 $S + S' := S \underset{i(S) ∩ i(S')}⊔ S$ 是 $𝒮$ 中对象. 依照极大元假定, 只能由 $S ≃ S'$, 也就是极大元唯一.</li>
+  </ol>
+  <p>记极大元 $X_t$. 此时有函子的 ses $0 → X_t → X → \frac{X}{X_t} → 0$, 其中 $(-)_t$ 依照核的泛性质刻画. 依照构造, $((-)_t)_t ≃ (-)_t$. 今断言 $(X / X_t)_t = 0$, 若不然, 则可通过扩张构造 $𝒮$ 中比 $X_t$ 更大的对象. 矛盾.</p>
+</div>
+
+<div class="note">
+  <p>4 ⟺ 5 说明, 对象类 $𝒳$ 关于商对象和扩张的闭包, 可通过先取商, 再取扩张实现.</p>
+</div>
+
+<div class="note">
+  <p>若 Abel 范畴良幂, 且子对象对归纳极限封闭, 则以上命题等价性的证明仍奏效. 特例: Abel 长度范畴.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#证明">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">证明</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/AR_Formula" title="NEXT: AR 公式">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Homological_Wk_Ker" title="PREV: 上同调函子保持弱核">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

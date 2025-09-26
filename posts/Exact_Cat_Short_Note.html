@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>正合范畴的重要结论 (精简版)
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="定义">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Exact_Cat_Short_Note">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>正合范畴的重要结论 (精简版)</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 13, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="定义">定义</h2>
+
+<div class="definition">
+  <p>(Quillen 定义). 正合范畴记作 $(𝒜 , ℰ)$. $𝒜$ 是加法范畴, $ℰ$ 是满足如下性质对同构封闭的的 kernel-coker 对 $(i,d)$.</p>
+  <blockquote>
+    <p>以上 $\ker d = i$, 且 $\mathrm{cok} i = d$.</p>
+  </blockquote>
+  <ul>
+    <li>(EX 0). 任意 $\mathrm{0}_X ∈ 𝐢𝐧𝐟$;</li>
+    <li>(EX 0’). 任意 $\mathrm{0}_X ∈ 𝐝𝐞𝐟$;</li>
+    <li>(EX 1). 全体 $𝐢𝐧𝐟$ 对合成封闭;</li>
+    <li>(EX 1’). 全体 $𝐝𝐞𝐟$ 对合成封闭;</li>
+    <li>(EX 2). 任意 $𝐢𝐧𝐟$ 关于任意态射的推出总是 $𝐢𝐧𝐟$;</li>
+    <li>(EX 2’). 任意 $𝐝𝐞𝐟$ 关于任意态射的拉回总是 $𝐝𝐞𝐟$.</li>
+  </ul>
+</div>
+
+<div class="note">
+  <p>EX0, EX1, EX2, EX2’ 推导出其余条件.</p>
+</div>
+
+<div class="definition">
+  <p>通用名称:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>对象 (描述)</th>
+        <th>名称 1</th>
+        <th>名称 2</th>
+        <th>记号</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ker-cok 对</td>
+        <td>conflation</td>
+        <td>admissible ses</td>
+        <td>$(i,d)$</td>
+      </tr>
+      <tr>
+        <td>好的 ker 态射</td>
+        <td>inflation</td>
+        <td>admissible monic</td>
+        <td>$↣$</td>
+      </tr>
+      <tr>
+        <td>好的 cok 态射</td>
+        <td>deflation</td>
+        <td>admissible epic</td>
+        <td>$↠$</td>
+      </tr>
+      <tr>
+        <td>好的满-单合成</td>
+        <td>regular morphism</td>
+        <td>admissible morphism</td>
+        <td>$⇒$</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="例子">例子</h2>
+
+<div class="proposition">
+  <p>简单结论.</p>
+  <ul>
+    <li>$0 → X ≃ Y$ 与 $X ≃ Y → 0$ 属于 $ℰ$;</li>
+    <li>可裂 ses 含于 $ℰ$;</li>
+    <li>$ℰ ⊕ ℰ ⊆ ℰ$;</li>
+    <li>$𝐢𝐧𝐟$ 未必单, 但满的 $𝐢𝐧𝐟$ 等价于同构;</li>
+    <li>$𝐝𝐞𝐟$ 未必满, 但单的 $𝐝𝐞𝐟$ 等价于同构;</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>Heller 构造.</p>
+  <ul>
+    <li>(Heller). $(ℰ , ℱ)$ 是正合范畴, $ℱ$ 选 $3 × 3$ 态射 (六条 conflation).</li>
+    <li>此构造未必保持 Abel 范畴.</li>
+    <li>(Hulher). 以上结论推广至小 diagram.</li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>以下是原始的正合范畴的 EX3 (EX3’) 公理, 可证明由其他推出.</p>
+  <ul>
+    <li>若 $f$ 有 $\mathrm{cok}$, 则 $[gf ∈ 𝐢𝐧𝐟] ⟹ [f ∈ 𝐢𝐧𝐟]$;</li>
+    <li>若 $g$ 有 $\mathrm{ker}$, 则 $[gf ∈ 𝐝𝐞𝐟] ⟹ [g ∈ 𝐝𝐞𝐟]$.</li>
+  </ul>
+</div>
+
+<h2 id="交换方块">交换方块</h2>
+
+<div class="proposition">
+  <p>(交换方块). 给定 EX 2 中 $𝐢𝐧𝐟$ 对应的推出 <span class="tikzinline-diagram">       <embed src="/website/svg/Exact_Cat_Short_Note/diagram_034ddb53c1c0a.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 以下等价.</p>
+  <ol>
+    <li>这是拉回;</li>
+    <li>这是推出拉回;</li>
+    <li>存在 ses (下图上)       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Exact_Cat_Short_Note/diagram_cf20054b102c9.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>可向右补全作 $𝐜𝐨𝐧$ 的交换图 (上图下).</li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>称以上为 $𝐜𝐨𝐧$ 的推出 (固定尾, 推出首). 对偶地, 给出两种推出拉回</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_e0d371be42c64.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>($𝐜𝐨𝐧$ 的态射分解). 给定 conflation 间的态射,</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_d9a74b9697f20.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>有以下结论</p>
+  <ol>
+    <li>$γ$ 由 $α$ 与 $β$ 唯一决定;</li>
+    <li>$α$ 由 $β$ 与 $γ$ 唯一决定;</li>
+    <li>任意 $𝐜𝐨𝐧$ 间的态射通过 $𝐜𝐨𝐧$ 分解, 使得以下两处是推出拉回方块:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Exact_Cat_Short_Note/diagram_6f93374fa108e.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>若 $α$ 与 $γ$ 是同构, 则 $β$ 必然是同构;</li>
+    <li>若 $α$ 与 $γ$ 决定 $β$, 则 $β$ 在前后复合同构的意义下是唯一的.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(双). 两个 $𝐝𝐞𝐟$ 的拉回是推出拉回, 同时也是四个 $𝐜𝐨𝐧$ 的交换图; 对称地, 两个 $𝐢𝐧𝐟$ 的拉回是推出拉回, 同时也是四个 $𝐜𝐨𝐧$ 的交换图.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_b6845a0d4071d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="proposition">
+  <p>(Kunzer, EX 3 的特殊形式). 若有左侧交换图, 或是右侧的满态射方块 (上一定理), 则能补全作以下四条 $𝐜𝐨𝐧$ 的交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_6d05c5e92c700.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>($𝐢𝐧𝐟 + 𝐝𝐞𝐟 = PBPO$). 任意左侧类型推出与右侧类型的拉回, 均能补全作中间类型的推出拉回方块.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_e576dbbdb8058.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>特别地, 这也给出了以下类型的四条正合列的交换图</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_56e6a46a0c140.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(Noether 同构). 给定 $𝐢𝐧𝐟$ 的初始资料 (下图左) 与 $𝐝𝐞𝐟$ 的初始资料 (下图右), 则有四处 $𝐜𝐨𝐧$ 的交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_9e9377c16ae7c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>以上均是特殊的 $3 × 3$ 引理的使用. 一般地, 假定以下各行 ($r_∙$) 是 $𝐜𝐨𝐧$</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_ec3f43f3c6369.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>则有如下结论:</p>
+  <ul>
+    <li>若存在 $𝐜𝐨𝐧$ $c_1$ 与 $c_2$ 使得相应方块交换, 则存在唯一的 $𝐜𝐨𝐧$ $c_3$ 使得相应方块交换.</li>
+    <li>若存在 $𝐜𝐨𝐧$ $c_3$ 与 $c_2$ 使得相应方块交换, 则存在唯一的 $𝐜𝐨𝐧$ $c_1$ 使得相应方块交换.</li>
+    <li>若存在 $𝐜𝐨𝐧$ $c_1$ 与 $c_3$ 使得相应方块交换, 且 $c_2$ 复合为零, 则 $c_2$ 是 $𝐜𝐨𝐧$.</li>
+  </ul>
+</div>
+
+<h2 id="幂等完备-弱幂等完备">幂等完备, 弱幂等完备</h2>
+
+<div class="definition">
+  <p>称加法范畴 $𝒜$ 是</p>
+  <ul>
+    <li>幂等完备的, 若以下等价条件成立:       <ul>
+        <li>任意幂等自同态 $e^2 = e$ 有核,</li>
+        <li>任意幂等自同态 $e^2 = e$ 有余核,</li>
+        <li>任意幂等自同态 $e^2 = e$ 可写作矩阵形式 $\binom{I \ \ O}{O \ \ O}$.</li>
+      </ul>
+    </li>
+    <li>弱幂等完备的, 若以下等价条件成立:       <ul>
+        <li>若 $f$ 有左逆元, 则 $f$ 是可裂单,</li>
+        <li>若 $f$ 有右逆元, 则 $f$ 是可裂满,</li>
+        <li>(正合范畴特有). 可裂单是 $𝐢𝐧𝐟$,</li>
+        <li>(正合范畴特有). 可裂满是 $𝐝𝐞𝐟$,</li>
+        <li>(正合范畴特有). 若 $gf ∈ 𝐝𝐞𝐟$, 则 $g ∈ 𝐝𝐞𝐟$,</li>
+        <li>(正合范畴特有). 若 $gf ∈ 𝐢𝐧𝐟$, 则 $g ∈ 𝐢𝐧𝐟$,</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="note">
+  <p>弱幂等完备严格弱于幂等完备, 例如偶数维有限线性空间范畴是弱幂等完备的, 但非幂等完备.</p>
+  <ul>
+    <li>通俗地说, 弱幂等完备类似模的直和分解, 幂等完备类似环的直和分解.</li>
+  </ul>
+</div>
+
+<h2 id="同调引理">同调引理</h2>
+
+<div class="definition">
+  <p>称 $f$ 是 admissible 态射, 若 $f ∈ 𝐢𝐧𝐟 ∘ 𝐜𝐨𝐟$, 记作 $⇒$. 类似满-单分解.</p>
+</div>
+
+<div class="lemma">
+  <p>(所谓满-单分解唯一). 将 $⇒$ 的拆解在同构意义下唯一. 换言之, 以下交换图中总能引入虚线的同构态射, 使得两个三角交换.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_faf33a261e271.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="lemma">
+  <p>Admissible 映射关于单态射的拉回以及满态射的推出封闭.</p>
+</div>
+
+<div class="lemma">
+  <p>若所有态射均 admissible, 则该正合范畴是 Abel 范畴.</p>
+</div>
+
+<div class="definition">
+  <p>类似地, 称 $A ⇒ B ⇒ C$ 是正合列, 若分解 $A ↠ X ↣ B ↠ Y ↣ C$ 给出 $[X ↣ B ↠ Y] ∈ ℰ$.</p>
+</div>
+
+<div class="theorem">
+  <p>(五引理). 若下图横行正合, 竖向 (除中间列) 是同构, 则竖向态射是同构.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_c521f10532f62.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>以上定理不需要幂等完备条件.
+<br />
+<br />
+以下定理需要幂等完备条件.</p>
+
+<div class="theorem">
+  <p>若有以下交换图, 则 $? ∈ 𝐢𝐧𝐟$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_79e2308accfdc.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>若有以下交换图, 则 $? ∈ 𝐝𝐞𝐟$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_f0d1c480b0d55.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(六引理). 若中间三角是 admissible 态射的合成, 则有外周的六项正合列:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_f62e76fc5f115.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(正合范畴中的强形式蛇引理). 若有中间, 则有六项正合列:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Exact_Cat_Short_Note/diagram_7d1a34707e0c7.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#定义">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">定义</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#例子">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">例子</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#交换方块">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">交换方块</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#幂等完备-弱幂等完备">
+        <span class="toc-number">4.</span>
+        <span class="toc-title">幂等完备, 弱幂等完备</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#同调引理">
+        <span class="toc-number">5.</span>
+        <span class="toc-title">同调引理</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Stable_Cat_Analogue" title="NEXT: 外三角范畴 (2025-05-15 讲稿)">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Homotopic_PBPO_Oct" title="PREV: 八面体公理的等价定义">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

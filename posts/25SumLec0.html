@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>CT0
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/25SumLec0">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>CT0</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        July 20, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#lecture-0" id="markdown-toc-lecture-0">Lecture 0</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+      <li><a href="#notations" id="markdown-toc-notations">Notations</a></li>
+      <li><a href="#functors" id="markdown-toc-functors">Functors</a></li>
+    </ul>
+  </li>
+  <li><a href="#on-rings-and-modules" id="markdown-toc-on-rings-and-modules">On Rings and Modules</a>    <ul>
+      <li><a href="#an-interesting-example-on-transfinite-filtration" id="markdown-toc-an-interesting-example-on-transfinite-filtration">An Interesting Example on Transfinite Filtration</a></li>
+      <li><a href="#the-real-compact-modules" id="markdown-toc-the-real-compact-modules">The REAL Compact Modules</a></li>
+      <li><a href="#mathjax_protectedjpcdkiwnzcr8j2qqpcdkkmkmathjax_protected-mathjax_protectedjpcdkijwnzcn8j2qoyqmathjax_protected-and-mathjax_protectedjpcdkixwnzcl8j2qmvcdkk0kmathjax_protected" id="markdown-toc-mathjax_protectedjpcdkiwnzcr8j2qqpcdkkmkmathjax_protected-mathjax_protectedjpcdkijwnzcn8j2qoyqmathjax_protected-and-mathjax_protectedjpcdkixwnzcl8j2qmvcdkk0kmathjax_protected">$𝐏𝐫𝐨𝐣$, $𝐈𝐧𝐣$ and $𝐅𝐥𝐚𝐭$</a></li>
+      <li><a href="#coherency" id="markdown-toc-coherency">Coherency</a></li>
+      <li><a href="#character-module" id="markdown-toc-character-module">Character Module</a></li>
+    </ul>
+  </li>
+  <li><a href="#on-chain-complexes" id="markdown-toc-on-chain-complexes">On Chain Complexes</a>    <ul>
+      <li><a href="#functors-for-chain-complexes" id="markdown-toc-functors-for-chain-complexes">Functors for Chain Complexes</a></li>
+      <li><a href="#resolving-chain-complexes" id="markdown-toc-resolving-chain-complexes">Resolving Chain Complexes</a></li>
+      <li><a href="#closed-monoidal-structure" id="markdown-toc-closed-monoidal-structure">Closed Monoidal Structure</a></li>
+      <li><a href="#more-on-mathjax_protectedjfxtyxroy2fse0hptx0kmathjax_protected" id="markdown-toc-more-on-mathjax_protectedjfxtyxroy2fse0hptx0kmathjax_protected">More on $\mathcal{HOM}$</a></li>
+      <li><a href="#a-discussion-on-the-homotopy-category-mathjax_protectedjesouikkmathjax_protected" id="markdown-toc-a-discussion-on-the-homotopy-category-mathjax_protectedjesouikkmathjax_protected">A Discussion on the Homotopy Category $K(R)$</a></li>
+      <li><a href="#a-module-like-analysis-of-mathjax_protectedjemouikkmathjax_protected" id="markdown-toc-a-module-like-analysis-of-mathjax_protectedjemouikkmathjax_protected">A Module-like Analysis of $C(R)$</a></li>
+      <li><a href="#double-complexes" id="markdown-toc-double-complexes">Double Complexes</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lecture-0">Lecture 0</h2>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>Throughout these lectures, we discuss and construct explicit examples of cotorsion theory. The categories of modules and chain complexes over rings serve as our principal examples, wherein we demonstrate how set-theoretic techniques may be employed to construct cotorsion pairs. Throughout these lectures, we discuss and construct explicit examples of cotorsion theory. The categories of modules and chain complexes over rings serve as our principal examples, wherein we demonstrate how set-theoretic techniques may be employed to construct cotorsion pairs.</p>
+    <p>During the initial few lectures, we follow <a href="https://zhangchenchengsjtu.github.io/website/assets/PDF/RHA-1.pdf">RHA-1</a> and <a href="https://zhangchenchengsjtu.github.io/website/assets/PDF/RHA-2.pdf">RHA-2</a>.</p>
+    <p>We also introduce certain aspects of the theory of chain complexes over rings, which might be atypical in most standard textbooks.</p>
+  </div>
+</div>
+
+<h3 id="notations">Notations</h3>
+
+<p>Throughout,</p>
+
+<ul>
+  <li>$R$: a unital (not necessarily commutative) ring,</li>
+  <li>$𝐌𝐨𝐝 _R \quad (≃ 𝐏𝐒𝐡_{𝐀𝐛}(R))$: the category of <strong>right</strong> $R$-modules,</li>
+  <li>$C(R)$: the category of chain complexes over $𝐌𝐨𝐝 _R$,
+    <ul>
+      <li>our convension is $\cdots → X^k \xrightarrow {d^k} X^{k+1} → \cdots$,</li>
+      <li>$Σ$ and $Σ ^{-1}$ denote the suspension and desuspension functors respectively.</li>
+    </ul>
+  </li>
+  <li>$𝐏𝐫𝐨𝐣 (\mathcal{C})$: the class (or full subcategory) of projectives in $\mathcal{C}$,</li>
+  <li>$𝐈𝐧𝐣 (\mathcal{C})$: the class (or full subcategory) of injectives in $\mathcal{C}$.</li>
+</ul>
+
+<h3 id="functors">Functors</h3>
+
+<p>We review some basic definitions and notions in homological algebra. We employ</p>
+
+<ul>
+  <li>$∐$ to denote <strong>coproducts</strong>,</li>
+  <li>$∏$ for <strong>products</strong>, and</li>
+  <li>$⨁$ specifically when $∐ \xrightarrow{∼} ∏$, For example, $⨁_{n ∈ ℤ} Σ^n M_n$ represents the sum of stalk complexes.</li>
+</ul>
+
+<p>The symbols $\varinjlim$ and $\varprojlim$ are utilised for <strong>colimits</strong> (injective limits) and <strong>limits</strong> (projective limits), respectively; in particular, the superscript $fil$ in $\varinjlim^{fil}$ indicates the <strong>filtered colimits</strong>.</p>
+
+<div class="example">
+  <p>(Preserving, reflecting, and creating). We explain by functors between Abelian categories. Given $F : \mathcal{A} → \mathcal{B}$:</p>
+  <ul>
+    <li>$F$ is said to <strong>preserve</strong> or <strong>commute with</strong> $\ker$, if any $0 → K \xrightarrow i X \xrightarrow f Y$ is exact in $\mathcal{A}$ implies $0 → F(K) \xrightarrow {F(i)} F(X) \xrightarrow {F(f)} F(Y)$ is exact in $\mathcal{B}$.</li>
+    <li>$F$ is said to <strong>reflect</strong> $\ker$, if any $0 → F(K) \xrightarrow {F(i)} F(X) \xrightarrow {F(f)} F(Y)$ is exact in $\mathcal{B}$ implies $0 → K \xrightarrow i X \xrightarrow f Y$ is exact in $\mathcal{A}$.</li>
+    <li>$F$ is said to <strong>create</strong> $\ker$, if any $0 → H \xrightarrow {φ } F(X) \xrightarrow {F(f)} F(Y)$ is exact in $\mathcal{B}$ implies the existence of the exact sequence $0 → K \xrightarrow i X \xrightarrow f Y$ in $\mathcal{A}$, such that $F(K) = H$ and $F(i) = φ$.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that</p>
+  <ul>
+    <li>a fully faithful functor reflects limits;</li>
+    <li>the left/right adjoint functor preserves all limits/colimits, respectively;</li>
+    <li>for a <a href="https://en.wikipedia.org/wiki/Subcategory#Types_of_subcategories">Freydal luff</a> sub-diagram $ι : Q' → Q$, the functor $ι ^∗ : 𝐅𝐮𝐧𝐜𝐭 (Q, \mathcal{C}) → 𝐅𝐮𝐧𝐜𝐭 (Q', \mathcal{C})$ creates all limits and colimits,       <ul>
+        <li><strong>corollary: the (co)limits in $C(R)$ are computed termwise!</strong></li>
+      </ul>
+    </li>
+    <li>the forgetful functor $𝐌𝐨𝐝 _R → 𝐒𝐞𝐭𝐬$ creates all limits and filtered colimits,       <ul>
+        <li><strong>corollary: the filtered colimits and limits in $𝐌𝐨𝐝 _R$ are computed elementwise!</strong></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="definition">
+  <p>(Exactness). Left/right exact functors are <strong>precisely</strong> those <strong>preserving</strong> <strong>finite</strong> limits/colimits, respectively. A functor is termed <strong>exact</strong> if it is both left and right exact.</p>
+</div>
+
+<div class="definition">
+  <p>(Grothendieck’s <strong>AB conditions</strong>). See <a href="https://stacks.math.columbia.edu/tag/079A">stacks</a>, or <a href="https://ncatlab.org/nlab/show/additive+and+abelian+categories">n-lab</a>.</p>
+  <ul>
+    <li>The conditions AB3, AB3$^∗$, AB4, AB4$^∗$, and AB5 are standard in both $𝐌𝐨𝐝 _R$ and $C(R)$. <strong>We assert the isomorphisms such as $∏ \operatorname{cok}(f_∙ ) \xrightarrow ∼ \operatorname{cok}(∏ f_∙ )$ without further elaboration throughout these lectures.</strong></li>
+    <li>The author refined the statement of AB6 in n-lab during a rather uneventful afternoon. Nevertheless, AB6 is not considered significant within the context of homological algebra.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Here are some <strong>well-known properties</strong> of filtered colimits (over $𝐌𝐨𝐝_R$, $C(R)$, or a general AB5 category). We take $ι _0 : M_{i_0} → \varinjlim ^{fil}_{i ∈ I} M_i$ as the structure morphism for filtered colimit.</p>
+  <ol>
+    <li>Any element $x : \{∗\} → \varinjlim ^{fil}_{i ∈ I} M_i$ factors through some $ι_i$. (As every point is <strong>small</strong>).</li>
+    <li>$\ker (ι _{i}) = ⋃ _{α_{j,i}^{(k)} : i → j} \ker α _{j,i}^{(k)}$ (such set-theoretic union for modules is also a module).       <ul>
+        <li>In particular, a monic filtered system has monic structure map.</li>
+      </ul>
+    </li>
+    <li>Let $\{f_i : M_i ↪ N\}_{i ∈ I}$ be a collection of monomorphisms which is compatible with the filtered diagram $I$. Then $\varinjlim ^{fil}_{i ∈ I} M_i ↪ N$ is also monic.</li>
+    <li>$∑_{λ ∈ Λ } (V ∩ U_λ) = V ∩ ∑_{λ ∈ Λ } (U_λ)$. This is another equivalent definition of AB5 condition.</li>
+    <li>(Assuming enough $𝐏𝐫𝐨𝐣$). Let $F$ be a left adjoint. Then filtered colimit preserves its left derivatives, i.e., $\varinjlim ^{fil}(\mathrm L^k F)(M_∙) ≃ (\mathrm L^k F)(\varinjlim ^{fil}M_∙)$ for $k ≥ 0$.       <ul>
+        <li>General left adjoint functors include colimits (e.g. coproducts), free functors (e.g. $X ↦ R^{(X)}$, sheafification), realisations (e.g. geometric/categorical realisation of simplicial sets), $(? ⊗ -)$, inverse images of either sheaves or presheaves (e.g. stalks, constant sheaves, or the change of category in general).</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<h2 id="on-rings-and-modules">On Rings and Modules</h2>
+
+<p>We recollect some basic properties of ring and modules.</p>
+
+<h3 id="an-interesting-example-on-transfinite-filtration">An Interesting Example on Transfinite Filtration</h3>
+
+<p>This demonstrates the distinctions between finitely generated modules and those $M$ for which $∐ (M, -) ↪ (M, ∐ (-))$ constitutes an isomorphism. An equivalent characterisation is provided via the cofinality of transfinite filtration.</p>
+
+<p>We begin with an exercise in ring theory.</p>
+
+<div class="lemma">
+  <p>$M$ is finitely generated if and only if,</p>
+  <ul>
+    <li>for any (non-empty) set of <strong><em>proper submodules</em></strong> $\{N_i\}_{i ∈ I}$ such that either $N_i ⊆ N_j$ or $N_i ⊇ N_j$ for any $i, j ∈ I$, the union $⋃ N_∙$ is <strong><em>never</em></strong> equal to $M$ itself.</li>
+  </ul>
+  <div class="proof">
+    <p>($→$). We show $a → b$ by showing that $a ∧ (¬ b) → \text{false}$. By $(¬ b)$, there exists an ordered system of proper submodules $N_∙$ whose union is $M$. Let $\{x_i\}_{i=1}^n$ be a generating set of $M$ (by $(a)$). Thus, for each $i$, there exists $x_i ∈ N_{k_i}$. The proper submodule $⋃ _{i=1}^n N_{k_i} = \text{Largest}\{N_{k_i}\}$ yields a contradiction. <br /> <br /> ($←$). We show $b → a$ with $b ∧ (¬ a) → \text{false}$. Consider the collection of proper submodules $N_∙ = \{N ∣ M / N\ \text{ is not f.g.}\}$. The poset of proper submodules $N_∙$ is both</p>
+    <ul>
+      <li>non-empty by $(¬ a)$, and</li>
+      <li>contains no maximal elements by construction.</li>
+    </ul>
+    <p>We examine the partially ordered set $P := \{\text{chains in } N_∙\}$ with the binary relation $⊆$. Observe that each chain in $P$ possesses an upper bound, obtained by taking the common refinement. Therefore, by Zorn’s lemma, $N_∙$ contains a maximal inclusion chain of proper submodules, denoted by $C_∙$. <br /> $C_∙$ contains no maximal elements; thus, $⋃ C_∙ ∉ N_∙$. In this case $M / (⋃ C_∙)$ is f.g.. Consequently, there exists a finitely generated submodule $L$ such that $L + ⋃ C_∙ = M$; however, $⋃ (L + C_∙) ≠ M$ by $(b)$. This leads to a contradiction.</p>
+  </div>
+</div>
+
+<p>In the above theorem, $N_∙$ is taken over arbitrary totally-ordered set. For colimit $⋃$, it suffices to consider a cofinal subsystem indexed by an ordinal. Hence,</p>
+
+<div class="theorem">
+  <p>$M$ is f.g., iff any transfinite composition of proper submodules,</p>
+  <p>$$\begin{equation}
+0 = M_0 ⊊ M_1 ⊊ \cdots ⊊ M_γ ⊊ \cdots,
+\end{equation}$$</p>
+  <p>satisfy $(⋃ M_∙) ⊊ M$.</p>
+</div>
+
+<div class="proposition">
+  <p>$M$ is f.g. if and only if every proper submodule is contained in a maximal submodule.</p>
+  <div class="proof">
+    <p>(→). Suppose that $M$ is f.g.. For any $M_0 ⊆ M$, $M / M_0$ is f.g.. Now it suffices to show that $(M / M_0)$ possesses a maximal submodule. If not, then there exists some transfinite inclusion of proper submodules whose union is $(M / M_0)$. This is a contradiction. <br /> (←). Conversely, denote the non-empty set $$\begin{equation}
+\mathcal{S} := \{N ∣ N ⊊ M , N \ \text{is not contained in a maximal submodule}\}.
+\end{equation}$$</p>
+    <p>Note that $\mathcal{S}$ is closed under upward inclusion. The partially ordered set $\{\text{chains in} \ \mathcal{S}\}$ is closed under transfinite refinement. Hence, there exists a maximal chain $C_∙ ⊆ \mathcal{S}$. Clearly, $⋃ C_∙ = M$, so $M$ is not f.g..</p>
+  </div>
+  <ul>
+    <li>This criterion admits an inductive proof, which reduces to the case that every ring possesses a maximal ideal.</li>
+  </ul>
+</div>
+
+<p>We <strong><em>slightly</em></strong> revise such characterisation to the following <em>FAKE finitely generated</em> cases.</p>
+
+<div class="definition">
+  <p>(FAKE f.g.). A module $M$ is <em>FAKE finitely generated</em> if any $ω$-composition of proper submodules,</p>
+  <p>$$\begin{equation}
+0 = M_0 ⊊ M_1 ⊊ \cdots ⊊ M_n ⊊ \cdots \quad (n ∈ ℕ ),
+\end{equation}$$</p>
+  <p>satisfy $(⋃_{n ∈ ℕ} M_n) ⊊ M$.</p>
+</div>
+
+<p>We show FAKE f.g. $M$’s are precisely those $∐ (M, -) \xrightarrow ∼ (M, ∐ (-))$ in the rest of this subsection. We call such $M$ <em>a compact object in the underlying additive category</em>, i.e., $(M, -)$ is coproduct preserving</p>
+
+<ul>
+  <li>compact objects in general additive categories corresponds to $∐$-preserving $(M, -)$;</li>
+  <li>compact objects in AB5 category (e.g. $𝐌𝐨𝐝_R$) corresponds to $\varinjlim^{fil}$-preserving $(M, -)$ (e.g., f.p. modules).</li>
+</ul>
+
+<div class="problem">
+  <p>Show the subfunctor $∐ (M, -) ↪ (M, ∐ (-))$ for $𝐌𝐨𝐝_R$ or $C(R)$.</p>
+</div>
+
+<div class="lemma">
+  <p>If $M$ is FAKE f.g., then $M$ is compact in the underlying additive category of $𝐌𝐨𝐝_R$.</p>
+  <div class="proof">
+    <p>We deduce the lemma to countable case, that is, $(M, -)$ preserves arbitrary coproducts if $(M, -)$ preserves countable coproducts.</p>
+    <ul>
+      <li>Assume $∐_{i ∈ I} (M,  N_i ) \overset {≠}↪ (M, ∐_I N_{i} )$, we can find $F : M → ∐ _{i ∈ I}N_i$ such that $N_i ∩ \mathrm{im}(F) ≠ 0$ for infinitely many $N_i$’s. Hence, there is a countable coproduct $N = (∐ _{n ∈ ℕ} N_n) ⊕ (∐ _{\text{the rest}}N_∙)$ where the image of $F$ has non-zero intersection with each summand. This provides an example that $(M, -)$ does not preserve countable coproducts.</li>
+    </ul>
+    <p>We take arbitrary $f$ in</p>
+    <p>$$\begin{equation}
+∐_{n ∈ ℕ} (M,N_n) ↪ (M, ∐_{n ∈ ℕ} N_n) ∋ f = (f_n)_{n ∈ ℕ}.
+\end{equation}$$</p>
+    <p>Then $⋂ _{m ≥ n} \ker f_m$ is an ascending chain of submodules of $M$, satisfying</p>
+    <p>$$\begin{equation}
+\limsup (\ker f_∙) = ⋃_{n ≥ 0} ⋂ _{m ≥ n} \ker f_m = M.
+\end{equation}$$</p>
+    <p>By FAKE f.g. condition, all but finite $⋂ _{m ≥ n} \ker f_m ⊆ ⋂ _{m ≥ n+1} \ker f_m$ takes $⊊$. Hence, there is $n_0$ such that $⋂ _{m ≥ n_0} \ker f_m = M$. In this case, $f$ is also characterised in $⨁ _{n ≤ n_0}(M, N_n)$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show the converse statement: when there exists $⋃ M_∙ = M$ for some inclusion sequence</p>
+  <p>$$\begin{equation}
+0 = M_0 ⊊ M_1 ⊊ \cdots ⊊ M_n ⊊ \cdots \quad (n ∈ ℕ ).
+\end{equation}$$</p>
+  <p>Show that $∐ (M, -) ≇ (M, ∐ (-))$. <br /> <br /> Hint: Let $π _n : M ↠ M/M_n$ be quotient maps. The morphism $(π _n) ∈ (M, ∏ \frac{M}{M_n})$ lies in $(M, ∐ \frac{M}{M_n})$, since each support set $S_x := \{n ∣ π _n(x) ≠ 0\}$ is finite. However, one can never find $?$ along</p>
+  <p>$$\begin{equation}
+? ∈ ∐(M,\frac{M}{M_n}) ↪ (M, ∐ \frac{M}{M_n}) ↪ (M, ∏ \frac{M}{M_n}) ∋ (π _n).
+\end{equation}$$</p>
+  <p>Notice that $(π _n) ∈ (M, ∏ \frac{M}{M_n}) ≃ ∏ (M, \frac{M}{M_n})$ never belongs to $∐ (M, \frac{M}{M_n})$.</p>
+</div>
+
+<p>There exists of $ω$-filtered ordinal, e.g., the first uncountable cardinal and $|ℝ|$ (these two coincides under continuum hypothesis).</p>
+
+<div class="problem">
+  <p>We learn from analysis that $\mathcal{P}(X) = \mathrm{Hom}_{𝐒𝐞𝐭𝐬}(X,𝔽 _2)$ is an $𝔽_2$-algebra ($∅ = 0$ and $∩ = ×$ for convention). Let $X$ be uncountable. Show that</p>
+  <ul>
+    <li>The collection $X_ω := \{Y ∣ |Y| ≤ ω \}$ is an ideal of $\mathcal{P}(X)$;</li>
+    <li>$X_ω$ is not f.g. as a $\mathcal{P}(X)$-module.</li>
+    <li>$X_ω$ is uncountable, but any proper submodule of $X_ω$ is countable.</li>
+  </ul>
+  <p>Hence, $X_ω$ is FAKE f.g. but not f.g.. This construction shows that for any cardinal $κ$, there exists examples such that the generating set of some FAKE f.g. modules must be $≥ κ$.</p>
+</div>
+
+<div class="problem">
+  <p>On FAKE f.g. and f.g.. Show that</p>
+  <ol>
+    <li>f.g. are FAKE f.g..</li>
+    <li>f.g. coincides FAKE f.g. for projective modules;</li>
+    <li>FAKE f.g. are closed under quotients (and summands);</li>
+    <li>FAKE f.g. are closed under extensions (and finite sums);</li>
+    <li>For ses $K ↪ X ↠ Y$ where $K$ is small in Y (e.g., radical inclusion), then $X$ is FAKE f.g. if so is $Y$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>For left modules, f.g. coincides FAKE f.g. over <a href="https://en.wikipedia.org/wiki/Perfect_ring">left perfect rings</a>.</p>
+  <div class="proof">
+    <p>We show any FAKE f.g. module $M$ is f.g..</p>
+    <ul>
+      <li>(by 5). the projective cover $P(M)$ is again FAKE f.g..</li>
+      <li>(by 2). such $P(M)$ must be f.g..</li>
+    </ul>
+    <p>By $P(M) ↠ M$, $M$ is also f.g..</p>
+  </div>
+</div>
+
+<p>Over a left/right perfect ring, there are no need to distinguish between</p>
+
+<ul>
+  <li>f.g. and FAKE f.g. modules,</li>
+  <li>projective modules and flat modules,</li>
+  <li>…</li>
+</ul>
+
+<h3 id="the-real-compact-modules">The REAL Compact Modules</h3>
+
+<div class="definition">
+  <p>Say $M$ is compact, provided $(M, - )$ preserves all filtered colimits.</p>
+</div>
+
+<div class="lemma">
+  <p>Compact objects are closed under finite colimits. In particular, f.g. projective modules and <strong>f.p. modules are compact</strong>.</p>
+  <div class="proof">
+    <p>By AB5, filtered colimits commutes with finite limits. By pentagon procedure,</p>
+    <p>$$\begin{aligned}
+(\varinjlim {}^{<∞} M_i, \varinjlim{}^{fil}_jN_j) & ≃ \varprojlim {}^{<\infty}(M_i, \varinjlim{}^{fil}_j N_j) ≃ \varprojlim {}^{<\infty} \varinjlim{}^{fil}_j (M_i, N_j)\\[6pt]
+&≃ \varinjlim{}^{fil}_j \varprojlim {}^{<\infty} (M_i, N_j) ≃ \varinjlim{}^{fil}_j (\varinjlim {}^{<\infty} M_i, N_j).
+\end{aligned}$$</p>
+    <p>We see $\varinjlim {}^{<∞} M_i$ preserves $\varinjlim^{fil}$, thus is compact.</p>
+  </div>
+</div>
+
+<p>By definition, $f: \text{compact} → \text{induction of small}$ is described by $f : \text{compact} → \text{small}$ locally. We wish $\text{induction of small} = \text{all objects}$.</p>
+
+<p>Finite sets are exactly compact objects in $𝐒𝐞𝐭𝐬$, conversely, any set is a filtered colimit of its finite subsets (local compactness). It is reasonable for check whether a module is a filtered limit of the compact objects.</p>
+
+<div class="theorem">
+  <p>(Local compactness for modules). Every module $M$ is a filtered colimit of compact modules.</p>
+  <div class="proof">
+    <p>It suffices to show $M$ is a filtered colimit of f.p. modules. We take the canonical surjection $R^{(M)} ↠ M$, and construct the filtered system as follows.</p>
+    <ul>
+      <li>
+        <p>The system is indexed by a finite subset $I \subseteq M$ along with a finite subset of $\mathcal S \subseteq S_I\subseteq R^I$ which generates $\ker [R^I \hookrightarrow R^{(M)} \twoheadrightarrow M]$.</p>
+      </li>
+      <li>
+        <p>We denote $\Phi _{(I, \mathcal S)}$ as an element, which stands for a chain complex $⟨\mathcal S⟩ \hookrightarrow R^I \to M$.</p>
+      </li>
+      <li>
+        <p>We define the partial order $\Phi_{(I, \mathcal S)} \hookrightarrow \Phi_{(J, \mathcal T)}$.</p>
+      </li>
+    </ul>
+    <p>The poset is clearly filtered. We show the induced $\alpha : \varinjlim_{\Phi_{(I,\mathcal S)}}R^I\to M$ is an isomorphism.</p>
+    <ul>
+      <li>
+        <p>$\alpha$ is surjective, since any $x \in M$ is characterised by $R^{(x)} \to M$;</p>
+      </li>
+      <li>
+        <p>$\alpha$ is injective. If $[p] \in \Phi_{(I, \mathcal S)}$ and $[q] \in \Phi _{(J, \mathcal T)}$ has the same image $m\in M$ , then we take $\Phi _{(I \cup J \cup \{m\}, \mathcal S \cup \mathcal T \cup \{p-e_m, q-e_m\})}$ , an upper bound of $\Phi_{ (I, \mathcal S)}$ and $\Phi _{(J, \mathcal T)}$ where $[p]$ and $[q]$ has the same image.</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<p>We show that f.p. modules are precisely compact modules. Indeed we have the following equivalent characterisation.</p>
+
+<div class="theorem">
+  <p>In general, $M$ is finitely presented <strong>iff</strong> the following equivalent definitions holds.</p>
+  <ol>
+    <li>
+      <p>There is an exact sequence $R^m \to R^n \to M \to 0$,</p>
+    </li>
+    <li>
+      <p><strong>$M \otimes-$</strong> commutes with $\prod$,</p>
+    </li>
+    <li>
+      <p>$M \otimes R^{\Lambda} \simeq M^\Lambda$ for arbitrary index set $\Lambda$.</p>
+    </li>
+    <li>
+      <p>$(M, -)$ preserves filtered colimits.</p>
+    </li>
+  </ol>
+  <div class="proof">
+    <p>($1 \to 4$). We write $M = \mathrm{cok}(\varphi)$. Now</p>
+    <p>$$
+\begin{align*}
+\varinjlim (\mathrm{cok}(\varphi), X_\bullet)&\simeq\varinjlim\ker(\varphi, X_\bullet)\quad (\text{definition of cok})\\
+&\simeq\ker \varinjlim(\varphi, X_\bullet)\quad (\text{AB5 for Ab})\\
+&\simeq\ker (\varphi, \varinjlim X_\bullet)\quad (\text{holds for free modules})\\
+&\simeq (\mathrm{cok}\varphi, \varinjlim X_\bullet)\quad (\text{definition of $\mathrm{cok}$}).
+\end{align*}
+$$</p>
+    <p>($4 \to 1$). $M$ is a filtered colimit of f.p. modules, i.e., $M = \varinjlim M_\bullet$. The isomorphism $1_M \in (M,M) \simeq \varinjlim (M, M_\bullet)$ shows that $1_M$ factors through some f.p. modules. Hence $M$ is f.p.. <br /> ($1 \to 2$). We write $M = \mathrm{cok}(\varphi)$. Now</p>
+    <p>$$
+\begin{align*}
+\prod ((\mathrm{cok}\varphi) \otimes X_\bullet) &\simeq\prod \mathrm{cok}(\varphi \otimes X_\bullet)\quad (\text{$\otimes$ is left adj})\\
+&\simeq\mathrm{cok}\prod (\varphi \otimes X_\bullet)\quad (\text{AB4* for Ab})\\
+&\simeq\mathrm{cok} (\varphi \otimes \prod X_\bullet)\quad (\text{holds for free modules})\\
+&\simeq (\mathrm{cok} \varphi) \otimes \prod X_\bullet\quad (\text{$\otimes$ is left adj}).
+\end{align*}
+$$</p>
+    <p>($2 \to 3$). Clear. <br /> ($3 \to 1$).  We track $1_M \in M^M \simeq M \otimes R^M$, and see that $M$ is f.g.. We take ses $0 \to K \to R^n \to M \to 0$ and obtain the commutative diagram of exact sequences</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_01882327a1076.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Here $K^K$ is a syzygy of the upper sequence. Hence, $K \otimes R^K \to K^K$ is surjective. We see $K$ is f.g. and thus $M$ is f.p..</p>
+  </div>
+</div>
+
+<p>Note that</p>
+
+<p>$$\begin{equation}
+\text{f.p.} = \text{compact (紧对象)} ⊆ \text{f.g.} ⊆ \text{FAKE f.g.} \quad  \color{gray}{= \ compact \ (紧模)}.
+\end{equation}$$</p>
+
+<h3 id="mathjax_protectedjpcdkiwnzcr8j2qqpcdkkmkmathjax_protected-mathjax_protectedjpcdkijwnzcn8j2qoyqmathjax_protected-and-mathjax_protectedjpcdkixwnzcl8j2qmvcdkk0kmathjax_protected">$𝐏𝐫𝐨𝐣$, $𝐈𝐧𝐣$ and $𝐅𝐥𝐚𝐭$</h3>
+
+<p>We summarise the tests for f.p. modules, proj. modules, inj. modules and flat modules at the very beginning.</p>
+
+<div class="theorem">
+  <p>$M$ is f.p., iff the following equivalent definitions hold.</p>
+  <ol>
+    <li>$M ≃ \operatorname{cok}φ$, where $φ$ is a morphism in $𝐩𝐫𝐨𝐣$.</li>
+    <li>$(M, -)$ preserves filtered colimits.</li>
+    <li>$M ⊗ -$ preserves arbitrary products.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>$M$ is projective, iff the following equivalent definitions hold.</p>
+  <ol>
+    <li>$(M, -)$ is exact, $\mathrm{Ext}^1(M, -)=0$, etc.</li>
+    <li>$M$ is a summand of some free module $R^{(λ)}$;</li>
+    <li>$M$ is the coproduct of summands of $R^{(ω)}$ (the countably generated free module);</li>
+    <li>There exists a subset $\{(e_i, f_i)\}_{i ∈ I} ⊆ P × (P, R)$ such that any $x ∈ R$ is a finite sum of some $∑_{i ∈ I_0} e_i ⋅ f_i (x)$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>$M$ is injective, iff the following equivalent definitions hold.</p>
+  <ol>
+    <li>$(-, M)$ exact, $\mathrm{Ext}^1(-, M)=0$; $\mathrm{Ext}^1(\text{quotient ring},M)=0$, etc.</li>
+    <li>$(i, M)$ is a surjection for any ideal inclusion $i : I → R$.</li>
+    <li>$M$ is a direct summand for $∏ (_RR)^+$, where $(-)^+ = (-, ℚ / ℤ )_{𝐀𝐛}$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>$M$ is flat iff the following equivalent definitions hold.</p>
+  <ol>
+    <li>$M ⊗ i$ is injective for arbitrary $i ∈ \mathcal{I}$, where $\mathcal{I}$ can be either       <ol>
+        <li>all inclusions of submodule;</li>
+        <li>all inclusions of an ideal;</li>
+        <li>all inclusions of two f.g. submodules;</li>
+        <li>all inclusions of a f.g. ideal;           <ul>
+            <li>we remark that $M ⊗ I ↪ M ⊗ R$ is injective iff it is isomorphic to its image, that is, $M ⊗ I ≃ MI$. As $M ⊗ I ↠ MI$, this is equivalent to $M ⊗ I → MI$ being injective.</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li>$\mathrm{Tor}_{≥ 1}(M, -) = 0$, or $\mathrm{Tor}_1 (M, -) = 0$;</li>
+    <li>For any matrix equation $𝐑 ⋅ 𝐦 = 𝐎$, there is some $𝐑$-matrix $R$ such that $𝐑 ∈ \ker (⋅ 𝐀)$ and $𝐦 ∈ \operatorname{im}(𝐀 ⋅ )$.</li>
+    <li>Any morphism from f.p. module to $M$ factors through some f.g. projective module.</li>
+    <li>$(X,-)$ lifts all surjections towards $M$, iff $X$ is f.p..</li>
+    <li>$M$ is a filtered colimit of f.p. modules.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>$M$ is f.g. projective iff the following equivalent definitions hold.</p>
+  <ol>
+    <li>$M$ is a summand of some $R^n$;</li>
+    <li>$M$ is projective, and $(M, -)$ preserves coproducts;</li>
+    <li>$(M, -)$ preserves all colimits;</li>
+    <li>$M ⊗ -$ preserves all limits.</li>
+  </ol>
+</div>
+
+<p>We commence with projective modules.</p>
+
+<div class="theorem">
+  <p>Projective modules (defined by summand of free modules) is a coproduct of countably generated projective modules.</p>
+  <div class="proof">
+    <p>See examples and propositions in <a href="25SumLec1#ordinals-and-cardinals">this subsection</a>.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$P$ is a projective (summand of free), iff there exists a subset $\{(e_i, f_i)\}_{i ∈ I} ⊆ P × (P, R)$ such that any $x ∈ R$ is a finite sum of some $∑_{i ∈ I_0} e_i ⋅ f_i (x)$. We call this <em>projective basis</em>.</p>
+  <ul>
+    <li>When <em>… any $x ∈ R$ is a <strong>UNIQUE</strong> finite sum of …</em> holds, $P$ is a free module.</li>
+  </ul>
+  <div class="proof">
+    <p>When there exists a projective basis, we see the retract</p>
+    <p>$$\begin{equation}
+P \xrightarrow {p \ ↦ \ (e_i ⋅ f_i (p))_{i ∈ I}} R^{(I)} \xrightarrow {(r^i)_{i ∈ I}\  ↦ \ ∑ e_i ⋅ r^i} P.
+\end{equation}$$</p>
+    <p>Conversely, any retract $P ↪ R^{(J)} ↠ P$ yields such dual basis.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show the rest of the equivalent definitions of projective modules. The proof is found in most textbooks.</p>
+</div>
+
+<p>Now we show equivalent definitions of injectives.</p>
+
+<div class="theorem">
+  <p>(Baer’s criterion). $M_R$ is injective iff any morphism from the ideal $I_R$ to $M_R$ extends along $I_R ↪ R_R$.</p>
+  <div class="proof">
+    <p>We show $(←)$ only. It suffices to check the lifting property for $L_R ↪ N_R$. Set</p>
+    <p>$$\begin{equation}
+\mathcal{S} := \{K ∣ L ⊆ K ⊆ N, \ (K, M) ↠ (L,M)\}.
+\end{equation}$$</p>
+    <p>$\mathcal{S}$ is non-empty ($L ∈ \mathcal{S}$), and closed under the union of any ascending chain. Hence $\mathcal{S}$ has a maximal element $Q$ by Zorn’s lemma. <br /> We show $Q = N$. Assume there is some $n ∈ (Q ∖ N)$, then $I := \{a ∣ na ∈ Q\}$ is right ideal. In this case, any $φ : Q → M$ extends to</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_5f24943f68f7a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We see that $(n ⋅ R) + Q ∈ \mathcal{S}$ is greater thatn $Q$, a contradiction!</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Injective modules $I_R$ are summands of the product $∏ (R_R)^+$.</p>
+  <div class="proof">
+    <p>Consider any surjection from projective module $p : (_RR)^{(I_R)^+} ↠ (I_R)^+$. We show in <em>the subsection of characteristic modules</em> that</p>
+    <ol>
+      <li>$(\text{flat})^+$ is are injective modules, and</li>
+      <li>$\text{(surjection)}^+$ are injections, and</li>
+      <li>the evaluation $(-) → (-)^{++},\quad ? ↦ [f ↦ f(?)]$ is an injective natural transformation.</li>
+    </ol>
+    <p>Hence $I_R ↪ I_R^{++} ↪ ((_RR)^{(I_R)^+})^+$. In particular, $I_R$ is a summand of $∏ _{(I_R)^+}({}_RR)^+$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show the rest of the equivalent definitions of injective modules. The proof is found in most textbooks.</p>
+</div>
+
+<p>Now it comes to the tricky stuff called <em>flat modules</em>. We show the following equivalent definitions (Baer’s criterion).</p>
+
+<div class="theorem">
+  <p>(Baer’s criterion). $M$ is flat iff $M ⊗ i$ is injective for arbitrary $i ∈ \mathcal{I}$, where $\mathcal{I}$ can be either</p>
+  <ol>
+    <li>all inclusions of submodule;</li>
+    <li>all inclusions of two f.g. submodules;</li>
+    <li>all inclusions of an ideal;</li>
+    <li>all inclusions of a f.g. ideal.</li>
+  </ol>
+  <p>We remark that $M ⊗ I ↪ M ⊗ R$ is injective iff it is isomorphic to its image, that is, $M ⊗ I ≃ MI$. As $M ⊗ I ↠ MI$, this is equivalent to $M ⊗ I → MI$ being injective.</p>
+  <div class="proof">
+    <p>(1 → 3). is clear. We show (1 ↔ 2), (3 ↔ 4), and (3 → 2) in steps. <br /> (1 ↔ 2, and 3 ↔ 4). We show $2 → 1$ only. To check whether $∑ x_i ⊗ m_i$ and $∑ x_i' ⊗ m_i'$ has the same image under $i ⊗ 1_M$, it suffices to check over the f.g. submodules $⟨\{x_i\} ∪ \{x_i'\}⟩ → ⟨\{i(x_i)\} ∪ \{i(x_i')\}⟩$.</p>
+    <ul>
+      <li>In short, to verify $1$, it suffices to verify a collection of $2$.</li>
+    </ul>
+    <p>(3 → 2). We show $i ⊗ 1_M$ is injective for any inclusion of f.g. submodules $X ⊆ Y$. WLOG we assume $Y = X + ⟨x_0⟩$, hence $Y/X ≃ A/I$, and there is a lifting ($A$ is projective)</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_e437b111b8e29.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We obtain the commutative diagram by pulling back two epimorphisms:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_69216a6d27080.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Note that the middle row splits as $A ↠ A/I$ factors through $Y ↠ A/I$. Applying $M ⊗ -$ we obtain</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_ab31a572e881b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Note that $H^{k-1}(\operatorname{cok}(g^∙)) ≃ H^{k+1}(\ker (g^∙))$ when $f^∙$ is a morphism between exact complexes, $M ⊗ i$ is an injection.</p>
+  </div>
+</div>
+
+<p>We show <em>computational</em> properties of flat modules.</p>
+
+<div class="lemma">
+  <p>$M$ is flat, iff for any matrix equation $𝐑 ⋅ 𝐦 = 𝐎$, there is some $R$-matrix $𝐀$ such that $𝐑 ∈ \ker (⋅ 𝐀)$ and $𝐦 ∈ \operatorname{im}(𝐀 ⋅ )$.</p>
+  <ul>
+    <li>We use left modules here for convention of linear algebra.</li>
+  </ul>
+  <div class="proof">
+    <p>When $M$ is flat, the ses $0 → \ker (𝐑 ⋅ ) → R^m \xrightarrow {𝐑 ⋅ }  R^n → 0$ is $(M ⊗ -)$-exact:</p>
+    <p>$$\begin{equation}
+0 → \ker (𝐑 ⋅ ) ⊗ M → M ^m \xrightarrow {𝐑 ⋅ } M^n → 0.
+\end{equation}$$</p>
+    <p>By $\ker = \operatorname{im}$, $𝐦 ∈ \ker (𝐑 ⋅)$ iff it is of the form $𝐀 ⋅ 𝐦'$ for some $𝐑 ⋅ 𝐀 = 𝐎$. <br /> Conversely, if the matrix equation $𝐑 ⋅ 𝐦 = 𝐎$ <em>splits</em> by some $𝐀$, we shall show the flatness of $M$. By Baer’s criterion, it suffices to show $I ⊗ M ↪ IM$ for f.g. ideals. Suppose there exists $∑ a_i ⊗ m_i$ with zero image. Then we have $𝐚^T ⋅ 𝐦 = 0$. Now there is $𝐀$ s.t. $𝐚^T ⋅ 𝐀 = \mathbf 0 ^T$ and $𝐦 = 𝐀 ⋅ 𝐦 '$ for some $𝐦 '$. Hence,</p>
+    <p>$$\begin{equation}
+∑ a_i ⊗ m_i = ∑ a_i ⊗ A_{i,j} m'_j = ∑ (a_i A_{i,j}) ⊗ m'_j = 0.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>We are not satisfied with the above lemma, which is <em>not homological enough</em>.</p>
+
+<div class="theorem">
+  <p>$M$ is flat, iff any morphism from f.p. module to $M$ factors through some f.g. projective module.</p>
+  <div class="proof">
+    <p>We show ($→$). When $M$ is flat, we take arbitrary f.p. module $R^m \xrightarrow {𝐁 ⋅ } R^n ↠ X$. A morphism $φ : X → M$ is characteristed by</p>
+    <ul>
+      <li>a set $\{[e_i] ↦ m_i\}_{i=1}^n$, where $[e_i]$ is the image of $e_i ∈ R^n$ in $X$.</li>
+    </ul>
+    <p>By $0 → (X, M) \xrightarrow{⊆} M^n → M^m$, the morphism $φ : X → M$ is characterised by the column vector $𝐦 := (m_i)_{i=1}^n$, such that $(𝐁 ^T)_{m × n} ⋅ 𝐦 = \mathbf 0$. By flatness, there is $(𝐀^T)_{n × l}$ and $(𝐦') ∈ M^l$ such that $(𝐁 ^T)_{m × n} ⋅ (𝐀 ^T)_{n × l} = 𝐎$ and $(𝐀 ^T)_{n × l} ⋅ 𝐦 ' = 𝐦$. Now $𝐀 ⋅ : R^n → R^l$ is our desired factorisation. <br /> The converse is nothing but a backwise verification; it is clear if one shows that flat modules are filtered colimits of f.g. projective modules.</p>
+  </div>
+  <p>In fact, we deduce an exact sequence with syzygy</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_1d900e34363e2.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>$M$ is flat, <strong>iff</strong> exactly for f.p. modules $X$, $(X,-)$ lifts all surjections towards $M$.</p>
+  <div class="proof">
+    <p>Let $p : F ↠ M$ be a free precover. $X$ lifts all surjections towards $M$ iff $(X,p)$ is surjective. The rest is clear.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that a morphism $M → F$ from a f.p. module $M$ to a flat module $F$ factors through some f.g. projective module $P(M)$. Now, express $F$ as a filtered colimit of f.p. modules, i.e., $\varinjlim^{fil} M_∙ ≃ F$. <a href="25SumLec0#the-real-compact-modules">Our construction</a> shows $P(M_∙)$ is a subsystem of $M_∙$. Demonstrate that $\varinjlim ^{fil} P(M_∙) ≃ F$ via cofinality.</p>
+</div>
+
+<div class="theorem">
+  <p>Flat modules are filtered colimits of f.g. free modules.</p>
+  <div class="proof">
+    <p>We show filtered colimits of f.g. projective modules are flat ones. Clearly, $(\varinjlim^{fil}P_∙) ⊗ -$ is an exact functor. The converse is shown above.</p>
+  </div>
+</div>
+
+<p>The following theorem is a characterization of f.g. projective modules, easy but functorial.</p>
+
+<div class="theorem">
+  <p>$M$ is f.g. projective iff the following equivalent definitions holds.</p>
+  <ol>
+    <li>$M$ is a summand of some $R^n$;</li>
+    <li>$M$ is projective, and $(M, -)$ preserves coproducts;</li>
+    <li>$(M, -)$ preserves all colimits;</li>
+    <li>$M ⊗ -$ preserves all limits.</li>
+  </ol>
+  <div class="proof">
+    <p>Clearly 1. implies the others. <br /> (2 → 1). This is clear by criterion of FAKE f.g. modules; we provide a straightforward and down-to-earth proof instead. There exists some $N$ such that $R^{(λ)} = M ⊕ N$ is free. In particular, $M$ is f.g. iff $λ$ can be finite. Since taking summand preserves the additive natural isomorphism, it suffices to show</p>
+    <ul>
+      <li>$(R^{(λ)}, -)$ is not $∐$-preserving when $λ$ is infinite.</li>
+    </ul>
+    <p>We consider $(R^{(λ)}, R)^{(λ)} ↪ (R^{(λ)}, R^{(λ)}) ∋ 1_{R^{(λ)}}$, or equivalently, $∐_λ ∏_λ R ↪ ∏_λ ∐_λ R ∋ 1_R$ by tracking the image of the free basis.</p>
+    <ul>
+      <li>$∐_λ ∏_λ R ⊆ R^{λ × λ}$ consists of $λ × λ$ matrices with finite many columns;</li>
+      <li>$∏_λ ∐_λ R ⊆ R^{λ × λ}$ consists of $λ × λ$ matrices with all finite length columns.</li>
+    </ul>
+    <p>The diagonal matrix $1_{∏ R} ∈ R^{λ × λ}$ lies in $∏_λ ∐_λ R$, but not in $∐_λ ∏_λ R$, <br /> (3 → 1). $(M, -)$ is an exact functor as it preserves finite limits. Hence $M$ is projective. By 2., $M$ has to be f.g. projective. <br /> (4 → 1). $(M ⊗ -)$ is an exact functor as it preserves finite limits. Hence $M$ is flat. $M$ is also f.p. as $M ⊗ -$ preserves products. By forthcoming techniques of character modules, f.p. flat modules are f.g. projective.</p>
+  </div>
+</div>
+
+<p>In particular, f.g. projective modules are precisely those $M$ such that $M ⊗ -$ and $(M, -)$ preserves all limits and colimits.</p>
+
+<h3 id="coherency">Coherency</h3>
+
+<p>Inducting from f.g. and f.p., it is natural to come up with the ideal of projection length. We show the following <em>atomatic</em> propositions over the ses</p>
+
+<p>$$\begin{equation}
+0 → K → X → Y → 0.
+\end{equation}$$</p>
+
+<div class="lemma">
+  <p>When $K$ and $Y$ are both f.g. (resp. f.p.), then so is $X$.</p>
+  <div class="proof">
+    <p>By horseshoe lemma.</p>
+  </div>
+</div>
+
+<div class="lemma">
+  <p>When $X$ is f.g., then $Y$ is f.g..</p>
+  <div class="proof">
+    <p>Trivial.</p>
+  </div>
+</div>
+
+<div class="lemma">
+  <p>When $X$ is f.p. and $K$ is f.g., then $Y$ is f.p..</p>
+  <div class="proof">
+    <p>We prove without taking elements. Taking projective resolutions of $K$ and $X$ yields the chain map $ϕ : P_∙ (K) → P_∙ (X)$. We shall construct $P_∙(Y)$ by mapping cone.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_be3fb110abb81.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Now $Y ≃ \operatorname{cok}(ϕ ) ≃ \operatorname{cok}[H_0(P_∙ (K)) \xrightarrow{H_0(P_∙ (ϕ ))} H_0(P_∙ (X))]$. This is exactly $\operatorname{cok}(ϕ _0, d)$ by long exact sequence.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>When $X$ is f.g., $Y$ is f.p., then $K$ is f.g.. Hint: by mapping coCone.</p>
+</div>
+
+<p>These shows that</p>
+
+<ol>
+  <li>if $X$ f.g., then $Y$ f.g.;</li>
+  <li>if $K$ f.g., $Y$ f.g., then $X$ f.g.;</li>
+  <li>if $X$ f.p., $Y$ f.g., then $K$ f.g.;</li>
+  <li>if $K$ f.g., $X$ f.p., then $Y$ f.p.;</li>
+  <li>if $K$ f.p., $Y$ f.p., then $X$ f.p.;</li>
+  <li>induction …</li>
+</ol>
+
+<div class="problem">
+  <p>Show that the full subcategory $\{M ∈ 𝐌𝐨𝐝_R ∣ M \ \text{f.g.}\}$ is Abelian, <strong>iff</strong> $R$ is Noetherian.</p>
+  <ul>
+    <li>In particular, it is a Serre subcategory which is closed under subobjects and quotient objects.</li>
+  </ul>
+</div>
+
+<p>In particular, $𝐦𝐨𝐝_R$ is not closed under kernel in general. To fix this, we may require f.p. is automatically  $3$-term f.p. (and thus $∞$-f.p.). This comes with coherency.</p>
+
+<div class="definition">
+  <p>$R$ is (right) <strong>coherent</strong> provided (right) flat $R$-modules are closed under arbitrary products.</p>
+</div>
+
+<div class="theorem">
+  <p>TFAE:</p>
+  <ol>
+    <li>$\mathrm{flat}(\mathrm{Mod}_R)$ is closed under $\prod$,</li>
+    <li>$\prod _{\lambda \in \Lambda}R_R=:R^\Lambda$ is flat,</li>
+    <li>every f.g. submodule (left ideal) of ${}_RR$ is f.p.,</li>
+    <li>the category consists of f.p. modules $\mathrm{mod}_R$ is Abelian,</li>
+    <li>f.p. modules are $\infty$-presented.</li>
+  </ol>
+  <div class="proof">
+    <p>We show ($1 \to 2 \to 3 \to 1$) with a set-theoritic analysis; and $(3\to 4 \to 5 \to 4)$ with a homological analysis. <br /> <br /> ($1 \to 2$) is clear. <br /> <br /> ($2 \to 3$). For any f.g. left ideal $I$ and index set $\Lambda$, we show $I^\Lambda\simeq R ^\Lambda\otimes I$ (recall the equivalent definitions of f.p. modules). The flatness shows injection, and the f.g. shows surjection. <br /> <br /> ($3 \to 1$). We show f.g. $\iota: _RI\hookrightarrow R$ is preserved by $R^\Lambda$ via Baer’s criterion. Since f.p. = f.g. (by assumption), $\iota \otimes -$ commutes with $\prod$. <br /> <br /> ($3\to 4$). Note that f.p. modules are closed under extensions and cokernels. For ses $0 \to K \to X \to Y \to 0$ with $X$ and $Y$ f.p., we have $K$ f.g. in general. By horseshoe lemma, we obtain ses $0 \to \Omega_1 (K) \to \Omega_1 (X) \to \Omega_1 (Y) \to 0$ for $\Omega _1(X)$ and $\Omega_1 (Y)$ f.g.; by 3., $\Omega _1 (Y)$ and $\Omega _1(X)$ are f.p., hence $\Omega _1(K)$ is f.g.. This shows $K$ f.p.. <br /> <br /> ($4 \to 5$). By definition, we can choose the first syzygy of any f.p. module as some f.p. modules. <br /> <br /> ($5 \to 3$). When $I \hookrightarrow R$ is f.g. ideal, $R/I$ is f.p., thus is $\infty$-presentable by assumption. Now $I$ is also $\infty$-presentable.</p>
+  </div>
+</div>
+
+<p>We gives an example of coherent rings which is not Noetherian.</p>
+
+<div class="example">
+  <p>The ring $R = ℤ [X_1, X_2, \ldots]$ is coherent but not Noetherian. The trivial representation $ℤ = R / (x_1, x_2, \ldots)$ is constructed by quotienting a $∞$-generated ideal. Hence $ℤ$ is f.g. rather than f.p.. To construct a finite presentation of a certian f.g. ideal, we adopt the same construction for that over $ℤ [x_1, \ldots , x_N]$ ($N ≫ 0$).</p>
+  <ul>
+    <li>This example shows that the property of coherency preserved by some filtered colimits. <strong>Coherency is related to cofinality, rather than its actual size</strong>.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Show that the category of f.g. free modules $𝐟𝐫𝐞𝐞 _R$ has weak kernel, iff $R$ is coherent.</p>
+  <ul>
+    <li>$A \xrightarrow i B$ is a weak kernel of $B \xrightarrow p C$, provided $\ker \mathrm{Hom}(-, p) = \operatorname{im} \mathrm{Hom}(-, i)$.</li>
+  </ul>
+</div>
+
+<p>A right coherent ring shows</p>
+
+<ul>
+  <li>
+    <p>the interchanging of $\prod$ and flat objects;</p>
+  </li>
+  <li>
+    <p>the $\infty$-presentability of f.p. objects.</p>
+  </li>
+</ul>
+
+<div class="theorem">
+  <p>Left hereditary rings are right coherent (<a href="Hereditary_Alg_Eq_Def">the analysis</a>).</p>
+</div>
+
+<h3 id="character-module">Character Module</h3>
+
+<p>The character module rises in the standard injective resolution $ℤ ↪ ℚ ↠ ℚ / ℤ$. This yields a functor functor $(-)^+ := \mathrm{Ext}^1_ℤ (-, ℤ) := (-, \mathbb Q / \mathbb Z)_{\mathbb Z}$, aka <strong>Pontryagin dual</strong>. Note that this functor is</p>
+
+<ul>
+  <li><strong>faithful</strong> (as $\mathbb Q / \mathbb Z$ is a cogenerator) and</li>
+  <li><strong>exact</strong> (as $\mathbb Q / \mathbb Z$ is injective).</li>
+</ul>
+
+<p>Consequently, <strong>it preserves and reflects zero objects and exactness</strong>. In particular, $((-)^+)^{\mathrm{op}}$ preserves and reflects monomorphisms and epimorphisms.</p>
+
+<p>We shall see this functor suprisingly transfers and reflects from injective modules to flat modules; the dual procedure applies for Noetherian rings.</p>
+
+<div class="example">
+  <p>We demonstrate that f.p. flat modules are projective via $(-)^+$. Observe that</p>
+  <ul>
+    <li>the natural transformation $? ⊗ (-)^+ → (?, -)^+$ is isomorphic when $?$ is f.g. free. Note that $? ⊗ (M)^+ → (?, M)^+$ are right exact functors, the isomorphism holds when $?$ is f.p..</li>
+  </ul>
+  <p>If $F$ is flat, then $F ⊗ (-)^+ ≃ (F ⊗ -)^+ ≃ (F,-)^+$ is exact. Since $(-)^+$ reflects exactness, it follows that $F$ is projective.</p>
+</div>
+
+<div class="problem">
+  <p>There are examples that f.g. flat modules are not projectve. An example is given in <a href="https://stacks.math.columbia.edu/tag/052H">stacks project</a>. A forthcoming example is the unique principal ideal of the vRN:</p>
+  <p>$$\begin{equation}
+I = \{φ ∈ \mathrm{End}_𝔽 (𝔽^{(ω)}) ∣ \dim _𝔽 \operatorname{im}(φ ) < ∞\} ↪ \mathrm{End}_𝔽 (𝔽^{(ω)}).
+\end{equation}$$</p>
+  <p>See discussion of <a href="25SumLec3#example-vnr-rings">von Neumann Ring</a>.</p>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that $F$ is flat <strong>if and only if</strong> $F^+$ is injective. In general:</p>
+</div>
+
+<div class="theorem">
+  <p>$f.d. Y = i.d. Y^+$. The flat (respectively, injective) dimension is considered over $𝐌𝐨𝐝_R$ (respectively, ${}_R𝐌𝐨𝐝$).</p>
+  <div class="proof">
+    <p>Let $P(X)$ be a projective resolution of $X$. Then $(Y \otimes P^\bullet (X))^+ \simeq (P^\bullet (X), Y^+)$. Taking $H^\bullet$ groups yields $(\mathrm{Tor}_k(Y,X))^+ \simeq \mathrm{Ext}^k (X,Y^+)$. Note that $\mathrm{Tor}_d(Y,-)^+$ vanishes if and only if $\mathrm{Ext}^k(-,Y^+)$ does.</p>
+  </div>
+</div>
+
+<p>One may enquire whether $i.d. F \overset ? = f.d. F^+$.</p>
+
+<div class="problem">
+  <p>Show the isomorphism $\mathrm{Tor}_k (M, N^+) ≃ (\mathrm{Ext}^k (M,N))^+$ for all $N$ and f.p. $M$.</p>
+  <ul>
+    <li>Hint: recall that f.p. modules admit resolutions (finite or infinite) consisting of f.g. projective modules.</li>
+    <li>The difficulty arises with $(\mathrm{Ext}^k (\varinjlim ^{fil }M_∙ ,N))^+ ≇ \varinjlim^{fil}(\mathrm{Ext}^k (M_∙,N))^+$ in proving $i.d. F = f.d. F^+$. In fact, coherency is insufficient to establish such an isomorphism.</li>
+  </ul>
+</div>
+
+<div class="theorem">
+  <p>When $R$ is right coherent, we have $i.d. M_R ≥ f.d. {}_R(M^+)$.</p>
+  <div class="proof">
+    <p>We show that $M^+$ is flat when $M$ is injective.</p>
+    <ul>
+      <li>Recall that $M^+$ is flat if and only if $M^+ ⊗ i$ is injective for any $i : I ↪ R$, the inclusion of f.g. ideal. By coherency, $I$ is f.p., hence $M^+ ⊗ I ≃ (I, M)^+$. Thus, $M^+ ⊗ i$ is injective if and only if $(i,M)^+$ is injective, which holds if and only if $(i, M)$ is surjective.</li>
+    </ul>
+    <p>Suppose $θ$ is an injective resolution of $M$ of length $d$. Then $θ ^+$ is a flat resolution of $M^+$ of length $d$. This shows $f.d. M^+ ≤ i.d. M$.</p>
+  </div>
+</div>
+
+<p>We observe that Baer’s criterion for injective modules is verified over <em>all ideals</em>; the criterion for flat modules is verified over <em>all f.g. ideals</em>. Hence,</p>
+
+<div class="theorem">
+  <p>$f.d. {}_R(M^+) = i.d. (M_R)$ holds for right Noetherian rings.</p>
+</div>
+
+<div class="problem">
+  <p>Set $R = ℝ [ℝ]$, the polynomial ring over indeterminates $\{x_t\}_{t ∈ ℝ}$. Show that $ℝ [ℕ]$ lifts f.g. ideals; whereas it is not an injective module.</p>
+</div>
+
+<p>In general, one can show that $f.d. M ≤ f.d. M^{++}$. Hence,
+$$\begin{equation}
+f.d. {}_RM = i.d. (M^+)_R ≥ f.d. {}_R(M^{++}) ≥ f.d. {}_R M.
+\end{equation}$$
+over right coherent rings.</p>
+
+<div class="problem">
+  <p>Show that</p>
+  <ul>
+    <li>evaluation $e_M: M → M^{++}, m ↦ [f ↦ f(m)]$ is injective.</li>
+    <li>Moreover, $M^+ \xrightarrow {e_{M^+}} M^{+++} \xrightarrow {(e_{M})^+}M^+$ is identical. Hence $M^+$ is a summand of $M^{+++}$.</li>
+    <li>In this case, $e_M ⊗ 1_X$ is injective for arbitrary $X$. Hint: equiv. to verify $(e_M ⊗ 1_X)^+ ≅ (1_X, (e_M)^+)$ is surjection, which is split epi!</li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>$f.d. M ≤ f.d. M^{++}$.</p>
+  <div class="proof">
+    <p>WLOG assume $f.d. M^{++} = k$. For any flat resolution of $N$, we take homological truncation</p>
+    <p>$$\begin{equation}
+T_k^∙ := (0 → Ω _{k+1}(N) \overset ι → F_{k} (N) → \cdots → F_0(N) → N → 0).
+\end{equation}$$</p>
+    <p>Since $\mathrm{Tor}_{k+1} (M^{++}, N) = H_{k+1} (M ^{++} ⊗ T_k ^∙) = 0$, $M^{++} ⊗ ι$ is injective. The diagram</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_a4ea18c71f8bb.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>shows that $M ⊗ ι$ is again injective. Equivalently, $\mathrm{Tor}_{k+1}(M, N) = 0$. This shows that if $\mathrm{Tor}_∙ (M^{++}, -)$ vanishes at $(k, N)$, then so does $\mathrm{Tor}_{∙}(M, -)$. Hence, $f.d. M ≤ f.d. M^{++}$.</p>
+  </div>
+</div>
+
+<h2 id="on-chain-complexes">On Chain Complexes</h2>
+
+<h3 id="functors-for-chain-complexes">Functors for Chain Complexes</h3>
+
+<div class="definition">
+  <p>(Chain complexes). We unfold $(X, d)$ into</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_2050283877ea0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Here $Z → X → ΣB$, $B → X → C$, $B → Z → H$ and $H → C → Σ B$ are <strong>ses</strong> (short exact sequences). The $ZXHC$ squares are both pushouts and pullbacks.</p>
+</div>
+
+<div class="lemma">
+  <p>The functors $Z$, $B$, $C$ and $H$ preserve $∐$, $∏$, and $\varinjlim^{fil}$.</p>
+  <div class="proof">
+    <p>All $Z$, $B$, $C$ and $H$ are defined by kernels and cokernels, which are preserved by exact functors.</p>
+  </div>
+</div>
+
+<p>The adjunctions confer truncations and $C$, $Z$ with favourable properties. We readily verify the necessary aspects, thereby eschewing the deeper structures (e.g., Dold-Kan correspondence).</p>
+
+<div class="definition">
+  <p>We set</p>
+  <ul>
+    <li>$(-)^k : C(R) → 𝐌𝐨𝐝 _R, \quad X ↦ X^k$,</li>
+    <li>$\overline {(?)}: 𝐌𝐨𝐝 _R → C(R),\quad M ↦ [\cdots → 0 → \overset{\deg = 0} M = \overset{\deg = 1}M → 0 → \cdots]$;</li>
+    <li>$\underline {(?)} : 𝐌𝐨𝐝 _R → C(R), \quad M ↦ [\cdots → 0 → \overset{\deg = 0} M → 0 → \cdots]$.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Show the adjoint triple $(-)^1 ⊣ \overline {(-)} ⊣ (-)^0$, and extend it to an adjoint $∞$-ple.</p>
+</div>
+
+<div class="problem">
+  <p>Show that $C^0 ⊣ (-) ⊣ Z^0$. We shall derive these functors later.</p>
+</div>
+
+<h3 id="resolving-chain-complexes">Resolving Chain Complexes</h3>
+
+<p>We analysis the projectives and injectives.</p>
+
+<div class="theorem">
+  <p>$C(R)$ has enough projectives, consisting of null-homotopic complexes with projective components.</p>
+  <div class="proof">
+    <p>$⊇$ is clear. Conversely, we take projective object $P ∈ C(R)$, and find that</p>
+    <ul>
+      <li>$P$ has projective components, since it lifts epimorphisms of stalk complexes;</li>
+      <li>$P$ is null-homotopic, since $0 → P → \mathrm{Cone}({1_P}) → Σ P → 0$ splits, yielding $1_P$ is null-homotopic.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$C(R)$ has enough injectives, consisting of null-homotopic complexes with injective components.</p>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that acyclic projective complexes are not necessarily projective. Hint: Let $R := k[x] / (x^2)$, and consider $X := [\cdots \to R \xrightarrow{\,\cdot x\,} R \xrightarrow{\,\cdot x\,} R \to \cdots]$, which is acyclic and projective; however, $X$ is not null-homotopic, as $X \otimes (x)$ is not acyclic.</p>
+</div>
+
+<div class="theorem">
+  <p>The adjunction $∞$-ple extends to $\mathrm{Ext}$-groups. For instance, $\mathrm{Ext}^k_R((-)^1, ?) ≃ \mathrm{Ext}^k_{C(R)}(-, \overline ?)$, and $\mathrm{Ext}^k_R(-, (?)^0) ≃ \mathrm{Ext}^k_{C(R)}(\overline -, ?)$.</p>
+  <div class="proof">
+    <p>All these functors preserves projective and injective resolutions.</p>
+  </div>
+</div>
+
+<p>The resolutions in related to $\underline {(-)}$ functors are much more complicated, since $\underline {(-)}$ does not preserve projectives and injectives in general. We begin with an easy example.</p>
+
+<div class="example">
+  <p>$Z^0(-) ≃ (\underline R, -)$, and $\mathrm R^k (Z^0) = H^k$ for $k ≥ 1$.</p>
+  <div class="proof">
+    <p>We choose the projective resolution of $\underline R$ as</p>
+    <p>$$\begin{equation}
+P^∙ (\underline R) := \cdots → Σ ^k \overline R → \cdots → Σ \overline R → \overline R ↠ \underline R → 0,
+\end{equation}$$</p>
+    <p>where $Ω ^k (\underline R) = Σ ^k (\underline R)$. We see that</p>
+    <p>$$\begin{equation}
+(P^∙(\underline R), X) = \cdots → 0 → X^0 \xrightarrow {d^0} X^1 \xrightarrow {d^1} X^2 → \cdots,
+\end{equation}$$</p>
+    <p>Taking $H^∙$ yields the desired results.</p>
+  </div>
+</div>
+
+<p>The result generalises to Abelian category with enough projectives.</p>
+
+<div class="theorem">
+  <p>Assume $\mathcal{A}$ has enough projectives. $\mathrm R^k (Z^0) = H^k$ for $k ≥ 1$.</p>
+  <div class="proof">
+    <p>We take Eilenberg-Cartan resolution of $X$, i.e., firstly take injective resolutions for $H$-groups and $B$-groups, and then construct the resolutions for $Z$, $C$ and $X$ in steps with horseshoe lemma. The resulting complex looks like</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_cee7392758b51.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We denote this by $X ↪ \widetilde{I^0} → \widetilde{I^1} → \cdots$, and remend it into an injective resolutions by</p>
+    <ul>
+      <li>$I^0$ is injective with $I^0(B^k ⊕ B^{k+1}) ⊕ I^0 (H^k ⊕ H^{k+1})$ on the $k$-th component,</li>
+      <li>$I^1$ is injective with $I^1(B^k ⊕ B^{k+1}) ⊕ I^1 (H^k ⊕ H^{k+1}) ⊕ I^0 (H^{k+1} ⊕ H^{k+2})$ on the $k$-th component,</li>
+      <li>$I^n$ is injective with $I^n(B^k ⊕ B^{k+1}) ⊕ ⨁_{0 ≤ s ≤ n} I^{n-s} (H^{k+s} ⊕ H^{k+s+1})$ on the $k$-th component,and so on.</li>
+    </ul>
+    <p>Applying $Z^k(-)$ at $I^0 → I^1 → \cdots$, we obtain</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_b6b6c332e0385.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>The rows are injective resolutions of $Z^k$, $H^{k+1}$, etc. The cohomomology groups are computed as $Z^k$, $H^{k+1}$, etc.</p>
+  </div>
+</div>
+
+<p>It is noteworthy that the preceding computation admits an <strong>$\mathcal{X}$-relative version</strong>, provided that there exist <strong>sufficiently many monomorphisms</strong> from $\mathcal{A}$ to $\mathcal{X}$. Observe that a <a href="Horse_Shoe_Lemma">relative version of the horseshoe lemma</a> is available, and consequently, a relative version of Eilenberg-Cartan resolutions is obtained.</p>
+
+<div class="problem">
+  <p>Verify that the resolutions remain diagonal during the above procedure.</p>
+</div>
+
+<p>The adjoint $∞$-ple $\cdots ⊣ (-)^1 ⊣ \overline {(-)} ⊣ (-)^0⊣ \cdots$ extends to $\cdots ⊣ L ⊣ U ⊣ R ⊣ \cdots$, wherein the forgetful functor $U : C(R) \to 𝐆𝐫 (R)$ maps a chain complex to its underlying graded module. This construction demonstrates that $K(R)$ is a Frobenius exact category, with a significantly simpler verification. Refer to the generalisation concerning <a href="https://arxiv.org/pdf/1309.6039">$N$-chain complexes</a>.</p>
+
+<h3 id="closed-monoidal-structure">Closed Monoidal Structure</h3>
+
+<p>We show that over the <strong>commutative</strong> ring $R$, $C(R)$ is symmetric closed monoidal.</p>
+
+<div class="definition">
+  <p>(Tensor product). We define $X ^∙ ⊗ Y ^ ∙$ as an object in $C(R)$ by</p>
+  <ol>
+    <li>$∐_{p+q = n} X^p ⊗ Y^q$ as the $n$-th component,</li>
+    <li>the differential $d_{X ⊗ Y} = (1_X ⊗ d_Y + d_X ⊗ 1_Y)$ satisfies Koszul sign rule ($(f ⊗ g) (x ⊗ y) = (-1)^{\deg g ⋅ \deg x}(fx ⊗ gy)$), i.e., $d_{X ⊗ Y} (x ⊗ y) = d_X (x) ⊗ y + (-1)^{\deg x} x ⊗ d_Y (y)$ for homogeneous elements $x$ and $y$.</li>
+  </ol>
+</div>
+
+<div class="problem">
+  <p>Show the natural isomorphism $α _{X,Y,Z} : X ⊗ (Y ⊗ Z) \xrightarrow ∼ (X ⊗ Y) ⊗ Z$ as well as the <a href="https://kerodon.net/tag/00BY">pentagon identity</a>. Hint: Koszul’s sign rule is compatible with associativity.</p>
+</div>
+
+<div class="problem">
+  <p>Show that $\underline R$ is unital element, i.e., there are natural isomorphisms $X ⊗ \underline R \xrightarrow ∼ X \xleftarrow ∼ \underline R ⊗ X$ satisfying the <a href="https://kerodon.net/tag/00CH">triangle identities</a>.</p>
+</div>
+
+<div class="theorem">
+  <p>The morphism $B _{X,Y} : X ⊗ Y \xrightarrow ∼ Y ⊗ X$ characterised by</p>
+  <p>$$\begin{equation}
+X^p ⊗ Y^q → (-1) ^{pq} ⋅ Y^q ⊗ X^p,\quad x ⊗ y ↦ (-1)^{pq} y ⊗ x
+\end{equation}$$</p>
+  <p>is a natural isomorphism satisfying the <a href="https://ncatlab.org/nlab/show/symmetric+monoidal+category#:~:text=obey%20the%20first-,hexagon%20identity,-%3A">hexagon identity</a>.</p>
+  <div class="proof">
+    <p>We take $τ : a ⊗ b ↦ b ⊗ a$ for modules, and wish there exist a some $ε : ℤ × ℤ → \{± 1\}$ along with the commutative diagram</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_6bbf87b6594c8.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We see from the above diagram that $ε (p,q) = (-1)^{pq}$ is a solution:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_262e456af4173.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We finally show hexagon identity:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_e3d64f6819711.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Observe that $(-1)^{pq} ⋅ (-1)^{qr} ⋅ (-1)^{rp} = 1$ as we keeping track of the signs at $X^p ⊗ Y^q ⊗ Z^r$.</p>
+  </div>
+</div>
+
+<p>We finally show the <strong>natural</strong> right adjoint of $X ⊗ -$ by construction.</p>
+
+<div class="definition">
+  <p>($\mathcal{HOM}(-, ?)$). We define $\mathcal{HOM}(X, Y)$ as an object in $C(R)$ by</p>
+  <ol>
+    <li>$(\mathcal{HOM}(X,Y))^p$ consists of morphisms in $(X, Y)_{\text{Graded-Module}}$ of degree $p$, i.e., homogeneous morphisms in $(X, Σ ^p Y)_{\text{Graded-Module}}$;</li>
+    <li>the differential for a homogeneous morphism $f$ is $[d,f] := d_Y ∘ f - (-1)^{\deg f} f∘ d_X$.</li>
+  </ol>
+</div>
+
+<p>Clearly,</p>
+
+<ul>
+  <li>$Z^0(\mathcal{HOM}(X,Y)) = (X,Y)_{C(R)}$;</li>
+  <li>$B^0(\mathcal{HOM}(X,Y)) ⊆ (X,Y)_{C(R)}$ consists of null-homotopic morphisms;</li>
+  <li>$H^0(\mathcal{HOM}(X,Y)) = (X,Y)_{K(R)}$.</li>
+</ul>
+
+<div class="theorem">
+  <p>The adjunction $(X ⊗ -) ⊣ \mathcal{HOM}(X, -)$ is natural in $X$.</p>
+  <div class="proof">
+    <p>We show $\mathcal{HOM}(X ⊗ Y, Z) ≃ \mathcal{HOM}(X, \mathcal{HOM}(Y,Z))$ is natural in $X$, $Y$ and $Z$. Taking $Z^0$ yields the adjunction. Termwisely, we take $\deg f = k$ and find that</p>
+    <p>$$\begin{aligned}
+𝐋𝐇𝐒 ∋ f & = \{∐_p X^p ⊗ Y^{n-p} → Z^{n+k}\}_{n ∈ ℤ}\\[6pt]
+(f_{n,p})& ≅ \{X^p ⊗ Y^{n-p} → Z^{n+k}\}_{p, n ∈ ℤ}\\[6pt]
+(f'_{p,n})& ≅ \{X^p → (Y^{n-p} , Z^{n+k})\}_{p, n ∈ ℤ}\\[6pt]
+& ≅ \{X^p → ∏_n (Y^{n-p} , Z^{n+k})\}_{p ∈ ℤ}\quad = f' ∈ 𝐑𝐇𝐒.
+\end{aligned}$$</p>
+    <p>Here $f_{n,p} ↔ f'_{p,n}$ are of degree $k$. We finally verify differentials via the identification</p>
+    <p>$$\begin{equation}
+f' ∈ (X^{-p}, (Y^{-q}, Z^r)) ≃ (X^{-p} ⊗ Y^{-q}, Z^r) ∋ f.
+\end{equation}$$</p>
+    <p>The adjunction shows $f'(-) ↔ [? ↦ f(-, ?)]$ ($\deg ? = {-q}$). Hence,</p>
+    <p>$$\begin{aligned}
+& \ \ \quad [d_{𝐋𝐇𝐒}, f'(-)]\\[6pt]
+& = d_{\mathcal{HOM}(Y,Z)} ∘ f'(-) - (-1)^{p+q+r} f'(-) ∘ d_X\\[6pt]
+& ↔ [? ↦ [d_{\mathcal{HOM}(Y,Z)},f(-, ?)]] - (-1)^{p+q+r} [? ↦ f(-, ?) ∘ d_X]\\[6pt]
+& = d_Z ∘ f - (-1)^{q+r} f ∘ d_Y - (-1)^{p+q+r} f ∘ d_X\\[6pt]
+& = d_Z ∘ f - (-1)^{p+q+r} (f ∘ d_Y + (-1)^p f ∘ d_X)\\[6pt]
+& = d_Z ∘ f - (-1)^{p+q+r} (f ∘ d_{X ⊗ Y})\\[6pt]
+& = [d_{𝐑𝐇𝐒}, f]
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show by Yoneda lemma that, one has natural isomorphisms</p>
+  <p>$$\begin{equation}
+\mathcal{HOM}(\varinjlim X_∙, Y) ≃ \varprojlim \mathcal{HOM}( X_∙, Y); \quad \mathcal{HOM}(X, \varprojlim Y_∙) ≃ \varprojlim \mathcal{HOM}(X, Y_∙).
+\end{equation}$$</p>
+</div>
+
+<div class="problem">
+  <p>Show that $(X, ∏ Y_∙)_{\text{null-ho}} ≃ ∏ (X,Y_∙)_{\text{null-ho}}$, and $(∐ X_∙, Y)_{\text{null-ho}} ≃ ∏ (X_∙, Y)_{\text{null-ho}}$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that $\mathcal{HOM}(X, \mathrm{Cone}(f)) ≃ \mathrm{Cone}(\mathcal{HOM}(X, f))$, and $\mathcal{HOM}(Σ ^{-1}\mathrm{Cone}(f), A) ≃ \mathrm{Cone}(\mathcal{HOM}(f, A))$</p>
+</div>
+
+<p>There is also an <em>homotopical $\mathrm{Ext}$</em> functor.</p>
+
+<div class="definition">
+  <p>($\mathrm{Ext}_{dw}^∙$). We define the bifunctors</p>
+  <p>$$\begin{equation}
+\mathrm{Ext}_{dw}^∙ : C(R)^{\mathrm{op}} × C(R) → 𝐌𝐨𝐝 _R,\quad 
+\end{equation}$$</p>
+  <p>sending the pair $(X, Y)$ to $H^k (\mathcal {HOM}(X,Y)) = (X,Σ ^k Y)_K$.</p>
+</div>
+
+<p>Here $(-)_{dw}$ means <em>degreewise split</em>.</p>
+
+<div class="problem">
+  <p>Show that $\mathrm{Ext}^k_{dw}$ is a <strong>subfunctor</strong> of usual $\mathrm{Ext}^k$. Hint: it suffices to show for $k = 1$, by dimension shift. The distinguished triangle of cone embedding</p>
+  <p>$$\begin{equation}
+Σ ^{-1}X \xrightarrow f Y ↪ \mathrm{Cone}(f) ↠ X
+\end{equation}$$</p>
+  <p>gives the correspondence (by TR1) $[f] ↔ [\mathrm{Cone}(f)]$. Here</p>
+  <ul>
+    <li>$[f]$ runs through $H^0(\mathcal{HOM}(Σ^{-1}X, Y)) = H^1(\mathcal{HOM}(X, Y))$;</li>
+    <li>$\mathrm{Cone}(f)$ identifies termwise split ses in $\mathrm{Ext}^1(X,Y)$.</li>
+  </ul>
+</div>
+
+<h3 id="more-on-mathjax_protectedjfxtyxroy2fse0hptx0kmathjax_protected">More on $\mathcal{HOM}$</h3>
+
+<p>Thanks to closed monoidal structure, we <em>obtain</em> the following canonical morphisms without verification.</p>
+
+<div class="example">
+  <p>(Composition). There is a morphism extended from composition of $\mathrm{Hom}_{C(R)}(-, ?)$:</p>
+  <p>$$\begin{equation}
+φ : \mathcal{HOM}(Z,Y) ⊗ \mathcal{HOM}(Y,X) → \mathcal{HOM}(Z,X).
+\end{equation}$$</p>
+  <p>In view of closed monoidal structure, the morphism comes from</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_b2dd1e4a520fd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>In element, let $g ∈ \mathcal{HOM}(Y,Z)^q$ and $f ∈ \mathcal{HOM}(X,Y)^p$, then $(gf) ∈ \mathcal{HOM}(X,Z)^{p+q}$. One can verify the compatibility of differential:</p>
+  <p>$$\begin{aligned}
+d_{𝐋𝐇𝐒 }(g ⊗ f) & = [d,g] ⊗ f  + (-1)^{|g|} g ⊗ [d,f]\\
+& = (dg) ⊗ f - (-1)^{|g|} (gd)⊗ f + (-1)^{|g|} g⊗ (df) - (-1)^{|f|+|g|} g⊗ (fd) \\
+& \overset{φ } → (dg) f - (-1)^{|g|} (gd)f + (-1)^{|g|} g (df) - (-1)^{|f|+|g|} g (fd) \\
+& = d (gf) - (-1)^{|gf|} (gf) d\qquad = d_{𝐑𝐇𝐒 }(gf).
+\end{aligned}$$</p>
+</div>
+
+<div class="problem">
+  <p>Show the (canonical) natural transformation</p>
+  <p>$$\begin{aligned}
+A ⊗ \mathcal{HOM}(B,C) &→ \mathcal{HOM}(B, A ⊗ C), \\[6pt]
+∐\limits_{p+t=n} ∏\limits_{r-q=t} A^p ⊗ (B^q , C^r) &↦ ∏\limits_{s-q = n} ∐\limits_{p+r=s} (B^q , A^p ⊗  C^r).
+\end{aligned}$$</p>
+  <p>It is an isomorphism, iff <em>finiteness condition</em> is satisfied, while either</p>
+  <ul>
+    <li>$B^∙$ are f.g. projective modules, or</li>
+    <li>$B^∙$’s are f.p., and $A^∙$ are flat</li>
+  </ul>
+  <p>holds for each $(p,q,r)$. In particular, the isomorphism holds when $B$ is bounded with f.g. projective terms.</p>
+</div>
+
+<div class="problem">
+  <p>Show the (canonical) natural transformation</p>
+  <p>$$\begin{aligned}
+A ⊗ \mathcal{HOM}(B,C) &→ \mathcal{HOM}(\mathcal{HOM}(A, B), C), \\[6pt]
+∐\limits_{p+t=n} ∏\limits_{r-q=t} A^p ⊗ (B^q , C^r) &↦ ∏\limits_{r-s = n} ∏\limits_{q-p = s} ((A^p, B^q) , C^r).
+\end{aligned}$$</p>
+  <p>It is an isomorphism, iff <em>finiteness condition</em> is satisfied, while either</p>
+  <ul>
+    <li>$B^∙$ are f.g. projective modules, or</li>
+    <li>$B^∙$’s are f.p., and $C^∙$ are injective</li>
+  </ul>
+  <p>holds for each $(p,q,r)$. In particular, the isomorphism holds when $B$ is bounded with f.g. projective terms.</p>
+</div>
+
+<p>There are some simplified forms.</p>
+
+<div class="example">
+  <p>The <strong>evaluation</strong> takes the form</p>
+  <p>$$\begin{equation}
+\mathcal{HOM}(A,B) ⊗ A → B,\quad f ⊗ a ↦ f(a).
+\end{equation}$$</p>
+  <p>It is epic when any $b ∈ B^k$ lies in the image of some $∐ A^∙ → B^k$. In short, $B^k ∈ 𝐠𝐞𝐧 (∐ A^∙)$.</p>
+</div>
+
+<div class="example">
+  <p>The <strong>coevaluation</strong> takes the form</p>
+  <p>$$\begin{equation}
+A → \mathcal{HOM}(\mathcal{HOM}(A,B), B),\quad a ↦ [f ↦ f(a)]
+\end{equation}$$</p>
+  <p>It is monic when any $a ∈ A^n$ is detected by some $A → ∏ B^∙$. In short, $A^n ∈ 𝐜𝐨𝐠𝐞𝐧 (∏ B^∙)$.</p>
+</div>
+
+<div class="problem">
+  <p>Let $φ : A → B$ be a chain map. Then there is a induced chain map</p>
+  <p>$$\begin{equation}
+φ ∈ \mathcal{HOM}(A, B) → \mathcal{HOM} (\mathcal{HOM}(X,A),\mathcal{HOM}(X,B)) ∋  φ _∗.
+\end{equation}$$</p>
+  <p>Show that the morphism is compatible with the differential, i.e.,</p>
+  <p>$$\begin{equation}
+d_{\mathcal{HOM}(\mathcal{HOM}(X,A),\mathcal{HOM}(X,B))}(φ _∗) = (d_{\mathcal{HOM}(A,B)}(φ ))_∗ .
+\end{equation}$$</p>
+  <div class="proof">
+    <p>Consider</p>
+    <p>$$\begin{aligned}
+\{d_{𝐋𝐇𝐒}(φ _∗ )\}(α) & = [d_{𝐋𝐇𝐒}, φ _∗ ](α)\\
+&= d_{\mathcal{HOM}(X,B)} ∘ φ _∗ (α) - (-1)^{|φ _∗|} φ _∗ ∘ d_{\mathcal{HOM}(X,A)} (α)\\
+&= d_{\mathcal{HOM}(X,B)} (φα) - (-1)^{|φ|} φ (d_{\mathcal{HOM}(X,A)} (α))\\
+&= dφα - (-1)^{|φ α|}φ α d - (-1)^{|φ|} φ (dα - (-1)^{|α |}α d)\\
+&= dφα - (-1)^{|φ|} φ dα\quad = \{d_{𝐑𝐇𝐒} (φ)\}_∗ (α) .
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that $d(ψ ^∗) = (d (ψ ))^∗$.</p>
+</div>
+
+<p>Thanks to functoriality, we claim for any chain complex $K$, and chain map/null homotopy/homotopy equivalence $f : X → Y$,</p>
+
+<ol>
+  <li>$f_∗ : \mathcal{HOM}(K, X) → \mathcal{HOM}(K, Y)$ is again a chain map/null homotopy/homotopy equivalence;</li>
+  <li>$f^∗: \mathcal{HOM}(Y, K) → \mathcal{HOM}(X, K)$ is again a chain map/null homotopy/homotopy equivalence;</li>
+  <li>$f ⊗ 1 : Y ⊗ K → X ⊗ K$ is again a chain map/null homotopy/homotopy equivalence.</li>
+</ol>
+
+<h3 id="a-discussion-on-the-homotopy-category-mathjax_protectedjesouikkmathjax_protected">A Discussion on the Homotopy Category $K(R)$</h3>
+
+<p>We present several formal approaches to computing the homotopy category $K(R)$. Here, $R$ may be replaced by a general Abelian category.</p>
+
+<div class="theorem">
+  <p>The following categories are isomorphic; that is, they possess the same class of objects and naturally isomorphic $\mathrm{Hom}$-sets.</p>
+  <ol>
+    <li>The $H^0(\mathcal{HOM})$-construction. (Observe that the Hom complex is defined for any Abelian category.)</li>
+    <li>The localisation $C(R) [S^{-1}]$, where $S$ comprises homotopy equivalences, i.e., morphisms $f$ for which there exists a morphism $g$ such that $f ∘ g$ and $g ∘ f$ are homotopic to the identity morphisms.</li>
+    <li>The additive quotient $C(R) / \mathcal{N}$, where $\mathcal{N}$ consists of split acyclic complexes (that is, contractible complexes).</li>
+    <li>The homotopy category $C(R) / ∼$, where $∼$ is an additive categorical equivalence relation on $\mathrm{Hom}$-sets, with $f ∼ 0$ if and only if $f$ is null-homotopic.</li>
+  </ol>
+  <div class="proof">
+    <p>We first demonstrate that $C(R) / ∼$ is well-defined. Note that $s : f ∼ g$ if and only if $s ∘ h : f ∘ h ∼ g ∘ h$, and the dual statement holds as well. We denote the category by $K_i$ $(i = 1,2,3,4)$ according to the constructions above.</p>
+    <ol>
+      <li>$(K_1 = K_4)$. This is evident.</li>
+      <li>$(K_2 = K_4)$. The quotient $C \to K_4$ maps $S$ to isomorphisms, yielding $K_2 \to K_4$. To establish the converse functor, observe that the collection of homotopies $\{(s,f,g) ∣ s : f ∼ g : X \to Y\}$ is represented by $(\mathrm{Cyl}(1_X), Y)$ via $Σ X ⊕ X ⊕ X \xrightarrow {(s,f,g)} Y$. In this context, we have         <ul>
+          <li>$f = [X \xrightarrow {e_2} \mathrm{Cyl}(1_X) \xrightarrow {(s,f,g)} Y]$;</li>
+          <li>$g = [X \xrightarrow {e_3} \mathrm{Cyl}(1_X) \xrightarrow {(s,f,g)} Y]$.</li>
+        </ul>
+        <p>Observe that $e_2 = e_2$ in $K_2$. Thus, whenever $f = g$ in $K_4$, it follows that $f = g$ in $K_2$.</p>
+      </li>
+      <li>$(K_3 = K_4)$. Since $K_4$ is additive, the zero morphisms are precisely those which factor through zero objects. This yields $K_3 \to K_4$. Conversely, when $f ∼ g : X \to Y$ in $K_4$, we have $f ∼ g$ in $K_3$ as it factors through the zero object $\mathrm{Cyl}(1_X)$. Therefore, $K_4 = K_3$.</li>
+    </ol>
+  </div>
+</div>
+
+<p>It is unnecessary to demonstrate the additivity of the localisation $C → K_2$; this is not obvious if one tries to show this directly. Here is a note on <a href="Additive_Localisation">additive localisation</a>.</p>
+
+<div class="theorem">
+  <p>The exact category $(C, \mathcal{E})$, where $\mathcal{E}$ consists of ses split termwise, is Frobenius; that is, the contractible complexes are precisely the injectives and projectives. Consequently, $K / 𝐏𝐫𝐨𝐣$ is triangulated, where the desuspension is the syzygy.</p>
+</div>
+
+<h3 id="a-module-like-analysis-of-mathjax_protectedjemouikkmathjax_protected">A Module-like Analysis of $C(R)$</h3>
+
+<p>We view a chain complex $X ∈ C(R)$ as graded set for convention. In particular $X = ⨆_{n ∈ ℤ } X^n$ as underlying sets.</p>
+
+<div class="problem">
+  <p>Show the free functor $𝐅𝐫𝐞𝐞 : 𝐒𝐞𝐭𝐬 → 𝐌𝐨𝐝 _R,\quad X ↦ R^{(X)}$ is left adjoint to the forgotful functor $U : 𝐌𝐨𝐝 _R → 𝐒𝐞𝐭𝐬$ sending every module to its under lying sets.</p>
+</div>
+
+<div class="definition">
+  <p>(Free object). The free object generated by a graded subset $\{S^n\}_{n ∈ ℤ }$ is defined as the chain complex</p>
+  <p>$$\begin{equation}
+\cdots \underset{\text{degree} \ n}{\underbrace{R^{(S^n)} ⊕ R^{(S^{n-1})}}} \xrightarrow{\binom {0 \ \ 0}{1 \ \ 0}} \underset{\text{degree} \ {n+1}}{\underbrace{R^{(S^{n+1})} ⊕ R^{(S^{n})}}} → \cdots.
+\end{equation}$$</p>
+</div>
+
+<div class="lemma">
+  <p>One has the the free forgotful adjunction from graded sets to chain complexes.</p>
+  <div class="proof">
+    <p>We define the adjunction as a composition</p>
+    <p>$$\begin{equation}
+𝐆𝐫𝐒𝐞𝐭𝐬 ⇆ 𝐆𝐫𝐌𝐨𝐝_R ⇆ C(R).
+\end{equation}$$</p>
+    <p>The first adjunction is nothing but a free-forgotful adjunction by degrees. The second adjunction is</p>
+    <p>$$\begin{equation}
+(M^\bullet , C^\bullet)_{\mathbf{GrSets}} \simeq((M^\bullet \oplus \Sigma^{-1}M, \binom {0 \ 0}{1 \ 0}), (C^\bullet, d^n))_{C(R)},\quad (f^n) \mapsto (f^n, d_C^{n-1} \circ f^n).
+\end{equation}$$</p>
+    <p>The verification:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_0490b6951c796.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </div>
+</div>
+
+<p>The argument on projective objects is similar.</p>
+
+<div class="theorem">
+  <p>Free objects are projective, and projective objects are precisely direct summand of free objects.</p>
+  <div class="proof">
+    <p>Note that the forgotful functor $U: C(R) → 𝐒𝐞𝐭𝐬$ preserves epimorphisms. The following lifting problems are equivalent</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec0/diagram_e0f3a89237d72.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Clearly every graded set is projective, then the lifting problem has solutions. <br /> For any projective object $P$, the counit $𝐅𝐫𝐞𝐞 (U(P)) ↠ P$ is an epimorphism which splits. Hence, projective objects are summand of free objects.</p>
+  </div>
+</div>
+
+<p>In fact, it is shown in previous that projective (injective) objects are precisely the split acyclic complexes which is termwise projective (injective).</p>
+
+<div class="problem">
+  <p>Show that the morphism category $𝐌𝐨𝐝 _R^ →$ is also a module category. Hint:</p>
+  <p>$$\begin{equation}
+[→, 𝐌𝐨𝐝 _R] ≃ [ → , [R^{\mathrm{op}}, 𝐀𝐛 ]] ≃ [R^{\mathrm{op}} \underset ? ⊗ → , 𝐀𝐛] ≃ [\binom{R \ R}{0 \ R}^{\mathrm{op}}, 𝐀𝐛].
+\end{equation}$$</p>
+</div>
+
+<div class="theorem">
+  <p>The finitely presented objects in $C(R)$ is precisely $C(𝐦𝐨𝐝 _R)$.</p>
+  <div class="proof">
+    <p>For $M ∈ C(R)$ compact, we see that every $M^i$ has to be f.p.. Notice that</p>
+    <p>$$\begin{aligned}
+(M^{k+1}, \varinjlim {}^{fil} X_∙)_R & ≃ (M, Σ ^k( \overline {\varinjlim {}^{fil} X_∙}))_R ≃ (M, \varinjlim {}^{fil} Σ ^k \overline {X_∙})_R\\
+& ≃ \varinjlim {}^{fil}  (M, Σ ^k \overline {X_∙})_R ≃ \varinjlim {}^{fil} (M^{k+1}, X_∙)_R.
+\end{aligned}$$</p>
+    <p>A morphism $f : X → \varinjlim ^{fil} C_∙$ identifies a collection of morphisms in $𝐌𝐨𝐝_R ^→$, which is again a module category. Since gluing procedure preserves and reflect isomorphisms, $f$ identifies a morphism in $\varinjlim ^{fil}(X, C_∙)$ via structure map.</p>
+  </div>
+</div>
+
+<p>Hence, a compact object need not to be f.g..</p>
+
+<ul>
+  <li>If we choose $\mathcal{HOM}$ instead, then compact objects are exactly bounded complexes with f.p. modules.</li>
+</ul>
+
+<div class="example">
+  <p>In general, $C(R)$ can be regarded as a full subcategory of $𝐌𝐨𝐝 _{(R^ℤ) [d] / I}$, where $I$ is generated by</p>
+  <p>$$\begin{equation}
+\{d^2\} ∪ \{[d,r]\}_{r ∈ R} ∪ \{d ∘ e_k - e_{k+1} ∘ d ∣ e_l ^2 = e_l, \ \text{and} \ (R^ℤ)e_l = R^{(l\text{-th})}\}_{k ∈ ℤ}.
+\end{equation}$$</p>
+  <p>A chain complex $M^∙$ is regarded as a graded module $⨁_{k ∈ ℤ }M^k$ (with relations).</p>
+  <ul>
+    <li>This definition is rarely used in practice; in this case, a functorial indentification $𝐌𝐨𝐝 _A ≃ 𝐅𝐮𝐧𝐜𝐭 (A^{\mathrm{op}}, 𝐀𝐛)$ is more convenient.</li>
+    <li>This is not our/topological definition, at least $M^i ∩ M^j = ∅$ for our convention.</li>
+  </ul>
+</div>
+
+<p>We are interested in DG-projective/DG-injective complexes in practice.</p>
+
+<h3 id="double-complexes">Double Complexes</h3>
+
+<p>For a general theory of complex resolution, we shall introduce $C(C(R))$, which is equivalent to the category of double complexes.</p>
+
+<div class="definition">
+  <p>(Double complex, or bicomplex). A double complex is a collection of objects $\{C^{p,q}\}_{p,q ∈ ℤ}$ with two differentials $d_h$ (horizontal) and $d_v$ (vertical), such that</p>
+  <p>$$\begin{equation}
+d_h ∘ d_h = 0, \quad d_v ∘ d_v = 0, \quad\text{and} \ \  d_h ∘ d_v + d_v ∘ d_h = 0.
+\end{equation}$$</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_bdbbce00bb496.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>We write $DC(\mathcal{A})$ as the category of double complexes over $\mathcal{A}$.</p>
+
+<div class="problem">
+  <p>Show that if $\mathcal{A}$ is AB3/AB4/AB5/AB3*/…/, has enough projectives/injectives, well powered, etc., then so is $DC(\mathcal{A})$.</p>
+</div>
+
+<div class="definition">
+  <p>(Total complexes). For either $☆ ∈ \{∐ , ∏\}$, we define the functor</p>
+  <p>$$\begin{equation}
+\mathrm{Tot}^☆ : DC(\mathcal{A}) → C(\mathcal{A}), \quad (C^{p,q}, d_h , d_v) ↦ (\underset{p+q = n}{☆}C^{p,q}, (d_v + d_h)).
+\end{equation}$$</p>
+</div>
+
+<p>Since ses for in either $DC(\mathcal{A})$ or $C(\mathcal{A})$ are verified termwise, $\mathrm{Tot}^∏$ (resp., $\mathrm{Tot}^∐$) is an exact functor when $\mathcal{A}$ is AB4* (resp., AB3*).</p>
+
+<div class="definition">
+  <p>(Support). The support of $X^{∙ , ∙}$ consists of the pairs $(p,q) ∈ ℤ ^2$ such that $X^{p,q} ≠ 0$. In particular,</p>
+  <ul>
+    <li>say $X^{∙ , ∙ }$ is finite, provided $\mathrm{Supp}(X)$ is finite;</li>
+    <li>say $X^{∙ , ∙ }$ is locally finite, provided $\{(p,q) ∈ \mathrm{Supp}(X) ∣ p + q = m\}$ is finite for every $m ∈ ℤ$;       <ul>
+        <li>In this case, $\mathrm{Tot}^∐ (X) = \mathrm{Tot}^∏ (X)$. We write $\mathrm{Tot}(X)$ for simplicity.</li>
+      </ul>
+    </li>
+    <li>say $X^{∙ , ∙ }$ is a <strong>$k$-th quadrant double complex</strong> if $\mathrm{Supp}(X)$ lies in the $k$-th quadrant under finite steps of translations;</li>
+    <li>we also use the expression including <strong>upper half plane double complex</strong>, <strong>$(m × n)$ double complexes</strong>, etc.</li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>Here are some criterion on exactness.</p>
+  <ol>
+    <li>Suppose $X$ is locally finite with exact rows (or columns). Then both $\mathrm{Tot}^∏(X)$ and $\mathrm{Tot}^∐(X)$ are exact.</li>
+    <li>Suppose $X$ lies in upper (or left) half plane with exact <strong>columns</strong>. Then $\mathrm{Tot}^∏(X)$ is exact.</li>
+    <li>Suppose $X$ lies in upper (or left) half plane with exact <strong>rows</strong>. Then $\mathrm{Tot}^∐(X)$ is exact.</li>
+  </ol>
+  <div class="proof">
+    <p>It is always quicker to write a proof rather than to read a proof.</p>
+  </div>
+  <ul>
+    <li>To remember this, just note that for complexes over upper half plane, <strong>$∐$ and column-exactness are not compatible; otherwise DG-projective complexes are meaningless!</strong></li>
+  </ul>
+</div>
+
+<p>We show some non-examples in accordance with the above proposition.</p>
+
+<div class="example">
+  <p>For $X ≠ 0$, consider the following double complexes.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_0e719ad2c8c88.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>We see $\mathrm{Tot}^∏ (\text{Left})$ and $\mathrm{Tot}^∐ (\text{Right})$ are not acyclic; while $\mathrm{Tot}^∏ (\text{Right})$ and $\mathrm{Tot}^∐ (\text{Left})$ are acyclic.</p>
+</div>
+
+<p>Some books refer $⊗$ and $\mathrm{Hom}$ as <strong>bifunctors</strong> of the type $C × C → DC$. Recall our convention is $C × C → DC \xrightarrow {\mathrm{Tot}^{☆}} C$, i.e.,</p>
+
+<p>$$\begin{equation}
+(X ⊗ Y)^{∙ , ∙ } ↦ \underset{:= X ⊗ Y}{\underbrace{\mathrm{Tot}^{∐ }(X ⊗ Y)}},\quad (\mathrm{Hom}(X,Y))^{∙ , ∙ } ↦ \underset{:= \mathcal{HOM}(X,Y)}{\underbrace{\mathrm{Tot}^{∏ }(\mathrm{Hom}(X,Y))}}.
+\end{equation}$$</p>
+
+<div class="example">
+  <p>Bi-resolution shows the <em>balanced property</em> of $\mathrm{Ext}^k$, that is, there is a natural isomorphism</p>
+  <p>$$\begin{equation}
+\mathrm{Ext}^k(-, Y) (X) ≃ \mathrm{Ext}^k(X, -) (Y).
+\end{equation}$$</p>
+  <p>We take projective resolution $X$ and injective resolution $Y$. Consider the <strong>black</strong> double complex which is locally finite:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec0/diagram_b205cc8fe3b93.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>By criterion of exactness, we see $\binom{ {\color{red}\text{红}}\ {\color{purple}\text{紫}} }{\text{黑} \ {\color{blue}\text{蓝}}}$, $\binom{ {\color{red}\text{红}}}{\text{黑}}$, and $({\text{黑}\ {\color{blue}\text{蓝}}})$ are exact. By ses</p>
+  <p>$$\begin{equation}
+0 → \text{黑} → ({\text{黑}\ {\color{blue}\text{蓝}}}) → {\color{blue}\text{蓝}} → 0,
+\end{equation}$$</p>
+  <p>Hence, $Σ\mathrm{Tot}(\text{黑}) ⇠ {\color{blue}\text{蓝} }$ and $Σ\mathrm{Tot}(\text{黑}^⊺) ⇠ {\color{red}\text{红} }$ are quasi-isomorphisms. We obtain</p>
+  <p>$$\begin{aligned}
+\mathrm{Ext}^k (-,Y)(X) & := H^k ({\color{red}\text{红}}) ≃ H^k (Σ \mathrm{Tot}(\text{黑}))\\[6pt]
+& ≃ H^k ({\color{blue}\text{蓝}}) =: \mathrm{Ext}^k (X,-)(Y).
+\end{aligned}$$</p>
+</div>
+
+<p><strong>The balance comes from $H^∙ (\mathrm{Tot}^{☆}(X)) = H^∙ (\mathrm{Tot}^{☆}(X)^⊺ \ )$.</strong></p>
+
+<div class="definition">
+  <p>(Balance) Suppose $T : ⨉_{i=1}^n \mathcal{A}_i → \mathcal{B}$ is a (covariant) multi-functor between Abelian categories. Say it is balances, provided</p>
+  <ul>
+    <li>For any injective $I_k ∈ 𝐈𝐧𝐣 (\mathcal{A}_k)$, the functor $$\begin{equation}
+	T(X_1, \ldots, (-)_j, \ldots , X_{k-1}, I_k, X_{k+1}, \cdots, X_n) : \mathcal{A}_j → \mathcal{B}
+	\end{equation}$$ is exact for arbitrary $\{X_k\}_{k ∉ \{i,j\}}$.</li>
+  </ul>
+</div>
+
+<p>For balanced functors, the derivatives are free of the choice of the variables.</p>
+
+<div class="example">
+  <p>$((-)^{\mathrm{op}} ⊗(?)^{\mathrm{op}})^{\mathrm{op}}$ and $\mathrm{Hom}((-)^{\mathrm{op}},?)$ are balanced. The definition is introduced by Cartan-Eilenberg, and also by Weibel. They know no example of a balanced functor in three variables…</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#lecture-0">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Lecture 0</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#notations">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">Notations</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#functors">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">Functors</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#on-rings-and-modules">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">On Rings and Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#an-interesting-example-on-transfinite-filtration">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">An Interesting Example on Transfinite Filtration</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#the-real-compact-modules">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">The REAL Compact Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#mathjax_protectedjpcdkiwnzcr8j2qqpcdkkmkmathjax_protected-mathjax_protectedjpcdkijwnzcn8j2qoyqmathjax_protected-and-mathjax_protectedjpcdkixwnzcl8j2qmvcdkk0kmathjax_protected">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">$𝐏𝐫𝐨𝐣$, $𝐈𝐧𝐣$ and $𝐅𝐥𝐚𝐭$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#coherency">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Coherency</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#character-module">
+        <span class="toc-number">2.5.</span>
+        <span class="toc-title">Character Module</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#on-chain-complexes">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">On Chain Complexes</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#functors-for-chain-complexes">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Functors for Chain Complexes</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#resolving-chain-complexes">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">Resolving Chain Complexes</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#closed-monoidal-structure">
+        <span class="toc-number">3.3.</span>
+        <span class="toc-title">Closed Monoidal Structure</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#more-on-mathjax_protectedjfxtyxroy2fse0hptx0kmathjax_protected">
+        <span class="toc-number">3.4.</span>
+        <span class="toc-title">More on $\mathcal{HOM}$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#a-discussion-on-the-homotopy-category-mathjax_protectedjesouikkmathjax_protected">
+        <span class="toc-number">3.5.</span>
+        <span class="toc-title">A Discussion on the Homotopy Category $K(R)$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#a-module-like-analysis-of-mathjax_protectedjemouikkmathjax_protected">
+        <span class="toc-number">3.6.</span>
+        <span class="toc-title">A Module-like Analysis of $C(R)$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#double-complexes">
+        <span class="toc-number">3.7.</span>
+        <span class="toc-title">Double Complexes</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/25SumLec1" title="NEXT: CT1">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/20250723Talk" title="PREV: Seminare on Cotorsion Theory">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

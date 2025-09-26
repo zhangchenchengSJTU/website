@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Differential Graded
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/DGAlgCat-Intro">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Differential Graded</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        August 14, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#dg-algebras-and-categories" id="markdown-toc-dg-algebras-and-categories">DG Algebras and Categories</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+    </ul>
+  </li>
+  <li><a href="#dg-algebra" id="markdown-toc-dg-algebra">DG Algebra</a>    <ul>
+      <li><a href="#basics" id="markdown-toc-basics">Basics</a>        <ul>
+          <li><a href="#dg-algebras" id="markdown-toc-dg-algebras">DG Algebras</a></li>
+          <li><a href="#dg-modules" id="markdown-toc-dg-modules">DG Modules</a></li>
+          <li><a href="#opposite-algebra" id="markdown-toc-opposite-algebra">Opposite Algebra</a></li>
+          <li><a href="#tensor-and-hom" id="markdown-toc-tensor-and-hom">Tensor and Hom</a></li>
+          <li><a href="#endomorphism-algebra" id="markdown-toc-endomorphism-algebra">Endomorphism Algebra</a></li>
+        </ul>
+      </li>
+      <li><a href="#the-homotopy-category-mathjax_protectedjeskmathjax_protected" id="markdown-toc-the-homotopy-category-mathjax_protectedjeskmathjax_protected">The Homotopy Category $K$</a>        <ul>
+          <li><a href="#frobenius-category" id="markdown-toc-frobenius-category">Frobenius Category</a></li>
+          <li><a href="#homotopy" id="markdown-toc-homotopy">Homotopy</a></li>
+          <li><a href="#triangles" id="markdown-toc-triangles">Triangles</a></li>
+        </ul>
+      </li>
+      <li><a href="#resolutions" id="markdown-toc-resolutions">Resolutions</a>        <ul>
+          <li><a href="#projective-and-injective-modules" id="markdown-toc-projective-and-injective-modules">Projective and Injective Modules</a></li>
+          <li><a href="#free-modules-and-mathjax_protectedjfxtyxrocm17rxh0fv4xx3tkd30kmathjax_protected" id="markdown-toc-free-modules-and-mathjax_protectedjfxtyxrocm17rxh0fv4xx3tkd30kmathjax_protected">Free Modules and $\mathrm{Ext}^1_{dw}$</a></li>
+          <li><a href="#projective-resolutions" id="markdown-toc-projective-resolutions">Projective Resolutions</a></li>
+          <li><a href="#injective-resolutions" id="markdown-toc-injective-resolutions">Injective Resolutions</a></li>
+          <li><a href="#flat-modules" id="markdown-toc-flat-modules">Flat Modules</a></li>
+        </ul>
+      </li>
+      <li><a href="#derived-categories" id="markdown-toc-derived-categories">Derived Categories</a>        <ul>
+          <li><a href="#verdier-quotient" id="markdown-toc-verdier-quotient">Verdier Quotient</a></li>
+          <li><a href="#derived-tensor" id="markdown-toc-derived-tensor">Derived Tensor</a></li>
+          <li><a href="#derived-category-and-its-closed-monoidal-structure" id="markdown-toc-derived-category-and-its-closed-monoidal-structure">Derived Category and Its Closed Monoidal Structure</a></li>
+        </ul>
+      </li>
+      <li><a href="#enriched-category" id="markdown-toc-enriched-category">Enriched Category</a></li>
+      <li><a href="#dg-categories" id="markdown-toc-dg-categories">DG Categories</a>        <ul>
+          <li><a href="#definition" id="markdown-toc-definition">Definition</a></li>
+          <li><a href="#closed-monoidal-structure" id="markdown-toc-closed-monoidal-structure">Closed Monoidal Structure</a></li>
+          <li><a href="#example-dg-modules" id="markdown-toc-example-dg-modules">Example: DG Modules</a></li>
+          <li><a href="#the-homotopy" id="markdown-toc-the-homotopy">The Homotopy</a></li>
+        </ul>
+      </li>
+      <li><a href="#derived-module-category" id="markdown-toc-derived-module-category">Derived Module Category</a>        <ul>
+          <li><a href="#resolutions-1" id="markdown-toc-resolutions-1">Resolutions</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="dg-algebras-and-categories">DG Algebras and Categories</h2>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>We discuss DG algebras, DG-projective and injective modules.</p>
+  </div>
+</div>
+
+<h2 id="dg-algebra">DG Algebra</h2>
+
+<p>Throughout, $k$ is a commutative unital ring, all complexes are cochain complexes ($\cdots → X^n \xrightarrow{d_X^n} X^{n+1} → 0$). $C(R)$ is the category of chain complexes over right modules $𝐌𝐨𝐝 _R$. DG for differential graded.</p>
+
+<h3 id="basics">Basics</h3>
+
+<h4 id="dg-algebras">DG Algebras</h4>
+
+<p>We assume the readers are familiar with bicomplexes and the closed monoidal structure $(C(A), A, ⊗, \mathcal{HOM})$, where $A ∈ 𝐀𝐥𝐠 _k$. We denote</p>
+
+<ul>
+  <li>$X ⊗ Y$ as the $∐$-total complex of the bicomplex $(p,q) ↦ X^p ⊗ Y^q$;</li>
+  <li>$\mathcal{HOM}(X,Y)$ as $∏$-total complex of the bicomplex $(p,q) ↦ (X^{-p},Y^q)$.</li>
+</ul>
+
+<div class="definition">
+  <p>(DG algebra). Say $(A, d)$ is a DG algebra, provided</p>
+  <ol>
+    <li>$(A, d)$ is a chain complex over $k$;</li>
+    <li>$∐ _{n ∈ ℤ} A^n$ is a unital ring with such that $A^m A^n ⊆ A^{m+n}$;</li>
+    <li>for homogeneous $a$, $d(ab) = d(a)b + (-1)^{|a|} a d(b)$.</li>
+  </ol>
+  <p>We denote $𝐃𝐆𝐀𝐥𝐠 _k$ as the category of DG $k$-algebra.</p>
+</div>
+
+<div class="problem">
+  <p>Show the following simple corollaries:</p>
+  <ol>
+    <li>$1 ∈ A^0$, and $d(1) = 0$;</li>
+    <li>the multiplication is a chain map $A ⊗ A → A$.</li>
+  </ol>
+</div>
+
+<p>We denote $A = (A,d)$ ($A = ∐_{n ∈ ℤ } A^n$) as the underlying chain complex (graded algebra).</p>
+
+<div class="example">
+  <p>There is an inclusion: $𝐀𝐥𝐠 _k ↪ 𝐃𝐆𝐀𝐥𝐠 _k$, where $A$ maps to $\cdots → 0 → A → 0 → \cdots$. The forgotful functor $𝐃𝐆𝐀𝐥𝐠 _k → 𝐆𝐫𝐀𝐥𝐠$ (almost) has no adjunctions. The <strong>real forgotful functor</strong> is $𝐃𝐆𝐀𝐥𝐠_k → 𝐀𝐥𝐠 _k, \quad A ↦ A^0$, where the left adjoint is the following construction due to Cuntz–Quillen (<a href="https://www.claymath.org/wp-content/uploads/2023/04/Quillen-lecture-notes-Blower.pdf">ref</a>):</p>
+  <p>$$\begin{equation}
+𝐀𝐥𝐠_k → 𝐃𝐆𝐀𝐥𝐠_k,\quad A ↦ A ⊕ ∐ \limits_{k ≥ 1} Ω^1(A)^{⊗  k}.
+\end{equation}$$</p>
+  <p>Here $Ω ^1 (A) = \ker \begin{bmatrix}A ⊗ A & → & A\\ a ⊗ b & ↦ & [a,b]\end{bmatrix} ≃ A/k$ is the universal derivation. <a href="https://ncatlab.org/nlab/show/Hochschild-Kostant-Rosenberg+theorem">HKR</a> shows that $HH_n(A) ≃ Ω^n_{A/k}$ for smooth commutative $A/k$. In this case, the differential of $Ω ^∙ (A)$ coincides bar resolution.</p>
+</div>
+
+<div class="example">
+  <p>$Z^∙ A ↪ A$ is an dg subalgebra, and $B^∙ A ↪ A$ is a two-sided dg ideal. This defined a functor $H^∙ : 𝐃𝐆𝐀𝐥𝐠_k → 𝐆𝐫𝐀𝐥𝐠_k$. The <em>recovery</em> is related to $A_∞$-algebra.</p>
+</div>
+
+<div class="example">
+  <p>Let $R ∈ 𝐀𝐥𝐠 _k$. Set $(-)^∗ := (-, k)$, $μ : R ⊗ R → R$ the multiplication. Suppose there are some finiteness condition s.t. $R^∗ ⊗ R^∗ ≃ (R ⊗ R)^∗$. The morphisms $f_0 : k \xrightarrow 0 T(R^∗)$ and $f_1 : R^∗ \xrightarrow {μ ^∗ } R^∗ ⊗ R^∗ ↪ T(R^∗ )$ extends to an $k$-endomorphism of tensor algebra, $φ : T(R^∗ ) → T(R^∗ )$.</p>
+  <ol>
+    <li>$T(R^∗ )$ is a DG algebra vanishing on negative degrees;</li>
+    <li>$φ : k → 0, \quad R^∗ → R^∗ ⊗ R^∗$;</li>
+    <li>Since $μ ∘ (1 ⊗ μ ) = μ ∘ (μ ⊗ 1)$, we see that $φ (f ⊗ g) = φ (f) ⊗ g - f ⊗ φ (g)$;</li>
+    <li>Inductively, $φ (α ⊗ β) = φ (α ) ⊗ β + (-1)^{|α|} α ⊗ φ (β )$ for homogeneous $α ∈ T(R^∗ )$.</li>
+  </ol>
+  <p>To conclude, derivative comes from dual multiplications.</p>
+</div>
+
+<h4 id="dg-modules">DG Modules</h4>
+
+<p>Let $A$ be a DG algebra. We denote $𝐌𝐨𝐝 _{(A,d)}$ as the category of DG modules.</p>
+
+<div class="definition">
+  <p>(DG module). $M ∈ 𝐌𝐨𝐝 _{(A,d)}$ is a chain complex of $A$-modules, such that</p>
+  <ol>
+    <li>$M^p A^q ⊆ M^{p+q}$;</li>
+    <li>$d_M (ma) = (d_M m)a + (-1)^{|m|} m (d_Aa)$.</li>
+  </ol>
+</div>
+
+<p>A functorial definition is based on DG categories.</p>
+
+<div class="definition">
+  <p>(DG homomorphism). A homomorphism between DG modules $φ : M → N$ is preserved gradings and differentials, i.e.,</p>
+  <ol>
+    <li>$φ : M^k → N^k$ for arbitrary $k$;</li>
+    <li>$φ ∘ d_M = d_N ∘ φ$.</li>
+  </ol>
+  <p>This is anagolous to the definition of chain maps.</p>
+</div>
+
+<div class="example">
+  <p>$C(R)$ is the category of DG $[\cdots → 0 → R → 0 → \cdots ]$-modules. A homomorphism of DG modules is precisely the chain maps.</p>
+</div>
+
+<p>To see functorial property of DG modules, we consider the following adjunctions.</p>
+
+<div class="theorem">
+  <p>Let $𝐆𝐫𝐌𝐨𝐝 _A$ denote the category of $A (∈ 𝐆𝐫𝐀𝐥𝐠 _k)$-modules. Then the forgetful functor $G: 𝐃𝐆𝐌𝐨𝐝_k → 𝐆𝐫𝐀𝐥𝐠 _k$ admits bi-adjoints. Moreover, $G$ creates all small limits and colimits.</p>
+  <div class="proof">
+    <p>We show the left adjoint $F ⊣ G$, the right adjoint $G ⊣ H$ is dual.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_db1bbbbbb1086.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>The $1:1$ correspondence is clear, as a morphism of DG modules $F(X) → (M,d)$ takes the form $f^∙ (1,d)$. Moreover, $f$ preserves graded action iff $f∘ (1,d)$ does. This proves the adjunction. <br /> The bi-adjoint $G$ preserves all small limits and colimits. To see that $G$ creates small limits and colimits, we show $\varinjlim$ and $\varprojlim$ in $𝐌𝐨𝐝 _{(A,d)}$ admits a termwise computation. Let $\{M_λ\} ⊆ 𝐌𝐨𝐝 _{(A,d)}$ be an inverse system, we show $\varprojlim M_λ$ is the limit. The derivation in $\varprojlim M_λ$ is induced by universal property of limits. For Any cone $N → M_λ$, there is a unique morphism of graded modules $ℓ : N → \varprojlim M_λ$. Since for each $λ$,</p>
+    <p>$$\begin{equation}
+d_{M_λ} ∘ p_λ ^n ∘ ℓ ^n = (p_λ ^{n+1} ∘ ℓ ^{n+1}) \circ d_{N}.
+\end{equation}$$</p>
+    <p>By universal property of limit, $d_{\varprojlim M_λ } ∘ ℓ ^n = ℓ ^{n+1} ∘ d_N$.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_aef0a5a3fc06a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </div>
+</div>
+
+<p>To conclude,</p>
+
+<p>$$\begin{equation}
+\boxed{\text{The limits and colimits of DG modules are computed termwise!} }
+\end{equation}$$</p>
+
+<div class="problem">
+  <p>Show the auto-equivalentce $Σ : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _{(A,d)}$, where</p>
+  <p>$$\begin{equation}
+[\cdots → \overset{\substack {\deg = n \\ ↓} } {M^n} \xrightarrow d M^{n+1} → \cdots ] ↦ [\cdots → \overset{\substack {\deg = n \\ ↓} } {M^{n+1}} \xrightarrow {-d} M^{n+2} → \cdots ].
+\end{equation}$$</p>
+  <p>Hint: show that $Σ f$ is a plain shift without sign change, and the middle square commutes:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_6834067119405.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<h4 id="opposite-algebra">Opposite Algebra</h4>
+
+<p>We show firstly the symmetry.</p>
+
+<div class="definition">
+  <p>(Opposite ring). $A^{\mathrm{op}}$ and $A$ has the same underlying chain complex, but the multiplication is twisted by a sign: for homogeneous $a,b ∈ A$,</p>
+  <p>$$\begin{equation}
+a ⋅^{\mathrm{op}} b := (-1)^{|a||b|} ba.
+\end{equation}$$</p>
+</div>
+
+<div class="problem">
+  <p>Suppose $M ∈ 𝐌𝐨𝐝 _{(A,d)}$, while $a ∈ A$ and $m ∈ M$ are homogeneous. Let $a ⋅ ^{\mathrm{op}} m := (-1)^{|m||a|} ma$ be the left action. Show basic results of $^{\mathrm{op}}$:</p>
+  <ol>
+    <li>$(a ⋅ ^{\mathrm{op}} b) ⋅^{\mathrm{op}} m = a ⋅ ^{\mathrm{op}} (b ⋅^{\mathrm{op}} m)$;</li>
+    <li>$φ : 𝐌𝐨𝐝 _{(A,d)} ≃ {}_{(A, d)}𝐌𝐨𝐝$ is an equivalence of categories;</li>
+    <li>$Σ φ ≃ φ Σ$ is a natural isomorphism.</li>
+  </ol>
+</div>
+
+<h4 id="tensor-and-hom">Tensor and Hom</h4>
+
+<div class="definition">
+  <p>($⊗_A$). Let $M_A, {}_AN ∈ 𝐌𝐨𝐝 _{(A,d)}$. The tensor product $M ⊗ _k N$ has $n$-th term $∐ _{p+q = n} M^p ⊗ N^q$ and differential $d_M ⊗ 1_N + 1_M ⊗ d_N$.</p>
+</div>
+
+<div class="theorem">
+  <p>The above tensor product complex satisfies the universal property of tensor products, i.e., for any $X ∈ C(k)$, the balanced DG morphism $f : M ⊗ _k N → X$ identifies a chain map $M ⊗ _A N → X$. A balanced DG morphism $f$ satisfies</p>
+  <ol>
+    <li>$f (x a ⊗ y) = f (x ⊗ ay)$ for all $a$, $x$ and $y$;</li>
+    <li>$f(d_{M ⊗ _k N} (x ⊗ y)) = d_X (f(x ⊗ y))$.</li>
+  </ol>
+  <div class="proof">
+    <p>By closed monoidal structure of $C(k)$, $M ⊗ N$ is well-defined. We claim the exact sequence</p>
+    <p>$$\begin{equation}
+M ⊗ A ⊗ N \overset φ → M ⊗_k N → M ⊗ _A N → 0;\quad φ (m ⊗ a ⊗ n) = ma ⊗ n - m ⊗ an.
+\end{equation}$$</p>
+    <p>Unwinding the second condition (differential), we see from definition that</p>
+    <p>$$\begin{equation}
+(M ⊗ _k N, X)_{\text{balanced, graded}} = \ker [(M ⊗_k A ⊗_k N, X) \overset {φ }→ (M ⊗ _k N, X)].
+\end{equation}$$</p>
+    <p>It remains to show that $φ$ preserves $d$. Then $M ⊗ _k N ↠ M ⊗ N$ also preserves $d$, and $\widetilde f : M ⊗ _A N → X$ preserves $d$ by tracking back the preimage.</p>
+    <p>$$\begin{aligned}
+d(m ⊗ a ⊗ n) & = (dm) ⊗ a ⊗ n + (-1)^{|m|} m ⊗ (da) ⊗ n + (-1)^{|m| + |a|} m ⊗ a ⊗ (dn) \\
+& \xrightarrow φ (d m)a ⊗ n - (dm) ⊗ an + (-1)^{|m|} m da ⊗ n - (-1)^{|m|} m ⊗ (da)n\\
+& \qquad + (-1)^{|m| + |a|} ma ⊗ dn - (-1)^{|m| + |a|} m ⊗ a(dn) \\
+& = d(ma) ⊗ n + (-1)^{|m| + |a|} ma ⊗ dn - (dm) ⊗ an - (-1)^{|m|} m ⊗ d(an)\\
+& = d (ma ⊗ n - m ⊗ an) = d (φ (m ⊗ a ⊗ n)).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<p>We show the right adjoint of $- ⊗ _A N_B : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _{(B,d)}$. Combined with tensor-hom adjunction for chain complexes, it suffices to show $\mathcal{HOM}(-, ?)$ is a bifunctor for DG modules.</p>
+
+<div class="theorem">
+  <p>$\mathcal{HOM} (_AN_B, -) : 𝐌𝐨𝐝 _{(B,d)} → 𝐌𝐨𝐝 _{(A,d)}$ is a functor.</p>
+  <div class="proof">
+    <p>We define the right action as $(f ∗ a)(n) = f(an)$.</p>
+    <p>$$\begin{aligned}
+(d_{\mathcal{HOM}}(f ∗ a) )(n) &= d (f ∗ a) (n) - (-1)^{|f| + |a|} (f ∗ a)(dn) \\
+&= d (f(an)) - (-1)^{|f| + |a|} f (a (dn)) \\
+&= d (f(an)) - (-1)^{|f|} f(d(an) - (da)n) \\
+&= (d_{\mathcal{HOM}} f)(an) + (-1)^{|f|} f((da)n)\\
+&= (d_{\mathcal{HOM}}(f) ∗ a + (-1)^{|f|} f ∗ (da))(n).
+\end{aligned}$$</p>
+    <p>Hence, $d_{\mathcal{HOM}}(f ∗ a) = d_{\mathcal{HOM}}(f) ∗ a + (-1)^{|f|} f ∗ (da)$.</p>
+  </div>
+</div>
+
+<h4 id="endomorphism-algebra">Endomorphism Algebra</h4>
+
+<p>Let $M ∈ 𝐌𝐨𝐝 _{(A,d)}$. The endomorphism algebra $\mathrm{End} _A (M)$ is defined as the DG algebra $\mathcal{HOM} _A (M,M)$, which is a DG algebra with multiplication given by composition of morphisms.</p>
+
+<div class="theorem">
+  <p>The endomorphism algebra $E:= \mathrm{End} _A (M) ∈ 𝐃𝐆𝐀𝐥𝐠 _k$, where $M ∈ 𝐌𝐨𝐝 _{(E,d_{\mathcal{HOM}})^{\mathrm{op}}}$.</p>
+  <div class="proof">
+    <p>Clearly $E ∈ C(k)$, and $\deg 1_E = 0$. The multiplication if given by composition of morphisms. Hence $E^p E^q ⊆ E^{p+q}$. For homogeneous $f$,</p>
+    <p>$$\begin{aligned}
+d_{\mathcal{HOM}}(gf) & = gfd - (-1)^{|g|+|f|}dfg \\
+& = gfd - (-1)^{|f|}gdf + (-1)^{|f|} gdf - (-1)^{|g| + |f|}dgf\\
+& = d_{\mathcal{HOM}}(g)f + (-1)^{|g|} g d_{\mathcal{HOM}}(f).
+\end{aligned}$$</p>
+    <p>By definition, $θ : E ⊗ M → M, \quad f ⊗ m ↦ f(m)$ maps $E^p ⊗ M^q$ to $M^{p+q}$. To show such it is compatible with $d$, we take homogeneous $f ∈ E^p$ and $m ∈ M^q$,</p>
+    <p>$$\begin{aligned}
+d_{E ⊗ M} (f ⊗ m) & = d_E(f) ⊗ m + (-1)^{|f|} f ⊗ d_M(m) \\
+& \xrightarrow θ d_{\mathcal{HOM}}(f)m + (-1)^{|f|}fd_M(m) \\
+& = d_M (fm) - (-1)^{|f|} f (d_M m) + (-1)^{|f|}fd_M(m) \\
+& = d_M(fm)\quad = f_M ( θ (f ⊗ m) ).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<h3 id="the-homotopy-category-mathjax_protectedjeskmathjax_protected">The Homotopy Category $K$</h3>
+
+<h4 id="frobenius-category">Frobenius Category</h4>
+
+<p>We define an exact category by dws (degreewise split) ses.</p>
+
+<div class="definition">
+  <p>Say an ses in $𝐌𝐨𝐝 _{(A,d)}$ dws, if it is isomorphic to</p>
+  <p>$$\begin{equation}
+0 → K \xrightarrow {\binom 10} M \xrightarrow {\binom 01} N → 0.
+\end{equation}$$</p>
+</div>
+
+<p>In this case, $M = \mathrm{Cone}(s)$ for some $s : N → Σ K$.</p>
+
+<div class="theorem">
+  <p>$(𝐌𝐨𝐝 _{(A,d)}, \text{dws})$ is a forbenius exact category.</p>
+  <div class="proof">
+    <p>Inflations (deflations) are precisely dws monomorphisms (epimorphisms).</p>
+    <ol>
+      <li>(EX0). Trivial ses are dws.</li>
+      <li>(EX1, EX1’). Inflations and deflations are closed under compositions.</li>
+      <li>(EX2, EX2’). Split monomorphisms (epimorphisms) are closed under pushout (pullback).         <ul>
+          <li>Recall that the forgetful functor $G: 𝐌𝐨𝐝 _{(A,d)} → 𝐆𝐫𝐌𝐨𝐝 _A$ creates all limits and colimits, pullbacks and pushouts in $𝐌𝐨𝐝 _{(A,d)}$ are computated degreewise.</li>
+        </ul>
+      </li>
+    </ol>
+    <p>We show enough projective and injectives. Recall the adjoint $∞$-ple $\cdots ⊣ F ⊣ G ⊣ H ⊣ \cdots$, as a direct computation shows $F ≃ Σ H$. We claim that $\operatorname{im}F = \operatorname{im}H$ are precisely projectives and injectives.</p>
+    <ul>
+      <li>$FX$ lifts dws epimorphism $p$, since $X$ lifts split epimorphism $Gp$. By the same analysis, $HX$ lifts dws monomorphisms.</li>
+      <li>If $P$ is projective, then $FGP ↠ P$ splits. It suffices to show that $\operatorname{im} F$ is closed under summands. For $N ⊕ N' = FX$, we see $F\mathrm{coim}(N) ⊕ F\mathrm{coim}(N') = F\mathrm{coim}(FX) ≃ FX$. By functoriality of $? ↦ F\mathrm{coim}(?)$, $N ≃ F\mathrm{coim}(N)$.</li>
+      <li>There are enough projectives, which coincides injectives.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>The stable category of $(𝐌𝐨𝐝 _{(A,d)}, \text{dws})$ is trianglated.</p>
+</div>
+
+<p>$$\begin{equation}
+\boxed{\text{Two definition of homotopy category coincides!}}
+\end{equation}$$</p>
+
+<h4 id="homotopy">Homotopy</h4>
+
+<div class="definition">
+  <p>(Mapping cone). Let $f : X → Y$ be a morphism of DG modules. The mapping cone $\mathrm{Cone}(f)$ is defined as the DG module</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_d6b865ef38897.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="definition">
+  <p>Given morphisms of DG modules $f,g: M → N$. Say $s : f ∼ g$ is a homotopy, provided there is a morphism $s : M → Σ N$ in $𝐆𝐫𝐌𝐨𝐝 _A$, such that $f - g = d_N s + s d_M$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the homotopy relation $∼$ is a categorical equivalence. This gives $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+</div>
+
+<p>We say an equality holds in $K$, whenever $(𝐋𝐒𝐇 - 𝐑𝐇𝐒) ∼ 0$.</p>
+
+<div class="theorem">
+  <p>The stable category $(𝐌𝐨𝐝 _{(A,d)}, \text{dws}) / \operatorname{im} F$ is canonically isomorphic to $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+  <div class="proof">
+    <p>Let $Q_1$ and $Q_2$ be quotient functors. We show there are induced $α$ and $β$ s.t. $α ∘ Q_1 = Q_2$ and $β ∘ Q_2 = Q_1$. Therefore $α ∘ β$ and $β ∘ α$ are identical.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_f20f9d733c0f5.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </div>
+  <p>($α$). When $s : f ∼ 0$, we consider the 1:1 correspondence</p>
+  <p>$$\begin{equation}
+(s,f) ∈ \{s: f ∼ 0 : X → Y \} ≃ \mathrm{Hom}(\mathrm{Cone}(1_X), Y) ∋ (s \ f).
+\end{equation}$$</p>
+  <p>Here $(s \ f)$ is a chain map iff $(s \ f) ⋅ \binom{-d \ \ 0}{\ 1 \ \ \ d} = d ⋅ (s \ f)$, that is, $f = sd+ds$. <br /> ($β$). $\operatorname{im}F$ are null homotopic.</p>
+</div>
+
+<h4 id="triangles">Triangles</h4>
+
+<p>We unify $(𝐌𝐨𝐝 _{(A,d)}, \text{dws}) / \operatorname{im} F ≅ K(𝐌𝐨𝐝 _{(A,d)})$. Then we find distinduished triangles.</p>
+
+<div class="theorem">
+  <p>(Shift). $Σ$ is the auto-equivalence of triangulated category $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+  <div class="proof">
+    <p>Consider the dws ses $0 → X \xrightarrow {\binom 10} HGX \xrightarrow {(0 \ 1)} ΣX → 0$, where $HGX$ is injective.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(Suspension). Consider the following cone sequence</p>
+  <p>$$\begin{equation}
+X \xrightarrow f Y \xrightarrow {\binom 01} \mathrm{Cone}(f)\xrightarrow {\binom 01} \mathrm{Cone}\left(\substack {1\\0}\right).
+\end{equation}$$</p>
+  <p>Then $e_2 : Σ X → \mathrm{Cone}(\binom 01)$ is an isomorphism in $K$.</p>
+  <div class="proof">
+    <p>Note that $\mathrm{Cone}(\binom 01)$ is a chain complex</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_8e7eba1f2cb9c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Now we show the following chain maps are homotopy inverses:</p>
+    <p>$$\begin{equation}
+\left(\substack{-f\\1\\0}\right) :\quad  \mathrm{Cone}\left(\substack {1\\0}\right) ⇆  Σ X \quad : (0 \ 1 \ 0).
+\end{equation}$$</p>
+    <p>It suffices to show $1 - \left(\substack{-f\\1\\0}\right) ⋅ (0 \ 1 \ 0)$ is null-homotopic. Consider</p>
+    <p>$$\begin{equation}
+\begin{pmatrix}1&f&0\\0&0&0\\0&0&1\end{pmatrix} = \begin{pmatrix}-d&0&0\\0&-d&0\\1&f&d\end{pmatrix}\begin{pmatrix}0&0&1\\0&0&0\\0&0&0\end{pmatrix}+\begin{pmatrix}0&0&1\\0&0&0\\0&0&0\end{pmatrix}\begin{pmatrix}-d&0&0\\0&-d&0\\1&f&d\end{pmatrix}.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>$X \xrightarrow f Y \xrightarrow {\binom 01} \mathrm{Cone}(f) \xrightarrow {(1 \ 0)} Σ X$ is a distinguished triangle in $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+  <div class="proof">
+    <p>By homotopy equivalence, the following diagram commutes in $K$:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_27b72cd88c1d0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By construction, every dws ses is a distinguished triangle. Hence $(\text{c234},\text{r1})$ and $(\text{c345},\text{r1})$ are parts of some distinguished triangles. By homotopy equivalence, $(\text{c2345},\text{r2})$ is a dintinguished triangle. By suspension, $(\text{c1234}, \text{r1})$ is a distinguished triangle.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that for any morphism $f$, there is some homotopy equivalences $g_∙$ s.t. $g_1 ∘ f ∘ g_2$ is dws monic and $g_3 ∘ f ∘ g_4$ is dws epic.</p>
+</div>
+
+<h3 id="resolutions">Resolutions</h3>
+
+<p>The projectives and injectives in this section has nothing to do with the Forbenius exact category $(𝐌𝐨𝐝 _{(A,d)}, \text{dws})$.</p>
+
+<h4 id="projective-and-injective-modules">Projective and Injective Modules</h4>
+
+<p>For convention, projective chain complexes are defined as the degreewise projective ones; rather than the projective objects in $C$.</p>
+
+<div class="definition">
+  <p>(Projective/Free (DG) module). $M ∈ 𝐌𝐨𝐝 _{(A,d)}$ is projective/free, iff $GM ∈ 𝐆𝐫𝐌𝐨𝐝 _A$ is a projective/free object.</p>
+</div>
+
+<div class="theorem">
+  <p>There exist enough projective modules. Projective modules are precisely direct summands of coproducts of several $Σ^n A$ for $n ∈ ℤ$.</p>
+  <div class="proof">
+    <p>Note that the forgotful functor $𝔘  : 𝐆𝐫𝐌𝐨𝐝 _A → 𝐆𝐫𝐒𝐞𝐭𝐬$ admits a free functor sending</p>
+    <p>$$\begin{equation}
+𝔉: 𝐆𝐫𝐒𝐞𝐭𝐬 → 𝐆𝐫𝐌𝐨𝐝 _A, \quad ⨆ \limits_{n ∈ ℤ } S^n ↦ ∐\limits _{n ∈ ℤ } Σ^n ∐\limits _{S^n}A.
+\end{equation}$$</p>
+    <p>On one hand, $𝔉𝔘 X$ is projective. Recall that $𝔘$ preserves epimorphisms. Since $(𝔘 X, -)_{𝐆𝐫𝐒𝐞𝐭𝐬}$ lifts epimorphisms, and so is $(𝔘 X, 𝔘 (-))_{𝐆𝐫𝐒𝐞𝐭𝐬} ≃ (𝔉 𝔘 X, -)_{𝐆𝐫𝐌𝐨𝐝 _A}$. If $X$ is projective, then $𝔉 𝔘 X ↠ X$ is is dws epic. Hence, projective modules are summands of $\operatorname{im} 𝔉$.</p>
+  </div>
+</div>
+
+<p>The following lemma shows there are enough free modules.</p>
+
+<div class="lemma">
+  <p>$f : 𝔉 S → M$ is epic if $\widetilde f : S → 𝔘 M$ is epic.</p>
+  <div class="proof">
+    <p>If $[𝔉 S \xrightarrow f M \xrightarrow g N] = 0$, then $[S \xrightarrow {\widetilde f} 𝔘 M \xrightarrow {𝔘 g} 𝔘 N] = 0$. Since $\widetilde f$ is epic, we find $𝔘 g$ is epic. Hence, $g$ is epic.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show anagolously that projective objects in $𝐌𝐨𝐝 _{(A,d)}$ are precisely summands of $\operatorname{im} F 𝔉$.</p>
+</div>
+
+<p>We introduce injective modules by character modules.</p>
+
+<div class="definition">
+  <p>(Character module). We denote $(M, T) := \mathcal{HOM}(M,T)$ when $T = T^0$. The character module of $M ∈ 𝐌𝐨𝐝 _{(A,d)}$ is defined as follows:</p>
+  <p>$$\begin{equation}
+M^+ := (M, ℚ / ℤ )_{C(ℤ)}  ∈ 𝐌𝐨𝐝 _{(A,d)^{\mathrm{op}}}.
+\end{equation}$$</p>
+  <p>Note that $Σ (M^+) = (Σ^{-1} M)^+$.</p>
+</div>
+
+<p>We introduce some lemma before showing the structure of injective modules.</p>
+
+<div class="lemma">
+  <p>Assume $M ∈ 𝐌𝐨𝐝 _{(A,d)}$ is a free module, then $M^+ ∈ 𝐌𝐨𝐝 _{(A,d)^{\mathrm{op}}}$ is an injective module.</p>
+  <div class="proof">
+    <p>Recall that $(-^{\mathrm{op}})^+ : (𝐌𝐨𝐝 _R)^{\mathrm{op}} → 𝐌𝐨𝐝 _{R^{\mathrm{op}}}$ preserves and reflect the exactness, monomorphisms and epimorphisms. By degreewise analysis, so is $(-^{\mathrm{op}})^+ : (𝐌𝐨𝐝_{(A,d)})^{\mathrm{op}} → 𝐌𝐨𝐝 _{(A,d)^{\mathrm{op}}}$. For any monomorphism $i$, we consider</p>
+    <p>$$\begin{equation}
+\mathcal{HOM}_{A^{\mathrm{op}}}(i, M^+) ≃ \mathcal{HOM}_{A}(M, i^+).
+\end{equation}$$</p>
+    <p>It is epic, iff the underlying graded map is epic. We see</p>
+    <p>$$\begin{equation}
+\mathcal{HOM}_{𝐆𝐫𝐌𝐨𝐝 _A}(M, i^+) ≃ \mathcal{HOM}_{𝐆𝐫𝐒𝐞𝐭𝐬}(X, 𝔘 (i^+))
+\end{equation}$$</p>
+    <p>is epic, since any graded set is a projective object.</p>
+  </div>
+</div>
+
+<div class="lemma">
+  <p>The natural transformation $M → M^{++}$ is monic.</p>
+  <div class="proof">
+    <p>A degreewise analysis shows $M^k ↪ (M^k)^{++}$.</p>
+  </div>
+</div>
+
+<div class="lemma">
+  <p>There are enough injectives modules in $𝐌𝐨𝐝 _{(A,d)}$.</p>
+  <div class="proof">
+    <p>Consider $X ↪ X^{++} = (X^+)^+ \overset {\text{epi} ^+}↪ (FG (X^+))^+$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that injectives modules in $𝐌𝐨𝐝 _{(A,d)}$ are precisely direct summands of products of several $Σ ^n (_AA^+)$.</p>
+</div>
+
+<h4 id="free-modules-and-mathjax_protectedjfxtyxrocm17rxh0fv4xx3tkd30kmathjax_protected">Free Modules and $\mathrm{Ext}^1_{dw}$</h4>
+
+<p>We begin with an observation.</p>
+
+<div class="definition">
+  <p>($\mathrm{Ext}_{dw}(-,?)$). We fix $X$ and $Y$. Note that any dws ses of the form $0 → Y → E → Σ X → 0$ is isomorphic to</p>
+  <p>$$\begin{equation}
+Y \xrightarrow {\binom 01} \mathrm{Cone}(g) \xrightarrow {(1 \ 0)} Σ X,
+\end{equation}$$</p>
+  <p>which determines a morphism of the form $X → Y$ via TR1. We define</p>
+  <p>$$\begin{equation}
+\mathrm{Ext}^1_{dw} :𝐌𝐨𝐝 _{(A,d)}^{\mathrm{op}} × 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _k \quad (M,N) ↦ (M, N) _K.
+\end{equation}$$</p>
+</div>
+
+<div class="lemma">
+  <p>$\mathrm{Ext}_{dw}^1$ is a quotient of $\text{dws ses} / ∼$, where $∼$ is the relation in defining $\mathrm{Ext}^1 := \text{ses} / ∼$.</p>
+  <div class="proof">
+    <p>An isomorphism between dws ses takes the form</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_9e69a91c4de56.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>$\binom {1 \ 0}{s \ 1}$ is a chain map iff $f-g = ds+sd$. By isomorphism theorem on abelian groups.</p>
+  </div>
+</div>
+
+<p>Since split ses and dws ses are subgroups of ses, $\mathrm{Ext}_{dw}^1$ is a subfunctor of $\mathrm{Ext}^1$:</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/DGAlgCat-Intro/diagram_aa37cea7f054e.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>We show that $\mathrm{Ext}^1_{dw}(M, -) = \mathrm{Ext}^1(M, -)$ for $GM ∈ \operatorname{im} 𝔉$.</p>
+
+<div class="theorem">
+  <p>$\mathrm{Ext}^1_{dw} (M, -) = \mathrm{Ext}^1 (M, -)$, where the underlying graded module $GM$ is free.</p>
+  <div class="proof">
+    <p>Note that $FUM$ is a projective object in $𝐌𝐨𝐝 _{(A,d)}$, we find dws ses</p>
+    <p>$$\begin{equation}
+θ _M := 0 → Σ^{-1} M \xrightarrow {\binom 01} FGM \xrightarrow {(1 \ 0)} M → 0.
+\end{equation}$$</p>
+    <p>The morphism $(Σ^{-1} M, -) → \mathrm{Ext}^1(M, -),\quad f ↦ f_∗ θ _M$ is surjective, as $FGM$ lifts epimorphisms. The kernel consists of morphisms passing through projective objects. Hence $\mathrm{Ext}(M, -) ≃ (Σ ^{-1} M, -)_K$. Therefore,</p>
+    <p>$$\begin{equation}
+\mathrm{Ext}^1_{dw}(M,-) = (Σ ^{-1} M, -)_K ≃ \mathrm{Ext}^1(M, -).
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Let $M = ∐ _{n ∈ ℤ } Σ ^n A^{(I_d)}$ be a free module. Then</p>
+  <p>$$\begin{equation}
+∏ \limits _{n ∈ ℤ } (H^{1-n}(-))^{I_d} ≃ \mathrm{Ext}^1(M, -) ≃ \mathcal{HOM}(Σ^{-1} M, H^0(-)).
+\end{equation}$$</p>
+  <p>Here $\mathcal{HOM}(Σ^{-1} M, H^0(-))$ is a $∏$-graded module.</p>
+  <div class="proof">
+    <p>A calculation shows that</p>
+    <p>$$\begin{aligned}
+\mathrm{Ext}^1(M, -) & = \mathrm{Ext}_{dw} ^1 (M, -) = H^0\mathcal{HOM}(Σ^{-1} M, -) \\
+& = H^0\mathcal{HOM}(∐ _{n ∈ ℤ } Σ ^{n-1} A^{(I_d)}, -) \\
+& = ∏ _{n ∈ ℤ } Σ ^{1-n} (H^0\mathcal{HOM}(A, -))^{I_d} \\
+& = ∏ _{n ∈ ℤ } (H^{1-n} (-))^{I_d} \\
+\end{aligned}$$</p>
+    <p>We explain the second equality with $M = A$.</p>
+    <p>$$\begin{equation}
+\mathrm{Ext}^1(A,-) = H^0\mathcal{HOM}(Σ^{-1} A,-) ≃ Σ H^0(-) ≃ \mathcal{HOM}(Σ^{-1} A, H^0(-)).
+\end{equation}$$</p>
+    <p>Note that the $A$-module structure of $H^0(M)$ is given by $$\begin{equation}
+H^0(M) A^0 = \frac{Z^0(M) A^0}{B^0(M)A^0} ⊆ H^0(M);\quad H^0(M)A^{≠ 0} = 0.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>Hence, for projective module $P$,</p>
+
+<p>$$\begin{equation}
+\mathrm{Ext}^1 (P, -) = \mathrm{Ext}^1_{dw} (P, -) = \mathcal{HOM}(P, H^0(-)).
+\end{equation}$$</p>
+
+<h4 id="projective-resolutions">Projective Resolutions</h4>
+
+<p>A projective replacement is an quasi-isomorphism $ρM → M$ which plays a crucial role in DG-algebra. One important property is that any epimorphism $X ↠ ρ M$ is dws.</p>
+
+<div class="definition">
+  <p>(Projective filtration). Say $X$ admits a projective filtration, when there exists a countable chain</p>
+  <p>$$\begin{equation}
+0 = P_0 ↪ P_1 ↪ P_2 ↪ \cdots P_n ↪ \cdots; \quad ⋃ _{n ∈ ℕ } P_n = X,
+\end{equation}$$</p>
+  <p>wherein $P_n$ are summands of $∐ _{k ∈ I_0} Σ ^k (∐ A^{Λ _k})$ ($|I_0| < ∞$), and $\frac{P_{n+1}}{P_n}$ are projective modules for all $n ∈ ℕ$. Corollary, all $↪$ are dws monic.</p>
+</div>
+
+<div class="problem">
+  <p>Show the dws ses below:</p>
+  <p>$$\begin{equation}
+0 → ∐ \limits_{n ∈ ℕ } P_n \xrightarrow{1 - (\overset{\text{dws}}↪)} ∐ \limits_{n ∈ ℕ } P_n → X → 0.
+\end{equation}$$</p>
+  <p>Hint: $X$ is a projective module by degreewise verification.</p>
+</div>
+
+<div class="example">
+  <p>Not all projective modules admit a projective filtration. For example, we take $k = ℤ$ and $A = [0 → ℤ / 4ℤ → 0]$. The acyclic projective complex $\cdots \xrightarrow {× 2} ℤ / 4ℤ \xrightarrow {× 2} ℤ / 4ℤ \xrightarrow {× 2}\cdots$ has no projective filtration.</p>
+</div>
+
+<div class="problem">
+  <p>It is some how convenient to introduce the free resolution, i.e., $\frac{P_{k+1}}{P_{k}}$ is free in $𝐆𝐫𝐌𝐨𝐝 _A$. Show that a projective resolution is precisely a summand of a free resolution. Hint: show that $⋃ (-)$ is an additive functor sending the category of countable filtration to the limit.</p>
+</div>
+
+<div class="definition">
+  <p>(Localising). Let $\mathcal{X}$ be a subclass of a triangluated category with arbitrary coproducts. Let $\mathrm{Loc}(\mathcal{X})$ denote the least triangulated subcategory consisting of $\mathcal{X}$ and closed under arbitrary coproducts.</p>
+</div>
+
+<p>Since the category has countable coproduct, $\mathrm{Loc}(\mathcal{X})$ is closed under summands.</p>
+
+<div class="theorem">
+  <p>Let $\mathcal{P}$ denote the class of objects admits a projective filtration. Then $\mathcal{P} = \mathrm{Loc}(\mathcal{P}) = \mathrm{Loc}(\{A\})$.</p>
+  <div class="proof">
+    <p>Clearly $\mathcal{P} ⊆ \mathrm{Loc}(\{A\})$. We show $\mathcal{P} = \mathrm{Loc}(\mathcal{P})$. Note that the coproduct and (de)suspension of a projective filtration is also a well-defined projective filtration. By Cantor’s diagonal argument, $\mathrm{Loc}(\mathcal{P})$ is closed under countable filtrations. <br /> We show that $\mathrm{Loc}(\mathcal{P})$ is closed under cones. For any $X = ⋃ P_∙$, $Y = ⋃ Q_∙$ and a morphism $f : X → Y$, $⋃ \mathrm{Cone}(f_∙)$ is a filtration of $\mathrm{Cone}(f)$, wherein $f_k : P_k ↪ X \xrightarrow f Y$. It remains to show that each $\mathrm{Cone}(f_k)$ is a filtration. WLOG, we assume $P_k = ∐_{i ∈ I} A$. The underlying morphism of $f_k : A^{(I)} → Y$ in $𝐆𝐫𝐌𝐨𝐝 _A$ identifies a map between graded set $\widetilde {f_k} : ∐ S → 𝔘Y$. Hence, $\mathrm{Cone}(f_k)$ has a projective filtration with underlying graded set</p>
+    <p>$$\begin{equation}
+A^{(I_0)} ⊕ Q_0 ⊆ A^{(I_1)} ⊕ Q_1 ⊆ \cdots ⊆ A^{(I_n)} ⊕ Q_n ⊆ \cdots;\quad I_k = \widetilde {f_k}^{-1}(𝔘 Q_k).
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>The following theorem is based on Brown’s representability, which shows that projective resolutions exist.</p>
+
+<div class="theorem">
+  <p>$A$ is a perfect generator of $\mathrm{Loc}(\mathcal{P})$. Moreover, for any DG module $M$, there exists a quasi-isomorphism $P → M$ ($P ∈ \mathcal{P}$) such that for any $Q ∈ \mathcal{P}$, any morphism $Q → M$ factors through $P → M$.</p>
+  <div class="proof">
+    <p>Clearly $\mathrm{Loc}(A) = \mathrm{Loc}(\mathcal{P})$. We show that for any collection of morphisms $f_i : X_i → Y_i$ such that $(A, f_i)_K$ is epic, $(A, ∐ f_i)_K$ is also epic. Note that</p>
+    <p>$$\begin{equation}
+(A, ∐ f_i)_K ≃ \mathcal{HOM}(A, H^0 (∐ f_i)) ≃ \mathcal{HOM}(A, ∐ H^0 (f_i)).
+\end{equation}$$</p>
+    <p>Taking underlying set of graded modules, we see $\mathcal{HOM}(A, -)$ preserves and reflects epimorphisms. Hence $(A, ∐ f_i)_K$ is epic iff $∐ H^0 (f_i)$ is epic, iff each $H^0(f_i)$ is epic, iff each $(A, f_i)_K$ is epic, thus iff $∐ (A, f_i)_K$ is epic. This shows that $A$ is a perfect generator of $\mathrm{Loc}(\mathcal{P})$. <br /> By Brown’s representability, the functor</p>
+    <p>$$\begin{equation}
+(-, M)_K: \mathrm{Loc}(\mathcal{P}) → 𝐌𝐨𝐝 _k,\quad P ↦ (P, M)_K
+\end{equation}$$</p>
+    <p>is cohomological and sends coproducts to products. By Brown’s representability, the functor is representable by some $(-, ρ M)_{\mathrm{Loc}(\mathcal{P})}$. Let $c : ρM → M$ be the morphism $$\begin{equation}
+c ∈ (ρ M, M)_K ≃ (ρ M, ρ M)_{\mathrm{Loc}(\mathcal{P})} ∋ 1_{ρ M}.
+\end{equation}$$ This indicates that any $P → M$ factors through $c : ρ M → M$. By functoriality, $H^∙ (c)$ is an isomorphism.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(DG-projective). Say $M$ is DG-projective, provided the following equivalent definitions:</p>
+  <ol>
+    <li>$M$ has a projective filtration;</li>
+    <li>$\mathrm{Ext}^1_{𝐌𝐨𝐝 _{(A,d)}} (M , -)$ vanishes over acyclic DG modules;</li>
+    <li>$(M, -)$ lifts epic quasi-isomorphisms;</li>
+    <li>$M$ is projective satisfying one of the following conditions:       <ol>
+        <li>$H^k \mathcal{HOM}(M, -) : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _k$ sends acyclic complexes to $0$ for all/some $k$;</li>
+        <li>$\mathcal{HOM}(M, -) : 𝐌𝐨𝐝 _{(A,d)} → C(k)$ preserves acyclic complexes;</li>
+        <li>$\mathcal{HOM}(M, -) : 𝐌𝐨𝐝 _{(A,d)} → C(k)$ preserves quasi-isomorphisms;</li>
+        <li>$H^k \mathcal{HOM}(M, -) : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _k$ sends quasi-isomorphisms to isomorphisms for all/some $k$.</li>
+      </ol>
+    </li>
+  </ol>
+  <p>Here the equivalency of all/some are shown by $Σ$.</p>
+  <div class="proof">
+    <p>(1 → 2). Suppose there exists a free filtration $M = ⋃ F_∙ = \varinjlim ^{fil} F_∙$. A compotation of Grothendieck’s spectal sequence shows ($∀ p ≥ 0$):</p>
+    <p>$$\begin{equation}
+0 → \varprojlim{}^1 \mathrm{Ext}^{p} (F_∙ , -) → \mathrm{Ext}^{p+1} (\varinjlim F_∙, -) → \varprojlim\mathrm{Ext}^{p+1} (F_∙, -) → 0.
+\end{equation}$$</p>
+    <p>For $p = 0$, we show $(F_∙ , -)$ is Mittag-Leffler. It suffices to show in $𝐆𝐫𝐌𝐨𝐝 _A$, as the $G$ preserves image. WLOG we assume $G(F_∙) = 𝔉S_∙$, where $S_0 = ∅$ and $S_k ⊆ S_{k+1}$. By adjunction and $𝐏𝐫𝐨𝐣 (𝐆𝐫𝐒𝐞𝐭𝐬 ) = 𝐆𝐫𝐒𝐞𝐭𝐬$, $\{(𝔉S_k, -)\} ≃ \{(S_k, 𝔘 (-))\}$ is an epic tower. We claim $\mathrm{Ext}^{1} (F_∙, -)$ vanished on acyclic complexes, since</p>
+    <p>$$\begin{equation}
+\mathrm{Ext}^{1} (F_∙ , -) = \mathrm{Ext}^1_{dw}(F_∙ , -) ≃ (F_∙ , H^0(-))_K.
+\end{equation}$$</p>
+    <p>Therefore, $\mathrm{Ext}^{1} (\varinjlim F_∙, -)$ vanishes. <br /> (2 ↔ 3). Note that $\mathrm{Ext}^1(A,B) = 0$ iff any ses $0 → B → ? → A → 0$ splits. <br /> (2 → 4(1)). By $\mathrm{Ext}^1(M, -) = H^0\mathcal{HOM}(M, -)$. <br /> (4(1) → 4(2)). Clear. <br /> (4(2) → 4(3)). Note that $\mathcal{HOM}(M,-)$ is homological and preserves cones.<br /> (4(3) → 4(4)). Clear. <br /> (4(4) → 1). Brown’s representability shows the existence of quasi-isomorphism $ρ M → M$, where $ρ M$ has a projective filtration. We take $k = 0$ and see that $(M, ρ M)_K \overset {c_∗ }≃ (M, M)_K$. Hence $M$ is homotopy equivalent to a summand of $ρ M$. Since $M$ is a projective module, there exists some projective objects $P$ and $Q$ s.t. $M ⊕ P ≃ (\text{summand of } \ ρ M) ⊕ Q$. Clearly $M$ has a projective filtration.</p>
+  </div>
+</div>
+
+<h4 id="injective-resolutions">Injective Resolutions</h4>
+
+<p>We introduce injective resolution $M ↪ ι M$.</p>
+
+<div class="definition">
+  <p>(Injective Tower). Say $M$ admits an injective tower, when there exists a countable tower</p>
+  <p>$$\begin{equation}
+\cdots ↠ I^n ↠ \cdots ↠ I^1 ↠ I^0 = 0; \quad \varprojlim I^∙ = M,
+\end{equation}$$</p>
+  <p>such that $\ker (I^{n+1} ↠ I^n)$ are summands of $∏ _{k ∈ I_0}Σ ^k (∏ ({}_AA)^+)$ ($|I_0| < ∞$).</p>
+</div>
+
+<div class="problem">
+  <p>Show that $I^{n+1} ↠ I^n$ is dws epic.</p>
+</div>
+
+<div class="problem">
+  <p>Show the dws ses below:</p>
+  <p>$$\begin{equation}
+0 → M → ∏ \limits_{n ∈ ℕ } I^n \xrightarrow{1 - (\overset{\text{dws}}↠)} ∏ \limits_{n ∈ ℕ } I^n → 0.
+\end{equation}$$</p>
+  <p>Note that the ses for countable chain does note rely on the morphisms; here $1 - (\overset{\text{dws}}↠)$ is epic iff the system is Mittag-Leffler.</p>
+</div>
+
+<div class="problem">
+  <p>Show that not all injective modules admit an injective tower. Hint: Dold’s example.</p>
+</div>
+
+<div class="definition">
+  <p>(Free-injective tower). Anaglous to the definition of free filtration, say $M$ admits a free-injective when there exists a countable tower with kernels of the form $∏ _{k ∈ I_0}Σ ^k (∏ ({}_AA)^+)$ ($|I_0| < ∞$).</p>
+</div>
+
+<div class="problem">
+  <p>Show that a DG module admits an injective resolution is precisely a summand of what admits a free-injective tower.</p>
+</div>
+
+<div class="lemma">
+  <p>(Character Module). If $M ∈ 𝐌𝐨𝐝 _{(A,d)^{\mathrm{op}}}$ is DG-projective, then $M^+ ∈ 𝐌𝐨𝐝 _{(A,d)}$ is DG-injective.</p>
+  <div class="proof">
+    <p>Note that $(-)^+$ takes free filtration to free-injective tower, thus it takes free $(A,d)^{\mathrm{op}}$-modules to free-injective $(A,d)$ ones.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show anagolously that for injective module $I$, $\mathrm{Ext}^1_{dw}(-, I) ≃ \mathrm{Ext}^1(-, I)$. Hint: this is a propery of Frobenius exact category, which has nothing to do with $(-)^+$.</p>
+</div>
+
+<div class="lemma">
+  <p>For injective module $I$, $\mathrm{Ext}^1(-, I) ≃ \mathcal{HOM}(H^0(-), Σ I)$</p>
+  <div class="proof">
+    <p>We show for $I = Σ ^{-1} ∏ A^+$. Note that</p>
+    <p>$$\begin{aligned}
+\mathrm{Ext}^1(-, Σ ^{-1} ∏ (A^+)) & = H^0\mathcal{HOM}(- , ∏ (A^+)) ≃ ∏ H^0\mathcal{HOM}(-, A^+)\\
+& ≃ ∏ H^0\mathcal{HOM}(-, ℚ / ℤ ) ≃ ∏ \mathcal{HOM}(H^0 (-), ℚ / ℤ )\\
+& ≃ ∏ \mathcal{HOM}(H^0 (-), A^+) ≃ \mathcal{HOM}(H^0 (-), Σ I) .
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<p>We show Brown’s representability.</p>
+
+<div class="theorem">
+  <p>Let $\mathcal{I}$ denote the modules admits an injective tower, then $\mathrm{Loc}(A^+) = \mathrm{Loc}(\mathcal{I}) = \mathcal{I}$ as full subcategory of $K(𝐌𝐨𝐝 _{(A,d)})^{\mathrm{op}}$.</p>
+  <div class="proof">
+    <p>It suffices to show that $\mathcal I ⊆ K(𝐌𝐨𝐝 _{(A,d)})^{\mathrm{op}}$ is closed under (de)suspension, cones, and products. The proof is the same as the projective case except the final step. To show that $\mathrm{Cone}(Y \overset φ → ∏ A^+)$ admits a tower, we consider</p>
+    <p>$$\begin{equation}
+(Y,∏ A^+)_{(A,d)} ≃ (∐ A, Y^+)_{(A,d)^{\mathrm{op}}} \xrightarrow {\text{G}} (∐ A, Y^+)_{𝐆𝐫𝐌𝐨𝐝 _A} ≃ (S, 𝔘 (Y^+))_{𝐆𝐫𝐒𝐞𝐭𝐬 _A}.
+\end{equation}$$</p>
+    <p>We take $\widetilde φ ∈ (S, 𝔘 (Y^+))_{𝐆𝐫𝐒𝐞𝐭𝐬 _A}$ as the image of $φ : Y → ∏ A^+$. The tower of $Y = \varprojlim J_∙$ induces a filtration $Y^+ = ⋃ J_∙ ^+$. We take $∏ \limits _{(\widetilde φ)^{-1}(𝔘(J_k))}A^+ ↪ ∏ A^+$ as the $k$-th entry in the tower of $∏ A^+$. This establishes a filtration of $\mathrm{Cone}(φ )$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$A^+$ is a perfect generator of the opposite triangulated category. Moreover, for any DG module $M$, there exists a quasi-isomorphism $M ↪ ι M$ ($ι M ∈ \mathcal{I}$) such that for any $J ∈ \mathcal{I}$, any morphism $M → J$ factors through $M ↪ ι M$.</p>
+  <div class="proof">
+    <p>We show that $\mathrm{Loc}(A^+) = \mathrm{Loc}(\mathcal{I})$. Note that the dual category opposite the monomorphisms and epimorphisms. It remains to show that for any collection of monomorphisms $f_i : X_i ↪ Y_i$ such that $(f_i, A^+)_{K(A,d)} ≃ (A, f_i ^+)_{K((A,d)^{\mathrm{op}})}$ is epic, $(∏ f_i, A^+)_{K(A,d)} ≃ (A, (∏ f_i) ^+)_{K((A,d)^{\mathrm{op}})}$ is also epic. A calculation shows that</p>
+    <p>$$\begin{aligned}
+↔\ \ & (A, (∏ f_i) ^+)_{K((A,d)^{\mathrm{op}})}  &&\text{is epic} \\
+↔\ \  & H^0 ((∏ f_i) ^+)  &&\text{is epic} \\
+↔\ \  & ((∏ H^0 (f_i)) ^+)  &&\text{is epic} \\
+↔\ \  & H^0 (f_i) &&\text{is monic for all} \ i \\
+↔\ \  & (A, (f_i)^+)_{K((A,d)^{\mathrm{op}})} &&\text{is epic for all} \ i.
+\end{aligned}$$</p>
+    <p>Since $(-, M)_{K^{\mathrm{op}}}$ is cohomological and sends coproducts to products, by Brown’s representability, the functor is representable by some $(-, ι M)_{\mathrm{Loc}(\mathcal{I})}$. Let $d : M → ι M$ be the morphism, then any $M → J$ factors through $d : M → ι M$. By functoriality, $H^∙ (d)$ is an isomorphism.</p>
+  </div>
+</div>
+
+<p>We finally show equivalent definitions of DG-injective modules.</p>
+
+<div class="theorem">
+  <p>(DG-projective). Say $M$ is DG-projective, provided the following equivalent definitions:</p>
+  <ol>
+    <li>$M$ has a injective tower;</li>
+    <li>$\mathrm{Ext}^1_{𝐌𝐨𝐝 _{(A,d)}} (-, M)$ vanishes over acyclic DG modules;</li>
+    <li>$(-, M)$ lifts monic quasi-isomorphisms;</li>
+    <li>$M$ is injective satisfying one of the following conditions:       <ol>
+        <li>$H^k \mathcal{HOM}(-, M) : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _k$ sends acyclic complexes to $0$ for all/some $k$;</li>
+        <li>$\mathcal{HOM}(-, M) : 𝐌𝐨𝐝 _{(A,d)} → C(k)$ preserves acyclic complexes;</li>
+        <li>$\mathcal{HOM}(-, M) : 𝐌𝐨𝐝 _{(A,d)} → C(k)$ preserves quasi-isomorphisms;</li>
+        <li>$H^k \mathcal{HOM}(-, M) : 𝐌𝐨𝐝 _{(A,d)} → 𝐌𝐨𝐝 _k$ sends quasi-isomorphisms to isomorphisms for all/some $k$.</li>
+      </ol>
+    </li>
+  </ol>
+  <p>Here the equivalency of all/some are shown by $Σ$.</p>
+  <div class="proof">
+    <p>We show (1 → 2) only. The rests are the same as the DG-projective case. We take $Y = \varprojlim ∏ A_∙ ^+$ as the limit of free-injective tower. A computation of Grothendieck’s spectral sequence shows</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_e9acc95ff694d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Clearly $\varprojlim \mathrm{Ext}^1(X, \prod A_\bullet ^+) = 0$. It suffices to show that $(X,\prod A_\bullet ^+)$ is Mittag-Leffler. Note that</p>
+    <p>$$\begin{equation}
+(X,∏ A_∙ ^+) ≃ ((∐ A)_∙ , X^+) \xrightarrow G (𝔉 S_∙ , (X^+))_{𝐆𝐫𝐌𝐨𝐝 _A} ≃ (S_∙ , 𝔘 (X^+))_{𝐆𝐫𝐒𝐞𝐭𝐬 _A}.
+\end{equation}$$</p>
+    <p>This is clearly an epic tower.</p>
+  </div>
+</div>
+
+<h4 id="flat-modules">Flat Modules</h4>
+
+<p>We state the definition of injective, projective and flat modules in a uniform way.</p>
+
+<div class="definition">
+  <p>Say a DG module $M$ is</p>
+  <ol>
+    <li>DG-injective, provided $((-)^{\mathrm{op}}, M)$ preserves epic quasi-isomorphisms;</li>
+    <li>DG-projective, provided $(M, -)$ preserves epic quasi-isomorphisms;</li>
+    <li>DG-flat, provided $M ⊗ -$ preserves monic quasi-isomorphisms.</li>
+  </ol>
+</div>
+
+<div class="problem">
+  <p>Show the following basic properties:</p>
+  <ol>
+    <li>DG-injective/DG-projective/DG-flat modules are closed under extensions, summands, and (de)suspensions.</li>
+    <li>DG-projective/DG-flat modules are closed under $∐$ and $⊗$.</li>
+    <li>DG-flat modules are closed under filtered colimits.</li>
+    <li>DG-injective modules are closed under products.</li>
+    <li>$M$ is DG-flat iff $M^+$ is DG-injective.</li>
+  </ol>
+</div>
+
+<p>We seldomly use the definition of flat resolutions, due to the following considerations.</p>
+
+<div class="theorem">
+  <p>A quasi-isomorphism between DG-projective/DG-injective modules is homotopy equivalence; a quasi-isomorphism between DG-flat modules might not be a homotopy equivalence.</p>
+  <div class="proof">
+    <p>We show DG-projective case. Let $φ : P → Q$ be a quasi-isomorphism between DG-projective modules. Since $(Q, -)_K$ preserves quasi-isomorphisms, we find a right inverse of $φ$ in the homotopy category. The left inverse of $φ$ exists by applying $(-, P)_K$. Hence $φ$ is a homotopy equivalence. The injective case is similar. A non-example of flat case is</p>
+    <p>$$\begin{equation}
+[\cdots → 0 → ℤ → ℚ → 0 \cdots \cdots] ↠ [\cdots → 0 → 0 → ℚ / ℤ → 0 → \cdots ].
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>When $φ$ is a quasi-isomorphism between flat modules, then $φ ^+$ is a homotopy equivalence.</p>
+
+<h3 id="derived-categories">Derived Categories</h3>
+
+<h4 id="verdier-quotient">Verdier Quotient</h4>
+
+<p>We follow Verdier’s localisation of triangulated categories. Let $S$ denote the class of quasi-isomorphisms in $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+
+<div class="theorem">
+  <p>$S$ is a saturated multiplicative system. $S^{-1} K(𝐌𝐨𝐝 _{(A,d)})$ is the Verdier quotient $K(𝐌𝐨𝐝 _{(A,d)}) / K_{ac}$, where $K_{ac}$ the thick subcategory consists of acyclic complexes.</p>
+  <div class="proof">
+    <p>We show FR’s and only, the verification of LFR’s are dual. Note that for any distinguished triangle $⋅ \xrightarrow f ⋅ → K$, $f$ is quasi-isomorphism iff $K$ is acyclic. <br /> (FR1). $1_X ∈ S$ and $S ∘ S = S$. <br /> (FR2). Given the quasi-isomorphism $s : X ⇒ Y$ and a morphism $Z → Y$, we construct distinguished triangle $W ⇒ Z → \mathrm{Cone}(s)$. By TR1, there is an induced $W → X$ making the square $\binom {W \ Z}{X \ Y}$ commutative. <br /> (FR3). When $0 = f ∘ s$ for some $s ∈ S$, then $f$ factors through $\mathrm{Cone}(s)$ which is acyclic. Assume $f : X → Y$, then there is a dintinguished triangle $\mathrm{Cone}(s) \overset i → Y \overset t⇒ Z$. Since $f ∈ \operatorname{im}(i ∘ -)$, we see $t ∘ f = 0$. <br /> (FR4). $Σ^± S = S$. <br /> (FR5). For morphisms $(α , β , γ ) : \triangle → \triangle '$ where $α, β ∈ S$, we see $γ ∈ S$ by homological long exact sequence. <br /> (Saturated). If $fg, gh ∈ S$, then $H^∙ (g)$ has left and right inverses. Hence $g ∈ S$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>(Set-theoretic refinement). One important consideration is that the Hom set for $S^{-1} K(𝐌𝐨𝐝 _{(A,d)})$ might be a proper class. We denote $𝐌𝐨𝐝 _{(A,d)}^κ$ as the full-subcategory of DG-modules with cardinal $≤ κ$. For $κ < κ '$, there is an embedding of full subcategory</p>
+  <p>$$\begin{equation}
+Ι : (S^κ)^{-1} K (𝐌𝐨𝐝 _{(A,d)}^κ) ↪ (S^{κ '})^{-1} K (𝐌𝐨𝐝 _{(A,d)}^{κ '}).
+\end{equation}$$</p>
+</div>
+
+<div class="theorem">
+  <p>Let $κ_1 < κ_2 < \cdots$ be an arbitrary large chain of cardinals s.t. each $K(𝐌𝐨𝐝 _{(A,d)}^κ)$ is closed under taking DG-resolutions (e.g. let $κ$ be strongly inaccessible). For $κ < κ '$, there is an embedding of full subcategory</p>
+  <p>$$\begin{equation}
+Ι : (S^κ)^{-1} K (𝐌𝐨𝐝 _{(A,d)}^κ) ↪ (S^{κ '})^{-1} K (𝐌𝐨𝐝 _{(A,d)}^{κ '}).
+\end{equation}$$</p>
+  <div class="proof">
+    <p>The induced morphism $Ι$ is well-defined, since</p>
+    <p>$$\begin{equation}
+K (𝐌𝐨𝐝 _{(A,d)}^κ) ↪ K (𝐌𝐨𝐝 _{(A,d)}^{κ '}) → (S^{κ '})^{-1} K (𝐌𝐨𝐝 _{(A,d)}^{κ '}),\quad (S^{κ})^{-1} → \mathrm{Iso}.
+\end{equation}$$</p>
+    <p>We assume $|(-)| ≤ κ$ and $|(-)'| ≤ κ '$. To see $Ι$ is full, we see any $X ⇐ W' → Y$ takes the form $X ⇐ ρ X → Y$. To see $Ι$ is faithful, we assume $X ⇐ M → Y$ is zero in $(S^{κ '})^{-1} K (𝐌𝐨𝐝 _{(A,d)}^{κ '})$. Then there exists a zero composition $W' ⇒ M → Y$. The induced composition $ρ W' → ρ M → ρ Y$ is zero in $K(𝐌𝐨𝐝 _{(A,d)})$. Since $ρ W' → ρ M$ is a homotopy equivalence, we see $ρ M → ρ Y$ is null-homotopic. Hence $M → Y$ is zero.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Fill the gap in the above proof by showing that $(S^κ)^{-1} K (𝐌𝐨𝐝 _{(A,d)}^κ)$ is a fractional localisation.</p>
+</div>
+
+<div class="definition">
+  <p>(Derived category). The derived category is defined as</p>
+  <p>$$\begin{equation}
+D (𝐌𝐨𝐝 _{(A,d)}) := S^{-1} K(𝐌𝐨𝐝 _{(A,d)}) = ⋃ \limits_{κ ∈ \{κ _1, \ldots \}} (S^κ)^{-1} K (𝐌𝐨𝐝 _{(A,d)}^κ).
+\end{equation}$$</p>
+  <p>This is a <em>filtered</em> colimit indexed by a proper class.</p>
+</div>
+
+<p>We discuss the Hom set in the derived category.</p>
+
+<div class="theorem">
+  <p>By Brown’s representablity, $c : ρ M → M$ and $ι : M → ι M$ are functorial construction of projective and injective resolutions, respectively. For any $M, N ∈ D(𝐌𝐨𝐝 _{(A,d)})$, we have</p>
+  <p>$$\begin{equation}
+(M, ι N)_K ≃ (M, N)_D ≃ (ρ M, N)_K.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>We show the first isomorphism. Clearly $d_∗ : (M, N)_D ≃ (M, ι N)_D$. Note that for any quasi-isomorphism $s : M ⇒ ι N$, $(s, ι N)_K$ is an isomorphism. Hence $s$ is a homotopy equivalence. This shows that $(M, ι N)_K ≃ (M, ι N)_D$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that if $K(𝐌𝐨𝐝 _{(A,d)})$ has some certain kinds of limits and colimits, then localisation preserves such limits and colimits. Hint: use adjunction.</p>
+  <ul>
+    <li>Corollary: the homotopy (co)limits of the derived category $D(𝐌𝐨𝐝 _{(A,d)})$ is computated in $K(𝐌𝐨𝐝 _{(A,d)})$.</li>
+  </ul>
+</div>
+
+<h4 id="derived-tensor">Derived Tensor</h4>
+
+<p>Recall that a quasi-isomorphism between DG-flat modules may not be a homotopy equivalence. We define the derived tensor product via projective resolutions (rather than flat resolutions).</p>
+
+<div class="definition">
+  <p>(Derived tensor product). For $M ∈ D(𝐌𝐨𝐝 _{(A,d)})$ and $N ∈ D(𝐌𝐨𝐝 _{(A,d)^{\mathrm{op}}})$, we define</p>
+  <p>$$\begin{equation}
+M ⊗^𝐋 N := ρ M ⊗ ρ N.
+\end{equation}$$</p>
+</div>
+
+<p>Note that $c : ρ (ρ M ⊗ ρ N) ≃ ρ M ⊗ ρ N$ are DG-projective modules in $D(k)$.</p>
+
+<div class="definition">
+  <p>(Derived Hom). For $M,N ∈ D(𝐌𝐨𝐝 _{(A,d)})$, we define</p>
+  <p>$$\begin{equation}
+𝐑\mathcal{HOM} (M, N) := \mathcal{HOM} (ρ M, N).
+\end{equation}$$</p>
+</div>
+
+<p>Note that $H^0 𝐑\mathcal{HOM}(-, ?) = \mathrm{Hom}_D(-, ?)$.</p>
+
+<div class="theorem">
+  <p>There is an canonical isomorphism</p>
+  <p>$$\begin{aligned}
+& 𝐑\mathcal{HOM}_k (M ⊗_A ^𝐋 N, K)\\
+≃ \ & \mathcal{HOM}_k(ρ (ρ M ⊗_Aρ N), K)\\
+≃ \ & \mathcal{HOM}_k(ρ M ⊗_Aρ N, K)\\
+≃ \ & \mathcal{HOM}_A(ρ M , \mathcal{HOM}_k(ρ N, K))\\
+≃ \ & 𝐑 \mathcal{HOM}_A(M , 𝐑 \mathcal{HOM}_k(N, K)).
+\end{aligned}$$</p>
+  <p>Taking $H^0$, we show $(- ⊗_A ^𝐋 N) ⊣ 𝐑 \mathcal{HOM}_k(N, -)$.</p>
+</div>
+
+<h4 id="derived-category-and-its-closed-monoidal-structure">Derived Category and Its Closed Monoidal Structure</h4>
+
+<p>This is an <em>easy</em> approach to derived category, as X.W. Chen <a href="https://arxiv.org/pdf/1908.04599">mentioned</a> that</p>
+
+<p>$$\begin{equation}
+\boxed{\text{resolutions make life easier, but not really easier}}
+\end{equation}$$</p>
+
+<p>Let $A$ be a commutative DG algebra, so that $𝐌𝐨𝐝 _{(A,d)}$ is closed monoidal by previous discussion.</p>
+
+<div class="theorem">
+  <p>$𝐑 \mathcal{HOM}(M, -)$ is a well-defined triangle functor.</p>
+  <div class="proof">
+    <p>The assignment $C(A) → C(A) → D(A)$, $X ↦ \mathcal{HOM}(ρM, X)$ is uniquely defined. <br /> To see this passing through the localisation $C(A) → D(A)$, any quasi-isomorphism $f$ yields $\mathcal{HOM}(ρM, f)$, which is again a quasi-isomorphism as $ρ M$ is DG-projective. <br /> $\mathcal{HOM}(ρ M, -)$ is a triangle functor, since it preserves $\mathrm{Cone}$.</p>
+  </div>
+</div>
+
+<p>We also define $𝐑 \mathcal{HOM}$ from injective resolution. The isomorphism
+$$\begin{equation}
+𝐑 \mathcal{HOM}(X, ?)(Y) ≃ 𝐑 \mathcal{HOM}(-, Y)(X)
+\end{equation}$$
+comes from the functorial quasi-isomorphisms in $C(A)$:</p>
+
+<p>$$\begin{equation}
+\mathcal {HOM}(ρ  M, N) → \mathcal {HOM}(ρ  M, ι  N) ← \mathcal{HOM}(M,ι  N).
+\end{equation}$$</p>
+
+<div class="problem">
+  <p>Show the balance of derived tensor product</p>
+  <p>$$\begin{equation}
+(- ⊗ ^𝐋 Y)(X) = X ⊗ ρ Y \xrightarrow[∼ ]{⋆} ρ X ⊗ Y \xrightarrow[∼ ]{⋆^{-1}} (X ⊗ ^𝐋 ?)(Y)
+\end{equation}$$</p>
+  <p>By Yoneda lemma, $(X ⊗ \mathrm{Cone}(f), -) ≃ (\mathrm{Cone}(X ⊗ f), -)$.</p>
+  <ul>
+    <li>Explain flat-resolution fails in $⋆$, while the projective resolution works well.</li>
+  </ul>
+</div>
+
+<p>One can also conclude some natural isomorphisms, inhererited from the closed monoidal structures of $C(A)$.</p>
+
+<div class="example">
+  <p>(Attempt). Once you attempt to show the monoidal structure of $D(A)$, you fails to show the identity $ρ (X ⊗ ^L Y) = ρ X ⊗ ρ Y$. This makes $(D(A), ⊗ ^L, A)$ a <em>lax</em> monoidal category.</p>
+  <ul>
+    <li>Thanks to MacLane, there is a way (possibly by a complicated conjugation) to reform the <em>strict</em> structure from the <em>lax</em> one.</li>
+  </ul>
+  <p>We seek for a direct ways to obtain the strict monoidal structure of $D(A)$. Consider the quasi-isomorphisms:</p>
+  <p>$$\begin{equation}
+ρ (X ⊗ ^𝐋 Y) = ρ (X ⊗ ρ Y) \xleftarrow[∼ ]{ρ (c ⊗ ρ Y)} ρ (ρ X ⊗ ρ Y) \xrightarrow[∼ ]{c} ρX ⊗ ρY.
+\end{equation}$$</p>
+  <p>Note that $ρX ⊗ ρY$ is again DG-projective.</p>
+</div>
+
+<div class="definition">
+  <p>(The symmetric derived tensor). We redefine the assignment</p>
+  <p>$$\begin{equation}
+X ⊗^L Y := ρ X ⊗ ρ Y\quad (\xleftarrow[∼ ] {c} ρ (ρ X ⊗ ρ Y)).
+\end{equation}$$</p>
+</div>
+
+<div class="example">
+  <p>Set $α ^ρ = (c ⊗ 1)^{-1} ∘ α ∘ (1 ⊗ c)$. The rule of associativity writes</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_cb9c32bc171c8.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="problem">
+  <p>(The pentagon rule). Consider the identity in $C(A)$:</p>
+  <p>$$\begin{equation}
+(α _{X,Y,Z} ⊗ W) ∘ (α _{X, Y ⊗ Z, W}) ∘ (X ⊗ α _{Y, Z, W}) = (α _{X⊗ Y, Z,W}) ∘ (α _{X,Y,Z ⊗ W}).
+\end{equation}$$</p>
+  <p>We apply $(-)^ρ$ on both sides, and show</p>
+  <p>$$\begin{equation}
+(α^ρ _{X,Y,Z} ⊗^𝐋 W) ∘ (α^ρ _{X, Y ⊗^𝐋 Z, W}) ∘ (X ⊗^𝐋 α^ρ _{Y, Z, W}) = (α^ρ _{X ⊗^𝐋 Y, Z,W}) ∘ (α^ρ _{X,Y,Z ⊗^𝐋 W}).
+\end{equation}$$</p>
+</div>
+
+<div class="definition">
+  <p>(The unit). $ρ A$ is the unit in $D(A)$ with the (left) identity rule</p>
+  <p>$$\begin{equation}
+l_X^ρ : A ⊗^𝐋 X = ρ A ⊗ ρ X \xrightarrow [∼ ]{c ⊗ 1} A ⊗ ρ X\xrightarrow {λ} ρX \xrightarrow [∼ ]{c} X.
+\end{equation}$$</p>
+</div>
+
+<div class="problem">
+  <p>Now feel free to verify $(D(A), ⊗ ^𝐋 , A)$ is closed monoidal. For instance, we verify the pentagon diagram of left unit,</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_52657a8c5e1d1.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>with the commutative diagram</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_ab04bfecc13bd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Here all parallel line with the same colour yields gives the commutative square by functoriality. $\blacktriangle$ is by definition, $★$ is given by the monoidal structure of $C(A)$.</p>
+</div>
+
+<div class="example">
+  <p>(Lax monoidal functor). Recall that we define the functor of resolution $ρ : D(A) → K(A)$ with <em>axiom of choice of the class</em>. This extends to a lax monoidal functor</p>
+  <p>$$\begin{equation}
+ρ : (D(A), ⊗ ^𝐋 , A) → (K(A), ⊗ , A)
+\end{equation}$$</p>
+  <p>consisting of</p>
+  <ul>
+    <li>a functorial assignment $X ↦ ρ X$,</li>
+    <li>a natural transformation $ε : ρX → X$,</li>
+    <li>a natural transformation $μ : ρ (X ⊗^𝐋 Y) → ρ X ⊗ ρ Y$,</li>
+  </ul>
+  <p>which preserves the associativity and unit rules.</p>
+  <ul>
+    <li>The natural transformation $ε$ and $μ$ are isomorphisms in $D(A)$.</li>
+    <li>The word <em>lax</em> means <em>not strict</em>. It has nothing to do with Peter Lax.</li>
+  </ul>
+</div>
+
+<p>We then proceed to the symmetric structure.</p>
+
+<div class="example">
+  <p>Note the isomorphism</p>
+  <p>$$\begin{equation}
+τ ^ρ : X ⊗ ^𝐋 Y = ρ X ⊗ ρ Y \xrightarrow {τ _{ρ X, ρ Y}} ρ Y ⊗ ρ X = Y ⊗ ^𝐋 X.
+\end{equation}$$</p>
+  <p>One can verify the hexagon rule and the unit rule are satisfied.</p>
+</div>
+
+<div class="lemma">
+  <p>$𝐑 \mathcal{HOM}$ is precisely the internal Hom of the symmetric monoidal category $(D(A), ⊗ ^𝐋 , A)$.</p>
+  <div class="proof">
+    <p>Recall the definiton $𝐑 \mathcal{HOM} (-, ?) := \mathcal{HOM}(ρ (-), ?)$. A direct computation shows</p>
+    <p>$$\begin{aligned}
+& 𝐑 \mathcal{HOM}(X ⊗^𝐋 Y, Z) = \mathcal{HOM}(ρ X ⊗ ρ Y, Z) \\[6pt]
+≃ \ & \mathcal{HOM}(ρ X ,\mathcal{HOM}(ρ Y, Z)) = 𝐑 \mathcal{HOM}(X, 𝐑 \mathcal{HOM}(Y,Z)).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<p>Moreover, there is also <a href="25SumLec0#more-on-mathjax_protectedjfxtyxroy2fse0hptx0kmathjax_protected">finiteness conditions</a> as we discussed in Lec0.
+&lt;!– ## DG Category</p>
+
+<h3 id="enriched-category">Enriched Category</h3>
+
+<p>Let $\mathcal{V}$ be a monoidal category (e.g. the sets $𝐒𝐞𝐭𝐬$, the graded sets $𝐆𝐫𝐒𝐞𝐭𝐬$, pointed sets $𝐒𝐞𝐭𝐬_+$, modules over commutative rings $𝐌𝐨𝐝 _k$, chain complexes over commutative rings $C(k)$, the derived category of chain complexes $D(k)$, etc).</p>
+
+<div class="definition">
+  <p>($\mathcal{V}$-enrichend). A category $\mathcal{C}$ is $\mathcal{V}$-enriched, provided for any $X,Y ∈ \mathcal{C}$, the set of morphisms $\mathrm{Hom}_\mathcal{C}(X,Y)$ is an object in $\mathcal{V}$. The composition of morphisms is a morphism in $\mathcal{V}$.</p>
+</div>
+
+<p>In some context, a monoidal category is assume to be $𝔘$-small for some universe $𝔘$. Here we view $\mathcal{V} = ⋃ \mathcal{V}^{≤ κ}$ as our category is <em>concrete enough</em>.</p>
+
+<div class="example">
+  <p>The $𝐀𝐛$-enriched category is preadditive, rather than additive. For instance, every ring is $𝐀𝐛$-enriched.</p>
+</div>
+
+<div class="example">
+  <p>(Closed monoidal almost implies self-enriched). $𝐒𝐞𝐭$ is $𝐒𝐞𝐭$-enriched, $𝐒𝐞𝐭 _+$ is $𝐒𝐞𝐭 _+$-enriched, $𝐌𝐨𝐝 _k$ is $𝐌𝐨𝐝 _k$-enriched, etc.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the category of small category $𝐂𝐚𝐭$ is a locally small category. Moreover, $𝐂𝐚𝐭$ is closed monoidal and $𝐂𝐚𝐭$-enriched.</p>
+  <ul>
+    <li>The term functor category indicates that $(\mathcal{C},\mathcal{D})_{𝐂𝐚𝐭}$ is an object in $𝐂𝐚𝐭$</li>
+    <li>General category theory does not care above the size. The category of general category is well-defined, but no longer locally small.</li>
+  </ul>
+</div>
+
+<p>Note that the category of chain complex $C(k)$ is self-enriched once we replace $(-, ?)_C$ with $\mathcal{HOM}(-, ?)$.</p>
+
+<div class="definition">
+  <p>($C^{dg}(k)$). The category $C^{dg}(k)$ has the same set of objects as $C(k)$. For any $X,Y ∈ C^{dg}(k)$, the morphism set is the chain complex $\mathcal{HOM}(X,Y)$.</p>
+</div>
+
+<h3 id="dg-categories">DG Categories</h3>
+
+<p>Recall that in our convention, <strong>a morphism between DG modules</strong> lies in $Z^0 \mathcal{HOM}$, rather than an element in $\mathcal{HOM}$!</p>
+
+<h4 id="definition">Definition</h4>
+
+<p>We assume all categories are $𝐌𝐨𝐝 _k$-enriched for commutative ring $k$.</p>
+
+<div class="definition">
+  <p>(DG Category $𝐃𝐆𝐂𝐚𝐭(_k)$). A DG category is a category enriched over $C^{dg}(k)$ s.t.</p>
+  <ul>
+    <li>all identical maps has degree $0$, and</li>
+    <li>the compositions are morphisms of DG modules.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>$d(1_X) = 0$.</p>
+</div>
+
+<p>Note that a DG category has not to be additive.</p>
+
+<div class="problem">
+  <p>Show that $∅$ and $\{∅\}$ are DG categories.</p>
+</div>
+
+<div class="problem">
+  <p>Show the full subcategory $𝐃𝐆𝐀𝐥𝐠 _k ↪ 𝐃𝐠𝐂𝐚𝐭 _k$.</p>
+</div>
+
+<div class="definition">
+  <p>(Tensor of $𝐃𝐆𝐂𝐚𝐭$). Let $\mathcal{A}$ and $\mathcal{B}$ be DG categories, then $\mathcal{A} ⊠ \mathcal{B}$ is a DG category with objects of the form $A ⊗ B$, and $\mathcal{HOM}_{\mathcal{A} ⊠ \mathcal{B}}(A ⊗ B, A' ⊗ B') := \mathcal{HOM}(A,A') ⊗ \mathcal{HOM}(B,B')$.</p>
+  <ul>
+    <li>The tensor category is a DG category by checking identities and compositions.</li>
+    <li>Remind the sign rules in the composition.</li>
+  </ul>
+</div>
+
+<p>We also show that $𝐃𝐆𝐂𝐚𝐭$ is self-enriched, which almosts shows the closed monoidal structure.</p>
+
+<div class="definition">
+  <p>($\mathcal{FUN}$). Let $\mathcal{A}$ and $\mathcal{B}$ be DG categories, then $\mathcal{FUN}(\mathcal{A}, \mathcal{B})$ is a DG category. An object $F ∈ \mathcal{FUN}(\mathcal{A}, \mathcal{B})$ is called a DG functor, if it is compatible with identity and compositions, and the followings are <strong>morphisms of DG modules</strong>:</p>
+  <p>$$\begin{equation}
+F_{X,Y} ∈ \mathcal{HOM}_k ((X, Y)_\mathcal{A}, (FX,FY)_\mathcal{B}).
+\end{equation}$$</p>
+  <p>For $F,G ∈ \mathcal{FUN}(\mathcal{A}, \mathcal{B})$, we define $\mathcal{HOM}(F,G) ∈ C^{dg}(k)$ as the complex of graded morphisms. A degree $n$ natural transformation $α$ is a collection $\{α_X ∈ (FX, GX)_\mathcal{B}^n\}_{X ∈ \mathcal{A}}$ s.t. $Gf ∘ α_{s(f)} = α _{t(f)} ∘ Ff$. The differential is computed elementwise in $\mathcal{B}$. Note that $\deg \mathrm{id}_∙ = 0$, and the composition is a morphism of DG modules.</p>
+</div>
+
+<div class="example">
+  <p>The only requirement for $α ∈ \mathcal{HOM}(F,G)$ to be a usual natural transformation is that $α$ preserves differentials. Hence, $Z^0 (\mathcal{FUN})$ is a category of DG functors along with usual natural transformations.</p>
+</div>
+
+<p>A comparison of $𝐃𝐆𝐂𝐚𝐭$ and $𝐂𝐚𝐭$ might help the comprehension.</p>
+
+<ul>
+  <li>$𝐂𝐚𝐭$ is $𝐂𝐚𝐭$-enriched, as $𝐃𝐆𝐂𝐚𝐭$ is $𝐃𝐆𝐂𝐚𝐭$-enriched;</li>
+  <li>a functor has plain structure, as a DG-functor has plain structure.</li>
+  <li>the functor category $(F,G)_{𝐂𝐚𝐭}$ is a category, as $\mathcal{HOM}(F,G)$ is a DG-catetory;</li>
+  <li>An morphism in $(F,G)_{𝐂𝐚𝐭 }$ is labelled by $𝖮𝖻 (\mathcal{A})$ and the computation is done in $\mathcal{B}$; an morphism in $\mathcal{HOM}(F,G)$ is also labelled by $𝖮𝖻 (\mathcal{A})$ and the computation is done in $\mathcal{B}$.</li>
+</ul>
+
+<p>$$\begin{equation}
+\boxed{\text{Those enriched by itself almost has an internal Hom.}}
+\end{equation}$$</p>
+
+<h4 id="closed-monoidal-structure">Closed Monoidal Structure</h4>
+
+<p>We assume $A$ to be a symmetric DG algebra and use $𝐃𝐆𝐂𝐚𝐭_{(A,d)}$ to denote the category of $𝐌𝐨𝐝 _{(A,d)}$-enriched small categories.</p>
+
+<div class="definition">
+  <p>(The unit category). $A ↪ 𝐃𝐆𝐂𝐚𝐭_{(A,d)}$ is a $𝐌𝐨𝐝 _{(A,d)}$-enriched category with a singleton element.</p>
+</div>
+
+<div class="definition">
+  <p>(Tensor categories). A tensor object in $𝐃𝐆𝐂𝐚𝐭_{(A,d)}$ is defined the category $\mathcal{A} ⊠ \mathcal{B}$ with</p>
+  <ul>
+    <li>$𝖮𝖻 (\mathcal{A} ⊠ \mathcal{B}) := 𝖮𝖻 (\mathcal{A}) × 𝖮𝖻 (\mathcal{B})$, and</li>
+    <li>$((X,X'), (Y,Y'))_{\mathcal{A}⊠ \mathcal{B}} := (X,X')_\mathcal{A} ⊗ (Y,Y')_\mathcal{B}$.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Show the natural isomorphisms of small categories</p>
+  <ol>
+    <li>$\mathcal{A} ⊠ (\mathcal{B} ⊠ \mathcal{C}) ≅ (\mathcal{A} ⊠ \mathcal{B}) ⊠ \mathcal{C}$;</li>
+    <li>$\mathcal{A} ⊠ A ≅ \mathcal{A} ≅ A ⊠ \mathcal{A}$ here $A$ is the unit category;</li>
+    <li>$\mathcal{A} ⊠ \mathcal{B} ≅ \mathcal{B} ⊠ \mathcal{A}$ wherein $(-,?)_\mathcal{A} ⊗ (∗ , !)_\mathcal{B} → (∗ , !)_\mathcal{B} ⊗ (-,?)_\mathcal{A}$ is given by sign rules.</li>
+  </ol>
+  <p>Hint: (Step 1). Show the correspondence are functors. There verifications comes from the natural isomorphisms of DG modules. (Step 2). Show the natural isomorphism of the set of objects, and morphisms.</p>
+</div>
+
+<div class="proposition">
+  <p>$𝐃𝐆𝐂𝐚𝐭 _{(A,d)}$ is symmetric monoidal.</p>
+  <div class="proof">
+    <p>It is more efficient to write a proof than to read it.</p>
+  </div>
+</div>
+
+<div class="definition">
+  <p>(Hom Category). A Hom object in $𝐃𝐆𝐂𝐚𝐭_{(A,d)}$ is defined to be the category $\mathcal{FUN}(\mathcal{A}, \mathcal{B})$ with</p>
+  <ul>
+    <li>$𝖮𝖻 (\mathcal{FUN}(\mathcal{A}, \mathcal{B})) ∋ F$ is characterised by a collection of assignments $? ↦ F(?)$, satisfies       <ul>
+        <li>$F_{X,Y} ∈ \mathcal{HOM}((X,Y)_\mathcal{A}, (FX,FY)_\mathcal{B})$ for any $X,Y ∈ 𝖮𝖻 (\mathcal{A})$;</li>
+        <li>$F_{X,X}(1_X) = 1_{FX}$ for any $X ∈ 𝖮𝖻 (\mathcal{A})$;</li>
+        <li>$F_{X,Z}(g ∘ f) = F_{Y,Z}(g) ∘ F_{X,Y}(f)$ for any $X,Y,Z ∈ 𝖮𝖻 (\mathcal{A})$, $f ∈ (X,Y)_\mathcal{A}$ and $g ∈ (Y,Z)_\mathcal{A}$.</li>
+      </ul>
+    </li>
+    <li>$𝖬𝗈𝗋 (\mathcal{FUN}(\mathcal{A}, \mathcal{B}))$ is the union of $\{\mathcal{HOM}(F,G)\}_{F,G ∈ 𝖮𝖻} ⊆ 𝐌𝐨𝐝 _{(A,d)}$’s. For each DG module $\mathcal{HOM}(F,G)$,       <ul>
+        <li>a degree $n$ element is a collection $\{α_X ∈ (FX,GX)_\mathcal{B}^n\}_{X ∈ 𝖮𝖻 (\mathcal{A})}$ s.t. $Gφ ∘ α_{s(φ )} = α _{t(φ)} ∘ Fφ$ for any $φ ∈ 𝖬𝗈𝗋 (\mathcal{A})$.</li>
+        <li>the differential $d_{\mathcal{HOM}(F,G)} : (F?, G?)_\mathcal{B}^n → (F?, G?)_\mathcal{B}^{n+1}$, $φ ↦ d_\mathcal{B}(φ)$ is computed elementwise in $\mathcal{B}$.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>Note that $Z^0 \mathcal{HOM}(F,G)$ are the usual set of isomorphisms.</p>
+</div>
+
+<div class="theorem">
+  <p>$\mathcal{FUN}$ is the internal Hom of $𝐃𝐆𝐂𝐚𝐭$, i.e. there is a natural isomorphism of DG categories</p>
+  <p>$$\begin{equation}
+Φ_{\mathcal{A}, \mathcal{B}, \mathcal{C}} : \mathcal{FUN}(\mathcal{A} ⊠ \mathcal{B}, \mathcal{C}) ≃ \mathcal{FUN}(\mathcal{A}, \mathcal{FUN}(\mathcal{B}, \mathcal{C})).
+\end{equation}$$</p>
+  <div class="proof">
+    <p>We show $Φ$ is a functor, and an isomorphism of categories.<br /> We take any DG functor $F$ and show that <strong>(Step 1)</strong> $Φ (F)$ is also a DG functor. Note that $Φ (F) : X ↦ F(X, -)$, we obtain</p>
+    <p>$$\begin{equation}
+(X, Y)_\mathcal{A} → \mathcal{HOM}(F(X, -), F(Y, -))
+\end{equation}$$</p>
+    <p>We show that <strong>(Step 1-1)</strong> $F(f, -) ∈ \mathcal{HOM}(F(X,-), F(Y,-))$. It suffices to show</p>
+    <p>$$\begin{equation}
+F(f, K) ∘ F(X, φ) = F(Y, φ) ∘ F(f, K).
+\end{equation}$$</p>
+    <p>This is actually $F(\text{commutative square in } \ \mathcal{A})$. <br /> We show that <strong>(Step 1-2)</strong> $f ↦ F(f, -)$ is a chain map. The assignment is clearly degree preserving. Note that</p>
+    <p>$$\begin{equation}
+F(d_\mathcal{A} f, 1_K) = d_\mathcal{C} F(f, 1_K) - (-1)^? F(f, d_\mathcal{B} 1_K) = d_\mathcal{C} F(f, 1_K).
+\end{equation}$$</p>
+    <p>Then we show that <strong>(Step 2)</strong> $Φ$ is an natural transformation in three variables. <br /> We take <strong>(Step 2-1)</strong> any DG functor $T : \mathcal{A} → \mathcal{A}'$ and show that</p>
+    <p>$$\begin{equation}
+\mathcal{FUN}(T, \mathcal{FUN}(\mathcal{B}, \mathcal{C})) ∘ Φ_{\mathcal{A}', \mathcal{B}, \mathcal{C}} = Φ_{\mathcal{A}, \mathcal{B}, \mathcal{C}} ∘ \mathcal{FUN}(T ⊠ \mathcal{B}, \mathcal{C}).
+\end{equation}$$ For any $L ∈ \mathcal{FUN}(\mathcal{A}'⊠ \mathcal{B}, \mathcal{C})$,</p>
+    <p>$$\begin{equation}
+𝐑𝐇𝐒 (L) = [? ↦ L(T(?), -)] = T^∗ [! ↦ L(!, -)] = 𝐋𝐒𝐇 (L).
+\end{equation}$$</p>
+    <p>The verification of <strong>(Step 2-2)</strong> ($\mathcal{B} → \mathcal{B}'$) and <strong>(Step 2-3)</strong> ($\mathcal{C} → \mathcal{C}'$) are similar. <br /> We finally show that <strong>(Step 3)</strong> $Φ$ is a natural isomorphism, i.e., it is bijective one obejcts and morphisms. <br /> If <strong>(Step 3-1)</strong> $Φ (F) = 0$, then $F(X, -) = 0$ for any $X ∈ \mathcal{A}$. Hence $F = 0$. To see <strong>(Step 3-2)</strong> it is surjective, we take arbitrary $G ∈ \mathcal{FUN}(\mathcal{A}, \mathcal{FUN}(\mathcal{B}, \mathcal{C}))$ and show that $(-, ?) ↦ (G(-))(?)$ is a DG functor. Note that in the adjunction, $M → \mathcal{HOM}(N, L)$ is a chain map iff so is $M ⊗ N → L$. We show <strong>(Step 3-3)</strong> $Φ$ is faithful. If $Φ (α) = 0$ for $α : F → G$, then $(Φ α)_X = 0$ for any $X ∈ \mathcal{A}$. Hence $α_{X, Y} = 0$, and thus $α = 0$. Finally, we show <strong>(Step 3-4)</strong> $Φ$ is full. We see that any $β : Φ (F) → Φ (G)$ in $\mathcal{FUN}(\mathcal{A}, \mathcal{FUN}(\mathcal{B}, \mathcal{C}))$ is the image of the collection of assignments</p>
+    <p>$$\begin{equation}
+α _{X,Y} : (X, Y) ↦ [(β _X)(Y) : (Φ (F)(X))(Y) → (Φ (G)(X))(Y)].
+\end{equation}$$</p>
+    <p>This assignment is of the type $α _{X,Y} : F(X,Y) → G(X,Y)$. For any $f : X → X'$ and $g : Y → Y'$, we see</p>
+    <p>$$\begin{aligned}
+(α_{X,Y} ∘ F(f,g)) & = α_{X,Y} ∘ F(f, 1_{Y}) ∘ F(1_{X'}, g)\\
+& = (β_X)_Y ∘ ((ΦF)f)(Y) ∘ ((ΦF)(X')) (g)\\
+& = [(β_X) ((ΦF)f)](Y) ∘ ((ΦF)(X')) (g)\\
+& = [((ΦF)f) (β_{X'})](Y) ∘ ((ΦF)(X')) (g)\\
+& = ((ΦG)f)(Y) ∘ (β_{X'})(Y) ∘ ((ΦF)(X')) (g)\\
+& = ((ΦG)f)(Y) ∘ ((β_{X'})(Y) ∘ ((ΦF)(X')) (g))\\
+& \overset ⋆= ((ΦG)f)(Y) ∘ ((ΦG)(X')) (g) ∘ (β_{X'})(Y')\\
+& = (G(f,g) ∘ α _{X', Y'}).
+\end{aligned}$$</p>
+    <p>Here $⋆$ is given by</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/DGAlgCat-Intro/diagram_eb804dbfe5da2.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Hence, it defines a natural transformation in $\mathcal{FUN}(\mathcal{A} ⊠ \mathcal{B}, \mathcal{C})$.</p>
+  </div>
+</div>
+
+<h4 id="example-dg-modules">Example: DG Modules</h4>
+
+<p>We show elementary examples of DG categories and DG functors.</p>
+
+<div class="definition">
+  <p>We denote</p>
+  <ul>
+    <li>$𝐌𝐨𝐝 _{(A,d)}$ as the category of DG modules whose morphisms are $d$-preserving,</li>
+    <li>$𝐌𝐨𝐝 _{(A,d)}^{dg}$ as the category of DG modules whose morphisms are in $\mathcal{HOM}$.</li>
+  </ul>
+  <p>Note that $Z^0 (-, ?)_{𝐌𝐨𝐝 _{(A,d)}^{dg}} = (-, ?)_{𝐌𝐨𝐝 _{(A,d)}}$.</p>
+</div>
+
+<div class="example">
+  <p>Let $A ∈ 𝐃𝐆𝐀𝐥𝐠 _k$. Then $𝐌𝐨𝐝 _{(A,d)}^{dg}$ is a DG category.</p>
+  <div class="proof">
+    <p>The category $𝐌𝐨𝐝 _{(A,d)}^{dg}$ is $C^{dg}(k)$-enriched. We show that $d_{\mathcal{HOM}}$ is compatible with the definition of DG categories. Clearly $d_{\mathcal{HOM}}(1_X) = 0$. The composition is a morphism of DG modules, since</p>
+    <p>$$\begin{aligned}
+& \ \ \quad d_{\mathcal{HOM}(\text{composition} (f ⊗ g))}\\
+& = d_{\mathcal{HOM}}(f ∘ g)\\
+& = dfg - (-1)^{|f| + |g|} fgd\\
+& = dfg - (-1)^{|f|} fdg + (-1)^{|f|} fdg - (-1)^{|f| + |g|} fgd\\
+& = d_{\mathcal{HOM}}(f)g + (-1)^{|f|} fd_{\mathcal{HOM}}(g)\\
+& = \text{composition} (d_{⊗} (f ⊗ g))
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<p>Hence, $C^{dg}(k)$ is a DG category. $𝐌𝐨𝐝 _{(A,d)}^{dg}$ is indeed a Hom object in $𝐃𝐆𝐂𝐚𝐭_k$. Recall that</p>
+
+<p>$$\begin{equation}
+𝐌𝐨𝐝 _R ≃ (R^{\mathrm{op}}, 𝐌𝐨𝐝 _k)_{𝐂𝐚𝐭_k},\quad R ∈ 𝐀𝐥𝐠 _k.
+\end{equation}$$</p>
+
+<ul>
+  <li>Here $⋃_κ 𝐌𝐨𝐝^κ _R ≃ ⋃ _λ (R^{\mathrm{op}}, 𝐌𝐨𝐝^λ _k)_{𝐂𝐚𝐭_k}$ is the actual expression. We omit the set-theoretic issues.</li>
+</ul>
+
+<p>We show anagolous corollaries for DG algebras and DG modules.</p>
+
+<div class="theorem">
+  <p>For $A ∈ 𝐃𝐆𝐀𝐥𝐠 _k ↪ 𝐃𝐆𝐂𝐚𝐭 _k$, one has the equivalence</p>
+  <p>$$\begin{equation}
+\mathcal{FUN}(A^{\mathrm{op}}, C^{dg}(k)) ≃ 𝐌𝐨𝐝 _{(A,d)}^{dg}.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>Let $𝖮𝖻 (A)= \{∗ \}$. Any DG functor $F$ determined an underlying chain complex $F(∗ ) ∈ C^{dg}(k)$ and a morphism of DG algebras:</p>
+    <p>$$\begin{equation}
+A → \mathcal{HOM}(F(∗), F(∗)).
+\end{equation}$$</p>
+    <p>This shows that $F(∗)$ is a DG module. Conversely, any DG module $M$ corresponds to a homomorphism $A → \mathcal{HOM}(M,M)$, which determined a DG functor from a singleton. <br /> We show assignment is a functor. An $n$-natural transformation $α : F → G$ corresponds to $α _∗ ∈ \mathcal{HOM}^n(F(∗ ), G(∗ ))$ with $$\begin{equation}
+α _∗ ∘ F(r ) = G(r ) ∘ α _∗,\quad ∀ r ∈ A.
+\end{equation}$$</p>
+    <p>This shows that $α _∗ : F(∗ ) → G(∗ )$ is an $n$-morphism of DG modules. <br /> We already show the functor is essentially surjective. It remains to show the fully-faithful property. To see it is full, we take any $φ ∈ \mathcal{HOM}(F(∗ ), G(∗ ))$. This determined a natural transformation as $φ$ preserves $A$-action. To see it is faithful, we take any $α : F → G$ s.t. $α _∗ = 0$. Then $α = 0$.</p>
+  </div>
+</div>
+
+<p>We show the base change.</p>
+
+<div class="example">
+  <p>For morphism of DG algebras $φ : A → B$, we have the base change functor</p>
+  <p>$$\begin{equation}
+\mathcal{FUN}(A^{\mathrm{op}}, C^{dg}(k)) → \mathcal{FUN}(B^{\mathrm{op}}, C^{dg}(k)),\quad F ↦ φ ^∗ F = F(φ (-)).
+\end{equation}$$</p>
+  <p>Thanks to the closed monoidal structure, it is a DG functor.</p>
+</div>
+
+<p>Note that this induce a functor between $𝐌𝐨𝐝 _{(A,d)}^{dg}$, $𝐌𝐨𝐝 _{(A,d)}$ and $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+
+<div class="problem">
+  <p>Show the adjoint triple of base change</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/DGAlgCat-Intro/diagram_37ee188127b50.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>Recall that</p>
+
+<p>$$\begin{equation}
+\boxed{\text{DG modules are DG functors from a certian DG algebra.}}
+\end{equation}$$</p>
+
+<p>The embedding $𝐃𝐆𝐀𝐥𝐠 _k ↪ 𝐃𝐆𝐂𝐚𝐭 _k$ suggests a general definition of DG modules.</p>
+
+<div class="definition">
+  <p>(DG module). The category of (right) DG modules over $\mathcal{A}$ is $\mathcal{FUN}(\mathcal{A}^{\mathrm{op}}, C^{dg}(k))$. We use the notion $𝐌𝐨𝐝 _{\mathcal{A}}^{dg}$.</p>
+</div>
+
+<div class="proposition">
+  <p>$𝐌𝐨𝐝 _{\mathcal{A}}^{dg}$ is bicomplete, and also admits an auto-equivalence $Σ$.</p>
+</div>
+
+<div class="example">
+  <p>The right action of $\mathcal{A}$ over $F ∈ 𝐌𝐨𝐝 _{\mathcal{A}}^{dg}$ is given by</p>
+  <p>$$\begin{equation}
+F(X) ⊗ (X', X)_\mathcal{A} → F(X'),\quad s ⊗ f ↦ s ∘ f.
+\end{equation}$$</p>
+  <p>By (enirched) Yoneda lemma, one has the embedding</p>
+  <p>$$\begin{equation}
+\mathcal{A} ↪ 𝐌𝐨𝐝 _{\mathcal{A}}^{dg},\quad X ↦ (-, X)_\mathcal{A}.
+\end{equation}$$</p>
+</div>
+
+<div class="example">
+  <p>A computation shows that</p>
+  <p>$$\begin{equation}
+H^n (FX) \xrightarrow[\text{Yoneda}] ∼ H^n(\mathcal{HOM}((-, X)_\mathcal{A}, F)) ≃ ((-, X)_\mathcal{A}, Σ^nF)_K.
+\end{equation}$$</p>
+</div>
+
+<p>The bi-modules correspond to bi-functors.</p>
+
+<div class="definition">
+  <p>(Bi-modules). $\mathcal{A}$-$\mathcal{B}$-bi-module coincides $\mathcal{A}^{\mathrm{op}} ⊗ \mathcal{B}$ modules.</p>
+</div>
+
+<!-- <div class='theorem'><p>(Tensor-Hom adjunction). We show the isomorphism of bimodules:</p>
+
+<p>$$\begin{equation}
+\mathcal{HOM}_\mathcal{C}(_\mathcal{A} F ⊗_\mathcal{B} G_\mathcal{C}, {}_\mathcal{D} H_\mathcal{C}) ≃ \mathcal{HOM}_\mathcal{B}(_\mathcal{B} G_\mathcal{C}, \mathcal{HOM}_\mathcal{C}( _\mathcal{A} F_\mathcal{C} , {}_\mathcal{D} H_\mathcal{C}))
+\end{equation}$$</p>
+</div> -->
+
+<h4 id="the-homotopy">The Homotopy</h4>
+
+<p>For a triangulated structure over the homotopy category of $\mathcal{A} ∈ 𝐃𝐆𝐂𝐚𝐭 _k$, we assume $\mathcal{A}$ is additive and admits a shift $Σ$ s.t.</p>
+
+<p>$$\begin{equation}
+(X,Σ Y) _\mathcal{A} ≃ Σ (X,Y)_\mathcal{A} ≃ (Σ ^{-1}X,Y)_\mathcal{A}.
+\end{equation}$$</p>
+
+<div class="theorem">
+  <p>$C(\mathcal{A})$, the category of chain complexes over $\mathcal{A}$, admits a Forbenius exact structure. The ses are dws.</p>
+  <div class="proof">
+    <p>The construction of adjoint $∞$-ple between $C(\mathcal{A})$ and $\mathcal{A}^{ℤ}$ is still valid. By the same diagram chasing, the forgotful functor created all limits and colimits. The projectives = injectives are exactly the image of free functor $\mathcal{A}^{ℤ} → C(\mathcal{A})$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>The homotopy category admits two definitions</p>
+  <p>$$\begin{equation}
+\frac{C(\mathcal{A})} { {\text{homotopy} } } ≃ \frac{(C(\mathcal{A}), \ \text{dws})}{\text{acyclic splits complexes}}.
+\end{equation}$$</p>
+  <p>Hence $K(\mathcal{A})$ is triangulated. The distinct triangles are of the form $X \xrightarrow f Y \xrightarrow{\binom 01} \mathrm{Cone}(f) \xrightarrow{(1 \ 0)} Σ X$.</p>
+  <div class="proof">
+    <p>See $K(𝐌𝐨𝐝 _{(A,d)})$.</p>
+  </div>
+</div>
+
+<h3 id="derived-module-category">Derived Module Category</h3>
+
+<p>We focus the base change of derived categories and derived equivalences.</p>
+
+<h4 id="resolutions-1">Resolutions</h4>
+
+<p>The resolutions are discussed over bimodules.</p>
+
+<div class="example">
+  <p>The previous definition of bi-modules (by tensor algebra) coincides our usual definition.</p>
+  <div class="proof">
+    <p>Note that $\mathcal{FUN}(A^{\mathrm{op}} ⊗ B, C^{dg}(k)) ≃ \mathcal{FUN}(A^{\mathrm{op}}, \mathcal{FUN}( B, C^{dg}(k)))$. We show that for any left $B$ modules $_BM$, the compatible $A$-module structure corrsponds to a homomorphism of DG algebras, i.e,</p>
+    <p>$$\begin{equation}
+φ : A → \mathcal{HOM}_{B^{\mathrm{op}}}(M, M)\quad ↔ \quad m.a ↦ m φ (a).
+\end{equation}$$</p>
+    <p>The verification is easy. We underscore the signrule</p>
+    <p>$$\begin{equation}
+m (a ⊗ b) = (-1)^{|a| + |m|} amb.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>Now we define derived Hom.</p>
+
+<div class="theorem">
+  <p>$\mathcal{HOM}(_AM_B, -) : K(𝐌𝐨𝐝 _{(B,d)}^{dg}) → K(𝐌𝐨𝐝 _{(A,d)}^{dg})$ yields a localised functor</p>
+  <p>$$\begin{equation}
+𝐑 \mathcal{HOM}(_AM_B, -) : D(𝐌𝐨𝐝 _{(B,d)}^{dg}) → D(𝐌𝐨𝐝 _{(A,d)}^{dg}).
+\end{equation}$$</p>
+  <p>Here $𝐑 \mathcal{HOM}(_AM_B, -) := (ρ(_AM_B), -)_K$, and $ρ((_AM_B)) → M$ is a resolution of bi-modules.</p>
+  <div class="proof">
+    <p>$\mathcal{HOM}(_AM_B, -) : K(𝐌𝐨𝐝 _{(B,d)}^{dg}) → K(𝐌𝐨𝐝 _{(A,d)}^{dg})$ is triangulated as it preserves cones. A quasi-isomorphism</p>
+  </div>
+</div>
+
+<p>To be continued.</p>
+
+<p>–&gt;</p>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#dg-algebras-and-categories">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">DG Algebras and Categories</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#dg-algebra">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">DG Algebra</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#basics">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">Basics</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#dg-algebras">
+        <span class="toc-number">2.1.1.</span>
+        <span class="toc-title">DG Algebras</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#dg-modules">
+        <span class="toc-number">2.1.2.</span>
+        <span class="toc-title">DG Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#opposite-algebra">
+        <span class="toc-number">2.1.3.</span>
+        <span class="toc-title">Opposite Algebra</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#tensor-and-hom">
+        <span class="toc-number">2.1.4.</span>
+        <span class="toc-title">Tensor and Hom</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#endomorphism-algebra">
+        <span class="toc-number">2.1.5.</span>
+        <span class="toc-title">Endomorphism Algebra</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#the-homotopy-category-mathjax_protectedjeskmathjax_protected">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">The Homotopy Category $K$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#frobenius-category">
+        <span class="toc-number">2.2.1.</span>
+        <span class="toc-title">Frobenius Category</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#homotopy">
+        <span class="toc-number">2.2.2.</span>
+        <span class="toc-title">Homotopy</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#triangles">
+        <span class="toc-number">2.2.3.</span>
+        <span class="toc-title">Triangles</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#resolutions">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">Resolutions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#projective-and-injective-modules">
+        <span class="toc-number">2.3.1.</span>
+        <span class="toc-title">Projective and Injective Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#free-modules-and-mathjax_protectedjfxtyxrocm17rxh0fv4xx3tkd30kmathjax_protected">
+        <span class="toc-number">2.3.2.</span>
+        <span class="toc-title">Free Modules and $\mathrm{Ext}^1_{dw}$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#projective-resolutions">
+        <span class="toc-number">2.3.3.</span>
+        <span class="toc-title">Projective Resolutions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#injective-resolutions">
+        <span class="toc-number">2.3.4.</span>
+        <span class="toc-title">Injective Resolutions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#flat-modules">
+        <span class="toc-number">2.3.5.</span>
+        <span class="toc-title">Flat Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#derived-categories">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Derived Categories</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#verdier-quotient">
+        <span class="toc-number">2.4.1.</span>
+        <span class="toc-title">Verdier Quotient</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#derived-tensor">
+        <span class="toc-number">2.4.2.</span>
+        <span class="toc-title">Derived Tensor</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#derived-category-and-its-closed-monoidal-structure">
+        <span class="toc-number">2.4.3.</span>
+        <span class="toc-title">Derived Category and Its Closed Monoidal Structure</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#enriched-category">
+        <span class="toc-number">2.5.</span>
+        <span class="toc-title">Enriched Category</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#dg-categories">
+        <span class="toc-number">2.6.</span>
+        <span class="toc-title">DG Categories</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#definition">
+        <span class="toc-number">2.6.1.</span>
+        <span class="toc-title">Definition</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#closed-monoidal-structure">
+        <span class="toc-number">2.6.2.</span>
+        <span class="toc-title">Closed Monoidal Structure</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#example-dg-modules">
+        <span class="toc-number">2.6.3.</span>
+        <span class="toc-title">Example: DG Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-homotopy">
+        <span class="toc-number">2.6.4.</span>
+        <span class="toc-title">The Homotopy</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#derived-module-category">
+        <span class="toc-number">2.7.</span>
+        <span class="toc-title">Derived Module Category</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#resolutions-1">
+        <span class="toc-number">2.7.1.</span>
+        <span class="toc-title">Resolutions</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Radicals" title="NEXT: Radicals">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/ggttltif" title="PREV: 五笔输入法备忘录">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

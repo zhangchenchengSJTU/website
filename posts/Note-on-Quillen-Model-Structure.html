@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>A Note on Quillen's Model Structure
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="Note on Model Category">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Note-on-Quillen-Model-Structure">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>A Note on Quillen's Model Structure</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        June 30, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="note-on-model-category">Note on Model Category</h2>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>This note serves as an introduction to the concept of model structures in the context of Quillen’s work. It is intended for those who are familiar with basic knowledge of homological algebra, but little or no prior experience with topologies to understand the foundational aspects of model categories.</p>
+  </div>
+</div>
+
+<ul id="markdown-toc">
+  <li><a href="#note-on-model-category" id="markdown-toc-note-on-model-category">Note on Model Category</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+    </ul>
+  </li>
+  <li><a href="#kan-extension" id="markdown-toc-kan-extension">Kan Extension</a>    <ul>
+      <li><a href="#the-basic-definitions" id="markdown-toc-the-basic-definitions">The Basic Definitions</a>        <ul>
+          <li><a href="#categories-and-functors" id="markdown-toc-categories-and-functors">Categories and Functors</a></li>
+          <li><a href="#universe" id="markdown-toc-universe">Universe</a></li>
+          <li><a href="#limits-and-colimits" id="markdown-toc-limits-and-colimits">Limits and Colimits</a></li>
+        </ul>
+      </li>
+      <li><a href="#a-note-on-kan-extension" id="markdown-toc-a-note-on-kan-extension">A note on Kan Extension</a>        <ul>
+          <li><a href="#the-definition" id="markdown-toc-the-definition">The Definition</a></li>
+          <li><a href="#example-homology-from-limits" id="markdown-toc-example-homology-from-limits">Example: Homology from Limits</a></li>
+          <li><a href="#the-construction" id="markdown-toc-the-construction">The Construction</a></li>
+          <li><a href="#on-derived-functors" id="markdown-toc-on-derived-functors">On Derived Functors</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#simplicial-methods" id="markdown-toc-simplicial-methods">Simplicial Methods</a>    <ul>
+      <li><a href="#simplicial-objects" id="markdown-toc-simplicial-objects">Simplicial Objects</a>        <ul>
+          <li><a href="#basics" id="markdown-toc-basics">Basics</a></li>
+          <li><a href="#the-truncation" id="markdown-toc-the-truncation">The Truncation</a></li>
+        </ul>
+      </li>
+      <li><a href="#the-topologies" id="markdown-toc-the-topologies">The Topologies</a>        <ul>
+          <li><a href="#motivation-for-simplicial-methods" id="markdown-toc-motivation-for-simplicial-methods">Motivation for Simplicial Methods</a></li>
+          <li><a href="#a-categorical-overview" id="markdown-toc-a-categorical-overview">A Categorical Overview</a></li>
+          <li><a href="#the-pointed-construction" id="markdown-toc-the-pointed-construction">The Pointed Construction</a></li>
+          <li><a href="#equivalences" id="markdown-toc-equivalences">Equivalences</a></li>
+          <li><a href="#the-geometric-realisation" id="markdown-toc-the-geometric-realisation">The Geometric Realisation</a></li>
+          <li><a href="#cw-approximation" id="markdown-toc-cw-approximation">CW-approximation</a></li>
+        </ul>
+      </li>
+      <li><a href="#cofibrantly-generating-class" id="markdown-toc-cofibrantly-generating-class">Cofibrantly Generating Class</a>        <ul>
+          <li><a href="#the-wfs" id="markdown-toc-the-wfs">The (W)FS</a></li>
+          <li><a href="#quillens-small-object-argument" id="markdown-toc-quillens-small-object-argument">Quillen’s Small Object Argument</a></li>
+          <li><a href="#kan-complexes" id="markdown-toc-kan-complexes">Kan Complexes</a></li>
+          <li><a href="#adjoint-lifting" id="markdown-toc-adjoint-lifting">Adjoint Lifting</a></li>
+        </ul>
+      </li>
+      <li><a href="#functors" id="markdown-toc-functors">Functors</a>        <ul>
+          <li><a href="#topological-space-for-convenience" id="markdown-toc-topological-space-for-convenience">Topological Space for Convenience</a></li>
+          <li><a href="#hurewicz-map" id="markdown-toc-hurewicz-map">Hurewicz Map</a></li>
+          <li><a href="#dk-correspondence" id="markdown-toc-dk-correspondence">DK Correspondence</a></li>
+          <li><a href="#homotopy-spectra" id="markdown-toc-homotopy-spectra">(Homotopy) Spectra</a></li>
+          <li><a href="#quillens-equivalence" id="markdown-toc-quillens-equivalence">Quillen’s Equivalence</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#quillens-model-structure" id="markdown-toc-quillens-model-structure">Quillen’s Model Structure</a></li>
+</ul>
+
+<h2 id="kan-extension">Kan Extension</h2>
+
+<p>In this section, we endeavour to elucidate the universal construction known as the <strong>Kan extension</strong>. The concept originates from the <a href="https://www.math.stonybrook.edu/~mmovshev/BOOKS/homologicalalgeb033541mbp.pdf">book</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=49555">H. P. Cartan</a> and <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=7643">S. Eilenberg</a> in 1956, wherein it was introduced for the computation of derived functors. Further computational aspects are explored in <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=12549">D. Kan</a>’s paper on <a href="https://www.ams.org/journals/tran/1958-087-02/S0002-9947-1958-0131451-0/S0002-9947-1958-0131451-0.pdf">adjoint functors</a> in 1958. The general notion of extension, attributed to <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=12549">D. Kan</a>, emerged circa 1960, and a modern treatment is presented in Mac Lane’s book <a href="https://link.springer.com/book/10.1007/978-1-4757-4721-8">Categories for the Working Mathematician</a>.</p>
+
+<h3 id="the-basic-definitions">The Basic Definitions</h3>
+
+<h4 id="categories-and-functors">Categories and Functors</h4>
+
+<p>We clarify some of the notations: General <strong>categories</strong> are written in <code class="language-plaintext highlighter-rouge">\mathcal</code> font, e.g., $\mathcal{C}$ for a category, where</p>
+
+<ul>
+  <li>$𝐊 _0 := 𝖮𝖻$ denotes the class of <strong>objects</strong> and $𝐊 _1 := 𝖬𝗈𝗋$ denotes the class of <strong>morphisms</strong>,</li>
+  <li>$(X, Y)_\mathcal{C}$ or $\mathrm{Hom}_\mathcal{C}(X,Y)$ denotes the set of morphisms in $\mathcal{C}$ from $X$ to $Y$,</li>
+  <li>$1_X$ denotes the <strong>identity morphism</strong> in $(X,X)_\mathcal{C}$,</li>
+  <li>the notion of <strong>composition</strong> is denoted as $f ∘ g$, where $∘$ is of the type $𝐊_1 × _{𝐊_0} 𝐊_1 → 𝐊 _1$.</li>
+</ul>
+
+<p>Specific categories are denoted in <code class="language-plaintext highlighter-rouge">\mathbf</code> font, e.g., $𝐒𝐞𝐭𝐬$ for the category of sets, $𝐌𝐨𝐝_k$ for the category of right $k$-modules. A general <strong>functor category</strong> is denoted as $𝐅𝐮𝐧(\mathcal{C}, \mathcal{D})$ or simply $\mathcal{D}^\mathcal{C}$, where</p>
+
+<ul>
+  <li>a general <strong>functor</strong> $F$ is in italic font,</li>
+  <li>a general <strong>natural transformation</strong> $θ = \{θ_X\}_{X ∈ 𝖮𝖻}$ is a Greek letter in italic font,</li>
+  <li>the $\mathrm{Hom}$-object in the functor category is denoted as $𝐍𝐚𝐭[F,G]$.</li>
+</ul>
+
+<p>When it is valid to regard the <em>superclass</em> of categories as a category itself, the vertical and horizontal compositions of natural transformations are denoted by $∘$ and $∗$, respectively. For instance, in the following diagram of natural transformations</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_1edf42aa54312.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>$θ _2 ∘ θ _1$ (of the type $𝐊_2× _{𝐊_1}𝐊_2$) denotes the vertical composition of natural transformations, whilst $θ _2 ∗ θ _1$ (of the type $𝐊_2× _{𝐊_0}𝐊_2$) denotes the horizontal composition.</p>
+
+<div class="lemma">
+  <p>(Godement’s interchange law). A well-known identity by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=49554">R. Godement</a> states $$\begin{equation}
+(τ _2 ∘ τ _1) ∗ (θ _2 ∘ θ _1) = (τ _2 ∗ θ _2) ∘ (τ _1 ∗ θ _1).
+\end{equation}$$</p>
+  <div class="proof">
+    <p>It is straightforward to verify the identity pointwise.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Discover a topological explanation of Godement’s interchange law, and show that the $π_1$-group of connected topological groups is Abelian.</p>
+</div>
+
+<h4 id="universe">Universe</h4>
+
+<p>The conception of a <strong>universe</strong> is introduced by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=31245">A. Grothendieck</a> in <a href="https://www.cmls.polytechnique.fr/perso/laszlo/sga4/SGA4-1/sga41.pdf#page=113">this appendix of SGA4</a>, which enables one to circumvent the <em>set-theoretic paradoxes</em>, notably Russell’s paradox. The assumption of a universe $𝔘$ specifies what is <em>small</em>, <em>large</em>, or <em>uncontrollably large</em>. Alternative approaches to avoiding such paradoxes exist; see <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=137837">M. A. Shulman</a>’s <a href="https://arxiv.org/abs/0810.1279">note</a> for further details. The following definition is adapted from a <a href="http://therisingsea.org/notes/FoundationsForCategoryTheory.pdf">note</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=144058">D. Murfet</a>.</p>
+
+<p>A <strong>universe</strong> is denoted in <code class="language-plaintext highlighter-rouge">\mathfrak</code>-font. It is a set, satisfying the following (overdetermined) properties:</p>
+
+<ol>
+  <li>If $x ∈ A$ and $A ∈ 𝔘$, then $x ∈ 𝔘$;</li>
+  <li>If $x ∈ 𝔘$ and $y ∈ 𝔘$, then $\{x,y\} ∈ 𝔘$;</li>
+  <li>If $x ∈ 𝔘$, then the powerset $\mathcal{P}(x) ∈ 𝔘$;</li>
+  <li>For any $I ∈ 𝔘$ such that $\{x_i\}_{i ∈ I} ⊆ 𝔘$, one has $⋃_{i ∈ I}x_i ∈ 𝔘$.</li>
+</ol>
+
+<div class="problem">
+  <p>Show that the universe $𝔘$ is closed under the basic operation of Peano postulates for natural numbers:</p>
+  <ol>
+    <li>$0 := ∅ ∈ 𝔘$;</li>
+    <li>If $x ∈ 𝔘$, then $(x + 1) := (x ⊔ \{x\}) ∈ 𝔘$;</li>
+    <li>Show that $ℕ ⊆ 𝔘$, and find $𝔘$ such that $ℕ ∉ 𝔘$ (Hint: try $⋃_{k ∈ ℕ}\mathcal{P}^k(x)$ for finite $x$, that is, the <strong>von Neumann hierarchy</strong> generated by a finite set);</li>
+    <li><em>Suppose that</em> $ℕ ∈ 𝔘$, show that $ℤ$, $ℚ$, $ℝ$ and $ℂ$ belong to $𝔘$.</li>
+  </ol>
+  <p>This exercise is nothing but a verification that the general constructions of number fields never exceed the universe $𝔘$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the universe $𝔘$ is closed under the basic operation of category theory:</p>
+  <ol>
+    <li>If $x, y ∈ 𝔘$, then the pair $(x,y) ∈ 𝔘$ (the implicit axiom of universe in <a href="https://www.cmls.polytechnique.fr/perso/laszlo/sga4/SGA4-1/sga41.pdf#page=113">SGA4</a>)</li>
+    <li>$𝔘$ inherits the closed monoidal structure from $𝐒𝐞𝐭𝐬$, i.e., $𝔘$ is non-empty with an element $1$, closed under Hom-set $(-, ? )_{𝐒𝐞𝐭𝐬}$ and Cartesian product $- × ?$.</li>
+    <li>$𝔘$ is closed under sub-objects and quotient-objects.</li>
+    <li>For $I ∈ 𝔘$ such that $\{x_i \}_{i ∈ I} ⊆ 𝔘$, all $∏ _{i ∈ I}x_i$, $∐ _{i ∈ I} x_i$, $⋃ _{i ∈ I} x_i$ and $⋂ _{i ∈ I} x_i$ belong to $𝔘$.</li>
+    <li>Hence, both limits and colimits indexed by $I ∈ 𝔘$ exist in the universe.</li>
+  </ol>
+</div>
+
+<p>We define the <em>small</em>, <em>large</em>, and <em>uncontrollably large</em> sets (relative to the universe $𝔘$) as follows:</p>
+
+<div class="definition">
+  <p>Let $X$ be a set, say</p>
+  <ul>
+    <li>$X$ is a <strong>$𝔘$-small set</strong> (or $X$ is <strong>$𝔘$-small</strong> for simplicity), provided $X ∈ 𝔘$;</li>
+    <li>$X$ is a <strong>$𝔘$-class</strong> if $X ⊆ 𝔘$;</li>
+    <li>in particular, $X$ is a proper class when $X ∉ 𝔘$ but $X ⊆ 𝔘$;</li>
+    <li>$X$ is a <strong>$𝔘$-large set</strong> (or $X$ is <strong>$𝔘$-large</strong> for simplicity), provided $X \not⊆ 𝔘$.</li>
+  </ul>
+</div>
+
+<p>We do not omit the prefix $𝔘$-, since the terminology <em>small object</em> has a different meaning.</p>
+
+<p>Throughout, we adopt the axiom <strong>ZFCU</strong>, rather than <strong>NBGC</strong>.</p>
+
+<div class="definition">
+  <p>(ZFCU). The axiom system of <strong>ZFCU</strong> consists of</p>
+  <ol>
+    <li>ZF axioms (Zermelo-Fraenkel axioms),</li>
+    <li>the <strong>axiom of choice</strong> (AC),</li>
+    <li>the <strong>axiom of universes</strong> (U), which states that every set belongs to some universe $𝔘$.</li>
+  </ol>
+</div>
+
+<p>In conclusion, there exists a universe that accommodates the standard set-theoretic operations. Therefore, one may disregard the set-theoretic paradoxes and concentrate on <em>the desired universe</em>. The ensuing discussion is conducted under the assumption that the universe $𝔘$ is fixed; we underscore the selected universe when necessary.</p>
+
+<h4 id="limits-and-colimits">Limits and Colimits</h4>
+
+<p>Before we proceed, it is advisable to be acquainted with the following phenomenon:</p>
+
+<div class="slogan">
+  <p>The functor of restriction is expected to commute with functors; under suitable circumstances, the restriction possesses bi-adjoints.</p>
+</div>
+
+<p>This likely arises from the principle of associativity, as the restriction operates on the right. Let $\mathcal{C}^→ = 𝐅𝐮𝐧𝐜𝐭 (→ , \mathcal{C})$ denote the morphism category, wherein the collection of objects is $𝖬𝗈𝗋(\mathcal{C})$ and the morphisms are commutative squares.</p>
+
+<div class="problem">
+  <p>Show in steps that</p>
+  <ol>
+    <li>the assignments $s,t : \mathcal{C}^→ → \mathcal{C}$ determined by $f ∈ (s(f), t(f))_{\mathcal{C}}$ are functors;</li>
+    <li>the trivial assignment $X ↦ 1_X$ is a functor from $\mathcal{C}$ to $\mathcal{C}^→$;</li>
+    <li>$t ⊣ 1_∙ ⊣ s$ is an adjoint triple, $1_∙$ <em>restricts</em> morphisms to objects;</li>
+    <li>the adjoint triple extends to a quintuple when $\mathcal{C}$ exhibits initial and terminal objects.</li>
+  </ol>
+</div>
+
+<p>When we generalise $→$ to a $𝔘$-small diagram $I$, the functor $1_∙$ assigns each object $X$ to an $X$-valued diagram of type $I$. The bi-adjoints (if they exist) of $1_∙: \mathcal{C} → \mathcal{C}^I$ coincide with the definition of colimit and limit functor.</p>
+
+<div class="definition">
+  <p>(Limit and Colimit). The <strong>limit</strong> and <strong>colimit</strong> of the functor from the $𝔘$-small diagram $I$ to $\mathcal{C}$ are defined as the adjoint triple $\varinjlim _I ⊣ 1_∙ ⊣ \varprojlim _I$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the above definitions coincide with the standard definitions of limit and colimit in diagrams.</p>
+</div>
+
+<div class="slogan">
+  <p>(Co)Limit is the universal (co)cone whose conic node is the most proximate to the base diagram.</p>
+</div>
+
+<div class="definition">
+  <p>(Completeness). Say the category $\mathcal{C}$ admits the (co)limit of <strong>type</strong> $I$, provided the existence of arbitrary (co)limits of type $I → \mathcal{C}$. Say $\mathcal{C}$ is</p>
+  <ol>
+    <li>$𝔘$-<strong>(co)complete</strong>, provided it admits all (co)limits of type $I$ ($I ∈ 𝔘$);</li>
+    <li><strong>finitely (co)complete</strong>, provided it admits all (co)limits of type $I$ ($I$ is finite);</li>
+    <li>the term <strong>bicomplete</strong> stands for both complete and cocomplete.</li>
+  </ol>
+</div>
+
+<div class="problem">
+  <p>Suppose that $\mathcal{C}$ is additive.</p>
+  <ol>
+    <li>Show that $\mathcal{C}$ is Abelian if and only if it is finitely bicomplete, and $\ker\operatorname{cok}=\operatorname{cok}\ker$.</li>
+    <li>Find a finitely bicomplete $\mathcal{C}$ such that $\ker\operatorname{cok} ≇ \operatorname{cok}\ker$. (Hint: consider the <a href="https://stacks.math.columbia.edu/tag/0122">category of finite filtration</a> over abelian groups).</li>
+  </ol>
+</div>
+
+<p>Let $F : \mathcal{C} → \mathcal{D}$ be a functor, and $X_∙ : I → \mathcal{C}$ be an $I$-diagram in $\mathcal{C}$ (as an object in the functor category $\mathcal{C}^I$ assigning $i$ to $X_i$). We shall frequently adopt the following notation.</p>
+
+<ul>
+  <li>(<strong>Preserving</strong>). Say $F$ preserves (or commutes with) the limit of $X_∙$, if the induced cone $F(\varprojlim _I X) → FX_∙$ is already the limit.</li>
+  <li>(<strong>Reflecting</strong>). Say $F$ reflects the limit of $X_∙$, if, if the induced cone $F(Y) → FX_∙$ is the limit, then $Y$ is the limit of $X_∙$ in the category $\mathcal{C}$.</li>
+  <li>(<strong>Creating</strong>). Say $F$ creates the limit of $X_∙$, if the limit $\varprojlim _IFX$ exists in $\mathcal{D}$ and the entire cone is an image of the unique limit cone in $\mathcal{C}$ (in short, the limit in $\mathcal{C}$ is uniquely determined by that in $\mathcal{D}$).</li>
+</ul>
+
+<p>The terminologies are clearly explained in the following example.</p>
+
+<div class="example">
+  <p>Let $F : \mathcal{C} → \mathcal{D}$ be a functor between Abelian categories.</p>
+  <ol>
+    <li>Say $F$ preserves the limit of type $\ker$, if any exact sequence of the form $0 → K \xrightarrow i X \xrightarrow f Y$ in $\mathcal{C}$ implies the exact sequence $0 → FK \xrightarrow{Fi} FX \xrightarrow{Ff} FY$ in $\mathcal{D}$.</li>
+    <li>Say $F$ reflects the limit of type $\ker$, if any exact sequence of the form $0 → FK \xrightarrow{Fi} FX \xrightarrow{Ff} FY$ in $\mathcal{D}$ implies the exact sequence $0 → K \xrightarrow i X \xrightarrow f Y$ in $\mathcal{C}$.</li>
+    <li>Say $F$ creates the limit of type $\ker$, if any exact sequence of the form $0 → H \xrightarrow{j} FX \xrightarrow{Ff} FY$ in $\mathcal{D}$ implies the exact sequence $0 → K \xrightarrow i X \xrightarrow f Y$ in $\mathcal{C}$ such that $j = Fi$ and $H = FK$.</li>
+  </ol>
+</div>
+
+<p>We summarise some special functors that preserve, reflect, or create limits and colimits.</p>
+
+<ol>
+  <li>A <strong>left exact</strong>/<strong>right exact</strong>/<strong>exact functor</strong> is defined to preserve all <em>finite limits</em>/<em>finite colimits</em>/<em>finite limits and colimits</em>.</li>
+  <li>A fully faithful functor reflects all limits and colimits.</li>
+  <li>Concrete forgetful functors usually create small limits and filtered colimits, e.g., the forgetful functor from $𝐌𝐨𝐝_k$ to $𝐒𝐞𝐭𝐬$, from $𝐆𝐫𝐩𝐬$ to $𝐒𝐞𝐭𝐬$, from $𝐂𝐇$ (the category of compact Hausdorff spaces) to $𝐒𝐞𝐭𝐬$, from sheaves to presheaves over algebraic structures, and from $C(\mathcal{B})$ the category of chain complexes to $\mathcal{B}^ℤ$, etc.</li>
+</ol>
+
+<div class="slogan">
+  <p>If a forgetful functor $U : \mathcal{C} → \mathcal{D}$ creates the colimits or limits of type $I$, then it suffices to compute $\varinjlim _I$ or $\varprojlim_I$ in $\mathcal{D}$, so that the result automatically lies in $\mathcal{C}$.</p>
+</div>
+
+<div class="definition">
+  <p>(Pullback Functor). The <strong>pullback functor</strong> $φ ^∗ : \mathcal{C}^J → \mathcal{C} ^I$ is defined as the functor that assigns to each $J$-valued diagram $F$ the precomposition $F ∘ φ$, where $φ : I → J$ is a functor between $𝔘$-small diagrams.</p>
+</div>
+
+<div class="example">
+  <p>The trivial functor of diagrams $φ : I → \{∗\}$ induces the pullback functor $φ ^∗ = 1_∙ : \mathcal{C} → \mathcal{C}^I$. Whenever such a pullback has a right (left) adjoint, the (co)limit exists.</p>
+</div>
+<div class="problem">
+  <p>Suppose $φ$ is an inclusion of a subcategory that is bijective on objects (a <a href="https://ncatlab.org/nlab/show/wide+subcategory">lluf subcategory</a> in the <a href="https://link.springer.com/chapter/10.1007/BFb0084215">sense</a> of <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=23200">P. Freyd</a>). Demonstrate that $φ^∗$ creates all limits and colimits, assuming $\mathcal{C}$ is bicomplete.</p>
+  <ul>
+    <li>For example, the inclusion of chain complexes into the graded category $C(\mathcal{B}) → \mathcal{B}^ℤ$ is induced by pullback. When computing the (co)limit of chain complexes, one may proceed degreewise.</li>
+  </ul>
+</div>
+
+<h3 id="a-note-on-kan-extension">A note on Kan Extension</h3>
+
+<h4 id="the-definition">The Definition</h4>
+
+<p>The ideal of Kan extension is simple: to find the biadjoints of the pullback functor $φ ^∗$. Both limits and colimits are special cases of Kan extensions. We use $φ_!$ and $φ_∗$ to denote the functorial construction of left and right Kan extension, respectively. The desired adjoints are $φ_! ⊣ φ^! = φ^∗ ⊣ φ_∗$ (we shall not discuss the sheaf theory here, the notion is not misleading).</p>
+
+<div class="definition">
+  <p>(Left Kan Extension). The <strong>left Kan extension</strong> of the functor $F : I → \mathcal{C}$ along $φ : I → J$ is the left adjoint $φ_! : \mathcal{C}^I → \mathcal{D}^J$ to the pullback functor $φ^!$.</p>
+</div>
+
+<p>It is straightforward to demonstrate the universal property using diagrams. For example, the existence of $φ _! F$ signifies that $(F, φ ^∗ (-))$ is representable, as illustrated below.</p>
+
+<div class="example">
+  <p>We explain the universal property of $φ _!$ in diagrams.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_758a38ec99326.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>The red pair $(φ _! F, α)$ satisfy the following universal property: for any commutative diagram $γ : F ⇒ R ∘ φ$, there is a unique $θ$ making the diagram commute. <br /> <br /> In short, $α : F ⇒ (φ _!F) ∘ φ$ is <em>initial</em> amongst the pairs $? : F ⇒ (-) ∘ φ$.</p>
+</div>
+
+<div class="definition">
+  <p>(Right Kan Extension). The <strong>right Kan extension</strong> of the functor $F : I → \mathcal{C}$ along $φ : I → J$ is the right adjoint $φ_∗ : \mathcal{C}^I → \mathcal{D}^J$ to the pullback functor $φ^∗$.</p>
+</div>
+
+<div class="example">
+  <p>We elucidate the universal property of $φ _∗$ using diagrams. In this context, all $2$-arrows are reversed (while the $1$-arrows remain unchanged) compared to the preceding diagram, and $φ _!$ is replaced by $φ _∗$.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_f6489d243b4c3.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Here $α : (φ _∗ F) ∘ φ ⇒ F$ is <em>terminal</em> amongst the pairs $? : (-) ∘ φ ⇒ F$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that (co)limits are special cases of Kan extensions via the diagrams below. The double arrow are nothing but the (co)unit of the adjunction.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_2c452c67be7cc.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<h4 id="example-homology-from-limits">Example: Homology from Limits</h4>
+
+<p>We show an example of Kan extension in theory of group representation. Any group $G$ is considered as a category $BG$ with a single object, and the morphisms are the group elements. A representation of $G$ in $𝐌𝐨𝐝 _k$ is exactly a functor $F : G → 𝐌𝐨𝐝 _k$.</p>
+
+<div class="problem">
+  <p>(<strong>Fixed points</strong> as a limit). $M := F(∗)$ is clearly a $kG$-module by definition. One may guess and verify that $\varprojlim_{BG} F → F(∗)$ is the inclusion of the fixed points $M^G$ into $M$. Show that this is also the $0$-th (relative) cohomology group $$\begin{equation}
+H^0(G,M) := \mathrm{Hom}_{kG}(k, M).
+\end{equation}$$ Here $(∑ c_i g_i) : k → k,\quad a ↦ ∑ c_i a$ makes $k$ a trivial $kG$-module. <br /> Hint: discuss the ses $0 → IG → kG → k → 0$, and identify $\mathrm{Hom}_{kG}(k, M)$ as a subgroup of $M$ via $(\operatorname{cok}(-),?) ≃ \ker (-, ?)$.</p>
+</div>
+
+<div class="problem">
+  <p>(<strong>Orbits</strong> as a colimit). $M := F(∗)$ is clearly a $kG$-module by definition. One may guess and verify that $F(∗) \varinjlim_{BG} F$ is quotient set of $G$-orbits, where $∼$ is generated by $mg ∼ m$. Show that this is also the $0$-th (relative) cohomology group $$\begin{equation}
+H_0(G,M) := M ⊗_{kG} k.
+\end{equation}$$ Here $(∑ c_i g_i) : k → k,\quad a ↦ ∑ c_i a$ makes $k$ a trivial $kG$-module. <br /> Hint: discuss the ses $0 → IG → kG → k → 0$, and identify $M ⊗_{kG} k$ as a subgroup of $M$ via $(\operatorname{cok}(-)) ⊗ ?) ≃ \operatorname{cok}(-⊗ ?)$.</p>
+</div>
+
+<div class="problem">
+  <p>(The <strong>(co)induced</strong> representation). The group homomorphism $φ : G → H$ endows any $kH$-module with the structure of a $kG$-module via restriction, that is, the restriction functor from $𝐌𝐨𝐝 _{kH}$ to $𝐌𝐨𝐝 _{kG}$: $$
+φ ^!(?) = \mathrm{Hom}_{kH}(_{kG}kH, ?) ≃ φ ^∗(?) = ? ⊗ kH_{kG}
+$$</p>
+  <p>Now, $φ _!(M):= M ⊗ _{kG}kH$ and $φ _∗ (M) := \mathrm{Hom}_{kG}(kH, M)$ are termed the <strong>induced</strong> and <strong>coinduced</strong> representations of $M ∈ 𝐌𝐨𝐝 _k$, respectively. Investigate the following:</p>
+  <ol>
+    <li>Under what conditions are these functors well-defined when restricted to $𝐦𝐨𝐝$?</li>
+    <li>Examine special cases of $φ$, such as inclusions and quotients.</li>
+    <li>Observe that the notions $φ _!$ and $φ _∗$ generalise to the <em>dependent sum</em> (abstract $⊗$) and <em>dependent product</em> (abstract $\mathcal{Hom}$); see section 1.5.3 of <a href="https://academic.oup.com/book/52790">the book</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=24514">P. T. Johnstone</a>.</li>
+  </ol>
+</div>
+
+<p>We leave the discussion of higher dirived (co)limits to the reader.</p>
+
+<h4 id="the-construction">The Construction</h4>
+
+<p>We shall discuss the construction and existence of Kan extensions. Let $φ : I → J$ be a functor between $𝔘$-small diagrams, and let $F : I → \mathcal{C}$ be a functor from the diagram to the category $\mathcal{C}$.</p>
+
+<div class="theorem">
+  <p>(Existence of $φ_∗ F$). The following necessary and sufficient condition for the existence of $φ _∗ F$ arises from the construction. We consider only the pointwise construction of $(φ _∗ F) ∈ \mathcal{C} ^J$ and $α : (φ _∗ F) ∘ φ ⇒ F$.</p>
+  <ol>
+    <li>For each $j ∈ J$, associate a cone $j / I$ via the pullback of $j / J$ along $φ$, which amalgamates $j$ and $\operatorname{im} i$ in an appropriate category. As a category, the objects of $j / I$ are morphisms of the form $f : j → φ (i)$, and the morphisms are commutative squares of the form $(1_j, φ (?))$.</li>
+    <li>The functor $F$ is defined on $j / I$ via the pullback along the forgetful functor $j / I → I,\quad (f , i) ↦ i$.</li>
+    <li>The assignment $j ↦ \varprojlim F|_{j / I}$ is functorial, serving as the pointwise construction of $φ _∗ F$.</li>
+    <li>The natural transformation $α : (φ _∗ F) ∘ φ ⇒ F$ is induced by the universal property of the limit cone. For each $i ∈ I$, the morphism $α _i : \varprojlim F|_{φ (i) / I} → F(i)$ is the structure morphism of the limit cone, where $F(i) = F|_{φ (i) / I} ((1_{φ (i)}), i)$.</li>
+  </ol>
+</div>
+
+<p>Hence, when $\mathcal{C}$ is complete/cocomplete, the right/left Kan extension always exists.</p>
+
+<div class="problem">
+  <p>Verify the details of the above construction.</p>
+</div>
+
+<h4 id="on-derived-functors">On Derived Functors</h4>
+
+<p>The concept of derived functors was (probably) initially discovered by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=31245">A. Grothendieck</a>, albeit without a functorial formulation; a formal statement is attributed to <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=31267">J.-L. Verdier</a> in his <a href="https://www.numdam.org/item/AST_1996__239__R1_0.pdf">doctoral thesis</a> in 1967. We follow <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=61289">P. R. Deligne</a>’s <a href="https://publications.ias.edu/book/export/html/348">definition</a>, which is, in my view, the most accessible. Subsequently, we provide an explanation in terms of Kan extension.</p>
+
+<p>Broadly speaking, derived categories serve as a <em>universal invariant</em> of a category. For instance, the invariants of an algebra $A$, including $Z(A)$ the centre, $K_i(A)$ the $K$-groups, and $HH^∙ (A,A)$ the Hochschild cohomologies, are defined over $D(A)$. Consequently, derived functors induce the morphisms between these invariants.</p>
+
+<p>For the construction, let $F : \mathcal{A} → \mathcal{B}$ be an additive functor between additive categories, which induces the triangular functors $C(\mathcal{A}) → C(\mathcal{B})$ between <strong>chain complexes</strong>, and $K(\mathcal{A}) → K(\mathcal{B})$ between the <strong>homotopy categories</strong> of chain complexes. When the categories are Abelian, the collection of <strong>quasi-isomorphisms</strong> forms a <strong>multiplicative system</strong> for the homotopy category (or the chain complex category), which yields a relatively straightforward construction of the localisation $Q_\mathcal{A} : C(\mathcal{A}) → D(\mathcal{A})$. Since $F$ need not preserve quasi-isomorphisms, the functor $C(\mathcal{A}) → C(\mathcal{B}) → D(\mathcal{B})$ does not, in general, extend along the localisation $Q_\mathcal{A}$. It is futile to seek $D(\mathcal{A}) → D(\mathcal{B})$ which renders the square commutative; Kan extensions appear to be <em>the most suitable replacement</em>.</p>
+
+<p>We demonstrate, through exercises, that Deligne’s construction of right derived functors is equivalent to the left Kan extension of the localisation, and clarify how a well-known criterion for the existence of right derived functors is a special case of the existence of Kan extensions.</p>
+
+<div class="example">
+  <p>(Deligne’s construction of <strong>right derived functor $𝐑 F$</strong>). Let $F : \mathcal{A} → \mathcal{B}$ be additive between Abelian $k$-categories. We firstly define the bi-assignment $$\begin{equation}
+𝐫 F : (D\mathcal{B})^{\mathrm{op}} × (D\mathcal{A}) → 𝐌𝐨𝐝 _k, \quad (b,a) ↦ (𝐫 F)(b,a),
+\end{equation}$$ and then wish it to be <em>represented</em> by $(b, (𝐑 F)(a))_{D\mathcal{B}}$. The $𝔘$-class $(𝐫 F)(b,a)$ is defined as follows: the base set is a $𝔘$-class in general, consisting of the pairs of morphisms $$\begin{equation}
+\left(b \xrightarrow f Fa', a'\xleftarrow[\text{quasi-iso}] s a\right) ∈ 𝖬𝗈𝗋(\mathcal{B}) × 𝖬𝗈𝗋(\mathcal{A}).
+\end{equation}$$</p>
+  <p>The equivalency relation $(f,s) ∼ (g,t)$ is generated by the following relations:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_0dd7eb6459243.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that when $\mathcal{A}$ possesses finite injective dimension, one may select the representative of $(𝐑 F)(a)$ via the injective resolution $I(a)$. Observe that the assignment $X ↦ Q_\mathcal{A}(I(X))$ is functorial for $X ∈ \mathcal{A}$. It follows from the Eilenberg-Cartan resolution that the injective resolutions of chain complexes remain functorial when considered in $D(\mathcal{A})$.</p>
+</div>
+
+<p>When $\mathcal{A}$ possesses enough projectives, one may revise the aforementioned construction of $𝐑 F$.</p>
+
+<ol>
+  <li>One may restrict the complexes to be bounded below, and work with $D^+ \mathcal{A}$ instead;</li>
+  <li>One may introduce $K_{\mathrm{h \ inj}}$, the <em>homotopy injective</em> (or <em>$K$-injective</em>) complexes, and replace the injective resolution with the $K$-injective resolution.</li>
+</ol>
+
+<p>In order to combine Kan extension with derived functors, it is necessary to verify the following.</p>
+
+<div class="problem">
+  <p>Suppose that $Q_\mathcal{A} : \mathcal{A} → S^{-1}\mathcal{A}$ is the localisation of a general category with right multiplicative system $S$. For any cocomplete category $\mathcal{B}$ with the functor $F : \mathcal{A} → \mathcal{B}$, the left Kan extension of $F$ along $Q_\mathcal{A}$ is given by the filtered colimit $$\begin{equation}
+(Q_\mathcal{A})_∗ F : X ↦ \varinjlim _{X \xrightarrow[∈ S]{s} Y} F(Y).
+\end{equation}$$</p>
+  <p>Show that $(Q_\mathcal{A})_! F$ coincides with $𝐑 F$ in the construction of Deligne.</p>
+</div>
+
+<p>In the computation of derived categories, there are usually suitable conditions such that $\varinjlim _{X \xrightarrow[∈ S]{s} Y} F(Y)$ is straightforward to compute.</p>
+
+<div class="problem">
+  <p>(The existence of right derived functor). Let $F : \mathcal{A} → \mathcal{B}$ be a functor of Abelian categories, with induced triangulated functor $F : K(\mathcal{A}) → K(\mathcal{B})$ between homotopy categories. Suppose that there is a triangulated subcategory $\mathcal{T} ⊆ K(\mathcal{A})$ such that the following conditions hold:</p>
+  <ol>
+    <li>any $X ∈ K(\mathcal{A})$ is quasi-isomorphic to an object $X_\mathcal{T} ∈ \mathcal{T}$;</li>
+    <li>the quasi-isomorphisms in $\mathcal{T}$ are preserved by $F$.</li>
+  </ol>
+  <p>Then the filtered colimit $(Q_\mathcal{A})_! F X$ is represented by $Q_\mathcal{B}(F(X_\mathcal{T}))$. In particular, the right derived functor $𝐑 F$ exists, and is given by the Kan extension $(Q_\mathcal{A})_! F$.</p>
+</div>
+
+<h2 id="simplicial-methods">Simplicial Methods</h2>
+
+<p>This note represents merely the tip of the iceberg concerning simplicial methods in model categories, which constitute a powerful tool in homotopy theory as well as the fundamental language of $∞$-categories. The aim of this note is to provide a foundation for further study of model structures. For a more comprehensive treatment of this subject, the reader is referred to <a href="https://kerodon.net/">kerodon</a>.</p>
+
+<h3 id="simplicial-objects">Simplicial Objects</h3>
+
+<p>Before proceeding, it is illuminating to consider a perspective from <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=18947">F. Lawvere</a>. Broadly speaking, to assert that $A$ is a $k$-algebra is to say that $A$ is a ring object in $𝐌𝐨𝐝_k$. Analogously, one may say that a simplicial set is a simplicial object in $𝐒𝐞𝐭𝐬$ and thenceforth focus on the <em>simplicial structure</em>.</p>
+
+<h4 id="basics">Basics</h4>
+
+<div class="definition">
+  <p>(Basics of the category $Δ$). The category $Δ$ comprises <strong>finite ordinals</strong> (denoted by $[n]$ for $n ∈ ℤ _{≥ 0}$) and <strong>order-preserving maps</strong>. For $0 ≤ i ≤ n$, there exist two distinguished morphisms:</p>
+  <ul>
+    <li>$d^i : [n-1] → [n]$, an injection omitting $i$, known as the <strong>$i$-th face map</strong>;</li>
+    <li>$s^i : [n+1] → [n]$, a surjection duplicating $i$, known as the <strong>$i$-th degeneracy map</strong>.</li>
+  </ul>
+</div>
+
+<p>It is straightforward to summarise all automatic exchange relations of the face and degeneracy maps, and conclude that any morphism in $Δ$ may be uniquely written as a composition of
+$$\begin{equation}
+\underset{n _k > \cdots > n_1}{\underbrace{d^{n_k} ∘ \cdots ∘ d^{n_1}}} ∘ \underset{m _1 < \cdots < m_l}{\underbrace{s^{m_1} ∘ \cdots ∘ s^{m_l}}}.
+\end{equation}$$</p>
+
+<div class="definition">
+  <p>(Simplicial objects). A <strong>simplicial object</strong> in the <strong>concrete category</strong> $\mathcal{C}$ is a functor $X : Δ^{op} → \mathcal{C}$. The $n$-th object of $X$ is denoted by $X([n])$ or $X_n$, serving as a collection of all $n$-dimensional objects. The pullbacks $s^i$ and $d^i$ are denoted by $s_i$ and $d_i$, respectively. <br /> <br /> For $\mathcal{C} = 𝐒𝐞𝐭𝐬$, the <strong>simplicial sets</strong> are precisely the simplicial objects. A representative functor $Δ ^n := (-, [n])$ is known as a <strong>standard $n$-simplex</strong>, since an element in $X_n$ is characterised by a morphism in $(Δ ^n , X)$.</p>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that the adjoint triple between $\mathcal{C}$ and $\mathcal{C}^→$ arises from $d^0 ⊣ s^0 ⊣ d^1$, and generalise it to the entirety of $Δ$.</p>
+</div>
+
+<h4 id="the-truncation">The Truncation</h4>
+
+<p>An <strong>$n$-simplex</strong> is an element $σ ∈ X_n ≃ (Δ ^n , X)$, denoted by $(σ , [n])$ or simply $σ$. The <strong>(combinatorial) dimension</strong> $\dim σ$ is defined as the largest $m$ such that $σ$ factors through $Δ ^m$. The simplex $(σ, [n])$ is said to be <strong>non-degenerate</strong> if and only if $\dim σ = n$. The <strong>boundary</strong> $∂ Δ ^n$ assigns to $[m]$ the set of non-surjective morphisms in $Δ ^n ([m]) = ([m], [n])$, or, equivalently, is given by the colimit $\mathrm{coeq}\left(∐ _{0 ≤ i < j ≤ n}Δ ^{n-2} ⇉ ∐ _{0 ≤ k ≤ n} Δ ^{n-1}\right)$.</p>
+
+<div class="definition">
+  <p>((Co)skeleton). For a simplicial set $X$, the <strong>$n$-skeleton</strong> functor may be defined in any of the following equivalent manners:</p>
+  <ul>
+    <li>as the colimit obtained by amalgamating all $n$-simplices contained within $X$ (that is, truncating to the part with $\dim ≤ n$), i.e., $\mathrm{sk}_n (X) = \varinjlim _{(σ , [n])} Δ ^n$;</li>
+    <li>as the left adjoint to the inclusion of the full subcategory of simplicial sets with $\dim ≤ n$ into $𝐒𝐞𝐭𝐬 ^{Δ^{\mathrm{op}}}$;</li>
+    <li>inductively, as the pushout $\mathrm{sk}_{n}(X) = \left(∐ _{(σ , [n])} Δ ^n\right) ⨆_{∐ _{(σ , [n])}∂ Δ ^n}\left(\mathrm{sk}_{n-1}(X)\right)$, with $\mathrm{sk}_{-1}(X) = ∅$.</li>
+  </ul>
+  <p>Dually, the <strong>$n$-coskeleton</strong> functor may be defined in any of the following equivalent manners:</p>
+  <ul>
+    <li>as the limit obtained by filling all chambers of dimension $> n$, i.e., $\mathrm{cosk}_n (X) = \varprojlim _{(σ , [n])} Δ ^n$;</li>
+    <li>as the right adjoint to the inclusion of the full subcategory of simplicial sets with $\dim ≥ n$ into $𝐒𝐞𝐭𝐬 ^{Δ^{\mathrm{op}}}$;</li>
+    <li>we omit the inductive definition here, see <a href="https://kerodon.net/tag/055K">Postnikov tower</a>.</li>
+  </ul>
+</div>
+
+<p>The purpose of the $n$-coskeleton is to fill all chambers of dimension $≥ n$, so that all $π _{≥ n}$ vanish. In the language of Kan extension, the inclusion $φ : Δ _{ ≤ n} → Δ$ yields the restriction $φ ^! = φ ^∗$. One demonstrates the existence of left and right Kan extensions, $φ_!$ and $φ _!$, as $𝐒𝐞𝐭𝐬$ is bi-complete. The adjoint triple $L ⊣ M ⊣ R$ induces the adjoint endofunctor $ML ⊣ MR$. In this case, $φ ^!φ _!$ and $φ ^∗ φ _∗$ are the $n$-skeleton and $n$-coskeleton functors, respectively.</p>
+
+<div class="problem">
+  <p>Demonstrate that for $m < n$,</p>
+  <ul>
+    <li>$\mathrm{sk}_m (X) → Δ ^n$ uniquely lifts up along the inclusion $∂ Δ ^n ↪ Δ ^n$;</li>
+    <li>$∂ Δ ^n → \mathrm{cosk}_m (X)$ uniquely extends along the inclusion $∂ Δ ^n ↪ Δ ^n$.</li>
+  </ul>
+</div>
+
+<h3 id="the-topologies">The Topologies</h3>
+
+<h4 id="motivation-for-simplicial-methods">Motivation for Simplicial Methods</h4>
+
+<p>What is the origin of the concept of simplicial methods? How should one understand simplicial objects in a <em>concrete, particularly geometric</em> manner? The introduction of topological ideas provides a framework to address these questions.</p>
+
+<h4 id="a-categorical-overview">A Categorical Overview</h4>
+
+<p>The usual category of <strong>topological spaces</strong>, $𝐓𝐨𝐩$, consists of topological spaces as its objects, and continuous maps as the morphisms. $𝐓𝐨𝐩$ possesses equalisers (with <strong>subspace topology</strong>) and arbitrary products (with <strong>product topology</strong>); in particular, the limit exists. $𝐓𝐨𝐩$ also possesses coequalisers (with <strong>quotient topology</strong>) and arbitrary coproducts (with <strong>coproduct topology</strong>); in particular, the colimit exists.</p>
+
+<div class="proposition">
+  <p>$𝐓𝐨𝐩$ is bicomplete. In particular, $∅$ is initial and $\{∅\}$ is terminal in $𝐓𝐨𝐩$, equipped with the unique topology.</p>
+</div>
+
+<div class="problem">
+  <p>The <em>forgetful functor</em> to the underlying set admits the left adjoint assigning each set the discrete topology, and a right adjoint assigning each set the $\{\{∅\}, \text{all}\}$-topology.</p>
+</div>
+
+<p>By adjoints, the forgetful functor commutes with limits and colimits. Hence, the underlying set of the (co)limit of topological spaces is computed elementwise.</p>
+
+<p>The category $(𝐓𝐨𝐩, ×, \{∗\})$ is <strong>symmetric monoidal</strong>. The $\mathcal{HOM}$-functor <em>occasionally</em> exists for special subcategories. The Hom space $(X, Y)_{𝐓𝐨𝐩}$ is equipped with the <strong>compact-open topology</strong> wherein the topological basis is characterised by
+$$\begin{equation}
+\mathcal{O}_{U, K} = \{f ∣ f(K) ⊆ U\}_{K \ \text{is compact,}\ U \ \text{is open}}.
+\end{equation}$$
+We denote the topological Hom object by $\mathcal{HOM}(X,Y)$. When $Y$ is locally compact Hausdorff, there is a natural isomorphism (currying):
+$$\begin{equation}
+(-, \mathcal{HOM}(Y, ?))_{𝐓𝐨𝐩} ≃ (- × Y, ?)_{𝐓𝐨𝐩} ,\quad φ ↦ [(t,y) ↦ (φ(t))(y)].
+\end{equation}$$</p>
+
+<p>We generally prefer a <em>convenient</em> category of topological spaces in which the <strong>internal</strong> $\mathcal{HOM}$ exists; moreover, such a category ought to include fundamental objects such as <strong>CW complexes</strong>, and be bicomplete (not necessarily inherited from $𝐓𝐨𝐩$). <a href="https://mathoverflow.net/questions/94267/are-k-spaces-named-for-kelley">$k$-spaces</a> or compactly generated Hausdorff spaces (with proper mappings as the morphisms) are frequently employed, as the inclusion admits left adjoints (<strong>$k$-functor</strong> or <strong>Stone-Čech compactification</strong>, respectively).</p>
+
+<h4 id="the-pointed-construction">The Pointed Construction</h4>
+
+<p>The definition of $π$-groups necessitates base points, which in turn requires the introduction of <strong>pointed topological spaces</strong> $𝐓𝐨𝐩 _+$ defined as the category of topological spaces equipped with a distinguished point.</p>
+
+<div class="definition">
+  <p>($𝐓𝐨𝐩_+$). The category $𝐓𝐨𝐩_+$ is the slice category from the terminal object of $𝐓𝐨𝐩$. The objects are defined as pairs $(X, x)$ where $x ∈ X$. A morphism is of the form $f : (X, x) → (Y, y)$ where $f : X → Y$ is a continuous map, and $f(x) = y$.</p>
+</div>
+
+<p>We remark upon certain categorical properties of $𝐓𝐨𝐩_+$. The most distinguished property is that $𝐓𝐨𝐩$ is <strong>pointed</strong>, meaning that the initial and terminal objects coincide (we refer to $0 := \{∗\}$ as the <strong>zero object</strong>). In general, the limit of the system $\{(X_i, x_i)\}_{i ∈ I}$ is $\varprojlim_I X_i$ with the base point $(x_i)_{i ∈ I}$. The colimit of $\{(X_i, x_i)\}$ is a quotient of $\varinjlim_I X_i ∈ 𝐓𝐨𝐩$ obtained by identifying all $x_i$ as the new base point.</p>
+
+<div class="example">
+  <p>For example, let $S_∙ ∈ 𝐓𝐨𝐩 _+$ denote the unit circle with a specified base point and underlying topological space $S ∈ 𝐓𝐨𝐩$. Observe that $S × S$ is a torus, and $S_∙ × S_∙$ is a pointed torus with the same underlying base topological space as $S × S$. However, $S ⊔ S$ is a disjoint union of two circles, whereas $S_∙ ⊔ S_∙$ is an $8$-shaped space formed by identifying the two base points in $S ⊔ S$.</p>
+</div>
+
+<p>The base point makes the cateogory <em>algebraic</em>, as one can define fibre sequence (analogue of exact sequence). There is a functor $(-)_+ : 𝐓𝐨𝐩 → 𝐓𝐨𝐩 _+$ sending $X$ to $X ⊔ 0$ with the coproduct topology. $(-)_+$ is the left adjoint of the inclusion $𝐓𝐨𝐩_+ → 𝐓𝐨𝐩$; there is no adjoint triple here since neither $(-)_+$ preserves terminal objects nor the forgotful functor preserve initial objects. It is highlighted that $(-)_+$ preserves the symmetric monoidal structure, where</p>
+
+<ul>
+  <li>$(X ⊔ Y)_+ ≃ X_+ ∨ Y_+$, where $P ∨ Q$ is the usual coproduct in $𝐓𝐨𝐩 _+$;</li>
+  <li>$(X × Y)_+ ≃ X_+ ∧ Y_+$, where $P ∧ Q := \frac{P × Q}{P ∨ Q}$ is the smash product.</li>
+</ul>
+
+<div class="problem">
+  <p>Show that $0 → X_+ ∨ Y_+ → X_+ × Y_+ → X_+ ∧ Y_+ → 0$ is exact (by kernel-image argument) in $𝐓𝐨𝐩 _+$.</p>
+</div>
+
+<p>The functor $(-)_+$ is <strong>strongly monoidal</strong>, which carries the monoidal structure. We restrict $(-)_+$ onto the $𝐋𝐂𝐇$ and obtain $(-)_+ : 𝐋𝐂𝐇 → 𝐋𝐂𝐇_+$, which also admits a right adjunction. The category $𝐋𝐂𝐇$ is closed symmetric monoidal with internal Hom space $\mathcal{HOM}_{𝐋𝐂𝐇} (X,Y)$ endowed with the compact-open topology. Analogously, $\mathcal{HOM}_{𝐋𝐂𝐇 _+ }(X_+, Y_+)$ is also the internal Hom of $𝐋𝐂𝐇 _+$ whose base point is the zero morphism $0_{Y,X}$.</p>
+
+<div class="problem">
+  <p>Verify that $(A ∧ -) ⊣ \mathcal{HOM}_{𝐋𝐂𝐇}(A, -)$ is an adjunction. Demonstrate that $(-)_+$ preserves the closed monoidal structure (strongly monoidal) for general categories. Hint: you can show this without knowing $𝖬𝗈𝗋 (𝐋𝐂𝐇)$, provided that $𝐋𝐂𝐇$ is <em>in some manner</em> closed monoidal.</p>
+</div>
+
+<p>Another well-known monoidal functor from $𝐋𝐂𝐇$ to $𝐓𝐨𝐩 _+$ is the <strong>functor of one-point-compactification</strong>, whose essential image is precisely the pointed compact topological spaces. We do not examine this further here.</p>
+
+<h4 id="equivalences">Equivalences</h4>
+
+<p>We clarify several types of equivalences of topological spaces, the (classical) homotopy equivalence, the weak homotopy equivalence.</p>
+
+<div class="definition">
+  <p>(Homotopy by <em>classical definition</em>). We fix $𝐓𝐨𝐩$. Let $I$ be the unit interval. The morphisms $f,g : X → Y$ are said to be <strong>homotopic</strong>, provided the morphism $(f,g) : X ⊔ X → Y$ factors through $(1,1) : X ⊔ X → X × I$. The induced map $H : X × I → Y$ is called a <strong>homotopy</strong>. Such a homotopic relation is an equivalence relation of category which defines $𝐓𝐨𝐩 / ∼$. Say $f : X → Y$ is a <strong>homotopy equivalence</strong> (in the sense of $𝐓𝐨𝐩$), provided $f$ is an isomorphism in $𝐓𝐨𝐩 / ∼$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the adjunction indudced by pointed functor descents to the homotopy categories $(𝐓𝐨𝐩 / ∼) ⇆ (𝐓𝐨𝐩 _+ / ∼ )$.</p>
+</div>
+
+<p>A <strong>suspension functor</strong> for pointed topological space is defined as $Σ (-):= S_∙ ∧ -$, for $S_∙$ the pointed unit circle. We define $Σ ^{n+1} := Σ ^n ∘ Σ$ recursively, and $S_∙ ^n := Σ ^n (\{∗ \}_+)$ as the <strong>pointed unit $n$-sphere</strong>. The right adjoint of $Σ$ is the known as the <strong>loop space</strong> $Ω (-)$, defined by internal Hom.</p>
+
+<div class="problem">
+  <p>Explain that, in the manner of $𝐓𝐨𝐩$, the loop space $Ω (X, x_0)$ is canonically isomorphic to the pullback of $x_0 : \{∗\} ↪ X_∙$ and the restriction $\mathcal{HOM}_{𝐓𝐨𝐩}(S, X) → X$ induced by $\{∗\} ↪ S_∙$. In other words, $Ω (X, x_0) ↪ \mathcal{HOM}_{𝐓𝐨𝐩}(S, X)$ is the pullback of $\{x_0\} ↪ X$.</p>
+</div>
+
+<div class="definition">
+  <p>(Weak homotopy equivalence). As a convention, we write $[X, Y]_{\mathcal{C}} := (X, Y)_{\mathcal{C} / ∼}$ for $\mathcal{C} ∈ \{𝐓𝐨𝐩 , 𝐓𝐨𝐩 _+ , \ldots\}$. The <strong>$π _k$ functor</strong> ($k ≥ 0$) is a group functor represented by $[S_∙^k , -]_{𝐓𝐨𝐩 _+ }$ which detects the homotopy class of the $S_∙ ^k$-group at the given base point. We say that $f : X → Y$ is a weak homotopy equivalence, provided $π_{≥ 0}(f)$ are isomorphisms where the base point runs through each $x ∈ X$.</p>
+</div>
+
+<div class="problem">
+  <p>Demonstrate that $π _{≥ 2}$ groups are invariably commutative. Hint: by universal property of $\operatorname{cok}$, $π _k := [S_∙ ^k, -]$ identifies the subfunctor of $[([0,1] ^k , O), - ]$ comprising maps which remain constant over $∂ ([0,1] ^k)$. The commutativity is then established by <em>mutation</em> of $k$-cubes along their boundary.</p>
+</div>
+
+<p>We remark that the weak homotopy equivalence is no longer a equivalence relation, e.g., the totally disconnected topology v.s. the discrete topology. We denote the collection of weak homotopy equivalences as $𝖶𝖾𝗊$ (<strong>weak equivalences</strong> in sense of Quillen), and the localised category as $𝖧𝗈 \ 𝐓𝐨𝐩 := 𝐓𝐨𝐩 [𝖶𝖾𝗊^{-1}]$.</p>
+
+<div class="problem">
+  <p>We compare the following <em>relations</em>: (i) homotopy equivalence, (ii) isomorphic in $𝖧𝗈 \ 𝐓𝐨𝐩$, (iii) isomorphic in the derived category, (iv) possessing identical homotopy groups, (v) possessing identical homology groups. Demonstrate the following:</p>
+  <ul>
+    <li>(i) implies (ii); however, the converse does not generally hold. <em>Hint</em>: find a connected and simply connected space which is not contractible.</li>
+    <li>(ii) implies (iii); however, the converse does not generally hold. <em>Hint</em>: $H_1$ is the abelianisation of $π _1$. One may construct $f : X → Y$ such that $π _1 (X)$ and $π_1(Y)$ are simple groups whilst $π _{≠ 1}$ are trivial, for example, <strong>Eilenberg–MacLane spaces</strong>.</li>
+    <li>(ii) implies (iv); however, the converse does not generally hold. <em>Hint</em>: $S^2 × Pℝ ^3$ and $Pℝ ^2 × S^3$ possess the same $π _{0,1}$ groups, and the $π _{≥ 2}$ groups are computed via the universal cover $S^2 × S^3$. To demonstrate $¬$ (ii), show $¬$ (iii) using the Künneth formula.</li>
+    <li>(iii) is equivalent to (v), since the objects in the derived category of a hereditary algebra (e.g. $ℤ$) are determined by their homology groups.</li>
+  </ul>
+</div>
+
+<p>We focus on the category $𝖧𝗈 \ 𝐓𝐨𝐩$. A general morphism in $𝖧𝗈 \ 𝐓𝐨𝐩$ is a finite <em>zig-zag</em> diagram in the sense of Gabriel-Zisman localisation. We wish that there exists a subcategory $\mathcal{X} ⊆ 𝐓𝐨𝐩$ such that every $X ∈ 𝐓𝐨𝐩$ is associated with a <em>replacement</em> $X' ∈ \mathcal{X}$ via a <em>canonical</em> weak homotopy equivalence $X' → X$. Moreover, for any $X'$ and $Y'$ in $\mathcal{X}$, the hom-set $(X', Y')_{𝖧𝗈 \ 𝐓𝐨𝐩}$ is a quotient of $(X', Y')_{𝐓𝐨𝐩}$.</p>
+
+<p>Such a <em>replacement</em> is known as a CW-approximation, the construction of which is explained by iteratively <em>attaching cells</em>. We shall explain this in the language of simplicial sets. Before that, we introduce the geometric realisation.</p>
+
+<h4 id="the-geometric-realisation">The Geometric Realisation</h4>
+
+<p>We introduce the adjunction between $𝐓𝐨𝐩 ⇆ 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}$ in this section, where the localised adjunction is the well-known Quillen equivalence. To begin with, we introduce the functor of geometric realisation $|-| : 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}} → 𝐓𝐨𝐩$ which is expected to satisfy the following requirements:</p>
+
+<ol>
+  <li>(regularity). $|Δ ^n|$ is $\{x ∈ ℝ_{≥ 0} ^{n+1} ∣ ∑ x_i = 1\}$;</li>
+  <li>(colimit-preserving). $| - |$ commutes with colimits, or even is a left adjoint;</li>
+  <li>($×$-preserving). It is <em>difficult</em> to assert that $| - |$ preserves limits; but it is expected that $| - |$ preserves the monoidal structure of $𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}$, i.e., $|X × Y| ≃ |X| × |Y|$.</li>
+</ol>
+
+<div class="definition">
+  <p>(Geometric realisation). The <strong>geometric realisation</strong> functor $|-| : 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}} → 𝐓𝐨𝐩$ is defined as follows. We assign to a simplicial set $X$ the set $∐ _{n ≥ 0} X_n × |Δ ^n|$, and define the equivalence relation generated by</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_f90c6d403bcf4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Here $(a,x) ∼ (b,y)$ via $φ : [n] → [m]$.</p>
+</div>
+
+<p>The geometric realisation labels all possible $|Δ^n|$ with $X_n$, and quotients by the relation generated by the face and degeneracy maps. We omit the verification of functoriality, since we shall construct its right adjoint $\operatorname{Sing}$. To see how $\operatorname{Sing}$ is supposed to appear, we consider the following natural isomorphism by the Yoneda lemma:
+$$\begin{equation}
+(|Δ ^n |, T)_{𝐓𝐨𝐩 } ≃ (Δ ^n , (|Δ ^- |, T)_{𝐓𝐨𝐩 })_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}.
+\end{equation}$$</p>
+
+<div class="definition">
+  <p>($\operatorname{Sing}$). The functor $\operatorname{Sing}$ is defined as $$\begin{equation}
+\operatorname{Sing} : 𝐓𝐨𝐩 → 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}, \quad T ↦ (|Δ ^- |, T)_{𝐓𝐨𝐩}.
+\end{equation}$$</p>
+  <p>Here $(|Δ ^- |, T)_{𝐓𝐨𝐩}$ is a simplicial set sending $[n]$ to $(|Δ ^n |, T)_{𝐓𝐨𝐩}$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that $|-| ⊣ \operatorname{Sing}$ by replacing $Δ ^n$ with the general colimit $\varinjlim_{(σ , [n])} Δ^n$. Moreover, construct $|f|$ directly by coequilisers.</p>
+</div>
+
+<p>We remark some properties of this adjunction.</p>
+
+<ol>
+  <li>$\operatorname{Sing}$ is faithful in general, but not full. For instance, $\operatorname{Sing}$ never distinct the different <strong>disconnected</strong> topologies over the same underlying set.</li>
+  <li>$| - |$ is does not preserve the monoidal structure. It is pointed out by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=2834">C. H. Dowker</a> an <a href="https://www.jstor.org/stable/2372262?read-now=1&amp;seq=9#page_scan_tab_contents">example</a> that the canonical morphism $|X| × |Y| → |X × Y|$ is not a homeomorphism in general.</li>
+</ol>
+
+<h4 id="cw-approximation">CW-approximation</h4>
+
+<p>The term <strong>CW complexes</strong> was <a href="https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/whitehead-ch1.pdf">introduced</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=1423">J. H. C. Whitehead</a> in 1946, providing a means to approximate topological spaces in a straightforward manner when one is concerned solely with the homotopy groups. We refer to the <a href="https://pi.math.cornell.edu/~hatcher/AT/ATapp.pdf">appendix</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=23358">A. Hatcher</a> as an elementary introduction to CW complexes. The following are more <em>categorical</em> in nature.</p>
+
+<p>We shall first present a basic idea: the term <em>CW</em> denotes <em>Closure-finiteness</em> and <em>Weak topology</em>, wherein</p>
+
+<ul>
+  <li>Closure-finiteness signifies that each cell intersects only finitely many other cells (thus it is compactly generated, and locally contractible);</li>
+  <li>Weak topology refers to the topology related to $π_∙$-groups.</li>
+</ul>
+
+<p>The goal of this section is to</p>
+
+<ul>
+  <li>show the existence of CW-approximation, and the functoriality is due to counit $|\operatorname{Sing} (X)| → X$ serves as such a CW-approximation for any $X ∈ 𝐓𝐨𝐩$;</li>
+  <li>prove the Whitehead’s theorem, which states that the weak homotopy equivalence is equivalent to homotopy equivalence for CW complexes.</li>
+</ul>
+<div class="definition">
+  <p>(The definition and construction of CW complexes). A <strong>CW complex</strong> $K$ is constructed by the following procedure. $K_0$ is a set with the discrete topology. The induction $K_{n-1} → K_n$ is obtained by attaching several $|Δ ^n|$ to $|∂ Δ ^n|$ with respect to a collection of continuous maps $\{a_n ^λ : |∂ Δ ^n| → K_{n-1}\}_{λ ∈ Λ_n}$. Categorically, one may view this as a pushout</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_ee510bd50753d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>A CW-complex is the union $\varinjlim _{n ≥ 0} K_n$ with such sequential pushouts, and every CW complex is obtained in this manner. We denote $K_n$ as the <strong>$n$-skeleton</strong> of $K$, and this definition is enlightened by the idea of the $n$-skeleton of a simplicial set, which studies homotopy theory in a purely combinatorial approach.</p>
+</div>
+
+<div class="problem">
+  <p>Show that every CW complex is the geometric realisation of a simplicial set; hence, the counit $|\operatorname{Sing}(K)| → K$ is a homotopy equivalence for any CW complex $K$. Hint: the left adjoint functor preserves pushouts and colimits.</p>
+</div>
+
+<div class="example">
+  <p>We present the principal steps of CW-approximation as follows. We assume that $X ∈ 𝐓𝐨𝐩$ is path-connected, since the approximation is performed for each path-component separately. We aim to find for each $n ≥ 0$ a <em>functorial</em> morphism $f_n : K_n → X$, where</p>
+  <ol>
+    <li>$K_n$ is a CW complex with $(K_n)_n = K_n$, and</li>
+    <li>$π _k (f_n)$ is bijective for $k < n$, and is a surjection for $k = n$.</li>
+  </ol>
+  <p>We refer to such $f_n$ as a <strong>weak homotopy $n$-equivalence</strong> or an <strong>$n$-equivalence</strong> for simplicity. The inclusion of $K_n ⊆ K$ is clearly an $n$-equivalence. <br /> <br /> We take the $0$-equivalence $f_0 : \{∗\}\  ( =: K_0) → X$ and fix $x_0 := f_0(∗)$ as the base points. Then we recursively construct $f_{n+1}$ from $f_{n}$ by the following steps.</p>
+  <ul>
+    <li>Construct $f_{n+1}' : K_{n+1}' → X$ such that $π _{≤ n}(f)$ are isomorphisms by filling the (possibly) non-zero kernel of the surjection $π _n (f_n): π _n (K_n, K_0) → π _n (X, x_0)$.</li>
+  </ul>
+  <p>We assign each group element $g$ in the kernel $\ker_n$ with a map $a_g : |∂ Δ ^{n+1}| → K_n$. Then there is a pushout diagram inducing $f_{n+1}' : K_{n+1}' → X$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_f39f87c11f1b2.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Since $ι_n$ is the inclusion of $n$-truncation, the induced $f_{n+1}'$ is also an $n$-equivalence. We show that $π _n (f_{n+1}')$ is moreover injective (hence a bijection). To see this, any $h ∈ \ker π _n (f_{n+1}')$ has an $S_∙ ^n$-representative in $K_{n+1}'$, which is assumed to be in $K_n$ by cellular approximation. By construction, $h$ is trivial. <br /> <br /> Another concern is that $π _{n +1} (f_{n+1}')$ may be non-surjective. Hence, we need to make refinements to $f_{n+1}'$ so that $f_{n+1}$ is an $(n+1)$-equivalence.</p>
+  <ul>
+    <li>To address this, we <em>coproduct</em> $K_{n+1}'$ with several $S_∙ ^{n+1}$ labelled by non-images of $π _{n+1} (f_{n+1}')$.</li>
+  </ul>
+  <p>To be explicit, we denote $C_n$ as the set $π _{n+1}(X,x_0) ∖ \operatorname{im}(π _{n +1} (f_{n+1}'))$, and define $K_{n+1} := K_{n+1}' ∨ ⋁ _{C_n} S_∙ ^{n+1}$. We assign the $h$-th $S_∙ ^{n+1}$ with the corresponding non-image representative in $π _{n+1}(X, x_0)$. The induced $f_{n+1} : K_{n+1} → X$ is given by coproduct, which is both surjective for $π _{n+1}$ and bijective for $π _{ ≤ n}$. Hence, $f_{n+1}$ is an $(n+1)$-equivalence. <br /> <br /> We denote the CW complex $K := \varinjlim _{n ≥ 0} K_n$ as the <strong>CW-approximation</strong> of $X$. The construction is functorial at each step.</p>
+</div>
+
+<p>The following well-known theorem due to <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=1423">J. H. C. Whitehead</a> (also appearing in <a href="https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/whitehead-ch1.pdf">combinatorical homotopy</a>) is useful. The proof concerns a series of theory in algebraic topology, such as the cellular approximation, mapping cone and mapping cylinder, and the relative homotopy groups. We state only the main theorem and a sketch of the proof.</p>
+
+<div class="theorem">
+  <p>(Whitehead’s theorem). Let $f : X → Y$ be a map between CW complexes. $f$ is a weak homotopy equivalence if and only if $f$ is a homotopy equivalence.</p>
+  <ul>
+    <li>(special case). If $f$ is either an inclusion or a quotient, then it establishes a <strong>strong deformation retract</strong>.</li>
+    <li>(special case). An $n$-connected space is defined to have trivial $π _{≤ n}$ groups. Over the procedure of the CW-approximation of an $n$-connected space, one may choose $K_{≤ n} = \{∗\}$.</li>
+    <li>(general case). The Whitehead’s theorem holds for relative homotopy groups. Let $f : (X, A) → (Y,B)$ be a weak equivalence of relative CW complexes such that $f : A → B$ is a homotopy equivalence. Then $f : (X, A) → (Y, B)$ is a homotopy equivalence of pairs.</li>
+  </ul>
+  <div class="proof">
+    <p>Without loss of generality, we assume $X$ and $Y$ are path-connected and $f : X → Y$ is cellular (by cellular approximation). Moreover, we assume $f$ is an inclusion of subcomplexes via the homotopic equivalence $Y → \mathrm{Cyl}(f)$ to the cylinder object. <br /> <br /> When $f$ is a weak homotopy equivalence, the relative homotopy groups $π_∙ (Y,X)$ vanish. By the long exact sequence $π _∙ (\mathrm{Cone}(f))$ vanishes, hence the mapping cone $\mathrm{Cone}(f)$ (as a CW complex) is contractible. The homotopy equivalence $\mathrm{Cone}(f) → \{∗\}$ constructs the strong deformation retract of $X ⊆ Y$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that $|\operatorname{Sing} (X)|$ is canonically homotopy equivalent to $K$, the CW-approximation of $X$. Hint: apply $|\operatorname{Sing}(-)|$ at $K → X$, and use Whitehead’s theorem.</p>
+</div>
+
+<p>We remark that the Whitehead’s theorem provides a (functorial) bi-fibrant replacement of objects, serving as an important technique in the study of homotopy category for model structures.</p>
+
+<h3 id="cofibrantly-generating-class">Cofibrantly Generating Class</h3>
+
+<p>Cofibrantly generated model structure is ubiquitous in the study of model categories. In this chapter, we do not introduce the concept of model category in general, but introduce the <strong>cofibrantly generating class</strong> and the <strong>weak factorisation system</strong> instead. The <a href="https://link.springer.com/book/10.1007/BFb0097438">ideal</a> traces back to <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=13325">D. Quillen</a> in 1967.</p>
+
+<h4 id="the-wfs">The (W)FS</h4>
+
+<p>We begin with the concept of <strong>factorisation systems (FS)</strong>, which provides a way of viewing category $\mathcal{C}$ as a <em>compositional product</em> of two classes of morphisms $\mathcal{L}$ and $\mathcal{R}$. The key requirements are the <em>lifting property</em> (<em>orthogonality</em>) and the <em>(functorial) factorisation property</em>. The writer is not certain about its origin, but it was probably <a href="https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/unified-treatment-of-transfinite-constructions-for-free-algebras-free-monoids-colimits-associated-sheaves-and-so-on/FE2E25E4959E4D8B4DE721718E7F55EE">introduced</a> by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=32935">G. M. Kelly</a> in 1980. A nice introduction can be found in the <a href="https://ncatlab.org/joyalscatlab/published/Weak+factorisation+systems">CatLab</a> of <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=206285">A. Joyal</a>.</p>
+
+<div class="definition">
+  <p>(FS). Let $\mathcal{L}$ and $\mathcal{R}$ be subclasses of $𝖬𝗈𝗋 (\mathcal{C})$ which are closed under compositions, isomorphisms and retracts.</p>
+  <ul>
+    <li>The pair $(\mathcal{L}, \mathcal{R})$ is said to be <strong>strongly orthogonal</strong> (or <strong>orthogonal</strong>) provided that for any $l ∈ \mathcal{L}$, $r ∈ \mathcal{R}$ and any morphism $l → r$ (as a commutative square), there exists a <em>unique</em> morphism $s : t(l) → s(r)$ making the triangles commutative. We denote $\mathcal{L} ⟂ \mathcal{R}$.</li>
+    <li>The pair $(\mathcal{L}, \mathcal{R})$ is said to be <strong>weakly orthogonal</strong> provided that for any $l ∈ \mathcal{L}$, $r ∈ \mathcal{R}$ and any morphism $l → r$ (as a commutative square), there exists some (<em>not necessarily unique</em>) morphism $s : t(l) → s(r)$ making the triangles commutative. We denote $\mathcal{L} ⋔ \mathcal{R}$.</li>
+    <li>The pair $(\mathcal{L}, \mathcal{R})$ is said to be <strong>factorial</strong> if every morphism in $\mathcal{C}$ admits some factorisation $f = r ∘ l$ with $l ∈ \mathcal{L}$ and $r ∈ \mathcal{R}$.</li>
+  </ul>
+  <p>A <strong>(weak) factorisation system</strong>, abbreviated as <strong>(W)FS</strong>, comprises $\mathcal{L}$ and $\mathcal{R}$ satisfying the axioms of (weak) orthogonality and factorisation.</p>
+</div>
+
+<div class="problem">
+  <p>Show that for either FS or WFS, one has $\mathcal{L} = {}^⟂(\mathcal{L}^⟂)$ or $\mathcal{L} = {}^⋔ (\mathcal{L}^⋔)$. In general, an arbitrary class of morphisms generates two (W)FS’s by a <em>Galois connection-like</em> construction. Hint: factorise $φ ∈ {}^⟂(\mathcal{L}^⟂)$ into $r ∘ l$, and show that $φ$ is a retract of $l$.</p>
+</div>
+
+<p>Unwinding the definition of (W)FS, we adopt the symbol $S^⟂$ ($S^⋔$) to denote the class of morphisms having (weak) right lifting property with respect to $S$.</p>
+
+<div class="problem">
+  <p>It is straightforward to show that</p>
+  <ol>
+    <li>Both $^⟂S$ and $^⋔S$ are non-empty when $S ≠ ∅$;</li>
+    <li>Both $^⟂S$ and $^⋔S$ are closed under isomorphism, retractions, compositions, coproducts, and pushouts;</li>
+    <li>Suppose the category is cocomplete if necessary. Assume $\{A_γ, l_γ\}_{γ < α}$ is a colimit system directed by an ordinal with $l_γ ∈ {}^⟂ S$ (i.e., a transcomposition system). Then the structure map $e_γ : A_γ → \varinjlim A$ belongs to $^⟂ S$ (or $^⋔ S$) for all $γ < α$.</li>
+  </ol>
+  <p>There are generalisations of 3.; we point out the key construction. In order to find the lifting of the commutative square $\binom{f_γ }{g} :e_γ → r$ as shown in the left diagram, we are supposed to find a collection of $f_∙$ making the right diagram commutative.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_f8a2449ffdf30.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>A good system (e.g., cofinal to an ordinal) makes the choice of $f_∙$ possible.</p>
+</div>
+
+<p>We provide a simple example in $𝐒𝐞𝐭𝐬$.</p>
+
+<div class="example">
+  <p>The pair $(𝐄𝐩𝐢, 𝐌𝐨𝐧𝐨)$ is FS, and the factorisation is even unique up to isomorphism. The pair $(𝐌𝐨𝐧𝐨, 𝐄𝐩𝐢)$ is WFS, where there are usually two kinds of <em>convenient</em> factorisations:</p>
+  <ol>
+    <li>(Graph). The morphism $f : X → Y$ factors as $X \xrightarrow{e_1} X ⊔ Y \xrightarrow {(f,1)} Y$;</li>
+    <li>(Cograph). The morphism $f : X → Y$ factors as $X \xrightarrow{\binom{1}{f}} X × Y \xrightarrow {p_2} Y$.</li>
+  </ol>
+  <p>Be aware of the empty set during the verification.</p>
+</div>
+
+<div class="problem">
+  <p>Show that the factorisation property of FS is functorial.</p>
+</div>
+
+<p>The simplicial language is a functorial way to describe some <em>categorical operations</em>. For instance, we see how it rephrase the <em>functorial factorisation</em> for (W)FS.</p>
+
+<div class="example">
+  <p>Let $(\mathcal{L}, \mathcal{R})$ be a (W)FS admitting a functorial factorisation, e.g., there exists a functorial assignment $f ↦ (l_f, r_f)$ such that $r_f ∘ l_f = f$, $l_f ∈ \mathcal{L}$ and $r_f ∈ \mathcal{R}$. This functoriality holds for general FS. We define</p>
+  <ul>
+    <li>the functorial choice of factorisation gives a functor $F : \mathcal{C}^{Δ ^1} → \mathcal{C}^{Δ ^2}$ sending $f$ to $(l_f, r_f)$;</li>
+    <li>let $d^i : Δ ^1 → Δ ^3$ denote the $i$-th face map, which yields $d_i : \mathcal{C}^{Δ ^2} → \mathcal{C}^{Δ ^1}$ by sending $X_0 \xrightarrow l X_1 \xrightarrow r X_2$ to $r$, $r ∘ l$ and $l$, for $i = 0,1,2$, respectively;</li>
+    <li>now $R:= d_0 ∘ F$ and $L:= d_2 ∘ F$ are endofunctors of $\mathcal{C}^{Δ ^1}$ sending $f$ to $r_f$ and $l_f$ respectively.</li>
+  </ul>
+  <p>If we moreover assume the functorial choice of lifting morphism, then there is a functorial split epimorphism $s$ making all squares commutative:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_1c6c99f284ba1.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>This makes $(R, η, μ)$ a monad, where $η$ is given by $(L, \operatorname{id})$ and $μ$ is given by $(s,1)$.</p>
+</div>
+
+<div class="problem">
+  <p>Verify carefully that $(R, η, μ)$ is a monad, provided WFS in functorial in both factorisation and lifting. Hint: For instance, one may firstly verify $R$ is well-defined for $α = (α _1, α _2) ∈ 𝖬𝗈𝗋 (\mathcal{C}^{Δ ^1})$: the functorial $η _{α_2}$ is given by the functorial lifting morphism (consider $Lf$ and $Rg$):</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_6aabd55c9eeb2.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>The case is much easier for FS. It is clear that there is an one-to-one correspondence between FS and idempotent monads (where $μ : R^2 ⇒ R$ is a natural isomorphism, even an identity by MacLane’s assumption). We show the partial converse for a creterion on functorial WFS.</p>
+
+<div class="proposition">
+  <p>Any monad $(R, η, μ)$ such that $R: \mathcal{C}^{Δ ^1} → \mathcal{C}^{Δ ^1}$ and $η_f = (Lf, \mathrm{id}_{t(f)}) : f → Rf$ determines a (non-functorial) WFS.</p>
+  <div class="proof">
+    <p>It is clear that $L$ is also an endofunctor of $\mathcal{C}^{Δ ^1}$. We define $R:= \{r ∣ r \ \text{ is a retract of } \ Rr\}$, and $L:= \{l ∣ l \ \text{ is a retract of } \ Ll\}$. The pair $(L, R)$ is a WFS, where the lifting morphism is given by $a_r ∘ s ∘ b_l$:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_6f00d80871ed4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </div>
+</div>
+
+<h4 id="quillens-small-object-argument">Quillen’s Small Object Argument</h4>
+
+<p>We enumerate the relevant set-theoritic definitions in this section, and prove Quillen’s <em>small object argument</em> without hesitation. Simplicial and topological explanations are given in the proceeding sections.</p>
+
+<p>The notion <em>small</em> is over-used, this does not the same as $𝔘$-small introduces a priori. When there is a class of morphisms $S$ which is considered to be relatively <em>small</em> to some ordinal $α$, it is possible to construction a WFS by a <em>reasonable</em> induction. The construction is <em>not canonical</em> since it depends on the choice of $α$.</p>
+
+<p>We firstly explain the notion of <em>small</em> based on the cofinality of ordinals. We identify an ordinal (ususally a limit oridnal) $γ$ as a poset category with $𝖮𝖻(γ ) = \{β ∣ β < γ \}$. A <strong>$γ$-sequence</strong> in $\mathcal{C}$ is a functor $γ → \mathcal{C}$. Say $γ$ is <strong>$γ '$-filtered</strong> if $γ$ has stronger confinality than $γ '$, i.e., for any inclusion $ι : γ ' → γ$ of posets, the limit oridinal $\varinjlim ι$ is strictly smaller than $γ$. We remark that</p>
+
+<ul>
+  <li>It suffices to define $γ$-filtration where $γ'$ is a cardinal;</li>
+  <li>For a finite cardianl $κ$, the $κ$-filtered oridnals are exactly the limit oridnals.</li>
+  <li>For any cardinal $κ$ (as a limit oridnal), the least $κ$-filtered ordinal is precisely the successor cardinal of $κ$.</li>
+</ul>
+
+<div class="definition">
+  <p>(Small in Quillen’s sense). Let $\mathcal{C}$ be category with colimits. A <strong>$κ$-small object</strong> $X$ is such that the functor $(X, -)_\mathcal{C}$ preserves all colimits indexed by $κ$-filtered ordinals. A <strong>small object</strong> is defined as a $κ$-small object for some cardinal $κ$. <br /> <br /> An $κ$-small object relative to a class of morphism $S$ is such that $(X, - )_\mathcal{C}$ preserves all colimits idenxed by $κ$-filtered ordinals while taking value in $S$. Say $X$ is <strong>small relative to $S$</strong>, if it is <strong>$κ$-small relative to $S$</strong> for some cardinal $κ$.</p>
+</div>
+
+<p>For either $𝐒𝐞𝐭𝐬$ or $𝐌𝐨𝐝_k$, an general object $X$ is a $𝔘$-small colimit (controlled by $κ$) of compact objects (i.e., $(K, -)$ preserves filtered colimits, for instance $|K|$ is finitely presented). Now $(X, - )$ is $κ$-small, as $κ$-filtered colimits commutes with limits controlled by $κ$. In particular, any set or modules are small.</p>
+
+<div class="definition">
+  <p>(Cofibrant generation). Let $S$ be a non-empty class of morphisms in a cocomplete category. The class $S_{inj} := S^⋔$ and $S_{cof} := ^⋔(S^⋔)$ denote the <strong>$S$-injective</strong> class and <strong>$S$-cofibrant</strong> class respectively. We may wish to <em>generate</em> $S_{cof}$ from $S$ using pushouts, coproducts, transfinite compositions and retractions. Hence, we denote by $S_{cell}$ the <strong>$S$-cell</strong> class consisting of $S$ closed under pushouts, coproducts, and transfinite compositions. Note that $S ⊆ S_{cell}⊆ S_{cof}$.</p>
+</div>
+
+<p>The following small object argument demonstrates the weak orthogonality and functoriality of the pair $(S_{cell}, S_{inj})$. We show later that $S_{cof}$ is the <em>completion</em> of $S_{cell}$ under retractions, thus it returns to the WFS $(^⋔ (S^⋔), S^⋔)$.</p>
+
+<div class="theorem">
+  <p>(Small Object Argument). Let $\mathcal{C}$ be a cocomplete category with $S$ a <em>set</em> of morphisms. If the domains of $S$ are small relative to $C_{cell}$, then there exists a functorial factorisation of morphisms with respect to the pair $(S_{cell}, S_{inj})$.</p>
+  <div class="proof">
+    <p>Let $f : X → Y$ be an arbitrary morphism. We demonstrate the factorisation by the following functorial construction. We set $X := X_0$, and construct $X_0 → X_1$ by pushing out all commutative squares (where such exist) from an $S_{cell}$ morphism to $f$:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_2116e17cfaedd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Clearly $X_0 → X_1$ is in $S_{cell}$. We may extend the above construction to an arbitrarily long transfinite chain $S_∙$ of morphisms in $S_{cell}$; however, it suffices to stop at a $κ$-filtered ordinal $γ$ (the domains of $S_{cell}$ are $κ$-small by assumption). This yields the functorial factorisation $$\begin{equation}
+X \xrightarrow[∈ S_{cell}]{} \varinjlim {}_{< γ } X_∙ = X_γ \xrightarrow[∈ S_{inj}] {f_γ } Y.
+\end{equation}$$</p>
+    <p>It remains to show that $f_γ ∈ S_{inj} = S^⋔$. We take an arbitrary commutative square from $j ∈ S$ to $f_γ$ in the left diagram. The morphism $u_j$ factors through $t_j$ by the definition of $κ$-smallness. By construction of $X_α → X_{α + 1}$, the entire commutative square in the left diagram factors through $f_{α +1}$ in the right diagram:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_1c23604ba508a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Now the structure map $X_{α +1} → X_{γ }$ ensures the entire diagram commutes, which gives rise to the factorisation $t(j) → X_{γ }$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show by factorisation property that, $S_{cof}$ is the completion of $S_{cell}$ under retractions.</p>
+</div>
+
+<h4 id="kan-complexes">Kan Complexes</h4>
+
+<p>We provide a concrete exmaple of $S_{inj}$, $S_{cell}$, and $S_{cof}$ in terms of (simplicial) <em>Kan fibrations</em>. The class of <em>Kan fibration</em> ($S_{inj}$) and <em>anodyne morphisms</em> ($S_{cof}$) serve as the class of trivial cofibrations and fibrations in <em>simplicial model category</em>. The corresponding fibrant object are <em>Kan complexes</em> which admits a closed monoidal structure. The topological version is translaed from the <em>adjoint lifting property</em>.</p>
+
+<p>We introduce the basic notions of simplicial complex. Let $\mathcal{I}$ denote a collection of subsets of $[n]$ ($\mathcal{I} ⊆ \mathcal{P}([n])$ for power set notion). This defines a subfunctor $Δ ^\mathcal{I} ⊆ \mathcal{D}^n$ by</p>
+
+<p>$$\begin{equation}
+Δ ^\mathcal{I} ([m]) := \{f : [m] → [n] ∣ ∃ S ∈ \mathcal{I}, f([m]) ⊆ S\}.
+\end{equation}$$</p>
+
+<p>In particular, one has the standard simplex $Δ ^{n} = Δ ^{\mathcal{P}([n])}$, and the boundary $∂ Δ ^n = Δ ^{\mathcal{P}([n]) ∖ [n]}$. A <strong>simplicial complex</strong> is of the form $Δ ^{\mathcal{I}}$ for $\mathcal{I}$ closed under taking subsets. We remark the followings</p>
+
+<ul>
+  <li>intuitively, if an edge belongs to a simplicial complex, then so are its end points;</li>
+  <li>any simplex in a simplicial complex has non-overlapping boundaries at every dimensions, e.g., the simplicial circle $Δ ^1 / ∂ Δ ^1$ is never a simplicial complex;</li>
+  <li>one may generalise the definition to a <em>good</em> subfunctor of $Δ ^∞$ as how we define $∞$-CW complexes; there is no need at this moment.</li>
+</ul>
+
+<p>We may rephrase some usual construction for categories in simplicial language. We usually view $𝖮𝖻(\mathcal{C})$, $𝖬𝗈𝗋 (\mathcal{C})$, etc, as special subcategory with <em>operations</em>; and may wish to state such operation <em>atomatically</em>. This motivate the definition of <strong>nerve</strong>, enabling tools from topology (e.g., homotopy groups, cohomology) to analyse categorical structures. We denote $𝐂𝐚𝐭$ the category of $𝔘$-small categories (<strong>$2$-category</strong>), which is also $𝐂𝐚𝐭$-enriched as the hom-sets are the usual functor categories.</p>
+
+<div class="definition">
+  <p>(Nerve). We view each object $[n] ∈ Δ$ (with monotone maps) as distinct subcategories, which gives the inclusion of full subcategory $ℓ : Δ → 𝐂𝐚𝐭$. Now the <em>categorical object in $𝐒𝐞𝐭𝐬^{Δ ^{\mathrm{op}}}$</em> ($∞$-cateogry more precisely) $\mathrm N(\mathcal{C}) := (ℓ (-), \mathcal{C})_{𝐂𝐚𝐭}$ is called the nerve of the category.</p>
+</div>
+
+<div class="problem">
+  <p>Show the left adjoint of $\mathrm N(?)$. Hint: the functor $φ := |Δ^∙| : Δ → 𝐓𝐨𝐩$ defines $\operatorname{Sing} : 𝐓𝐨𝐩 → 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}$ by pulling back the Yoneda embedding. Here we replace $φ$ by $ℓ : Δ → 𝐂𝐚𝐭$. Once we show the existence of such left adjoint $𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}} → 𝐂𝐚𝐭$, verify the following is our desired construction:</p>
+  <ul>
+    <li>$𝖮𝖻 (\mathrm h (X)) := X_0$,</li>
+    <li>$𝖬𝗈𝗋 (\mathrm h (X)) := X_1 / ∼$ by identifying $s_0(v) := 1_v$ and $d_0 (e) ∘ d_1 (e) = d_2 (e)$.</li>
+  </ul>
+</div>
+
+<p>Unlike $|-| ⊣ \operatorname{Sing}$, the functor $\mathrm N$ is fully faithful. The counit morphism tautologically assign the <em>folding</em> of <em>freelised</em> category to itself, which is a natural isomorphism. Unlike general topology, category has no $∞$-path as in topologist’s sine function. This is how $𝐂𝐚𝐭$ better than $𝐓𝐨𝐩$ in some aspect. Whereas one good thing of $𝐓𝐨𝐩$ is that all paths are invertible, which we shall see as follows.</p>
+
+<p>We denote $Λ^n _i := Δ ^{\mathcal{P}([n]) ∖ \{[n], [n]∖ \{i\}\}}$ as the <strong>$i$-th horn of $Δ^n$</strong>. Graphically, $Λ ^n_i$ is obtained by deleting the interior and the $i$-th face of $Δ^n$. $Λ ^n _i$ is an <strong>inner horn</strong>, provided $0 < i < n$. The inclusions maps are called <strong>(inner) horn inclusions</strong>. We show the definition of $∞$-category by the following fact:</p>
+
+<div class="problem">
+  <p>Any singular set of a topological complex lifts horn inclusions. Explicitly, for any horn inclusion $ι : Λ _i ^n ↪ Δ ^n$, the morphism $φ : Λ _i ^n → \operatorname{Sing} (X)$ lifts up to $\widetilde φ : Δ ^n → \operatorname{Sing}(X)$ via $ι$. Hint: $(ι , \operatorname{Sing} (X))_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}$ is surjective iff so is $(|ι|, X)_{𝐓𝐨𝐩}$.</p>
+</div>
+
+<p>We call such those simplicial sets lifting all (inner) horn fillings <strong>(weak) Kan complexes</strong>. By invertibility of all paths, any singular set of a topological complex are Kan complexes; a general category is a weak Kan complex as only the composition rule works fine. A category with all invertible paths (aka <strong>groupoid</strong>) is a Kan complex, the converse holds true by combinatoric verification.</p>
+
+<p>Let $S$ denote the horn fillings temporality. The simplicial set $X$ is a Kan complex if and only if $X → \{∅\}$ belongs to $S_{inj}$. We call $S_{inj}$ the class of <strong>Kan fibrations</strong>. By general theory of lifting property, Kan fibrations are closed under retracts, pullbacks, products, and transfinite co-composition of a tower. The class left lifting class $S_{cof}$ are called the <strong>acyclic cofibrations</strong>, or <strong>anodyne morphisms</strong>. By Quillen’s small object argument, $S_{cof}$ is precisely the closure of horn inclusions under isomorphisms, transfinite compositions, coprodcuts and retracts. The terms <strong>anodyne</strong> or <strong>acyclic</strong> means to be inoffensive or harmless to homology groups: the transdental induction keeps on filling the <em>holes</em> in the construction of Quillen’s small object argument.</p>
+
+<h4 id="adjoint-lifting">Adjoint Lifting</h4>
+
+<p>We introduce the <em>smash product of morphisms</em> and <em>morphism spaces</em> for simplicial comlexes, which shows more closure properties of $S_{inj}$ and $S_{cof}$. Many of the categories in practice are <em>self-enrichend</em>, meaning that every Hom-set is a object in the same category. We may obtain better results analogous of currying (the tensor-hom adjunction). The <em>adjoint lifting</em> serves as a bridge connecting the <em>smash product</em> for cofibrations and <em>morphism spaces</em> for fibrations. We complete this section by showing a criterion (probably initially discovered by <a href="https://www.genealogy.math.ndsu.nodak.edu/id.php?id=206285">A. Joyal</a>, see <a href="https://www.math.uchicago.edu/~may/IMA/Joyal.pdf">quasi-categories</a>):</p>
+
+<ul>
+  <li>$X$ is a Kan complex ($(∞,1)$-category), if and only if $\mathcal{HOM}(Δ^1, X) \xrightarrow {(Δ ^0 ↪ Δ ^1) ^∗ }\mathcal{HOM}(Δ^0, X)$ belongs to $𝐌𝐨𝐧𝐨 ^⋔$;</li>
+  <li>$X$ is a weak Kan complex ($∞$-category), if and only if $\mathcal{HOM}(Δ^2, X) \xrightarrow {(Λ^2_1 ↪ Δ ^2) ^∗ }\mathcal{HOM}(Λ^2_1, X)$ belongs to $𝐌𝐨𝐧𝐨 ^⋔$.</li>
+</ul>
+
+<div class="slogan">
+  <p>The key requirement of $∞$-categories ($(∞,1)$-categories) is to be closed under compositions (invese maps).</p>
+</div>
+
+<p>The <strong>product</strong> and <strong>coproducts</strong> of simplicials sets are defined pointwise as they are presheaves over $Δ$. We remark that the product of standard simplicial sets $Δ ^m$ and $Δ ^n$ is of dimension $m+n$ by <a href="https://ncatlab.org/nlab/show/shuffle">shuffle</a> construction. The prodcut of degenerated objects are not necessary degenereted, as shown in previous dimensional analysis. One concrete example is $\binom{[001]}{[011]} ∈ Δ ^1 × Δ ^1$.</p>
+
+<div class="definition">
+  <p>(The morphism space). The morphism space is given by a bi-functor $$\begin{equation}
+\mathcal{HOM}(-, ?) : (𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}})^{\mathrm{op}} × 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}} → 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}},
+\end{equation}$$</p>
+  <p>such that $(∙ , \mathcal{HOM}(-,?))_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}} ≃ (- × ∙ ,?)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}$ is a functorial adjunction.</p>
+</div>
+
+<div class="problem">
+  <p>We show the existence of morphism spaces by construction. Firstly show that the endofunctor $K × -$ preserves all colimits. Then consider the natural isomorphisms</p>
+  <p>$$\begin{aligned}
+(K × X, Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}} & ≃ (\varinjlim_ℕ K × Δ ^n, Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}} \\
+& ≃ \varprojlim_ℕ (Δ ^n, (K × Δ ^∙, Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}})_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}} \\
+& ≃ (X, (K × Δ ^∙, Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}})_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}} \xlongequal{ \text{def} } (X, \mathcal{HOM}(K, Y))_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}.
+\end{aligned}$$</p>
+  <p>The simplicial set $[n] ↦ (K × Δ ^n, Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}$ is the morphism space $\mathcal{HOM}(K,Y)$.</p>
+</div>
+
+<p>We remark that</p>
+
+<ul>
+  <li>the usual set of morphism $(K,Y)_{𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}}}$ is $\mathcal{HOM}(K,Y)$ at $0$-th degree;</li>
+  <li>by Yoneda, the $(K × -) ⊣ \mathcal{HOM}(K,-)$ is the same thing as the natural isomorphism $\mathcal{HOM}(K × -, ?) → \mathcal{HOM}(-, \mathcal{HOM}(K, ?))$;</li>
+  <li>the enriched composition $\mathcal{HOM}(Y, Z) × \mathcal{HOM}(X,Y) → \mathcal{HOM}(X,Z)$ is characterised degree-wise, where the morphisms $g_k : Y × Δ ^k → Z$ and $f_k : X × Δ ^k → Y$ gives $(g ∘ f) _k : X × Δ ^k \xrightarrow{X × \text{diagonal}} X × Δ ^k × Δ ^k → Z$;</li>
+  <li>the pull backs are <em>reasonable</em> constructions of morphism spaces, e.g., $\varprojlim \mathcal{HOM}(A_∙ , -)$ is represented by $\mathcal{HOM}(\varinjlim A_∙, -)$ by Yoneda lemma, and $\varprojlim \mathcal{HOM}(-, B_∙)$ is corepresented by $\mathcal{HOM}(-, \varprojlim B_∙)$ by commuting right adjoints.</li>
+</ul>
+
+<p>We pointout a functorial construction of mapping space.</p>
+
+<div class="problem">
+  <p>For simplicial morphisms $f : X → Y$ and $g : A → B$, we consider the morphism induced by the pullback:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_1938dbf8e8d5b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>We denote $⋆ : (∙ , \mathcal{HOM}(-, ?)) ≃ (- × ∙ , ?)$ the natural isomorphism, and $f ∧ m$ is obtained by pushout morphism of the functorial square $(f, m) : X × P → Y × Q$. Then, the existence of the lifting map $s$ in the up diagram is equivalent to that of $t$ in the down diagram:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_f5dac095a7e77.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>This also shows that for collection of morphisms $S$ and $T$, one has $T ∧ (^⋔ S) = {}^⋔ (Φ (T,S))$. To conclude, the intersections of <em>pre-images</em> is again <em>saturated</em>.</p>
+</div>
+
+<p>For a fixed morphism $φ$, the left adjoint functor $φ ∧ (-)$ preserves retractions, transfinite compositions, coproducts, and pushouts. When Quillen’s small objects argument holds, $φ ∧ (-)$ preserves the left morphism class of WFS.</p>
+
+<p>The <strong>smash product</strong> of morphisms is compatible with the usual smash product for pointed simplicial sets, defined as ${X ∏ Y} / {X ∐ Y}$, as explained in the following exercise.</p>
+
+<div class="problem">
+  <p><em>Suppose all simplicial sets are non-empty!</em> Let $\operatorname{cok} : (𝐒𝐞𝐭𝐬^{Δ ^{\mathrm{op}}})^→ → (𝐒𝐞𝐭𝐬^{Δ ^{\mathrm{op}}})_+$ denote the cokernel functor whose right adjoint is the inclusion $(X, x_0) ↦ ((x_0, x_0) → (X,x_0))$. Show that such adjunctions preserves smash product:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_3b4737f3f8767.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Hint: deduce this to smash product of monomorphisms. <br /> <br /> Similarly, for $a : \{∗\} → A$ and $b : \{∗\} → B$, the morphism $Φ (a,b)$ identifies the pointed mapping space $((A,a), (B,b))_{(𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}})_+}$.</p>
+</div>
+
+<p>We use smash product to simplify the discription of generating set of horn inclusions. We fix $φ : \{∗\} ↪ Δ ^1$ as the inclusion of $0$, and show that the following collections of morphisms generate the same $S_{cof}$ class:</p>
+
+<ol>
+  <li>($S$). the collection of horn inclusions $Λ ^n _i ↪ Δ ^n$ for $0 ≤ i ≤ n$;</li>
+  <li>($T$). the collection of $φ ∧ f$, for $f$ an arbitrary monomorphism.</li>
+</ol>
+
+<div class="proposition">
+  <p>The class $S$ consisting of horn inclusions and $T := φ ∧ 𝐌𝐨𝐧𝐨$ generates the same $(-)_{cof}$ class.</p>
+  <div class="proof">
+    <p>We show that $S ⊆ T_{cof}$ by verifying that any horn inclusion $i$ is a retract of $φ ∧ i : \square → Δ^1 × Δ ^n$. We firstly consider the case $i : Λ _k^n → Δ ^n$ for $k < n$. Let $ι _1 : ? ↪ (Δ ^1 × ?)$ denote the functorial inclusion to cordinate $1$. It is straightforward to construct the commutative diagram:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_063f9d557c672.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>The choice of $p$ is not unique; we want to find $p$ such that the dashed arrow exists. We take $p$ as follows:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_4d924e0f84ce3.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Back to the <em>retraction</em> diagram. The composition of the bottom line is identical, since $p$ is identical on $\{1\} × Δ ^n$. The inclusion $Δ ^1 × Λ ^n _k ↪ \square$ attach $Δ^n$ over $\{0\} × Λ ^n _k$, which degenerates into $Λ^n _k$ via $p$. This completes the proof for $k < n$. One can similarly show the case $k = n$ by replacing $ι _1$ with $ι_0$, and define $p$ as follows:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_241ec5fa607bd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Conversely, we show that $T ⊆ S_{cof}$. We note that any monomorphism of simplicial sets are obtaiend by adjoining cells. Hence, it suffices to show for all boudaray inclusions $c^n : ∂ Δ ^n ↪ Δ ^n$ in $𝐌𝐨𝐧𝐨$. We show that $(φ ∧ c^n) ∈ S_{cof}$.</p>
+    <p>We know that there are $n+2$ non-degenrated standard simplices $Δ ^{n+1}$ in $Δ ^1 × Δ ^n$ determined by <em>$(p,q)$-shuffle</em>. We iteratively attaching $Λ ^{n+1}_k$-horns with $0 ≤ k ≤ (n+1)$ along the buttom edge:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_e71af111a61a5.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </div>
+</div>
+
+<p>Crearly, $i ∧ S_{cof} ⊆ S_{cof}$ for any monomorphism $i$. We apply adjoint lifting to the above equivalent characterisation of $S_{cof}$, and see that $Φ (i, -)$ preserves Kan fibrations for arbitrary monomorphism $i$. In particular, for any simplicial set $X$ and Kan complex $F$, the morphism space $\mathcal{HOM}(X,F)$ is again a Kan complex. Hence we obtain a criterion for Kan complexes:</p>
+
+<ul>
+  <li>$F$ is a Kan complex ($(∞,1)$-category), if and only if the pullback $\mathcal{HOM}(Δ ^1 , F) \xrightarrow {φ ^∗ } F$ lifts all monomorphisms.</li>
+</ul>
+
+<p>This criterion has to do with path-homotopy. When $F^I → F$ lifts all monomorphisms, $F$ has invertible edges.</p>
+
+<div class="problem">
+  <p>Let $S'$ denote the set of inner horn inclusions. Show that $S'_{cof}$ is also generated by $ψ ∧ 𝐌𝐨𝐧𝐨$ for $ψ : Λ ^2_1 ↪ Δ ^2$. Hint: by $\{c_n : ∂ Δ ^n ↪ Δ ^n\}_{cof} = 𝐌𝐨𝐧𝐨 _{cof}$, it suffices to show</p>
+  <ol>
+    <li>$(ψ ∧ c_n) ∈ S'_{cof}$, and</li>
+    <li>any inner horn inclusions belongs to $(ψ ∧ 𝐌𝐨𝐧𝐨)_{cof}$.</li>
+  </ol>
+  <p>The proof of 1. is similar to the above. The retraction $Δ ^n ↪ Δ ^1 × Δ ^n ↠ Δ ^n$ may constructed as follows. The monomorphism is</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_aba788cbdac33.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>The epimorphism is</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_606536d306edd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>The proof of 2. show inductively that $\square ↪ Δ ^2 × Δ ^n$ is nothing but a <em>completion of compositions</em>.</p>
+</div>
+
+<p>The above criterion (along with adjoint lifting) shows that for any $i ∈ 𝐌𝐨𝐧𝐨$, $Φ (i, -)$ preserves trivial Kan fibrations. In particular,</p>
+
+<ul>
+  <li>for any simplicial set $X$, the functor $\mathcal{HOM}(X, -)$ preserves weak Kan complexes ($∞$-categories);</li>
+  <li>$V$ is a weak Kan-complex ($∞$-category), if and only if the pullback $\mathcal{HOM}(Δ ^2, V) \xrightarrow {ψ ^∗ }\mathcal{HOM}(Λ ^2_1, V)$ lifts all monomorphisms.</li>
+</ul>
+
+<h3 id="functors">Functors</h3>
+
+<h4 id="topological-space-for-convenience">Topological Space for Convenience</h4>
+
+<p>We explain the <em>convenient topological category</em>, usually selected as $𝐂𝐆𝐇$ (compactly generated Hausdorff space, or $k$-spaces). We clearify the morphisms ($k$-morphisms) in $𝐂𝐆𝐇$ and the left adjoint functor ($k$-fication) $k : 𝐓𝐨𝐩 → 𝐂𝐆𝐇$ with respect to the inclusion $𝐂𝐆𝐇 → 𝐓𝐨𝐩$ (not full!).</p>
+
+<h4 id="hurewicz-map">Hurewicz Map</h4>
+
+<p>Following the principle $\text{realisation} ⊣ \text{nerve}$, we have constructed the adjunctions</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Note-on-Quillen-Model-Structure/diagram_e44cc453f2cb4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>In order to study homologies, we introduce the free-forgetful adjunction of Abelisation $ℤ (-) : 𝐀𝐛 ^{Δ ^{\mathrm{op}}} ⇆ 𝐒𝐞𝐭𝐬 ^{Δ ^{\mathrm{op}}} : U$. The <em>homologies</em> are calculated by the homology groups of the <strong>singular chain complex</strong> $C(ℤ (X))$. The Hurewitz map points out that the functor $ℤ (-)$ lost some information of $π _∙$ groups, while exactly makes it into $H_∙$. The map says $π _∙ (|U(-)|) ≃ H_∙ (-)$ are the same functor of the type $𝐀𝐛 ^{Δ ^{\mathrm{op}}} → 𝐆𝐫 (𝐀𝐛)$, which generalise the result of $\mathrm{Ab}(π _1) = H_1$.</p>
+
+<h4 id="dk-correspondence">DK Correspondence</h4>
+
+<p>There are also theories revising the assignment $X ↦ C(ℤ (X))$, e.g. the Dold-Kan complex correspondence.</p>
+
+<h4 id="homotopy-spectra">(Homotopy) Spectra</h4>
+
+<p>The pointed construction makes topological spaces <em>algebraic</em>. The homotopy spectra $Σ ^∞ : 𝐓𝐨𝐩 _∙ / ∼  → 𝐇𝐨𝐒𝐩𝐞𝐜$ moreover <em>linearise</em> it ($∧ = ∨$ under $Σ ^∞$!).</p>
+
+<ul>
+  <li>the development: due to Lima around 1950s probably, and revolutioned by Adams in stable homotopy theory (1974);</li>
+  <li>it has nothing to do with the spectra in algebraic topology, or spectal of operator (the word is over used).</li>
+</ul>
+
+<h4 id="quillens-equivalence">Quillen’s Equivalence</h4>
+
+<p>The adjunction $|-| ⊣ \operatorname{Sing}$ descents to an equivalence for there homotopy category. It is acceptable to enlarge $𝐂𝐆𝐇$ to the entire $𝐓𝐨𝐩$.</p>
+
+<h2 id="quillens-model-structure">Quillen’s Model Structure</h2>
+
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#note-on-model-category">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Note on Model Category</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#kan-extension">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">Kan Extension</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#the-basic-definitions">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">The Basic Definitions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#categories-and-functors">
+        <span class="toc-number">2.1.1.</span>
+        <span class="toc-title">Categories and Functors</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#universe">
+        <span class="toc-number">2.1.2.</span>
+        <span class="toc-title">Universe</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#limits-and-colimits">
+        <span class="toc-number">2.1.3.</span>
+        <span class="toc-title">Limits and Colimits</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#a-note-on-kan-extension">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">A note on Kan Extension</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-definition">
+        <span class="toc-number">2.2.1.</span>
+        <span class="toc-title">The Definition</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#example-homology-from-limits">
+        <span class="toc-number">2.2.2.</span>
+        <span class="toc-title">Example: Homology from Limits</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-construction">
+        <span class="toc-number">2.2.3.</span>
+        <span class="toc-title">The Construction</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#on-derived-functors">
+        <span class="toc-number">2.2.4.</span>
+        <span class="toc-title">On Derived Functors</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#simplicial-methods">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">Simplicial Methods</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#simplicial-objects">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Simplicial Objects</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#basics">
+        <span class="toc-number">3.1.1.</span>
+        <span class="toc-title">Basics</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-truncation">
+        <span class="toc-number">3.1.2.</span>
+        <span class="toc-title">The Truncation</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#the-topologies">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">The Topologies</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#motivation-for-simplicial-methods">
+        <span class="toc-number">3.2.1.</span>
+        <span class="toc-title">Motivation for Simplicial Methods</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#a-categorical-overview">
+        <span class="toc-number">3.2.2.</span>
+        <span class="toc-title">A Categorical Overview</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-pointed-construction">
+        <span class="toc-number">3.2.3.</span>
+        <span class="toc-title">The Pointed Construction</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#equivalences">
+        <span class="toc-number">3.2.4.</span>
+        <span class="toc-title">Equivalences</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-geometric-realisation">
+        <span class="toc-number">3.2.5.</span>
+        <span class="toc-title">The Geometric Realisation</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#cw-approximation">
+        <span class="toc-number">3.2.6.</span>
+        <span class="toc-title">CW-approximation</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#cofibrantly-generating-class">
+        <span class="toc-number">3.3.</span>
+        <span class="toc-title">Cofibrantly Generating Class</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-wfs">
+        <span class="toc-number">3.3.1.</span>
+        <span class="toc-title">The (W)FS</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#quillens-small-object-argument">
+        <span class="toc-number">3.3.2.</span>
+        <span class="toc-title">Quillen’s Small Object Argument</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#kan-complexes">
+        <span class="toc-number">3.3.3.</span>
+        <span class="toc-title">Kan Complexes</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#adjoint-lifting">
+        <span class="toc-number">3.3.4.</span>
+        <span class="toc-title">Adjoint Lifting</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#functors">
+        <span class="toc-number">3.4.</span>
+        <span class="toc-title">Functors</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#topological-space-for-convenience">
+        <span class="toc-number">3.4.1.</span>
+        <span class="toc-title">Topological Space for Convenience</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#hurewicz-map">
+        <span class="toc-number">3.4.2.</span>
+        <span class="toc-title">Hurewicz Map</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#dk-correspondence">
+        <span class="toc-number">3.4.3.</span>
+        <span class="toc-title">DK Correspondence</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#homotopy-spectra">
+        <span class="toc-number">3.4.4.</span>
+        <span class="toc-title">(Homotopy) Spectra</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#quillens-equivalence">
+        <span class="toc-number">3.4.5.</span>
+        <span class="toc-title">Quillen’s Equivalence</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#quillens-model-structure">
+        <span class="toc-number">4.</span>
+        <span class="toc-title">Quillen’s Model Structure</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Completion_of_triangulated_Cat" title="NEXT: Notes on Completion of Triangulated Categories">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/DG_Cat" title="PREV: DG 范畴与消解">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

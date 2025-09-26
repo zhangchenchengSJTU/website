@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>(线性代数) C-特征空间
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="  Abstract      选自作业题.  ">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/C_Similar_matrix">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>(线性代数) C-特征空间</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 11, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>选自作业题.</p>
+  </div>
+</div>
+
+<p><strong>Problem Set for 08 May 2025: A New Jordan form over $\mathbb C$</strong></p>
+
+<p><strong>Definition</strong> (Ceigen-). Let $A\in \mathbb C^{n \times n}$. We say that $(v, \lambda)$ is a ceigenpair of $A$ provided $A \overline v = \lambda v$ for some $\lambda \in \mathbb C$. The vector $v$ is referred to as a ceigenvector and $\lambda$ a ceigenvalue, correspondingly. For matrices, we say $A$ is csimilar to $B$ provided $A = PB\overline P^{-1}$ for some non-singular matrix $P$.</p>
+
+<p><strong>Exercise 1</strong> Characterise the ceigenspace corresponding to the ceigenvalue $0$.</p>
+
+<blockquote>
+  <p>就是 $\overline {\ker (λ I - A)}$.</p>
+</blockquote>
+
+<p><strong>Exercise 2</strong> Demonstrate that if $\lambda$ is a ceigenvalue, then so too is $e^{i \theta} \cdot \lambda$. Furthermore, show that for any ceigenvector $v$, there exists a ceigenvector associated with a ceigenvalue $\geq 0$.</p>
+
+<blockquote>
+  <p>若有 $A \overline v = λ v$, 则对任意 $t ∈ ℝ$ 总有 $A \overline {e^{i t}v}= e^{-i⋅ 2t}λ (e^{i t}v)$. 取 $θ = -t/2$.</p>
+</blockquote>
+
+<p><strong>Exercise 3</strong> Suppose $(v, \sigma)$ is a ceigenpair of $A$; then $(v, \sigma \overline \sigma)$ is an eigenpair of $A \overline A$. In particular,</p>
+
+<ul>
+  <li>if $A \in \mathbb C^{d \times d}$ possesses $d$ ceigenpairs which are linearly independent over $\mathbb C$, then $A\overline A$ is diagonalisable with all eigenvalues non-negative.</li>
+</ul>
+
+<p>Now consider the following <strong>partial converse statement</strong>:</p>
+
+<ul>
+  <li>$A$ has no ceigenvectors if and only if $A \overline A$ admits no eigenvalues in $\mathbb R_{\geq 0}$;</li>
+  <li>$A \in \mathbb C^{d \times d}$ has $d$ linearly independent ceigenpairs over $\mathbb C$ if and only if $A\overline A$ is diagonalisable with non-negative eigenvalues.</li>
+</ul>
+
+<p>Prove the <strong>partial converse statement</strong>: suppose that $(v, \sigma \overline {\sigma })$ is an eigenpair of $A\overline A$; then $\sigma$ is a ceigenvalue of $A$.</p>
+
+<blockquote>
+  <p>错误解答: $u := \overline σ v + A\overline v$, 则 $A \overline u = σ A\overline v + σ \overline σ v = σ u$.</p>
+
+  <p>注: 应当要求 $u ≠ 0$. 取 $u_t := e^{-it}\overline σ v + e^{it}A\overline v$, 则 $A \overline {u_t} = e^{i t}σ A\overline v + e^{-i t}σ \overline σ v = σ u_t$. 至少存在一个 $t$ 使得 $u_t ≠ 0$.</p>
+</blockquote>
+
+<p><strong>Exercise 4</strong> Elucidate <strong>Exercise 3</strong> (particularly the warning) with the following example:
+$$
+A = \begin{pmatrix} 1 & i \\ 0 & 1 \end{pmatrix},\quad v = \begin{pmatrix}1 \\ i \end{pmatrix}.
+$$</p>
+
+<blockquote>
+  <p>由 $A \overline A = I$, $v$ 是 $A\overline A$ 的特征向量, 但不是 $A$ 的 ceigenvector.</p>
+</blockquote>
+
+<p><strong>Exercise 5</strong> This serves to complete <strong>Exercise 2</strong>. Suppose $\{(v_i , \lambda_i)\}_{i=1}^n$ are ceigenpairs of $A$ such that $|\lambda_i| \neq |\lambda_j|$; show that $\{v_i\}_{i=1}^n$ are linearly independent.</p>
+
+<blockquote>
+  <p>$\{v_i\}$ 是 $A\overline A$ 不同特征根的特征向量, 从而线性无关.</p>
+</blockquote>
+
+<p><strong>Exercise 6</strong> We aim to identify the analogue of the Jordan canonical form in the c-version, namely, $X =P J\overline P^{-1}$. We commence with a very special case:</p>
+
+<ul>
+  <li>$P\overline {P} = I$ if and only if $P = Q\overline Q^{-1}$ for some invertible $Q$.</li>
+</ul>
+
+<blockquote>
+  <p>假定 $P\overline P = I$. 记 $Q_t := e^{-it}I + e^{it}P$, 此时 $P \overline {Q_t} =  e^{it}P + e^{-it}I = Q_t$. 比较特征根, 存在 $t$ 使得 $Q_t ≠ 0$.</p>
+
+  <p>假定 $P = Q\overline Q^{-1}$, 则 $P \overline P = Q \overline Q^{-1}\overline Q Q^{-1} = I$.</p>
+</blockquote>
+
+<p><strong>Exercise 7</strong> The most elementary Jordan matrix is the diagonal matrix. Show that $A$ is cdiagonalisable (i.e., $A = PD\overline P^{-1}$ for some $P$) if and only if   <font color="red">$A\overline A$ is diagonalisable and $\mathrm{rank}(A) = \mathrm{rank}(A\overline A)$ </font>
+. In this scenario, $A\overline A$ has only non-negative eigenvalues.</p>
+
+<blockquote>
+  <p>若 $A = PD\overline P^{-1}$, 则 $A \overline A = PD\overline D P^{-1}$ 是可对角化的矩阵.</p>
+
+  <p>若 $A \overline A$ 可对角化, 记 $P (A\overline A) P^{-1} = D$, 其中 $D$ 是以数量矩阵 $λ_i I_{s_i}$ 为分块的对角矩阵. 形式地取 $B := PA\overline P^{-1}$, 以下计算表明 $B$ 是分块对角矩阵:</p>
+
+  <ul>
+    <li>由 $B\overline B = D = \overline D = \overline B B$, 得 $BD = B \overline B B = DB$. 由交换性, $B$ 必然是分块对角矩阵.</li>
+  </ul>
+
+  <p>此时, 对 $A$ 的每一个分块作 c-对角化即可. 不妨设 $A\overline A$ 是零矩阵或者恒等矩阵.</p>
+
+  <ul>
+    <li>若 $A\overline A$ 是零矩阵, 由秩关系得 $A = O$.</li>
+    <li>若 $A\overline A = I$, 则存在可逆矩阵 $Q$ 使得 $A = Q I\overline Q^{-1}$.</li>
+  </ul>
+
+  <p>作为推论: 若 $A \overline A$ 可对角化, 则 $A$ c-相似于某个全为非负实数的 Jordan 型, 从而 $A \overline A$ 的特征值均为非负实数.</p>
+</blockquote>
+
+<p><strong>Exercise 8</strong> (Nilpotent part). Show that there exists a matrix $P$ such that $PA\overline P^{-1} = \binom{N \ \ O}{O \ \ B}$, where $N$ comprises nilpotent Jordan blocks and $B$ is invertible.</p>
+
+<blockquote>
+  <p>直接使用 Fitting 引理, 得两种直和分解: $V = \mathrm{im}(\cdots \overline AA\overline A A) ⊕ \ker (\cdots \overline AA\overline A A)$.</p>
+
+  <p>取 $ℝ$-线性自同态 $φ$, 使得有 $ℂ$-线性自同态 $φ ∘ \overline {(-)}$. 称这一自同态在基 $u_i$ 下的 c-表示为矩阵 $A$, 若
+$$
+> φ (u_1 ∣ \cdots ∣ u_n) = (\overline{u_1} ∣ \cdots ∣ \overline{u_n}) ⋅ A.
+> $$</p>
+
+  <p>存在 c-相似变换 $PA\overline P^{-1} = A'$, 当且仅当存在一组基 $(v_i) = (u_i) P^{-1}$ 使得 $φ(v_∙) = (\overline{v_∙}) ⋅ A'$. 比对 Fitting 引理,</p>
+
+  <ul>
+    <li>存在 $\mathrm{im}(\cdots \overline AA\overline A A)$ 的一组基, 使得在 $φ ∘ \overline {(-)}$ 下是同构;</li>
+    <li>存在 $\mathrm{ker}(\cdots \overline AA\overline A A)$ 的一组基, 使得在 $φ ∘ \overline {(-)}$ 下是幂零变换.</li>
+  </ul>
+
+  <p>这就完成了 c-分块对角化.</p>
+
+  <p>考虑增长的零空间 $\ker A$, $\ker \overline A A$, $\ker A\overline A A$, $\ker \overline A A \overline A A$ 等等. 记 $V_{-1}$ 是最后一个不为零的零空间, $V_{-k-1}$ 是 $V_{-k}$ 的前项. 这些都是互相包含的 $ℂ$-线性空间, 因为 $A$ 与 $\overline A$ 是向左添加的.</p>
+
+  <p>取 $V_{-1}$ 的基 $\{v^0_{(0,∙)}\}$. 此时存在一组 $\{v_{(0,∙)}^1\}$ 使得 $A v_{(0,i)}^1 = v_{(0,i)}^0$. 另取 $\{v^1_{(1, ∙)}\}$ 使得 $\{v^1_{(0, ∙)}\} ⊔ \{v^1_{(1, ∙)}\}$ 是 $V_{-2}$ 的基. 归纳地, 取 $\{v^2_{(k, ∙)}\}_{k = 1,2,3}$ 使得有双射 $\overline A : \{v^2_{(k, ∙)}\}_{k=1,2} \overset ∼ → \{v^1_{(k, ∙)}\}_{k=1,2}$.</p>
+
+  <p>将归纳过程总结作下图 (同一般 Jordan 型的归纳):</p>
+
+  <p>$$
+> \begin{bmatrix}
+> V_{-3} & \xrightarrow{\overline{A}} & V_{-2} & \xrightarrow{A} & V_> {-1} & \xrightarrow{\overline{A}} & 0\\
+> \left\{v_{( 0,\bullet )}^{2}\right\} & \xrightarrow{\sim } & \left\{v_{( 0,\bullet )}^{1}\right\} & \xrightarrow{\sim } & \left\{v_{( 0,\bullet )}^{0}\right\} & \twoheadrightarrow  & 0\\
+> \left\{v_{( 1,\bullet )}^{2}\right\} & \xrightarrow{\sim } & \left\{v_{( 1,\bullet )}^{1}\right\} & \twoheadrightarrow  & 0 &  & \\
+> \left\{v_{( 2,\bullet )}^{2}\right\} & \twoheadrightarrow  & 0 &  &  &  &
+> \end{bmatrix}.
+> $$</p>
+
+  <p>固定 $(i,j)$, 则一条链 $\{v_{(i,j)}^k\}$ 对应一个幂零 Jordan 块 $J(0)$. 矩阵 (视作线性映射) 的功效是平移链上的点.</p>
+</blockquote>
+
+<p><strong>Exercise 9</strong> To analyse the Jordan form of $A$, we begin by studying the Jordan form of $A \overline A$. Demonstrate the following:</p>
+
+<ol>
+  <li>$A \overline A$ has a characteristic polynomial with real coefficients;</li>
+  <li>non-real Jordan blocks occur in conjugate pairs;</li>
+  <li>if $\dim \ker (\lambda I - A\overline A) = 1$ and $\lambda \in \mathbb R$, then $\lambda \geq 0$;</li>
+  <li><strong>(optional)</strong> Generalise item 3 by showing that for any eigenvalue $\lambda <0$, the dimension of the null space $\dim \ker (\lambda I - A \overline A)^p$ is always even ($\forall p \geq 1$), implying that negative Jordan blocks occur in pairs.</li>
+</ol>
+
+<blockquote>
+  <p>(1.) 由方阵 $\det (x I - AB) = \det (xI - BA)$, 得 $A\overline A$ 与 $\overline A A$ 特征多项式相同. 由共轭不变, 该特征多项式是从而是是实系数的.</p>
+
+  <p>(2.) 讨论广义特征向量的对应关系即可. 若 $λ v = A \overline A u$, 则 $e^{it}\overline {λ v} = \overline A A (e^{it}\overline u)$. 取 $t$ 使得 $e^{it}\overline λ = λ$ 即可. 由于 $t$ 是取定的, 故 $A\overline A$ 与 $\overline AA$ 关于 $λ$ 的特征空间是同构的, 通过取共轭再数乘 $e^{it}$ 实现.</p>
+
+  <p>(3.) 若 $λ < 0$, 取 $v ∈ \ker (λ I - A \overline A)$, 则 $A\overline A (A \overline v) = λ (A\overline v)$. 由特征空间一维, 必有 $z v = A \overline v$. 此时 $A \overline Av = z\overline z v$, 与 $λ < 0$ 矛盾.</p>
+
+  <p>(4.) 通过商空间归纳即可. 对 $λ < 0$, 假定 $\ker (λ I - A \overline A)^k$ 是偶数维的, 往证 $\ker (λ I - A \overline A)^{k+1}$ 也是偶数维的. 考虑限制在不变子空间 $\ker (λ I - A \overline A)^k$ 上的线性变换, $\ker (λ I - A \overline A)|_{\ker (λ I - A \overline A)^{k}}$ 是偶数维的. 由 Rank-Nulity 与归纳假设得证.</p>
+</blockquote>
+
+<p><strong>Exercise 10</strong> Show that there exists a matrix $P$ such that $P A \overline P^{-1}$ is block diagonal with the following summands:</p>
+
+<ol>
+  <li>
+    <p>(Jordan type): $J_s(\lambda)$ where $\lambda \geq 0$;</p>
+  </li>
+  <li>
+    <p>(Half-Jordan type): Let $H_{2s}(\lambda) := \binom{O \ \  \ J_s(\lambda)}{I \quad O \  \ }$.</p>
+
+    <ol>
+      <li>
+        <p>(For non-real eigenvalues): Since each complex Jordan block in $A \overline A$ appears in a pair, i.e., $\binom{J_s(z) \quad O \ \ \ }{\ \ \ O \quad J_s(\overline z)}$, define $H_{2s}(z)$ as a block of $P A \overline P^{-1}$ satisfying</p>
+
+        <p>$$
+      H_{2s}(z) = \begin{pmatrix}O&I\\ J_s(z) & O\end{pmatrix}.
+      $$</p>
+      </li>
+      <li>
+        <p>(For negative eigenvalues): For a negative eigenvalue $\lambda$ of $A$, the Jordan blocks also appear in pairs (see <strong>Exercise 9</strong>).</p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p>We refer to this as the cJordan form of $A$. It is uniquely determined by $A$.</p>
+
+<blockquote>
+  <p>这是直接的验证. 关键点 (幂零部分的结构, 各阶广义负特征空间为偶数) 已在前文给出证明.</p>
+</blockquote>
+
+<p><strong>Exercise 11 (optional)</strong> (The uniqueness between the cJordan form of $A$ and the Jordan form of $A \overline A$). The cJordan form is essentially unique.</p>
+
+<ul>
+  <li>Find distinct matrices $A \neq B$ such that  $A \overline A = B \overline B$;
+    <blockquote>
+      <p>$A = \binom{0 \ \ 1}{0 \ \ 0}$ 与 $B = O$.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Suppose $A\overline A = B\overline B$ are invertible; then there exists a matrix $P$ such that $PA \overline P^{-1} = B$. In this case, we say $A$ is scimilar to $B$.</p>
+
+    <blockquote>
+      <p>在相差一个旋转 ($e^{it}$) 的情形下, $J(≠ 0)$ 与 $H(≠ 0)$ 部分唯一确定. 相差的旋转部分可通过 $e^{it / 2} ⋅ I$ (及其构成的分块对角矩阵) 的 c-相似所用抵消.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>In summary, $A$ is csimilar to $B$ if and only if the following hold:</p>
+
+<ol>
+  <li>$A \overline A$ is similar to $B \overline B$;</li>
+  <li>$\mathrm{rank}(A\overline A A\cdots A (\overline A)) \equiv \mathrm{rank}(B\overline B B \cdots B(\overline B))$; that is, $A$ and $B$ possess the same $J(0)$-portion in their cJordan forms.</li>
+</ol>
+
+<p><strong>Exercise 12 (optional)</strong> Utilise the cJordan form to show that any complex matrix $A$ is csimilar to:</p>
+
+<ol>
+  <li>$\lambda A$ for $|\lambda| = 1$;</li>
+  <li>$\overline A$;</li>
+  <li>$A^T$;</li>
+  <li>a real matrix;</li>
+  <li>a symmetric matrix</li>
+</ol>
+
+<blockquote>
+  <p>前三条就是直接的验证 ($A \overline A$ 相似, 且 $J_0$ 部分相同).</p>
+
+  <p>对第四条, 直接构造分块实矩阵 $\binom{N \ \ O}{O \ \ R}$ 使得 $N$ 是 $A$ 的 c-幂零部分, $R$ 是 $A \overline A$ 可逆部分的平方根 (对复特征部分, 考虑 $\binom{O \ \ +}{- \ \ 0}$ 一类的旋转矩阵; 负特征部分总是成对出现, 从而存在实的平方根).</p>
+
+  <p>对第五条, $PA\overline P^{-1}$ 是对称的, 当且仅当 $PA\overline P ^{-1} = ({ {PA\overline P ^{-1} } })^T$, 也就是 $(P^TP) ⋅ A =  {A^T} ⋅ {(P^TP)}$. 由 Choleskey 分解, 复矩阵对称当且仅当其形如 $P^TP$. 由往期作业 (考察有理标准型以及多项式友矩阵), 任意域上的矩阵通过对称矩阵与其转置相似.</p>
+</blockquote>
+
+<p><strong>Exercise 13 (optional)</strong> Show that for any complex square matrix $A$,
+$$
+\det(AA^H+I)\geq \det(A\overline{A}+I) > 0.
+$$</p>
+
+<blockquote>
+  <p>由特征多项式实系数, 以上三项都在 $ℝ$ 中.</p>
+
+  <p>(第二个不等式). 由 $A = PR\overline P^{-1}$, 得 $\det (A \overline A + I) = \det (R^2 + I) = |\det (I + iR)|^2>0$.</p>
+
+  <p>(第一个不等式). 记增广矩阵 $T := (I \ \ A)$, 第一个不等式等价于 $\det T\overline T^T ≥ \det T T^T$. 由 Cauchy-Binet 公式展开, 左侧是右侧的复数求和各项取模长所得, 取等当且仅当 $A$ 是实矩阵.</p>
+</blockquote>
+
+<p><strong>Exercise 14 (optional)</strong> Using cJordan forms, show that any complex matrix is the product of a symmetric matrix and a positive definite Hermitian matrix.</p>
+
+<blockquote>
+  <p>由 Choleskey 分解与 Krull-Schmidt 酉正交化, 任意对称的复矩阵形如 $U^TDU$, 其中 $D$ 是取值 $ℝ_{≥ 0}$ 的对角矩阵, $U$ 是酉矩阵. 先将复矩阵 c-相似作对称矩阵, 得 $P S \overline P^{-1}$. 将 $S$ 写作 $U^TDU$, 得</p>
+
+  <ol>
+    <li>任意复矩阵是对称矩阵与正定 Hermitian 矩阵乘积, $PU^TDUP^T ⋅ (P^T)^{-1}\overline P^{-1}$;</li>
+    <li>任意复矩阵是可逆对称矩阵与半正定 Hermitian 矩阵乘积, $PU^TU P^T⋅ P^{T,-1}\overline U^{T} DU \overline P^{-1}$.</li>
+  </ol>
+</blockquote>
+
+<p><strong>Exercise 15 (optional)</strong> Show that $\binom{O\quad A}{\overline A\quad O}$ is similar to $\binom{O\quad B}{\overline B\quad O}$, if and only if $\binom{O\quad A}{-\overline A\quad O}$ is similar to $\binom{O\quad B}{-\overline B\quad O}$.</p>
+
+<blockquote>
+  <p>若 $\binom{O\quad A}{\overline A\quad O}$ 与 $\binom{O\quad B}{\overline B\quad O}$ 相似, 则平方后亦然. 结合 $A \overline A ∼ \overline A A$, 得 $A\overline A ∼ B \overline B$. 比较零空间维数, 得 $A$ 与 $B$ c-相似.</p>
+
+  <p>若 $A$ 与 $B$ c-相似, 记作 $A = PB\overline P^{-1}$. 此时 $\binom{P\quad O}{O \quad \overline P} \binom{O\quad A}{\overline A\quad O} \binom{P\quad O}{O \quad \overline P}^{-1} = \binom{O\quad B}{\overline B\quad O}$.</p>
+</blockquote>
+
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Exact_Cat" title="NEXT: 正合范畴">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Prod_Localisation" title="PREV: 局部化与积范畴交换">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

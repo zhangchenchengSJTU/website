@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>$\LaTeX$ Template (v 1.3.0)
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/template">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>$\LaTeX$ Template (v 1.3.0)</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 20, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+  <li><a href="#对原模板的若干修改" id="markdown-toc-对原模板的若干修改">对原模板的若干修改</a></li>
+  <li><a href="#why-this-template" id="markdown-toc-why-this-template">Why this template?</a>    <ul>
+      <li><a href="#graphs" id="markdown-toc-graphs">Graphs</a></li>
+    </ul>
+  </li>
+  <li><a href="#个性化" id="markdown-toc-个性化">个性化</a></li>
+</ul>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>This is a html-based $\LaTeX$ template for writing articles. This website is based on <a href="https://github.com/ryanmcdermott/jekyll-latex">this</a> outstanding repository, to whose author(s) we extend our sincere gratitude.</p>
+    <ul>
+      <li>The repository: <code class="language-plaintext highlighter-rouge">git@github.com:zhangchenchengSJTU/jekyll-latex.git</code>.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="对原模板的若干修改">对原模板的若干修改</h2>
+
+<div class="example">
+  <p>(Add blocks). 本模板添加了若干数学公式环境, 例如</p>
+  <!-- 使用 <ul> 控制缩进, 虽然不是 markdown 语法, 但是高效准确. -->
+  <ul>
+    <div class="lemma">
+      <p>This is a lemma.</p>
+    </div>
+    <div class="proof">
+      <p>This is a proof.</p>
+    </div>
+    <div class="corollary">
+      <p>This is a corollary.</p>
+    </div>
+    <div class="definition">
+      <p>This is a definition. 作者有意将 <code class="language-plaintext highlighter-rouge">bottom-margin</code> 调整至 <code class="language-plaintext highlighter-rouge">2em</code>.</p>
+    </div>
+    <div class="example">
+      <p>This is an example.</p>
+    </div>
+    <div class="solution">
+      <p>This is a solution.</p>
+    </div>
+    <div class="problem">
+      <p>This is a problem.</p>
+    </div>
+    <div class="proposition">
+      <p>This is a proposition.</p>
+    </div>
+    <div class="slogan">
+      <p>This is a slogan.</p>
+    </div>
+    <div class="note">
+      <p>This is a note.</p>
+    </div>
+    <div class="question">
+      <p>This is a question.</p>
+    </div>
+  </ul>
+</div>
+
+<div class="note">
+  <p>对 block 之图标, 样式, 编号逻辑等, 可在 <code class="language-plaintext highlighter-rouge">_sass/main.scss</code> 与 <code class="language-plaintext highlighter-rouge">_plugins/latex.rb</code> 中修改.</p>
+</div>
+
+<div class="example">
+  <p>(Block 内正常 <code class="language-plaintext highlighter-rouge">markdown</code> 语法). 数学环境中可直接使用 <code class="language-plaintext highlighter-rouge">markdown</code> 语言. 方法是将原插件 <code class="language-plaintext highlighter-rouge">_plugins/latex.rb</code> 中的</p>
+  <div class="language-rb highlighter-rouge">
+    <div class="highlight">
+      <div class="language-plaintext highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    class DefinitionBlock &lt; Liquid::Block
+      def render(context)
+        text = super
+        "&lt;div class='definition'&gt;#{text}&lt;/div&gt;"
+      end
+    end
+  end
+</code></pre></div>      </div>
+    </div>
+  </div>
+  <p>添加 <code class="language-plaintext highlighter-rouge">Jekyll::Converters::Markdown</code> 过滤器. 最终效果是</p>
+  <div class="language-rb highlighter-rouge">
+    <div class="highlight">
+      <div class="language-plaintext highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    class DefinitionBlock &lt; Liquid::Block
+      def render(context)
+        text = super  # 获取块内原始内容
+        site = context.registers[:site]  # 获取 Jekyll 的 site 对象
+        converter = site.find_converter_instance(Jekyll::Converters::Markdown)  # 获取 Markdown 转换器
+        converted_content = converter.convert(text.strip)  # 将内容转换为 HTML
+        "&lt;div class='definition'&gt;#{converted_content}&lt;/div&gt;"  # 包裹转换后的内容
+      end
+    end
+</code></pre></div>      </div>
+    </div>
+  </div>
+  <p>同时完美解决了下划线问题. 例如</p>
+  <ul>
+    <li>输入 1: <code class="language-plaintext highlighter-rouge">$a_1$ and $a_2()_5$ and $(a_3)_2$</code></li>
+    <li>输出 1: $a_1$ and $a_2()_5$ and $(a_3)_2$</li>
+    <li>输入 2: <code class="language-plaintext highlighter-rouge">_1_ + $2_3$ + 66_</code></li>
+    <li>输出 2: <em>1</em> + $2_3$ + 66_</li>
+  </ul>
+  <p>实现方式是脚本 <code class="language-plaintext highlighter-rouge">_plugins/消灭傻逼下划线.rb</code>, 让 <code class="language-plaintext highlighter-rouge">markdown</code> 文本努力变成过滤器能识别的样子.</p>
+</div>
+
+<div class="example">
+  <p>(编号). 解决了原模板中无序编号显示有序的 🐛.</p>
+</div>
+
+<h2 id="why-this-template">Why this template?</h2>
+
+<div class="theorem">
+  <p>The real numbers $ℝ$ are uncountable.</p>
+</div>
+
+<div class="proof">
+  <p>By <a href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument">Cantor’s diagonal argument</a>, we can show that the set of real numbers is uncountable.</p>
+  <p>$$
+\begin{bmatrix}
+    a_{1,1} & a_{1,2} & a_{1,3} & \cdots \\
+    a_{2,1} & a_{2,2} & a_{2,3} & \cdots \\
+    a_{3,1} & a_{3,2} & a_{3,3} & \cdots \\
+    ⋮ & ⋮ & ⋮ & ⋱
+\end{bmatrix}.
+$$</p>
+  <p>\begin{equation} \mathtt{equation} 环境使用 𝒜 𝔟 ⊭ \frac 汉 字 也不会报错. \end{equation}</p>
+  <p>$$
+\begin{aligned}
+  多行公式, & align\\
+  显然. & Q.E.D.
+\end{aligned}
+$$</p>
+</div>
+
+<div class="theorem">
+  <p>(<code class="language-plaintext highlighter-rouge">html</code> 较 $\LaTeX$ 的优越性). 该模板相较传统 $\LaTeX$ 模板之优点包括但不限于</p>
+  <ol>
+    <li>
+      <p>毫秒级编译时间, 以下是部分文件的编译时间:</p>
+      <pre><code class="language-linux">Filename                                                                               | Count |   Bytes |  Time
+...                                                                                    |   ... |     ... | ...  
+_posts/Draft/2025-05-03-Forget.md                                                      |     1 |   8.49K | 0.016
+_posts/AR_theories/2025-05-04-Coxeter-Reflection.md                                    |     1 |  14.82K | 0.014
+_posts/Homological_Categorical_theories/2025-05-03-Projective_Generators.md            |     1 |   6.10K | 0.013
+_posts/AR_theories/proof/2025-04-26-Commutative_Diagram_Alg.md                         |     1 |  27.74K | 0.013
+_posts/Spectral_sequences/proof/2025-04-29-Projlim_1_Vanish.md                         |     1 |   8.53K | 0.013
+_posts/Homological_Categorical_theories/proof/2025-04-21-Finitely_Presented_Functor.md |     1 |   5.32K | 0.012
+_posts/Spectral_sequences/proof/2025-04-28-Grothendieck_Spectral_Sequence.md           |     1 |  22.04K | 0.011
+_posts/Spectral_sequences/proof/2025-04-28-Kunneth_Spectral_Seq.md                     |     1 |  11.47K | 0.011
+_posts/Spectral_sequences/2025-04-27-Complete_Z_Filtration.md                          |     1 |   2.58K | 0.010
+_posts/AR_theories/proof/2025-04-27-Harada_Sai.md                                      |     1 |   2.86K | 0.010
+_posts/Homological_Categorical_theories/proof/2025-05-03-Equi_Def_Generator.md         |     1 |   1.95K | 0.009
+index.html                                                                             |     1 |   2.84K | 0.009
+_posts/Torsion_Pairs/proof/2025-04-27-KerHom_KerExt_TP.md                              |     1 |   4.80K | 0.009
+blog/page6/index.html                                                                  |     1 |   2.84K | 0.008
+_posts/Gabriel/proof/2025-04-24-Ringel_Resolution.md                                   |     1 |   4.61K | 0.008
+...                                                                                    |   ... |     ... | ...  
+</code></pre>
+    </li>
+    <li>将设备连接至同一局域网, 实现多屏协同: 电脑代码, 平板查看编译结果 (<a href="https://pan.sjtu.edu.cn/web/share/fce6ea8916e1d88689ca6c1c8302a553">邀请连接</a>).</li>
+    <li>兼容 <code class="language-plaintext highlighter-rouge">Unicode-math</code> $ℝ$ (数学环境), ℝ (文本环境), 无需手动调整 assymb 包的兼容性问题, 或字体问题等.</li>
+    <li>兼容多国语言混排: Hello, Bonjour, Olá, Здравствуйте, $\overset{\text{こん}}{\text{今}}\overset{\text{にち}}{\text{日}}\text{は}$, $\overset{\text{안}}{\text{安}}\overset{\text{녕}}{\text{寧}} \ \text{하세요}$, السلام عليكم, नमस्ते, Γειά σας, Cześć, สวัสดี, שלום, [ɲ̟ã̠ɴ].</li>
+    <li>输出连续网页, 避免 <code class="language-plaintext highlighter-rouge">PDF</code> 割裂图片或公式等. 当然, 打印网页即得 <code class="language-plaintext highlighter-rouge">PDF</code> 文档.</li>
+    <li>使用 URL 运行图片 ($\LaTeX$ 永远无法做到, 权宜的方式是使用 <code class="language-plaintext highlighter-rouge">write18</code>).</li>
+    <li>发布网页, 随时随地都可查看.</li>
+    <li>
+      <p>插入在线图片, 甚至 gif</p>
+      <p><img src="https://raw.githubusercontent.com/czhang271828/imgs/New_img//n_imgcat-space.gif" alt="cat-space" /></p>
+    </li>
+    <li>
+      <p>视频也行</p>
+      <p><a href="https://youtu.be/dQw4w9WgXcQ"><img src="https://markdown-videos-api.jorgenkh.no/youtube/dQw4w9WgXcQ" alt="上当了" /></a></p>
+    </li>
+    <li>排版语言公式简单 (前提: 配上合适的 <code class="language-plaintext highlighter-rouge">html</code> 代码环境).</li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>(在 block 外使用 markdown 与 $\LaTeX$ 写作). 在 {% — %} — {% end— %} 外可直接使用 markdown 语言与 $\LaTeX$.</p>
+</div>
+
+<h3 id="graphs">Graphs</h3>
+
+<div class="example">
+  <p>(<code class="language-plaintext highlighter-rouge">Tikz</code> 功能). 使用插件 <code class="language-plaintext highlighter-rouge">quiver</code> 画图.</p>
+  <center> <!-- https://q.uiver.app/#q=WzAsMjksWzAsMCwiR0ZNIixbMzAsNjAsNjAsMV1dLFsxLDAsIkdGSV4wICIsWzE4MCw2MCw2MCwxXV0sWzIsMCwiR0ZJXjEiLFsxODAsNjAsNjAsMV1dLFszLDAsIkdGSV4yIixbMTgwLDYwLDYwLDFdXSxbMCwxLCJGTVxcb3RpbWVzIChUXjAsIFQpIixbMTgwLDYwLDYwLDFdXSxbMCwyLCJGTVxcb3RpbWVzIChUXjEsIFQpIixbMTgwLDYwLDYwLDFdXSxbMCwzLCJGTVxcb3RpbWVzIChUXjIsIFQpIixbMTgwLDYwLDYwLDFdXSxbMSwxLCIoVF4wLEleMCkiXSxbMSwyLCIoVF4xLEleMCkiXSxbMiwxLCIoVF4wLEleMSkiXSxbMywxLCIoVF4wLEleMikiXSxbMiwyLCIoVF4xLEleMSkiXSxbMywyLCIoVF4xLEleMikiXSxbMSwzLCIoVF4yLEleMCkiXSxbMiwzLCIoVF4yLEleMSkiXSxbMywzLCIoVF4yLEleMikiXSxbNCwzLCJcXGJveGVke0VfMH0iXSxbMSw0LCIoQSwgSV4wICkiXSxbMSw1LCIoSF4xKFQpLCBJXjApIixbMCwwLDc1LDFdXSxbMiw0LCIoQSwgSV4xKSJdLFszLDQsIihBLCBJXjIpIl0sWzIsNSwiKEheMShUKSwgSV4xKSIsWzAsMCw3NSwxXV0sWzMsNSwiKEheMShUKSwgSV4yKSIsWzAsMCw3NSwxXV0sWzQsNSwiXFxib3hlZHtFXzF9Il0sWzAsNSwiXFx0ZXh0e+a2iOWksSF9IixbMCwwLDc1LDFdXSxbMSw2LCIoQSxNKSJdLFsyLDYsIjAiLFswLDAsNzUsMV1dLFszLDYsIjAiLFswLDAsNzUsMV1dLFs0LDYsIlxcYm94ZWR7RV8yfSJdLFswLDEsIiIsMix7ImNvbG91ciI6WzE4MCw2MCw2MF19XSxbMSwyLCIiLDIseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzIsMywiIiwyLHsiY29sb3VyIjpbMTgwLDYwLDYwXX1dLFs1LDQsIiIsMix7ImNvbG91ciI6WzE4MCw2MCw2MF19XSxbNCwwLCIiLDIseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzEyLDEwXSxbMTUsMTJdLFs4LDddLFsxMyw4XSxbMTEsOV0sWzYsNSwiIiwyLHsiY29sb3VyIjpbMTgwLDYwLDYwXX1dLFsxNCwxMV0sWzE3LDE5XSxbMTksMjBdLFsxOCwyMSwiIiwyLHsiY29sb3VyIjpbMCwwLDc1XX1dLFsyMSwyMiwiIiwyLHsiY29sb3VyIjpbMCwwLDc1XX1dXQ== --> <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMjksWzAsMCwiR0ZNIixbMzAsNjAsNjAsMV1dLFsxLDAsIkdGSV4wICIsWzE4MCw2MCw2MCwxXV0sWzIsMCwiR0ZJXjEiLFsxODAsNjAsNjAsMV1dLFszLDAsIkdGSV4yIixbMTgwLDYwLDYwLDFdXSxbMCwxLCJGTVxcb3RpbWVzIChUXjAsIFQpIixbMTgwLDYwLDYwLDFdXSxbMCwyLCJGTVxcb3RpbWVzIChUXjEsIFQpIixbMTgwLDYwLDYwLDFdXSxbMCwzLCJGTVxcb3RpbWVzIChUXjIsIFQpIixbMTgwLDYwLDYwLDFdXSxbMSwxLCIoVF4wLEleMCkiXSxbMSwyLCIoVF4xLEleMCkiXSxbMiwxLCIoVF4wLEleMSkiXSxbMywxLCIoVF4wLEleMikiXSxbMiwyLCIoVF4xLEleMSkiXSxbMywyLCIoVF4xLEleMikiXSxbMSwzLCIoVF4yLEleMCkiXSxbMiwzLCIoVF4yLEleMSkiXSxbMywzLCIoVF4yLEleMikiXSxbNCwzLCJcXGJveGVke0VfMH0iXSxbMSw0LCIoQSwgSV4wICkiXSxbMSw1LCIoSF4xKFQpLCBJXjApIixbMCwwLDc1LDFdXSxbMiw0LCIoQSwgSV4xKSJdLFszLDQsIihBLCBJXjIpIl0sWzIsNSwiKEheMShUKSwgSV4xKSIsWzAsMCw3NSwxXV0sWzMsNSwiKEheMShUKSwgSV4yKSIsWzAsMCw3NSwxXV0sWzQsNSwiXFxib3hlZHtFXzF9Il0sWzAsNSwiXFx0ZXh0e+a2iOWksSF9IixbMCwwLDc1LDFdXSxbMSw2LCIoQSxNKSJdLFsyLDYsIjAiLFswLDAsNzUsMV1dLFszLDYsIjAiLFswLDAsNzUsMV1dLFs0LDYsIlxcYm94ZWR7RV8yfSJdLFswLDEsIiIsMix7ImNvbG91ciI6WzE4MCw2MCw2MF19XSxbMSwyLCIiLDIseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzIsMywiIiwyLHsiY29sb3VyIjpbMTgwLDYwLDYwXX1dLFs1LDQsIiIsMix7ImNvbG91ciI6WzE4MCw2MCw2MF19XSxbNCwwLCIiLDIseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzEyLDEwXSxbMTUsMTJdLFs4LDddLFsxMyw4XSxbMTEsOV0sWzYsNSwiIiwyLHsiY29sb3VyIjpbMTgwLDYwLDYwXX1dLFsxNCwxMV0sWzE3LDE5XSxbMTksMjBdLFsxOCwyMSwiIiwyLHsiY29sb3VyIjpbMCwwLDc1XX1dLFsyMSwyMiwiIiwyLHsiY29sb3VyIjpbMCwwLDc1XX1dXQ==&amp;embed" width="600" height="500" style="border-radius: 8px; border: dashed;"></iframe> </center>
+  <p>图像大小容易失衡, 建议使用 <code class="language-plaintext highlighter-rouge">mathcha</code> 画图, 输出矩阵, 例如</p>
+  <p>$$
+\begin{bmatrix}
+M & →  & F( M) & ↠  & C( M)\\
+h⇣ \  &  & g⇣ \  &  & f⇣ \ \\
+Ω ( N) & →  & P( M) & ↠  & N
+\end{bmatrix}.
+$$</p>
+  <p>或者, 直接插入图片也行.</p>
+</div>
+
+<div class="example">
+  <p>(Use <code class="language-plaintext highlighter-rouge">mathcha</code> to draw picture).</p>
+  <p><img src="https:/raw.githubusercontent.com/czhang271828/imgs/New_img/n_imgdiagram-20250420%20(2).png" alt="image-20250423194403416" /></p>
+</div>
+
+<div class="example">
+  <p>在特殊情况下, 可直接使用 <code class="language-plaintext highlighter-rouge">tikz</code> 环境插入 <a href="https://q.uiver.app/"><code class="language-plaintext highlighter-rouge">quiver</code></a> 代码 (小 bug, 需要将 <code class="language-plaintext highlighter-rouge">textcolor</code> 替换作 <code class="language-plaintext highlighter-rouge">color</code>). 可以使用行内公式 (推荐使用占位符, 使图宽度为 $4$ 格) <span class="tikzinline-diagram">       <embed src="/website/svg/template/diagram_05a3a81d6ad38.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 或是行间公式</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/template/diagram_2df4711a5dfb6.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>也可以使用 <code class="language-plaintext highlighter-rouge">mathhcha</code> (有时大小不匹配, 请自动加上 <code class="language-plaintext highlighter-rouge">\scalebox{0.8}</code>):</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/template/diagram_c48b1fa63f678.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <div class="note">
+    <p>原理: 本地插件 <code class="language-plaintext highlighter-rouge">jekyll-tikz</code> 将 <code class="language-plaintext highlighter-rouge">q.uiver</code> 语法下的箭图编译为 <code class="language-plaintext highlighter-rouge">PDF</code> 文件 (存放在 <code class="language-plaintext highlighter-rouge">./_tikz_tmp</code>), 并通过上古神器 <code class="language-plaintext highlighter-rouge">pdf2svg</code> 自动生成 <code class="language-plaintext highlighter-rouge">svg</code> 矢量图 (存放在 <code class="language-plaintext highlighter-rouge">./svg</code>).</p>
+  </div>
+</div>
+
+<div class="slogan">
+  <p>一个重要的问题: 网页无法正常打印 <a href="https://q.uiver.app/">q.uiver.app</a> 的 <code class="language-plaintext highlighter-rouge">iframe</code> 标签!</p>
+</div>
+
+<h2 id="个性化">个性化</h2>
+
+<div class="example">
+  <p>(自定义 Block). 支持 Definition, Theorem, Lemma, Proof, Solution, Example, Remark, Note, Corollary, Proposition, Slogan. 实现方式如下:</p>
+  <ol>
+    <li>在 <code class="language-plaintext highlighter-rouge">/_sass/main.scss</code> 中定义 solution 的样式 (包含前, 中, 后, 以及 QED 正方形).</li>
+    <li>在 <code class="language-plaintext highlighter-rouge">/_plugins/latex.rb</code> 中定义 solution 公式块环境, 此处使用 {% sol %} {% endsol %} .</li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>(创建 block 快捷键). 假设你是 <code class="language-plaintext highlighter-rouge">vscode</code> 用户, 以下是创建 <code class="language-plaintext highlighter-rouge">\def</code> 快捷键的方式.</p>
+  <ol>
+    <li>打开 <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P &gt; snippets : Configure Snippets</code>,</li>
+    <li>选择或新建 <code class="language-plaintext highlighter-rouge">liquid.json</code>,</li>
+    <li>输入</li>
+  </ol>
+  <blockquote>
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+        <div class="language-plaintext highlight highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"def": {
+  "prefix": ["\\def", "defblock"],
+  "body": [
+  "{% def %}",
+  "$0",
+  "{% enddef %}"
+  ]
+},
+</code></pre></div>        </div>
+      </div>
+    </div>
+  </blockquote>
+  <p>即可通过 <code class="language-plaintext highlighter-rouge">\def</code> + <code class="language-plaintext highlighter-rouge">enter</code> 快速创建 definition 块.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#对原模板的若干修改">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">对原模板的若干修改</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#why-this-template">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">Why this template?</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#graphs">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">Graphs</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#个性化">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">个性化</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Notes_on_Tilting" title="NEXT: Notes on Classical Tilting Theory">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Reflexive_sub_cat" title="PREV: Notes on Reflexive Subcategories">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

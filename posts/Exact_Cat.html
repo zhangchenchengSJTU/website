@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>正合范畴
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="正合范畴的定义与常见结论">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Exact_Cat">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>正合范畴</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 12, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="正合范畴的定义与常见结论">正合范畴的定义与常见结论</h2>
+
+<h3 id="正合范畴的定义">正合范畴的定义</h3>
+
+<p>Quillen 的原始定义<sup id="fnref:Qui72" role="doc-noteref"><a href="#fn:Qui72" class="footnote" rel="footnote">1</a></sup>, 以及 Keller 的等价定义<sup id="fnref:DR99" role="doc-noteref"><a href="#fn:DR99" class="footnote" rel="footnote">2</a></sup><sup id="fnref:Kel90" role="doc-noteref"><a href="#fn:Kel90" class="footnote" rel="footnote">3</a></sup>. 笔记的大部分结论可以在<sup id="fnref:Buh10" role="doc-noteref"><a href="#fn:Buh10" class="footnote" rel="footnote">4</a></sup> 中找到.</p>
+
+<div class="definition">
+  <p>(Keller 的等价定义). 正合范畴描述作二元组 $(ℬ , 𝒮)$. 其中</p>
+  <ul>
+    <li>$ℬ$ 是某个 Abel 范畴 $𝒜$ 关于扩张封闭的加法全子范畴,</li>
+    <li>$𝒮$ 是落在 $ℬ$ 中的 $𝒜$ 中的 ses.</li>
+  </ul>
+</div>
+
+<div class="definition">
+  <p>(Quillen 的原始定义). 正合范畴描述作二元组 $(ℬ, 𝒮)$. $ℬ$ 是加法范畴, $𝒮 = \{X \xrightarrow i Y \xrightarrow d Z\}$ 由 $ℬ$ 中三项映射序列构成, 满足如下关系.</p>
+  <ul>
+    <li>(EX -2). $𝒮$ 关于同构封闭 (视作函子范畴 $ℬ^{1 → 2 → 3}$ 中的对象).</li>
+    <li>(EX -1). 任意 $(i,d) ∈ 𝒮$ 需满足 $i = \ker d$ 与 $d = \operatorname{cok} i$. 对 $(i,d) ∈ 𝒮$, 定义惯用称呼:       <ul>
+        <li>$i$ 是 inflation (admissible monic), 通常用 $↣$ 表示,</li>
+        <li>$d$ 是 deflation (admissible epic), 通常用 $↠$ 表示,</li>
+        <li>$(i,d)$ 是 conflation (短正合列),</li>
+        <li>$𝒮$ 是一个正合结构 (exact structure).</li>
+      </ul>
+    </li>
+    <li>(EX 0). $\mathrm{id}_0$ 是 inflation.</li>
+    <li>(EX 0’). $\mathrm{id}_0$ 是 deflation.</li>
+    <li>(EX 1). Inflation 关于合成封闭.</li>
+    <li>(EX 1’). Deflation 关于合成封闭.</li>
+    <li>(EX 2). Inflation 关于任何态射的推出存在, 其对边态射仍是 inflation. 给定推出方块 <span class="tikzinline-diagram">           <embed src="/website/svg/Exact_Cat/diagram_61463d3e04f95.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 若 $i$ 是 inflation, 则 $i'$ 亦然.</li>
+    <li>(EX 2’). Deflation 关于任何态射的拉回存在. 给定拉回方块 <span class="tikzinline-diagram">           <embed src="/website/svg/Exact_Cat/diagram_f9a38b0d2b42b.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 若 $d$ 是 deflation, 则 $d'$ 亦然.</li>
+    <li>(EX 3). 存在 cokernel 的态射 $i$ 未必是 inflation; 若存在形如 $f ∘ ip$ 的 inflation, 则 $p$ 是 inflation.</li>
+    <li>(EX 3’). 存在 kernel 的态射 $p$ 未必是 deflation; 若存在形如 $p ∘ f$ 的 deflation, 则 $p$ 是 deflation.</li>
+  </ul>
+</div>
+
+<p>以上条件存在冗余之处</p>
+
+<ul>
+  <li>文<sup id="fnref:Yon60" role="doc-noteref"><a href="#fn:Yon60" class="footnote" rel="footnote">5</a></sup>指出 EX 3 与 EX 3’ 是不必的.</li>
+  <li>文<sup id="fnref:Kel90:1" role="doc-noteref"><a href="#fn:Kel90" class="footnote" rel="footnote">3</a></sup>指出 EX0, EX1, EX2, EX2’ 可以推出其余条件.</li>
+</ul>
+
+<p>由 Quillen 的定义 <sup id="fnref:Qui72:1" role="doc-noteref"><a href="#fn:Qui72" class="footnote" rel="footnote">1</a></sup>, inflation (deflation) 必然是单态射 (满态射).</p>
+
+<ul>
+  <li>对任意范畴, 可裂满关于拉回封闭.</li>
+  <li>对 Abel 范畴, 满态射的拉回自动是推出拉回方块 (由 ses 观点), 从而所有满态射均关于拉回封闭.</li>
+</ul>
+
+<p>随着范畴的特殊化, 被拉回保持的满态射似乎是增加的. 正合范畴介于通常加法范畴与 Abel 范畴之间.</p>
+
+<h3 id="正合范畴的重要结论">正合范畴的重要结论</h3>
+
+<p><a href="Exact_Cat_Short_Note">精简版</a></p>
+
+<p>以下结论选自<sup id="fnref:Buh10:1" role="doc-noteref"><a href="#fn:Buh10" class="footnote" rel="footnote">4</a></sup>, 单独编号.</p>
+
+<h4 id="推出拉回方块">推出拉回方块</h4>
+
+<p>Remark 2.2. $(𝒜, ℰ)$ 是正合范畴当且仅当 $(𝒜^{\mathrm{op}}, ℰ^{\mathrm{op}})$ 亦然.</p>
+
+<ul>
+  <li>正合范畴是对称的, 反范畴反转 inflation 与 deflation.</li>
+</ul>
+
+<p>Remark 2.3. 同构既是 inflation, 也是 deflation.</p>
+
+<ul>
+  <li>inflation ∩ epimorphism = isomorphism;</li>
+  <li>deflation ∩ monomorphism = isomorphism.</li>
+</ul>
+
+<p>Lemma 2.7. 可裂 ses 属于 $𝒮$; Proposition 2.9. $𝒮$ 对直和封闭.</p>
+
+<p>Proposition 2.12. (单态射方块何时是推出拉回?). 给定交换图 <span class="tikzinline-diagram">     <embed src="/website/svg/Exact_Cat/diagram_a184e02eac443.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 以下等价.</p>
+
+<ol>
+  <li>这是推出方块;</li>
+  <li>$[A \xrightarrow{\binom i f} A ⊕ A' \xrightarrow{(- i' \ f')} B'] ∈ 𝒮$;</li>
+  <li>这是推出拉回方块;</li>
+  <li>$i$ 与 $i'$ 有同构的 deflation 对象, 且下图是 conflation 的交换图:
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Exact_Cat/diagram_907f257d39f08.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </li>
+</ol>
+
+<p>特别地, 有如下推论:</p>
+
+<ul>
+  <li>将 Abel 范畴视作特殊的正合范畴, 以上结论自动成立;</li>
+  <li>对两条 inflation 与两条 deflation 的交换图 <span class="tikzinline-diagram">         <embed src="/website/svg/Exact_Cat/diagram_96222e9d8831f.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 推出等价于拉回.</li>
+</ul>
+
+<p>Proposition 2.16 (Obscure axiom). 即 EX 3 与 EX 3’. 特别地, 有如下推论</p>
+
+<ul>
+  <li>若 $(i ⊕ i', d ⊕ d')$ 是 conflation (假定 $di$ 与 $d'i'$ 可复合), 则 $(i,d)$ 与 $(i',d')$ 均是 conflation.</li>
+  <li>若推出方块 <span class="tikzinline-diagram">         <embed src="/website/svg/Exact_Cat/diagram_c01674bb5aa6c.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 包含三处 inflation, 则虚线处也是 inflation.</li>
+  <li>若拉回方块 <span class="tikzinline-diagram">         <embed src="/website/svg/Exact_Cat/diagram_59da5fec8e315.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 包含三处 deflation, 则虚线处也是 deflation.</li>
+</ul>
+
+<h4 id="短正合列的变换">短正合列的变换</h4>
+
+<p>Proposition 3.1. 若 $(α , β , γ) : (i,d) → (i',d')$ 是 conflation 的态射, 即交换图</p>
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Exact_Cat/diagram_109b156030193.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>则 $(α , β , γ)$ 分解作推出与拉回 ($∘$ 是推出拉回方块):</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Exact_Cat/diagram_0e0f8319bf95a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<ul>
+  <li>若 $α$ 与 $γ$ 是同构, 则 $β$ 亦然: 这类似将 $\mathrm{Ext}^1$ 定义作 ses 的等价类.</li>
+</ul>
+
+<p>Lemma 3.5. 若 $(\mathrm{id}_A, i, i')$ 是 conflation $r_1$ 与 $r_2$ 间的态射. 将 $c_2$ 与 $c_3$ 补全, 则虚线处态射是同构:</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Exact_Cat/diagram_25e574074c8bd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<ul>
+  <li>对于 Abel 范畴 (或群范畴的特殊等式) 而言, 这类似 Noether 同构 $\frac{C / A}{B / A} ≃ \frac{C}{B}$.</li>
+  <li>对三角范畴而言, 这类似<a href="Tri_Cat_Def#八面体公理的解释">八面体公理</a>.</li>
+</ul>
+
+<p>Exercise 3.11. (八面体公理的另一方向). 给定红色方块中的初始资料 ($i$ 是 inflation, $d$ 是 deflation), 则有两行两列 conflation 的交换图:</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Exact_Cat/diagram_0dd4bd29b0756.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>Corollary 3.6. (九引理). 以下各行 ($r_∙$) 是 conflation.</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/Exact_Cat/diagram_ec3f43f3c6369.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>则有如下结论:</p>
+
+<ul>
+  <li>若存在 conflation $c_1$ 与 $c_2$ 使得相应方块交换, 则存在唯一的 conflation $c_3$ 使得相应方块交换.</li>
+  <li>若存在 conflation $c_3$ 与 $c_2$ 使得相应方块交换, 则存在唯一的 conflation $c_1$ 使得相应方块交换.</li>
+  <li>若存在 conflation $c_1$ 与 $c_3$ 使得相应方块交换, 且 $c_2$ 复合为零, 则 $c_2$ 是 conflation.</li>
+</ul>
+
+<p>Exercise 3.9. (Heller 的正合范畴). 给定正合范畴 $(ℬ , 𝒮)$, 则有正合范畴 $(𝒮, ℱ)$. 其中</p>
+
+<ul>
+  <li>$𝒮$ 视同函子范畴 $ℬ^{1 → 2 → 3}$ 的全子范畴;</li>
+  <li>$ℱ$ 是 conflation 的 conflation, 其态射形如
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Exact_Cat/diagram_aa73aa71b0eac.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+  </li>
+  <li>对 Abel 范畴, 上述构造所得的 ses 的范畴不再是 Abel 范畴.</li>
+  <li>对三角范畴, 上述构造类似 $4 × 4$ 引理 (好三角的好三角 $Δ_A → Δ_B → Δ_C$ 后一项需要适当地反号).</li>
+</ul>
+
+<h3 id="mathjax_protectedjfxtyxrocm17rxh0fv4xjamathjax_protected-大-群">$\mathrm{Ext}^1$-(大) 群</h3>
+
+<h2 id="同调代数的类似定理">同调代数的类似定理</h2>
+
+<h3 id="嵌入定理">嵌入定理</h3>
+
+<p>介绍 Mitchell 嵌入定理<sup id="fnref:Fry64" role="doc-noteref"><a href="#fn:Fry64" class="footnote" rel="footnote">6</a></sup>, 以及正合范畴的类似物: Thomason 嵌入定理<sup id="fnref:TT90" role="doc-noteref"><a href="#fn:TT90" class="footnote" rel="footnote">7</a></sup> (证明见 Appendix A., <sup id="fnref:Buh10:2" role="doc-noteref"><a href="#fn:Buh10" class="footnote" rel="footnote">4</a></sup>).</p>
+
+<ul>
+  <li>通常的表述是 embedding theorem; 但原文<sup id="fnref:Fry64:1" role="doc-noteref"><a href="#fn:Fry64" class="footnote" rel="footnote">6</a></sup>使用的是 imbedding theorem.</li>
+</ul>
+
+<div class="theorem">
+  <p>(Freyd-Mitchell 嵌入入定理). 给定本质小的 Abel 范畴 $𝒜$, 则存在含幺环 $R$ 与全忠实的正合函子 $F : 𝒜 → 𝐌𝐨𝐝_R$. 此时, 复杂的图表定理可用追图操作. <br /> <br /> 证明思路: 证明有限表现左正合函子范畴 $𝐅𝐮𝐧𝐜𝐭_{Lex} (𝒜 , 𝐀𝐛)$ 是 Abel 范畴 (参考<a href="Reflexive_sub_cat">此文</a>第一部分), 米田嵌入 $$\begin{equation}
+h^∙ : 𝒜 → 𝐅𝐮𝐧𝐜𝐭_{Lex} (𝒜 , 𝐀𝐛),\quad X ↦ (X,-)
+\end{equation}$$ 构造了是全忠实的正合 (反变) 函子, $\operatorname{im}h^∙$ 所在的 Abel 范畴是有限表现函子范畴, 其</p>
+  <ul>
+    <li>去向是 $𝐀𝐛$, 因此满足 AB3 与 AB5 条件.</li>
+    <li>同时, $⨁_{X ∈ 𝒜 } h^X$ 是生成元.</li>
+  </ul>
+  <p>从而 $\operatorname{im}h^∙$ 是 Grothendieck 范畴, 取内射余生成元 $C$. 此时, $R = \mathrm{End}(C)^{\mathrm{op}}$ 即为所求. 最后的复合函子是 $$\begin{equation}
+𝒜 \xrightarrow[\text{反变}] {h^∙ } \operatorname{im} h^∙ \xrightarrow[\text{反变}] {(-,C)} 𝐌𝐨𝐝_R.
+\end{equation}$$</p>
+</div>
+
+<p>关于追图: 若有全忠实正合函子 $F : 𝒜 → 𝐌𝐨𝐝_R$,</p>
+
+<ul>
+  <li>$F(-)$ 正合, 从而保持小极限.
+    <ul>
+      <li>例如, $0 → K → X → C → 0$ 是 $𝒜$ 中的 ses, 仅当 $0 → F(K) → F(X) → F(C) → 0$ 是 $𝐌𝐨𝐝_R$ 中的 ses.</li>
+    </ul>
+  </li>
+  <li>$F(-)$ 全忠实, 返回一切极限与余极限.
+    <ul>
+      <li>例如, 若 $0 → K → X → C → 0$ 是 $𝒜$ 中的 ses, 当 $0 → F(K) → F(X) → F(C) → 0$ 是 $𝐌𝐨𝐝_R$ 中的 ses.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="note">
+  <p>(直接进行最后一步). 通常的范畴 (例如 $𝐌𝐨𝐝_R^{\mathrm{op}}$) 是局部小的 (未必本质小). 若</p>
+  <ul>
+    <li>存在投射生成元 $U$, 则 $(U, - )$ 是全忠实的正合函子;</li>
+    <li>存在内射余生成元 $C$, 则 $(- , C)$ 是全忠实的正合函子.</li>
+  </ul>
+  <p>此时仍可追图操作. 这是嵌入定理原始证明中的最后一步,</p>
+</div>
+
+<div class="theorem">
+  <p>(Thomason 嵌入定理). 给定本质小的正合范畴 $(ℬ , 𝒮)$, 则存在 Abel 范畴 $𝒜$ 与全忠实, 正合, 且返回正合列的函子 $F : ℬ → 𝒜$. 结合 Mitchell 嵌入定理, 复杂的图表定理可用追图操作. <br /> <br /> 证明思路 (deflation 版本): 对任意对象 $X$ 构造 deflation 的覆盖空间 $\mathrm{Cov}(X) := \{d ∣ ∙ \overset d ↠ X\}$, 定义 Grothendieck 拓扑 $𝒥$ (关键点是 EX2’). 取 $𝒜 := \mathrm{Ab}(ℬ, 𝒥)$ 是 Abel 层空间, 验证可表函子是 Abel 层, 则 $i : X ↦ (-, X)$ 即为所求.</p>
+  <ul>
+    <li>Thomason 的推论: 假定正合范畴弱幂等完备 (形变收缩写作直和项), 若 $i(f)$ 满, 则 $f$ 是 deflation.</li>
+  </ul>
+</div>
+
+<h3 id="关于弱幂等完备">关于弱幂等完备</h3>
+
+<h2 id="references">References</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:Qui72" role="doc-endnote">
+      <p>(<a href="https://link.springer.com/chapter/10.1007/BFb0067053">Springer</a>). D. Quillen, <em>Higher algebraic K-theory I</em>, Algebraic K-theory, I: Higher K-theories (Proc. Conf., Battelle Memorial Inst., Seattle, Wash., 1972), Springer, Berlin, 1973, pp. 85–147. Lecture Notes in Math., Vol. 341. <a href="#fnref:Qui72" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:Qui72:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:DR99" role="doc-endnote">
+      <p>(<a href="https://oyvinso.folk.ntnu.no/Papers/exactvectorcat.pdf">Online version</a>). P. Draexler, I. Reiten, S. O. Smalo, and O. Solberg, <em>Exact categories and vector space categories</em>, Trans. Amer. Math. Soc. <strong>351</strong> (1999), no. 2, 647–682. With an appendix by B. Keller. <a href="#fnref:DR99" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+    <li id="fn:Kel90" role="doc-endnote">
+      <p>(<a href="https://link.springer.com/article/10.1007/BF02568439">Springer</a>) B. Keller, <em>Chain complexes and stable categories</em>, Manuscripta Math. <strong>67</strong> (1990), no. 4, 379–417. <a href="#fnref:Kel90" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:Kel90:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:Buh10" role="doc-endnote">
+      <p>(<a href="https://arxiv.org/abs/0811.1480">arXiv</a>). T. Bühler, <em>Exact categories</em>. Expositiones Mathematicae, <strong>28</strong> (2010), no. 1, 1-69. <a href="#fnref:Buh10" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:Buh10:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a> <a href="#fnref:Buh10:2" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:Yon60" role="doc-endnote">
+      <p>(<a href="http://alpha.math.uga.edu/~lorenz/YonedaExtExactSequences.pdf">Online version</a>) N. Yoneda (米田信夫), <em>On Ext and exact sequences</em>, J. Fac. Sci. Univ. Tokyo Sect. I <strong>8</strong> (1960), 507–576 (1960). <a href="#fnref:Yon60" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+    <li id="fn:Fry64" role="doc-endnote">
+      <p>(<a href="https://doi.org/10.2307/2373027">JSTOR</a>). Mitchell, B. (1964). <em>The Full Imbedding Theorem</em>. American Journal of Mathematics, 86(3), 619–637. <a href="#fnref:Fry64" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a> <a href="#fnref:Fry64:1" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:TT90" role="doc-endnote">
+      <p>(<a href="https://link.springer.com/chapter/10.1007/978-0-8176-4576-2_10">Springer</a>). R.W. Thomason, T. Trobaugh, <em>Higher algebraic K-theory of schemes and of derived categories</em>, The Grothendieck Festschrift, vol. III, Progress in Mathematics, vol. 88, Birkhäuser Boston, Boston, MA, 1990, pp. 247–435. MR1106918 (92f:19001). <a href="#fnref:TT90" class="reversefootnote" role="doc-backlink">&#8617;&#xfe0e;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#正合范畴的定义与常见结论">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">正合范畴的定义与常见结论</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#正合范畴的定义">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">正合范畴的定义</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#正合范畴的重要结论">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">正合范畴的重要结论</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#推出拉回方块">
+        <span class="toc-number">1.2.1.</span>
+        <span class="toc-title">推出拉回方块</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#短正合列的变换">
+        <span class="toc-number">1.2.2.</span>
+        <span class="toc-title">短正合列的变换</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#mathjax_protectedjfxtyxrocm17rxh0fv4xjamathjax_protected-大-群">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">$\mathrm{Ext}^1$-(大) 群</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#同调代数的类似定理">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">同调代数的类似定理</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#嵌入定理">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">嵌入定理</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#关于弱幂等完备">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">关于弱幂等完备</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#references">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">References</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Homotopic_PBPO" title="NEXT: 特殊的同伦推出拉回">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/C_Similar_matrix" title="PREV: (线性代数) C-特征空间">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Jekyll Latex</title>
+
+
+<meta name="description" content="A pretty good Jekyll theme">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/notes">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<style>
+  /* 基础设置 */
+  body {
+    font-size: 14px;  /* 基准字体减小 */
+    line-height: 1.4; /* 行高相应调整 */
+  }
+
+  /* 彻底释放宽度限制 */
+  body, .main-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 列表项布局优化 */
+  .post-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-list li {
+    display: flex;
+    gap: 15px;       /* 进一步减小间距 */
+    align-items: flex-start;
+    margin-bottom: 12px; /* 减小行间距 */
+    padding-left: 5px;
+  }
+
+  /* 左侧时间/分类 - 更紧凑 */
+  .post-meta {
+    width: 100px;    /* 最小化左侧区域 */
+    text-align: right;
+    flex-shrink: 0;
+    padding-top: 1px;
+    font-size: 0.85em; /* 更小的字体 */
+    color: hsl(42, 25%, 15%);     /* 浅色减少视觉重量 */
+  }
+
+  /* 右侧标题 */
+  .title {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.95em; /* 标题也稍减小 */
+  }
+
+  .title a {
+    word-break: break-word;
+    display: inline-block;
+    text-decoration: none; /* 可选去掉下划线 */
+    color: hsl(0, 0%, 0%);      /* 深色保持可读性 */
+  }
+
+  .title a:hover {
+    color: hsl(30, 100%, 60%);      /* 悬停加深 */
+    text-decoration: underline; /* 悬停显示下划线 */
+  }
+</style>
+
+<main class="main-container">
+  <div class="page-navigation">
+    <a
+      class="home"
+      href="/website/"
+      title="Back to Homepage">Home</a>
+  </div>
+  <section class="post-list">
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-08-25</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Radicals">Radicals</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-08-14</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/DGAlgCat-Intro">Differential Graded</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-07-08</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Completion_of_triangulated_Cat">Notes on Completion of Triangulated Categories</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-06-06</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Brown-Resolution">A Note on Brown Representability</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-21</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/EX3_Analogue_Extri">外三角范畴 ET3 类似物</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-13</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Exact_Cat_Short_Note">正合范畴的重要结论 (精简版)</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-09</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Additive_Localisation">加法范畴的局部化</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-06</span>
+            <span class="post-category">
+              notespending
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Non_Existence_of_Proproj">Bound quiver 的预投射分支未必存在</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-04</span>
+            <span class="post-category">
+              notespending
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Kronecker_Rep">Kronecker quiver 的不可分解表示</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-04</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Quiver-and-Hereditary-Algebra">遗传代数与箭图</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-05-03</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Projective_Generators">生成元的性质</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-29</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Projlim_1_Vanish">$\varprojlim{}_{ℕ}^1$ 消失的充分条件</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-27</span>
+            <span class="post-category">
+              notespending
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Happel_Derived_Equivalence">Happel 的导出等价定理</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-27</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Hereditary_TP_Split">遗传范畴与可裂 torsion pair</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-27</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Spectral_sequence_filtered">关于谱序列与滤过复形等</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-27</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Harada_Sai">On a lemma of Harada-Sai</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-26</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Hereditary-AR-Quiver">有限维代数的预投射部分</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-24</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Proof-Gabriel">Proof of Gabriel's Theorem</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-23</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Hereditary_PBPO">遗传范畴的满-单分解补全作 PBPO</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-21</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Plat_et_Proj_Cover_Proj">具有投射盖的平坦对象必投射</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-21</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Fp_et_Plat_est_Proj">Finitely Presented Flat is Projective</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-21</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Finitely_Presented_Functor">Equivalent Definitions of Finitely Presented Functor</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-20</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Notes_on_Tilting">Notes on Classical Tilting Theory</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-20</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/Reflexive_sub_cat">Notes on Reflexive Subcategories</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <ul style="margin: 0; padding: 0; list-style: none;">
+        <li>
+          <div class="post-meta">
+            <span class="post-date">2025-04-19</span>
+            <span class="post-category">
+              notes
+            </span>
+          </div>
+          <div class="title">
+            <b><a href="/website/posts/AR-notes">Notes on AR theory</a></b>
+          </div>
+        </li>
+      </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </section>
+
+  <div class="page-navigation">
+    <a
+      class="home"
+      href="/website/"
+      title="Back to Homepage">Home</a>
+  </div>
+</main>
+
+
+
+
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

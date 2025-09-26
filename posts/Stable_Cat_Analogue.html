@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>外三角范畴 (2025-05-15 讲稿)
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Stable_Cat_Analogue">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>外三角范畴 (2025-05-15 讲稿)</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 14, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#目标" id="markdown-toc-目标">目标</a></li>
+  <li><a href="#外三角范畴的定义" id="markdown-toc-外三角范畴的定义">外三角范畴的定义</a>    <ul>
+      <li><a href="#et1-扩张结构" id="markdown-toc-et1-扩张结构">ET1: 扩张结构</a></li>
+      <li><a href="#et2-扩张的-加法-实现" id="markdown-toc-et2-扩张的-加法-实现">ET2: 扩张的 (加法) 实现</a></li>
+      <li><a href="#外三角范畴的定义-et3-et4" id="markdown-toc-外三角范畴的定义-et3-et4">外三角范畴的定义 (ET3, ET4)</a></li>
+    </ul>
+  </li>
+  <li><a href="#外三角范畴的基本性质" id="markdown-toc-外三角范畴的基本性质">外三角范畴的基本性质</a>    <ul>
+      <li><a href="#上同调函子" id="markdown-toc-上同调函子">上同调函子</a></li>
+    </ul>
+  </li>
+  <li><a href="#主定理-特殊的稳定范畴保持外三角结构" id="markdown-toc-主定理-特殊的稳定范畴保持外三角结构">主定理: 特殊的稳定范畴保持外三角结构</a>    <ul>
+      <li><a href="#外三角范畴的引理-类比正合范畴" id="markdown-toc-外三角范畴的引理-类比正合范畴">外三角范畴的引理 (类比正合范畴)</a></li>
+      <li><a href="#投射对象-内射对象" id="markdown-toc-投射对象-内射对象">投射对象, 内射对象</a></li>
+      <li><a href="#三角范畴视作外三角范畴" id="markdown-toc-三角范畴视作外三角范畴">三角范畴视作外三角范畴</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="目标">目标</h2>
+
+<p>外三角范畴的定义, 重要定义, 引理等.</p>
+
+<ul>
+  <li>五项长正合列 (重点是 ET4 的使用);</li>
+  <li>Kuenth 引理的类似物 (推出拉回).</li>
+</ul>
+
+<p>与正合范畴, 三角范畴的关系</p>
+
+<ul>
+  <li>正合范畴实现为特殊的外三角范畴,</li>
+  <li>三角范畴实现为特殊的外三角范畴,</li>
+  <li>存在既非正合范畴, 亦非三角范畴的外三角范畴;</li>
+</ul>
+
+<p>主定理: 给定加法全子范畴 $ℐ ⊆ 𝐏𝐫𝐨𝐣 ∩ 𝐈𝐧𝐣$, 外三角范畴关于 $ℐ$ 的稳定范畴仍是外三角范畴.</p>
+
+<h2 id="外三角范畴的定义">外三角范畴的定义</h2>
+
+<h3 id="et1-扩张结构">ET1: 扩张结构</h3>
+
+<div class="definition">
+  <p>(带扩张结构的加法范畴) 给定加法范畴 $𝒞$, 扩张结构是指双加法函子 $$\begin{equation}
+𝔼 : 𝒞 ^{\mathrm{op}} × 𝒞 → 𝐀𝐛.
+\end{equation}$$</p>
+</div>
+
+<div class="note">
+  <p>记 $𝔼(Y, X)$ 中的一个元素为 $(X, δ, Y)$, 或简单地, $δ$. 给定 $f : Y → Y'$ 与 $g: X → X'$, 记群同态</p>
+  <ul>
+    <li>$𝔼 (f,X) =: f^∗$, 称作拉回;</li>
+    <li>$𝔼 (Y,g) =: g_∗$, 称作推出.</li>
+  </ul>
+  <p>由 $𝔼$ 是双函子, 推出与拉回交换.</p>
+</div>
+
+<div class="example">
+  <p>简单验证 $𝔼$ 中加法结构: 加法定义作 Baer 和</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_44a9e35980c01.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>零元即 $δ ⊕ (-δ)$ 的像, 加法结合律是因为 $\binom{\binom 11}{1} = \binom{1}{\binom 11}$, 交换律检验类似. <br /> <br /> 为说明 $f_∗$ 是群同态, 即验证交换图</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_381cbb8922265.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>显然 $$\begin{equation}
+(1,1)_∗ (f ⊕ f)_∗ = (f,f)_∗ = (1,1)_∗ f_∗
+\end{equation}$$</p>
+</div>
+
+<div class="definition">
+  <p>(扩张的链接). 称态射 $f : X → X'$ 与 $g : Y → Y'$ 建立了扩张 $(X, δ , Y)$ 与 $(X', δ ' , Y ')$ 之间的态射, 若 $f_∗ δ' = δ g^∗$.</p>
+</div>
+
+<div class="note">
+  <p>扩张的态射类似正合列间的态射. 以上并不是 $𝔼$-群同态.</p>
+</div>
+
+<h3 id="et2-扩张的-加法-实现">ET2: 扩张的 (加法) 实现</h3>
+
+<div class="definition">
+  <p>(二项态射的类). 定义如下类的等价类, 并配上二元运算 $⊕$.</p>
+  <ol>
+    <li>对象选取形如 $X \overset f→ Y \overset g→ Z$ 的二项态射序列.</li>
+    <li>以下上下两行等价       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_be3928296562d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>等价类的直和运算, 定义做等价类的直和 ($[x ⊕ y] =: [x] ⊕ [y]$).</li>
+  </ol>
+  <p>两个对象决定了子类 $[Y, X] := \{X → E → Z\} / ∼$.</p>
+</div>
+
+<div class="note">
+  <p>以上既未给出 $[Y, X]$ 内部的群 (大群) 结构, 也未给出 $[Y,f]$ 或 $[g,X]$ 之类的运算. 形式地, 仍将可裂短正合列所在类记作 $0$.</p>
+</div>
+
+<div class="definition">
+  <p>(加法实现, 简称实现). 称 $𝔰$ 是 $(𝒞, 𝔼)$ 的一个实现, 若 $𝔰$ 是类之间的对应: $$\begin{equation}
+⋃_{X,Y}𝔼(Y,X) → ⋃_{X,Y}[Y,X],\quad (X, δ , Y) ↦ 𝔰 (δ)
+\end{equation}$$</p>
+  <p>且满足以下条件.</p>
+  <ol>
+    <li>$𝔰 (0) = 0$, 此处 $X, Y$ 任取.</li>
+    <li>$𝔰$ 保持直和结构, 即, $𝔰(δ) ⊕ 𝔰(δ ') = 𝔰(δ ⊕ δ ')$.</li>
+    <li>$f : X → X'$ 与 $g : Y → Y'$ 建立了扩张 $(X,δ , Y)$ 与 $(X', δ ' , Y ')$ 之间的态射, 则存在 $φ$ 使得下图交换       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_00c9493eccc11.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ol>
+</div>
+
+<h3 id="外三角范畴的定义-et3-et4">外三角范畴的定义 (ET3, ET4)</h3>
+
+<div class="definition">
+  <p>(实现). 实现 $𝔰$ 将类 $⋃_{X,Y} 𝔼 (Y,X)$ 对应至 $⋃_{Y,X} [Y,X]$.</p>
+  <ol>
+    <li>$𝔰 (δ)$ 的结果是一个等价类, 称作 $δ$ 的加法实现.</li>
+    <li>等价类 $𝔰 (δ)$ 中的代表元称作 $𝔼$-三角.</li>
+    <li>称 $(f,g)$ 是 $𝔼$-三角 $δ_s ∈ 𝔼(s(g), s(f))$ 与 $δ_t ∈ 𝔼 (t(g), t(f))$ 中的连接, 若 $f_∗ δ_s = g^∗ δ _t$.</li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>对等价的 $𝔼$ 三角, 态射合成相等 (在外三角范畴中, 该合成为 $0$).</p>
+</div>
+
+<div class="definition">
+  <p>外三角范畴描述作三元组 $(𝒞 , 𝔼 , 𝔰)$, 其中 $𝔼$ 是加法范畴. 满足</p>
+  <ol>
+    <li>(ET1). $𝔼$ 是扩张结构, 即双函子 $𝔼 : 𝒞 ^{\mathrm{op}} × 𝒞 → 𝐀𝐛$</li>
+    <li>(ET2). $𝔰$ 是实现, 也就是局部的二推三.</li>
+    <li>(ET3). 假定以下横行是 $𝔼$-三角, 且存在态射 $f$ 与 $φ$ 使得下图交换, 则存在 $g$ 使得下图交换:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_df80c47924cb0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>同时, $(f,g)$ 是一个连接.</p>
+    </li>
+    <li>(ET3’). 假定以下横行是 $𝔼$-三角, 且存在态射 $g$ 与 $φ$ 使得下图交换, 则存在 $f$ 使得下图交换:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_51465971a07c1.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>同时, $(f,g)$ 是一个连接.</p>
+    </li>
+    <li>(ET4). 假定初始资料是如下 $⊤$-型的 $𝔼$-三角 ($\mathfrak s(\delta_{r1})$, $\mathfrak s(\delta_{c2})$), 则可以补全作如下四个 $𝔼$-三角的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_100936645cbb0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>同时, 以上好三角对应的扩张满足以下条件:</p>
+      <ol>
+        <li>$y_∗ (\delta_{c2}) = \delta_{c3}$,</li>
+        <li>$\delta_{r1} = r^∗ \delta_{r2}$,</li>
+        <li>$s^∗ (\delta_{c2}) = x_∗ (\delta_{r2})$.</li>
+      </ol>
+    </li>
+    <li>(ET4’). 假定初始资料是如下 $⊣$-型的 $𝔼$-三角 ($\mathfrak s(\delta_{r2})$, $\mathfrak s(\delta_{c3})$), 则可以补全作如下四个 $𝔼$-三角的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_00cfe5bd7f911.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>同时, 以上好三角对应的扩张满足以下条件 (同 ET4):</p>
+      <ol>
+        <li>$y_∗ (\delta_{c2}) = \delta_{c3}$,</li>
+        <li>$\delta_{r1} = r^∗ \delta_{r2}$,</li>
+        <li>$s^∗ (\delta_{c2}) = x_∗ (\delta_{r2})$.</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>请注意 ET2 与 ET3 (ET3’) 关于二推三类似性质的表述.</p>
+  <ul>
+    <li>ET2 先给定连接与外周态射, 再声明中间态射与交换图之存在性.</li>
+    <li>ET3 先给定 $𝔼$-三角的的交换图, 再声明该态射可以补全为连接.</li>
+  </ul>
+  <p>一般地, $𝔼$-三角之间的态射不再是连接.</p>
+</div>
+
+<div class="note">
+  <p>ET4 与 ET4’ 是不同输入的同一结果, 都是给定一个 T 构造另一个 T. 类比作八面体公理, 以下类似交换方块的 $\boxed 1$, $\boxed{2}$ 与 $\boxed{3}$ 对应 ET4 中三处约束:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_207fc38a74aaf.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>另一种理解方式是正合范畴中的 Noether 同构.</p>
+</div>
+
+<div class="note">
+  <p>对预三角范畴, 八面体公理的等价形式间<a href="Homotopic_PBPO_Oct">同伦的推出拉回</a>一节. ET4 蕴含同伦推出拉回<a href="Homotopic_PBPO_Extri">此文</a>, 但反之未必 (Gap: 态射未必能嵌入外三角!).</p>
+</div>
+
+<div class="example">
+  <p>若正合范畴 $(𝒜 ,ℰ)$ 本质小, 或是有足够投射, 则 $\mathrm{Ext}^1$ 总是集合. 此时, $(𝒜, \mathrm{Ext}^1, 𝔰)$ 是外三角范畴, $𝔰$ 由 $\mathrm{Ext}^1$ 的米田群定义给出.</p>
+</div>
+
+<h2 id="外三角范畴的基本性质">外三角范畴的基本性质</h2>
+
+<h3 id="上同调函子">上同调函子</h3>
+
+<p>先证明一则实用的引理.</p>
+
+<div class="lemma">
+  <p>一般而言, $𝔼$-三角间的态射不是连接; 若 $δ$ 可裂, 则任意 $δ$ 至 $δ'$ 的态射是连接, 且任意 $δ'$ 至 $δ$ 的态射也是连接.</p>
+  <div class="proof">
+    <p>只看 $δ$ 至 $δ '$ 的态射 $(a,b,c)$. 依照 ET3, 存在态射 $(a',b,c)$ 使得 $(a', c)$ 是连接. 因此 $c^∗ δ = a'_∗ δ = 0 = a_∗ δ$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(充实在 $𝐀𝐛$ 范畴上的米田引理). 表述证明略.</p>
+</div>
+
+<div class="definition">
+  <p>($δ_!$ 与 $δ^!$). 由米田引理, 扩张 $δ$ 对应自然变换 $δ_!$ (被拉回) 与 $δ^!$ (被突出):</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_8942286d70080.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(函子的同调长正合序列, <a href="Long_Exact_Seq_Extriangulated">证明</a>). 给定 $𝔼$-三角 $𝔰 (δ ) = [A\xrightarrow f B \xrightarrow g C]$, 则有六项反变函子的长正合列</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_ffa3112489174.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>需要提及, $𝔼(-, B)$ 处的正合性需要 ET4, 前五项长正合列仅通过 ET1, ET2, 与 ET3 推得.</p>
+</div>
+
+<div class="proposition">
+  <p>一般地, $𝔼$-三角之间的态射不再是连接; 但对某些特殊情形, $𝔼$-三角间的交换图是连接. 假定以下是 $𝔼$-三角的交换图</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_e7167cbdf8508.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>若 $(f', X)$ 满或是 $(Z' ,g)$ 满, 则以上是连接.</p>
+  <div class="proof">
+    <p>只看 $(f', X)$ 满的情形. 使用 ET3 建立 $a' : X → X'$ 使得以下两点成立.</p>
+    <ol>
+      <li>有交换图且 $f' a' = bf$. 等价地, $f' (a-a') = 0$.</li>
+      <li>$(a', c)$ 是连接, 即 $(a')_∗ δ = c^∗ δ'$. 等价地, $(a-a') ∈ \ker δ ^!$.</li>
+    </ol>
+    <p>由 $(a-a') ∈ \ker δ ^! = \mathrm{im}(- ∘ f')$, 只需证明 $(a-a')$ 通过 $f'$ 分解, 这由 $(f', X)$ 满直接得到.</p>
+  </div>
+</div>
+
+<h2 id="主定理-特殊的稳定范畴保持外三角结构">主定理: 特殊的稳定范畴保持外三角结构</h2>
+
+<h3 id="外三角范畴的引理-类比正合范畴">外三角范畴的引理 (类比正合范畴)</h3>
+
+<div class="definition">
+  <p>若无歧义, 将使用正合范畴的名词称呼 $𝔼$-三角. 称 $𝔰 (δ)$ 是 conflation, 其第一项态射与第二项态射分别为 inflation 与 deflation.</p>
+</div>
+
+<div class="example">
+  <p>(EX1 类似物). 由 ET4, inflation 与 deflation 对合成封闭.</p>
+</div>
+
+<div class="example">
+  <p>(EX2 类似物). 这一类比是困难的, 因为外三角范畴通常没有态射嵌入 $𝔼$-三角的结论, 更没有一般的推出拉回.</p>
+</div>
+
+<div class="example">
+  <p>(Noether 同构 ≈ 八面体引理 ≈ ET4). 这是正合范畴, 三角范畴与外三角范畴的共性.</p>
+</div>
+
+<div class="example">
+  <p>(Noether ≈ ET4 的推论). 这是正合范畴与外三角范畴共有的. 在三角范畴中, 好三角灵活的旋转特性埋没了这一推论. <br /> <br /> 给定来源相同的 inflation 与 deflation, 其拉回就是推出拉回方块, 且有四条 conflation 的交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_0aff9ad22701b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>对外三角范畴, 将某一 inflation 或 deflation 补全作 $𝔼$-三角, 使用八面体公理即可.</p>
+</div>
+
+<div class="example">
+  <p>(双 deflation 拉回, 双 inflation 推出). 对正合范畴,</p>
+  <ul>
+    <li>若两个 deflation 具有相同的去向, 则其拉回补全作四条 conflation 的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_99d430bcc026d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>若两个 inflation 具有相同的来源, 则其推出补全作四条 conflation 的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_70ef0b5dd0470.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>(双 deflation 拉回 ≈ Verdier 的 $4 × 4$ 公理, <a href="4_times_4_extri">证明</a>). 给定外三角范畴中 $δ_{i} ∈ 𝔼 (C, A_i)$ 的实现, 则可补全以下四条 $𝔼$-三角的交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_91ec854cf2a91.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>中间行列恰是 $(y_i)_∗ δ_j$ 的实现.</p>
+</div>
+
+<div class="corollary">
+  <p>将之类比作 $4 × 4$ 公理, 是因为 $$\begin{aligned}
+(m_1)_∗ δ _1 &= m_∗ (e_1)_∗ (p_1)_∗\binom 11^∗ (δ _1 ⊕ δ _2);\\
+(m_2)_∗ δ _2 &= m_∗ (e_2)_∗ (p_2)_∗\binom 11^∗ (δ _1 ⊕ δ _2).
+\end{aligned}$$</p>
+  <p>相加得</p>
+  <p>$$\begin{equation}
+(m_1)_∗ δ _1 + (m_2)_∗ δ _2 = m_∗ \binom 11^∗ (δ _1 ⊕ δ _2) = 0.
+\end{equation}$$</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_f0ce84a60623d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>综上, 两处 deflation 的拉回不但给出两处扩张的拉回, 另给出一个反交换方块.</p>
+</div>
+
+<div class="example">
+  <p>(EX3). 以下是正合范畴中的若干结论.</p>
+  <ul>
+    <li>若 $gf$ 是 inflation, $f$ 有余核, 则 $f$ 是 inflation.</li>
+    <li>当且仅当正合范畴弱幂等完备, 恒有 $[gf ∈ 𝐢𝐧𝐟 ] ⇒ [f ∈ 𝐢𝐧𝐟]$.</li>
+    <li>假定 $gf$ 是 inflation, 且 $g$ 是 deflation. 此时, $f$ 是 inflation, 同时可补全四条 conflation 的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_3badd948694ea.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>(外三角范畴的 EX3 类似物, <a href="Exact_Cat_Short_Note">证明</a>). 假定 $gf$ 是 inflation, 且 $g$ 是 deflation. 此时, $f$ 是 inflation, 同时可补全四条 conflation 的交换图.</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Stable_Cat_Analogue/diagram_eaa55573c4a51.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="corollary">
+  <p>给定 ET4 图, 双 deflation 所谓拉回图, 以及双 inflation 的所谓推出图. 若四个态射链中有三个 $𝔼$-三角, 则第四者亦然.</p>
+</div>
+
+<div class="proposition">
+  <p>(特殊的 inflation, 添加直和项). 若 $x : A → B$ 是 inflation, 则对任意 $A$ 出发的态射 $f$, $\binom x f$ 也是 inflation. 这在正合范畴中成立, 也在外三角范畴中成立.</p>
+  <div class="proof">
+    <p>(<a href="Inflation_add_Inflation">原证明</a>, 现已无用). 这是 <span class="tikzinline-diagram">         <embed src="/website/svg/Stable_Cat_Analogue/diagram_bdcc0d89e4efe.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 的直接使用. 由 $f$ 是 inflation 且 $(1,0)$ 是 deflation, 则 $\binom fx$ 必然是 inflation. 同时存在四条 $𝔼$-三角的交换图.</p>
+  </div>
+</div>
+
+<h3 id="投射对象-内射对象">投射对象, 内射对象</h3>
+
+<div class="definition">
+  <p>(外三角范畴的投射对象). 称 $P$ 是外三角范畴的投射对象, 若以下论断成立:</p>
+  <ol>
+    <li>对任意 deflation $d : B → C$, 一切 $P → C$ 通过 $d$ 分解;</li>
+    <li>$(P, -)$ 是正合函子;</li>
+    <li>$𝔼 (P, -)$ 消失;</li>
+    <li>对任意 $δ ∈ 𝔼 (C,A)$, 任意 $f : P → C$, 则 $f^∗ δ = 0$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 ⟺ 2). 两者等价于左正合函子 $(P, -)$ 将 deflation 对应至满射. <br /> <br /> (1 ⟺ 3). 若 $𝔼 (P, -)$ 消失, 由长正合列知 $(P, -)$-将 deflation 对应至满射. 若 $(P, -)$ 将 deflation 对应至满射, 则任意 $δ ∈ 𝔼 (P, A)$ 实现作可裂短正合列, 得 $𝔼 (P, -)$ 消失. <br /> <br /> (1 ⟺ 4). 由长正合列, $\ker δ _!$ 是相应的 deflation 的 image.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(<a href="Ideal_Quotient">证明</a>). 给定外三角范畴 $(𝒞 , 𝔼 , 𝔰 )$. 若加法子范畴 $𝒳 ⊂ 𝐏𝐫𝐨𝐣 ∩ 𝐈𝐧𝐣$, 则 $𝒞 / 𝒳$ 也是外三角范畴, 且继承了外三角结构.</p>
+</div>
+
+<h3 id="三角范畴视作外三角范畴">三角范畴视作外三角范畴</h3>
+
+<div class="definition">
+  <p>(自等价诱导的扩张结构). 给定局部小的加法范畴的自等价 $Σ$, 定义扩张为如下加法双函子 $$\begin{equation}
+𝔼 : 𝒞 ^{\mathrm{op}} × 𝒞 → 𝐀𝐛 ,\quad (Y, X) ↦ \mathrm{Hom}(Y,ΣX).
+\end{equation}$$</p>
+</div>
+
+<div class="example">
+  <p>对 $δ ∈ 𝔼 (C,A) = (C,ΣA)$. $δ_!$ 与 $δ^!$ 解释如下.</p>
+  <ul>
+    <li>$δ_! ∈ 𝖭𝖺𝗍 [(- , C), 𝔼 (- , A)] ≃ 𝔼(C, A) ∋ δ$,       <ul>
+        <li>此处, 自然变换 $(- , C) \xrightarrow{(-, δ)} (-, ΣA)$ 对应态射 $C \xrightarrow δ  ΣA$.</li>
+      </ul>
+    </li>
+    <li>$δ^! ∈ 𝖭𝖺𝗍 [(A, -), 𝔼 (C, -)] ≃ 𝔼 (C,A) ∋ δ$,       <ul>
+        <li>此处, 自然变换 $(A, -) ≃ (ΣA, Σ-) \xrightarrow{(δ , -)} (C, Σ-)$ 对应态射 $C \xrightarrow δ  ΣA$.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>(泛元的实现). 米田引理的泛元: $$\begin{equation}
+1_{ΣA} ∈ \mathrm{End}(ΣA) = 𝔼 (ΣA, A) = 𝖭𝖺𝗍 [(-, ΣA), 𝔼 (-, A)] ∋ u_A.
+\end{equation}$$</p>
+  <p>假定 ET2. 此时存在实现 $𝔰(1_{ΣA}) = [A \xrightarrow f E \xrightarrow g ΣA]$. 长正合列给出 $$\begin{equation}
+(-, A) → (-, E) → (-, ΣA) \xrightarrow{u_A} 𝔼 (-, A) → 𝔼 (-, X).
+\end{equation}$$ $u_A$ 是自然同构, 因此 $(-, g)$ 与 $𝔼 (-, f)$ 均为 $0$. 由 $𝔼$ 是自等价给出的, 故 $f$ 与 $g$ 是零态射. 由正合性, $E = 0$. <br /> <br /> 综上, $1_{ΣA} ∈ 𝔼 (ΣA, A)$ 的实现必然是 $[A → 0 → ΣA]$.</p>
+</div>
+
+<div class="theorem">
+  <p>(三角范畴的外三角结构). 给定三角范畴 $(𝒞 , Σ, \triangle)$.</p>
+  <ol>
+    <li>(ET1). $Σ$ 诱导了扩张 $𝔼 (-,⋅) := (-, Σ⋅ )$. 显然这是加法双函子.</li>
+    <li>(ET2). 定义 $δ ∈ 𝔼(Z,X) = (Z, ΣX)$ 的实现为好三角所在的同构类 $[X \xrightarrow f Y \xrightarrow g Z]$. 在对象 $Y$ 相差一个同构的意义下, 态射 $δ$ 可以嵌入唯一好三角 $X \xrightarrow f Y \xrightarrow g Z \xrightarrow δ ΣX$. 下验证这是加法实现:       <ul>
+        <li>若实现是零, 也就是可裂短正合列, 则 $δ$ 处必然取零态射;</li>
+        <li>好三角关于直和封闭;</li>
+        <li>二推三性质给出局部的二推三性质.</li>
+      </ul>
+    </li>
+    <li>(ET3). 这就是通常的二推三.</li>
+    <li>(ET4). ET4 的三个限制条件与八面体公理的三个限制条件完全匹配:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_7c1ae7a0f2c91.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>自等价诱导的外三角范畴 $(𝒞 , 𝔼 , 𝔰)$ 是三角范畴. 此处, 平移取自等价 $Σ$, 称 $X \xrightarrow f Y \xrightarrow g Z \xrightarrow h X[1]$ 是好三角, 若 $𝔰 (δ ) = [X \xrightarrow f Y \xrightarrow g Z]$.</p>
+  <ol>
+    <li>(TR1-1). 好三角对同构封闭. 仅看好三角的前三项, 同构的拆分作两处等号 + 一处同构的形式. 对 $(∥, ∥, ∼)$ 或是 $(∼ , ∥, ∥)$, 使用 $φ^∗$ ($φ_∗$) 转化作 $(∥ , ∼ , ∥)$. 对 $(∥ , ∼ , ∥)$, 依照 $[Z,X]$ 的定义即可.</li>
+    <li>(TR1-2). 任意态射可嵌入好三角. 在证明顺时针旋转的情形下, 任意态射形如 $δ$.</li>
+    <li>(TR1-3). 对任意对象 $X$, 存在平凡三角 $X = X → 0 → X[1]$. 在证明顺时针旋转的情形下, 考虑 $u_A$ 即可.</li>
+    <li>(TR2). 若有好三角 $X \xrightarrow u Y \xrightarrow v \xrightarrow w Z$, 下证明顺时针旋转也是好三角. 取双 inflation 的所谓推出方块, 得四个 $𝔼$-三角的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_910852b3e2a7b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>依照 $4 × 4$ 引理类似物, 得</p>
+      <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Stable_Cat_Analogue/diagram_86d997aa4f394.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>反交换关系表明 $w' = -w$. 因此, $𝔰 (u_∗ (1_{X[1]})) =  [Y\xrightarrow v Z \xrightarrow {-w}X[1]]$. 依照米田引理计算得, $$\begin{equation}
+	u_∗ 1_{X[1]} = (1_{X[1]})^!(u) ∼ \begin{bmatrix}(X,-) & → & (X[1] , - [1]) & = & (X[1] , - [1])\\ u & ↦ & u[1] & = & u[1] ∘ 1_{X[1]} \end{bmatrix}.
+	\end{equation}$$ 因此, $𝔰 (u[1]) = [Y \xrightarrow v Z \xrightarrow {-w} X[1]]$. 依照 TR1-1, 得好三角的顺时针旋转.</p>
+    </li>
+    <li>(TR3). 二推三. 几乎是 ET2, ET3, ET3’ 的定义.</li>
+    <li>(TR4). 八面体公理. 几乎是 ET4 的定义.</li>
+  </ol>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#目标">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">目标</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#外三角范畴的定义">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">外三角范畴的定义</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#et1-扩张结构">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">ET1: 扩张结构</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#et2-扩张的-加法-实现">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">ET2: 扩张的 (加法) 实现</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#外三角范畴的定义-et3-et4">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">外三角范畴的定义 (ET3, ET4)</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#外三角范畴的基本性质">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">外三角范畴的基本性质</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#上同调函子">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">上同调函子</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#主定理-特殊的稳定范畴保持外三角结构">
+        <span class="toc-number">4.</span>
+        <span class="toc-title">主定理: 特殊的稳定范畴保持外三角结构</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#外三角范畴的引理-类比正合范畴">
+        <span class="toc-number">4.1.</span>
+        <span class="toc-title">外三角范畴的引理 (类比正合范畴)</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#投射对象-内射对象">
+        <span class="toc-number">4.2.</span>
+        <span class="toc-title">投射对象, 内射对象</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#三角范畴视作外三角范畴">
+        <span class="toc-number">4.3.</span>
+        <span class="toc-title">三角范畴视作外三角范畴</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Model" title="NEXT: 模型范畴速记">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Exact_Cat_Short_Note" title="PREV: 正合范畴的重要结论 (精简版)">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

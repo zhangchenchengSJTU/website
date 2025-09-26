@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>$D_4$ 与交换图方块代数.
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Commutative_Diagram_Alg">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>$D_4$ 与交换图方块代数.</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 26, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#计算示例-mathjax_protectedjeigpsbcbwf0ahjte0vuzh0oqskkmathjax_protected" id="markdown-toc-计算示例-mathjax_protectedjeigpsbcbwf0ahjte0vuzh0oqskkmathjax_protected">计算示例: $B = \mathrm{End}(A)$</a>    <ul>
+      <li><a href="#mathjax_protectedjeekmathjax_protected-的-ar-quiver" id="markdown-toc-mathjax_protectedjeekmathjax_protected-的-ar-quiver">$A$ 的 AR quiver</a></li>
+      <li><a href="#mathjax_protectedjeekmathjax_protected-的-apr-tilting-模" id="markdown-toc-mathjax_protectedjeekmathjax_protected-的-apr-tilting-模">$A$ 的 APR tilting 模</a></li>
+      <li><a href="#非-apr-tilting-模" id="markdown-toc-非-apr-tilting-模">非 APR tilting 模</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="计算示例-mathjax_protectedjeigpsbcbwf0ahjte0vuzh0oqskkmathjax_protected">计算示例: $B = \mathrm{End}(A)$</h2>
+
+<h3 id="mathjax_protectedjeekmathjax_protected-的-ar-quiver">$A$ 的 AR quiver</h3>
+
+<div class="definition">
+  <p>记遗传代数 $A = kQ$, $Q$ 是下列 Dynkin 图:</p>
+  <p>$$
+\begin{bmatrix}
+ &  & 2 &  & \\
+ &  & \downarrow  &  & \\
+1 & \rightarrow  & 4 & \leftarrow  & 3
+\end{bmatrix}
+$$</p>
+</div>
+
+<div class="example">
+  <p>计算 AR quiver:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_6aec526a51063.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<h3 id="mathjax_protectedjeekmathjax_protected-的-apr-tilting-模">$A$ 的 APR tilting 模</h3>
+
+<div class="example">
+  <p>对非内射的投射对象 $P(4)$, 此时的 <a href="APR_tilting_def">APR tilting 模</a>是</p>
+  <p>$$
+τ⁻¹ S(4) ⊕ ⨁_{i ≠ 4} P(i).
+$$</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_9f3dfbb032472.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>这一 tilting 模给出的 torsion pair $({\color{blue}𝒯}, {\color{green}ℱ})$是</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_cf8a466a5217f.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>(Tilted 代数). 容易计算</p>
+  <p>$$
+\mathrm{End}(P_1 ⊕ P_2 ⊕ P_3 ⊕ τ ⁻¹ P_4) ≃ \begin{bmatrix}
+k & 0 & 0 & 0 \\
+0 & k & 0 & 0 \\
+0 & 0 & k & 0 \\
+k & k & k & k
+\end{bmatrix}.
+$$</p>
+  <p>对应的 quiver 是</p>
+  <p>$$
+\mathrm{End}(T_A) = k ⋅
+\begin{bmatrix}
+ &  & P_2 &  & \\
+ &  & \uparrow  &  & \\
+P_1 & \leftarrow  & τ⁻¹P_4 & \rightarrow  & P_3
+\end{bmatrix}.
+$$</p>
+</div>
+
+<div class="example">
+  <p>(BB 定理如何工作)?</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_ece7c2d88a1f6.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以上,</p>
+  <ol>
+    <li>$(T, -) : {\color{blue}𝒯} → {\color{cyan}𝒴}$ 是范畴等价, 从 torsion 映至 torsion-free;</li>
+    <li>$\mathrm{Ext}^1(T, -) : {\color{green}ℱ} → {\color{olive}𝒳}$ 是范畴等价, 从 torsion-free 映至 torsion.</li>
+  </ol>
+  <p>从效果上看, 确实只是相差 $i=4$ 处的 Coxeter 反射.</p>
+</div>
+
+<div class="note">
+  <p>此案例中, $A$ 与 $B$ 都是遗传代数, torsion pair 都是可裂的.</p>
+</div>
+
+<h3 id="非-apr-tilting-模">非 APR tilting 模</h3>
+
+<div class="example">
+  <p>以下 $T := ⨁ \boxed {\substack{a \\b \ c \ d} }$ 不是 APR tilting 模:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_22b4c3958954c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>以上是 $T$ tilting 模.</p>
+  <ol>
+    <li>(投射维度). 由遗传代数, $p.\dim T ≤ 1$.</li>
+    <li>(相对内射维度). 只需证明不可分解投射模的 $𝐚𝐝𝐝(T)$-相对内射维度 $≤1$. 计算得       <ol>
+        <li>$0 → {\color{green}\substack{0\\0 \ 1 \ 0} } → {\color{blue}\boxed{\substack{0\\1 \ 1 \ 0} } } → {\color{blue}\boxed{\substack{0\\1 \ 0 \ 0} } } → 0$;</li>
+        <li>$0 → {\color{green}\substack{1\\0 \ 1 \ 0} } → {\color{blue}\boxed{\substack{1\\1 \ 1 \ 0} } }→ {\color{blue}\boxed{\substack{0\\1 \ 0 \ 0} } } → 0$;</li>
+        <li>$0 → {\color{green}\substack{0\\0 \ 1 \ 1} } → {\color{blue}\boxed{\substack{0\\1 \ 1 \ 1} } } → {\color{blue}\boxed{\substack{0\\1 \ 0 \ 0} } } → 0$;</li>
+        <li>$0 → {\color{blue}\boxed{\substack{0\\1 \ 1 \ 0} } } → {\color{blue}\boxed{\substack{0\\1 \ 1 \ 0} } } → 0$.</li>
+      </ol>
+    </li>
+    <li>
+      <p>(自垂直). 由 $p.\dim T ≤ 1$, 此时 $D\mathrm{Ext}^1(T,T) ≃ \mathrm{Hom}(T, τ T)$, 即,</p>
+      <p>$$
+    \mathrm{Hom}\left({\color{blue}\boxed{\substack{0\\1 \ 1 \ 0} }_A}⊕ {\color{blue}\boxed{\substack{1\\1 \ 1 \ 0} }_B}⊕{ \color{blue}\boxed{\substack{0\\1 \ 1 \ 1} } _C}⊕{ \color{blue}\boxed{\substack{0\\1 \ 0 \ 0} }_D}, {\color{green}\substack{0\\0 \ 1 \ 1} } ⊕ {\color{green}\substack{1\\0 \ 1 \ 0} } ⊕ {\color{green}\substack{1\\0 \ 1 \ 1}\color{black} }\right).
+    $$</p>
+      <p>对任意分量间的态射 $φ$, 必有 $φ_1 =0$, 此时 $φ_4=0$. 简单验证知 $φ_2$ 与 $φ_3$ 恒零.</p>
+    </li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>上述 torsion pair 是不裂的. 特别地, 有典范分解</p>
+  <p>$$
+0 → {\color{blue}\boxed{\substack{0\\1 \ 1 \ 0} } } → \substack{1\\1 \ 2 \ 1} → {\color{green}\substack{1\\0 \ 1 \ 1} } → 0.
+$$</p>
+</div>
+
+<div class="example">
+  <p>($\mathrm{End}_A(T_A)$). 下求 Tilting 代数 $B := \mathrm{End}(T_A)$. 依定义将 $B$ 写作矩阵代数 $(B_{i,j})_{1 ≤ i,j ≤ 4}$. 直接计算得</p>
+  <p>$$
+B ≃ \begin{pmatrix}
+k\operatorname{id}_A & 0 & 0 & 0 \\
+kf_{BA} & k\operatorname{id}_B & 0 & 0 \\
+kf_{CA} & 0 & k\operatorname{id}_C & 0 \\
+kf_{DA} & kf_{DB} & kf_{DC} & k\operatorname{id}_D. 
+\end{pmatrix}
+$$</p>
+  <p>以上 $f_{j,i}$ 是 $i → j$ 类型的态射, 对应 quiver with relation:</p>
+  <p>$$
+\begin{bmatrix}
+    A & → & B \\ 
+    ↓ & ↻ & ↓\\
+    C & → & D
+\end{bmatrix}.
+$$</p>
+</div>
+
+<div class="example">
+  <p>($B$ 的 AR quiver). $B$ 的 AR quiver 如下 $\boxed{\substack {b \\ a \quad c \\ d} }$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_2e6b546b8a136.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以上 $\color{cyan} {_B(T,\{A,B,C,D\})}$ 是投射对象.</p>
+</div>
+
+<div class="example">
+  <p>(BB 定理如何工作?). 此处解释 tilting 的含义</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Commutative_Diagram_Alg/diagram_1cc3c8c149f61.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以下是几点发现.</p>
+  <ol>
+    <li>Tilted 代数 $B = \mathrm{End}(T_A)$ 整体维数是 $2$. 满足 $|gl.\dim A - gl. \dim B| ≤ 1$ 的<a href="Hom_D_Hereditary">结论</a>.</li>
+    <li><a href="Hereditary_TP_Split">由</a> $A$ 遗传, ${_B}T ∈ 𝐦𝐨𝐝_B$ 诱导的 torsion pair 是可裂的.</li>
+    <li>从 $Γ(A)$ 至 $Γ(B)$, 不可分解对象的个数减少了.</li>
+  </ol>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#计算示例-mathjax_protectedjeigpsbcbwf0ahjte0vuzh0oqskkmathjax_protected">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">计算示例: $B = \mathrm{End}(A)$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#mathjax_protectedjeekmathjax_protected-的-ar-quiver">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">$A$ 的 AR quiver</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#mathjax_protectedjeekmathjax_protected-的-apr-tilting-模">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">$A$ 的 APR tilting 模</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#非-apr-tilting-模">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">非 APR tilting 模</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/P_is_Section" title="NEXT: $𝔓$ 是 $ℤ 𝔓$ 的截面">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Hereditary-AR-Quiver" title="PREV: 有限维代数的预投射部分">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

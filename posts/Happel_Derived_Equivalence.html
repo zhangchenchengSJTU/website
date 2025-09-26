@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Happel 的导出等价定理
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Happel_Derived_Equivalence">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Happel 的导出等价定理</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 27, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+  <li><a href="#happel-导出等价定理" id="markdown-toc-happel-导出等价定理">Happel 导出等价定理</a></li>
+  <li><a href="#谱序列方法" id="markdown-toc-谱序列方法">谱序列方法</a>    <ul>
+      <li><a href="#bb-谱序列" id="markdown-toc-bb-谱序列">BB 谱序列</a></li>
+      <li><a href="#导出等价的细化" id="markdown-toc-导出等价的细化">导出等价的细化</a></li>
+    </ul>
+  </li>
+  <li><a href="#bb-定理的原始证明" id="markdown-toc-bb-定理的原始证明">BB 定理的原始证明</a></li>
+</ul>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>关于 BB 定理的若干证明.</p>
+    <ol>
+      <li>(BB 定理的原始证明). 函子 $(T,-)$ 建立了 $𝐚𝐝𝐝 (T)$ 与 $𝐩𝐫𝐨𝐣 (\mathrm{End}(T_A))$ 之间的范畴等价. 若 $T$ 是 tilting 模, 则这一范畴等价可以扩大至商对象上, 即 $𝒯 ≃ (T, 𝒯)$. 类似的检验对 $\mathrm{Ext}^1(T,-)$ 奏效. 注意: $p.\dim T ≤ 1$ 时, $(T, - )$ 与 $\mathrm{Ext}^1(T,-)$ 分别是左正合与右正合函子.</li>
+      <li>(Happel 的导出等价定理) 这将结论推广至投射维度有限的 tilting 对象.</li>
+      <li>(谱序列方法). 这是对 Happel 导出等价定理的完善, 其更精细地给出导出等价中轴复形的对应关系.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="note">
+  <p>第一部分证明待补全.</p>
+</div>
+
+<h2 id="happel-导出等价定理">Happel 导出等价定理</h2>
+
+<p>以下 $𝒜$ 是有足够投射的 Abel 范畴.</p>
+
+<div class="lemma">
+  <p>若 $T ∈ 𝒜$ 满足 $\mathrm{Ext}^{≥ 1}(T) = 0$, 则局部化 $C^b(𝐚𝐝𝐝 T) ↣ C^b𝒜 → D^b𝒜$ 诱导的态射</p>
+  <p>$$
+K^b(𝐚𝐝𝐝 (T)) → D^b 𝒜
+$$</p>
+  <p>是全忠实的嵌入.</p>
+</div>
+
+<div class="proof">
+  <p>见<a href="Happel_Fully_Faithful">此处</a>.</p>
+</div>
+
+<div class="lemma">
+  <p>$𝒜$ 的整体维度有限, 当且仅当局部化函子诱导的 $K^b(𝐩𝐫𝐨𝐣(𝒜)) ≃ D^b(𝒜)$ 是范畴等价.</p>
+</div>
+
+<div class="proof">
+  <p>略.</p>
+</div>
+
+<div class="theorem">
+  <p>记 Abel 范畴 $𝒜$ 有足够投射且整体维数有限. 若存在 $T ∈ 𝒜$ 满足 $\mathrm{Ext}^{≥ 1}(T,T) = 0$, 记 $B = \mathrm{End}(T_A)$. 此时, 以下 tilting 函子给出范畴等价:</p>
+  <p>$$
+(T,-)_A : 𝐚𝐝𝐝 (T) ⇆ 𝐩𝐫𝐨𝐣 : (- ⊗ _BT).
+$$</p>
+  <p>特别地, 以下是三角等价 (右侧是导出等价):</p>
+  <p>$$
+\begin{bmatrix}
+\mathbf{add}( T) &  & K^{b}(\mathbf{add}( T)) & \xrightarrow[\sim ]{\text{lem.}} & D^{b} 𝒜 \\
+{\small( T,-)} ⇅ {\small -⊗ _{B} T} & ⇒  & ⇅  &  & ⇅ \\
+\mathbf{proj} &  & K^{b}(\mathbf{proj}) & \xrightarrow[∼ ]{} & D^{b}( B)
+\end{bmatrix}.
+$$</p>
+</div>
+
+<div class="proof">
+  <p>使用上述引理即可.</p>
+</div>
+
+<h2 id="谱序列方法">谱序列方法</h2>
+
+<p>经典的 BB 理论见<a href="Notes_on_Tilting#brenner-butler-理论">此章节</a>. 以下谈论的 tilting 模是投射维度有限的, 见<a href="https://ousar.lib.okayama-u.ac.jp/files/public/3/33144/20160528031413376310/fulltext.pdf">宫下洋一</a>开创性的工作.</p>
+
+<h3 id="bb-谱序列">BB 谱序列</h3>
+
+<div class="definition">
+  <p>(投射维数有限的 Tilting 对象). 给定有限维代数 $A$ 与 $T ∈ 𝐦𝐨𝐝_A$. 称 $T$ 是有限维度的 tilting 模, 若</p>
+  <ol>
+    <li>$p. \dim T < ∞$;</li>
+    <li>$T$ 的相对 $𝐚𝐝𝐝(T)$-内射维度有限;</li>
+    <li>$\mathrm{Ext}^{≥ 1}(T,T) = 0$.</li>
+  </ol>
+</div>
+
+<p>简单地看, tilting 模描述作以下资料 $(T, A, A^∙ → T, A → T^∙)$. 其中</p>
+
+<ol>
+  <li>相对投射分解 $A^∙ → T$ 长度有限, $A^∙ ∈ C(𝐚𝐝𝐝 (A))$;</li>
+  <li>相对内射分解 $A → T^∙$ 长度有限, $T^∙ ∈ C(𝐚𝐝𝐝(T))$.</li>
+</ol>
+
+<p>默认右模. 记 $B = \mathrm{End}(T)$, 则 $T ∈ 𝐦𝐨𝐝_{B^{\mathrm{op}}}$. 特别地, ${}_BT_A$ 是双模.</p>
+
+<div class="definition">
+  <p>($T$-对偶). 今定义反变函子 \begin{equation} (-, T) : 𝐦𝐨𝐝_A → 𝐦𝐨𝐝_{B^{\mathrm{op}}},\quad M ↦ (M,T). \end{equation}</p>
+</div>
+
+<div class="example">
+  <p>以下是范畴等价 (记 $A' := \mathrm{End}(_BT)$, 显然这是 $A$-代数):</p>
+  <ol>
+    <li>$(-, {}_BT_A)_A : 𝐚𝐝𝐝(A_A) ≃ 𝐚𝐝𝐝 (_BT),\quad 𝐚𝐝𝐝(_AA_A) ≃ 𝐚𝐝𝐝 (_BT_A)$;</li>
+    <li>$(-, {}_BT_A)_A : 𝐚𝐝𝐝(T_A) ≃ 𝐚𝐝𝐝 (_BB),\quad 𝐚𝐝𝐝(_BT_A) ≃ 𝐚𝐝𝐝 (_BB_B)$;</li>
+    <li>$(-, {}_BT_A)_{B^{\mathrm{op}}} : 𝐚𝐝𝐝(_BB) ≃ 𝐚𝐝𝐝 (T_A),\quad 𝐚𝐝𝐝(_BB_B) ≃ 𝐚𝐝𝐝 (_BT_A)$;</li>
+    <li>$(-, {}_BT_A)_{B^{\mathrm{op}}} : 𝐚𝐝𝐝(_BT) ≃ 𝐚𝐝𝐝 (A'_A),\quad 𝐚𝐝𝐝(_BT_A) ≃ 𝐚𝐝𝐝 (_AA'_A)$.</li>
+  </ol>
+  <p>将以上左右函子统一记作 $(-)^T$.</p>
+</div>
+
+<div class="note">
+  <p>实际上, 上述 $A' ≃ A$, 见下一定理.</p>
+</div>
+
+<div class="theorem">
+  <p>(对偶的投射分解, <a href="Dual_Tilting">证明</a>). ${_B}T$ 是 tilting 模. 相应地,</p>
+  <ol>
+    <li>$A^∙ → T$ 给出 $B$ 的 $𝐚𝐝𝐝 (T)$-相对内射分解 $B → (A^∙)^T$;</li>
+    <li>$A → T^∙$ 给出 $T$ 的 $𝐚𝐝𝐝 (B)$-相对投射分解 $(T^∙ )^T → T$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(四链等长, <a href="Four_Dim_Equal">证明</a>). 以下四者相同: $T_A$ 的投射维数, $_BT$ 的投射维数, $A$ 相对 $𝐚𝐝𝐝 (T)$ 的内射维数, $B$ 相对 $𝐚𝐝𝐝 (T)$ 的内射维数.</p>
+</div>
+
+<div class="definition">
+  <p>(Tilting 函子). 给定 tilting 模的要件 $(T_A,A^∙ → T,A → T^∙)$, 定义函子</p>
+  <ol>
+    <li>(右正合, 左伴随, 左导出) $G(-) := - ⊗_B T : 𝐦𝐨𝐝 _B → 𝐦𝐨𝐝 _A$;</li>
+    <li>(左正合, 右伴随, 右导出) $F(-) := (T, -)_A : 𝐦𝐨𝐝 _A → 𝐦𝐨𝐝 _B$.</li>
+  </ol>
+  <p>由维数结论, $G_{< -n} := L_{< -n}G$ 与 $F^{> n} := R^{> n}F$ 消失.</p>
+</div>
+
+<div class="note">
+  <p>关于谱序列, 见<a href="Spectral_sequence_filtered">此文</a>.</p>
+</div>
+
+<div class="theorem">
+  <p>(BB 谱序列, <a href="BB_Spectral_Sequence">证明</a>). 存在函子的谱序列使得对任意 $M ∈ 𝐦𝐨𝐝 _A$,</p>
+  <p>$$
+E_2 = (L_{-p}G ∘ R^q)F(M) ⇒ H^{-p+q}(M).
+$$</p>
+  <p>此处 $H^{0}(M) = M$, 且 $H^{≠ 0}(M) = 0$.</p>
+</div>
+
+<div class="theorem">
+  <p>对偶地, 有</p>
+  <p>$$
+\mathrm{Ext}^{q} (T, \mathrm{Tor}_{p}(N,T)) ⇒ H^{-p+q}(N).
+$$</p>
+</div>
+
+<div class="note">
+  <p>以上谱序列是有界的第二(四)象限谱序列, 并非传统意义下的 Grothendieck 谱序列.</p>
+</div>
+
+<div class="corollary">
+  <p>(边界映射). 考虑 $n ≥ 3$, 则有</p>
+  <center> <!-- https://q.uiver.app/#q=WzAsOSxbMCwxLCJHRl57bi0xfUZNIixbMzAsNjAsNjAsMV1dLFsyLDEsIkdGXm5GTSIsWzE4MCw2MCw2MCwxXV0sWzAsMiwiR197LTF9Rl57bi0xfUZNIixbMCw2MCw2MCwxXV0sWzIsMiwiR197LTF9Rl5uRk0iLFsxODAsNjAsNjAsMV1dLFswLDMsIkdfey0yfUZee24tMX1GTSJdLFsyLDMsIkdfey0yfUZebkZNIixbMzAsNjAsNjAsMV1dLFsyLDQsIkdfey0zfUZebkZNIixbMCw2MCw2MCwxXV0sWzAsMCwiMCJdLFswLDQsIm4gXFxnZXEgMyJdLFs1LDAsIlxcc2ltZXEiLDEseyJjb2xvdXIiOlszMCw2MCw2MF19LFszMCw2MCw2MCwxXV0sWzYsMiwiXFx2YXJlcHNpbG9uICIsMSx7ImNvbG91ciI6WzAsNjAsNjBdfSxbMCw2MCw2MCwxXV0sWzAsMywiMCIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDUsIjAiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzcsMSwiMCIsMSx7ImNvbG91ciI6WzE4MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX0sWzE4MCw2MCw2MCwxXV1d --> <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsOSxbMCwxLCJHRl57bi0xfUZNIixbMzAsNjAsNjAsMV1dLFsyLDEsIkdGXm5GTSIsWzE4MCw2MCw2MCwxXV0sWzAsMiwiR197LTF9Rl57bi0xfUZNIixbMCw2MCw2MCwxXV0sWzIsMiwiR197LTF9Rl5uRk0iLFsxODAsNjAsNjAsMV1dLFswLDMsIkdfey0yfUZee24tMX1GTSJdLFsyLDMsIkdfey0yfUZebkZNIixbMzAsNjAsNjAsMV1dLFsyLDQsIkdfey0zfUZebkZNIixbMCw2MCw2MCwxXV0sWzAsMCwiMCJdLFswLDQsIm4gXFxnZXEgMyJdLFs1LDAsIlxcc2ltZXEiLDEseyJjb2xvdXIiOlszMCw2MCw2MF19LFszMCw2MCw2MCwxXV0sWzYsMiwiXFx2YXJlcHNpbG9uICIsMSx7ImNvbG91ciI6WzAsNjAsNjBdfSxbMCw2MCw2MCwxXV0sWzAsMywiMCIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX1dLFsyLDUsIjAiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkb3R0ZWQifX19XSxbMyw3LCIiLDEseyJjb2xvdXIiOlsxODAsNjAsNjBdfV0sWzcsMSwiMCIsMSx7ImNvbG91ciI6WzE4MCw2MCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRvdHRlZCJ9fX0sWzE4MCw2MCw2MCwxXV1d&amp;embed" width="600" height="400" style="border-radius: 8px; border: dashed;"></iframe> </center>
+  <p>对 $\mathrm{Ext} ∘ \mathrm{Tor}$ 进行类似的讨论, 得八处 $0$ 与四处同构:</p>
+  <ol>
+    <li>$\mathrm{Tor}_{0, -1}^B(\mathrm{Ext}_A^n(T, M), T) = 0$,</li>
+    <li>$\mathrm{Tor}_{-n, -n+1}^B(\mathrm{Ext}_A^0(T, M), T) = 0$,</li>
+    <li>$\mathrm{Ext}^{0,1}_A(T, \mathrm{Tor}^B_{-n}(T, N)) = 0$,</li>
+    <li>$\mathrm{Ext}^{n}_A(T, \mathrm{Tor}^B_{0, -1}(T, N)) = 0$,</li>
+    <li>$\mathrm{Tor}_{-2}^B(\mathrm{Ext}_A^n(T, M), T) ≃ \mathrm{Tor}_{0}^B(\mathrm{Ext}_A^{n-1}(T, M), T)$,</li>
+    <li>$\mathrm{Tor}_{-n}^B(\mathrm{Ext}_A^{1}(T, M), T) ≃ \mathrm{Tor}_{-n +2}^B(\mathrm{Ext}_A^{0}(T, M), T)$,</li>
+    <li>$\mathrm{Ext}^{2}_A(T, \mathrm{Tor}^B_{-n}(N, T)) ≃ \mathrm{Ext}^{0}_A(T, \mathrm{Tor}^B_{-n+1}(N, T))$,</li>
+    <li>$\mathrm{Ext}^{n}_A(T, \mathrm{Tor}^B_{-1}(N, T)) ≃ \mathrm{Ext}^{n - 2}_A(T, \mathrm{Tor}^B_{0}(N, T))$.</li>
+  </ol>
+</div>
+
+<div class="corollary">
+  <p>(通常的 BB-定理). 取 $n = 1$, 即 $\mathrm{Tor}^B_2(-,T)$ 与 $\mathrm{Ext}_A^2(T,-)$ 消失. 此时有</p>
+  <center> <!-- https://q.uiver.app/#q=WzAsMTIsWzAsMSwiKFQsIE4gXFxvdGltZXMgVCkiXSxbMSwxLCJcXG1hdGhybXtFeHR9XjEoVCwgTiBcXG90aW1lcyBUKSIsWzE4MCw2MCw2MCwxXV0sWzAsMiwiKFQgLCBcXG1hdGhybXtUb3J9X3stMX0oTixUKSkiLFsxODAsNjAsNjAsMV1dLFsxLDIsIlxcbWF0aHJte0V4dH1eMShUICwgXFxtYXRocm17VG9yfV97LTF9KE4sVCkpIl0sWzIsMSwiKFQsIE0pIFxcb3RpbWVzIFQiXSxbMywxLCJcXG1hdGhybXtFeHR9XjEoVCwgTSkgXFxvdGltZXMgVCIsWzE4MCw2MCw2MCwxXV0sWzIsMiwiXFxtYXRocm17VG9yfV97LTF9KChULE0pLCBUKSIsWzE4MCw2MCw2MCwxXV0sWzMsMiwiXFxtYXRocm17VG9yfV97LTF9KFxcbWF0aHJte0V4dH1eMShULE0pLCBUKSJdLFswLDAsIjAiXSxbMSwzLCIwIl0sWzIsMCwiMCJdLFszLDMsIjAiXSxbMywwLCJOIiwxXSxbNCw3LCJNIiwxXSxbMSw4LCIwIiwxXSxbOSwyLCIwIiwxXSxbMTAsNSwiMCIsMV0sWzYsMTEsIjAiLDFdXQ== --> <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsMTIsWzAsMSwiKFQsIE4gXFxvdGltZXMgVCkiXSxbMSwxLCJcXG1hdGhybXtFeHR9XjEoVCwgTiBcXG90aW1lcyBUKSIsWzE4MCw2MCw2MCwxXV0sWzAsMiwiKFQgLCBcXG1hdGhybXtUb3J9X3stMX0oTixUKSkiLFsxODAsNjAsNjAsMV1dLFsxLDIsIlxcbWF0aHJte0V4dH1eMShUICwgXFxtYXRocm17VG9yfV97LTF9KE4sVCkpIl0sWzIsMSwiKFQsIE0pIFxcb3RpbWVzIFQiXSxbMywxLCJcXG1hdGhybXtFeHR9XjEoVCwgTSkgXFxvdGltZXMgVCIsWzE4MCw2MCw2MCwxXV0sWzIsMiwiXFxtYXRocm17VG9yfV97LTF9KChULE0pLCBUKSIsWzE4MCw2MCw2MCwxXV0sWzMsMiwiXFxtYXRocm17VG9yfV97LTF9KFxcbWF0aHJte0V4dH1eMShULE0pLCBUKSJdLFswLDAsIjAiXSxbMSwzLCIwIl0sWzIsMCwiMCJdLFszLDMsIjAiXSxbMywwLCJOIiwxXSxbNCw3LCJNIiwxXSxbMSw4LCIwIiwxXSxbOSwyLCIwIiwxXSxbMTAsNSwiMCIsMV0sWzYsMTEsIjAiLDFdXQ==&amp;embed" width="600" height="280" style="border-radius: 8px; border: dashed;"></iframe> </center>
+</div>
+
+<h3 id="导出等价的细化">导出等价的细化</h3>
+
+<div class="definition">
+  <p>(支撑). 回顾原始版本的 Brenner-Butler 定理, $\{ℱ,𝒯,𝒳,𝒴\}$ 作为导出范畴的全子范畴, 可通过函子的 $\ker$ 等价地定义. 对一般的 tilting 模, 定义推广</p>
+  <ol>
+    <li>$S^p := ⋂_{0 ≤ k ≤ n}^{k ≠ p}\ker \mathrm{Ext}_A^k(T, -)$;</li>
+    <li>$S_{-p} := ⋂_{0 ≤ k ≤ n}^{k ≠ p}\ker \mathrm{Tor}^B_k(-, T)$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(Brenner-Bulter 定理的导出等价部分). 存在全子范畴间的等价 \begin{equation} F^t : S^t ≃ S_{-t} : G_{-t}. \end{equation} 对经典的 tilting 理论 ($t ∈ \{0,1\}$), 上述即</p>
+  <ol>
+    <li>$(T,-) : 𝒯 ≃ 𝒴 : - ⊗ T$;</li>
+    <li>$\mathrm{Ext}^1(T,-) :ℱ ≃ 𝒳 : \mathrm{Tor}_1(-, T)$.</li>
+  </ol>
+</div>
+
+<div class="proof">
+  <p>对 $M ∈ S^t$, $E_2 = E_∞$ 仅剩下 $G_∙ F^{t}M$ 一列. 该列是 $M$ 同调群的滤过, 从而</p>
+  <ol>
+    <li>$G_{-t}F^t M = M$, 以及</li>
+    <li>$G_{-(≠ t)}F^t M = 0$.</li>
+  </ol>
+  <p>另一侧对称.</p>
+</div>
+
+<div class="example">
+  <p>(<a href="https://en.wikipedia.org/wiki/Spectral_sequence#Wang_sequence">王憲鍾序列</a>). 若谱序列 $E_2$ 仅两列 (或仅两行) 非零, 则称之王序列. 对一切 $0 ≤ i < j ≤ n$ 定义</p>
+  <ol>
+    <li>$S^{i,j} := ⋂_{0 ≤ k ≤ n}^{k ≠ i,j}\ker \mathrm{Ext}_A^k(T, -)$, 与</li>
+    <li>$S_{-i,-j} := ⋂_{0 ≤ k ≤ n}^{k ≠ i,j}\ker \mathrm{Tor}^B_k(-, T)$.</li>
+  </ol>
+  <p>今取 $M ∈ S^{i,j}$, 由谱序列的计算得</p>
+  <ol>
+    <li>存在五项正合列 \begin{equation} G_{-j+1}F^jM ↪ G_{-i}F^iM → M → G_{-j}F^jM ↠ G_{-i-1}F^iM \end{equation}</li>
+    <li>$G_{p-j+1}F^j M ≃ G_{p-i}F^i M$ 对 $p ≠ 0, -1$ 成立.</li>
+    <li>$G_{-([0,n-(j-i)])}F^iM$ 与 $G_{-([(j-i),n])}F^jM$ 可能非零;</li>
+    <li>其余 $G_{-p}F^q M$ 必为 $0$.</li>
+  </ol>
+</div>
+
+<h2 id="bb-定理的原始证明">BB 定理的原始证明</h2>
+
+<p>待补充.</p>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#happel-导出等价定理">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Happel 导出等价定理</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#谱序列方法">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">谱序列方法</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#bb-谱序列">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">BB 谱序列</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#导出等价的细化">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">导出等价的细化</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#bb-定理的原始证明">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">BB 定理的原始证明</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/KerHom_KerExt_TP" title="NEXT: 遗传范畴的 tilting 对象给出 $𝐦𝐨𝐝_{B}$ 的可裂 torsion pair">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Hereditary_TP_Split" title="PREV: 遗传范畴与可裂 torsion pair">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

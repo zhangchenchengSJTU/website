@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>模型范畴速记
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="Model">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Model">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>模型范畴速记</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        May 16, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="model">Model</h2>
+
+<h3 id="通用记号">通用记号</h3>
+
+<div class="definition">
+  <p>标准记号: 五类态射, 五类对象.</p>
+  <ol>
+    <li>$𝖢𝗈𝖿𝗂𝖻$ (余纤维), $𝖥𝗂𝖻$ (纤维), $𝖶𝖾𝗊$ (弱等价);</li>
+    <li>$𝖳𝖢𝗈𝖿𝗂𝖻$ (平凡余纤维), $𝖳𝖥𝗂𝖻$ (平凡纤维);       <ul>
+        <li>$𝖳𝖢𝗈𝖿𝗂𝖻 := 𝖢𝗈𝖿𝗂𝖻 ∩ 𝖶𝖾𝗊$,</li>
+        <li>$𝖳𝖥𝗂𝖻 := 𝖥𝗂𝖻 ∩ 𝖶𝖾𝗊$.</li>
+      </ul>
+    </li>
+    <li>$𝒞$ (纤维对象), $ℱ$ 余纤维对象, $𝒲$ 平凡对象.       <ul>
+        <li>$X ∈ 𝒞$ 当且仅当 $[0 → X] ∈ 𝖢𝗈𝖿𝗂𝖻$,</li>
+        <li>$X ∈ ℱ$ 当且仅当 $[X → 0] ∈ 𝖥𝗂𝖻$,</li>
+        <li>$X ∈ 𝒲$ 当且仅当 $[0 → X] ∈ 𝖶𝖾𝗊$.</li>
+      </ul>
+    </li>
+    <li>$𝖳𝒞$ (平凡纤维对象), $𝖳ℱ$ (平凡纤维对象).       <ul>
+        <li>$𝖳𝒞 := 𝒞 ∩ 𝒲$,</li>
+        <li>$𝖳ℱ := ℱ ∩ 𝒲$.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="definition">
+  <p>画图时, 使用 <span class="tikzinline-diagram">       <embed src="/website/svg/Model/diagram_ae3b93e5da6c0.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, <span class="tikzinline-diagram">       <embed src="/website/svg/Model/diagram_6d8fdd21c770b.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 与 <span class="tikzinline-diagram">       <embed src="/website/svg/Model/diagram_27bfb6db7fee8.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 表示 $𝖳𝖢𝗈𝖿𝗂𝖻$, $𝖳𝖥𝗂𝖻$ 与 $𝖶𝖾𝗊$ 三个态射类, 使用</p>
+</div>
+
+<p>总而言之, 态射 <span class="tikzinline-diagram">     <embed src="/website/svg/Model/diagram_ae7b520cb07b0.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 是 $𝖢𝗈𝖿𝗂𝖻$, $𝖥𝗂𝖻$ 与 $𝖶𝖾𝗊$ 专有的.</p>
+
+<h3 id="模型结构-闭模型结构-模型范畴的公理">模型结构, 闭模型结构, 模型范畴的公理</h3>
+
+<p>使用 M 表示模型结构公理, CM 表示闭模型结构公理. $i ∈ ℕ$.</p>
+
+<div class="definition">
+  <p>(有限双完备 + (闭) 模型结构 = (闭) 模型范畴). 假定 $𝒜$ 是带有模型结构 (闭模型结构) 的范畴. 称 $𝒜$ 是模型范畴 (闭模型范畴), 若以下条件满足.</p>
+  <ul>
+    <li>(M0 = CM0, 有限双向完备). $𝒜$ 关于有限极限与有限余极限封闭.</li>
+  </ul>
+</div>
+
+<div class="note">
+  <p>特别地, $𝒜$ 存在始对象 $⊥$ 与终对象 $⊤$.</p>
+</div>
+
+<div class="definition">
+  <p>(模型结构). 不对范畴结构做要求, 仅使用 $𝖢𝗈𝖿𝗂𝖻$ (余纤维), $𝖥𝗂𝖻$ (纤维), $𝖶𝖾𝗊$ (弱等价) 三个态射类表述公理.</p>
+  <ol>
+    <li>(M1, 提升性). 对任意 <span class="tikzinline-diagram">           <embed src="/website/svg/Model/diagram_4adcc2940854e.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 类型的交换图, 若 <span class="tikzinline-diagram">           <embed src="/website/svg/Model/diagram_21e9412c8882c.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 或 <span class="tikzinline-diagram">           <embed src="/website/svg/Model/diagram_9f019ae6ae14f.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 一者属于 $𝖶𝖾𝗊$, 则存在虚线处态射使得两个三角形交换: <span class="tikzinline-diagram">           <embed src="/website/svg/Model/diagram_e897dd430af0a.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>.</li>
+    <li>(M2, 两类分解). $𝖬𝗈𝗋 = 𝖳𝖥𝗂𝖻 ∘ 𝖢𝗈𝖿𝗂𝖻 = 𝖥𝗂𝖻 ∘ 𝖢𝗈𝖿𝗂𝖻$.       <ul>
+        <li>先 $𝖢𝗈𝖿𝗂𝖻$ 再 $𝖥𝗂𝖻$, 同时一者平凡.</li>
+      </ul>
+    </li>
+    <li>(M3-1, 合成, 同构). 五类态射包含同构, 同时关于合成封闭.</li>
+    <li>(M3-2, 推出, 拉回). $𝖥𝗂𝖻$ 关于任意态射的拉回仍是 $𝖥𝗂𝖻$, $𝖢𝗈𝖿𝗂𝖻$ 关于任意态射的推出仍是 $𝖢𝗈𝖿𝗂𝖻$.       <ul>
+        <li>类似正合范畴 Ex2 与 Ex2’.</li>
+      </ul>
+    </li>
+    <li>(M4, 带 $𝖶𝖾𝗊$ 的推出拉回). $𝖳𝖥𝗂𝖻$ 关于任意态射的拉回仍是 $𝖳𝖥𝗂𝖻$, $𝖳𝖢𝗈𝖿𝗂𝖻$ 关于任意态射的推出仍是 $𝖳𝖢𝗈𝖿𝗂𝖻$.</li>
+    <li>(M5, $𝖶𝖾𝗊$ 的二推三). 若 $f$, $g$, $gf$ 中两者属于 $𝖶𝖾𝗊$, 则第三者亦然.       <ul>
+        <li>复形的拟同构, 指数有限的线性映射等均具有此种关系.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<p>闭模型结构是态射类关于缩回封闭的模型结构.</p>
+
+<div class="definition">
+  <p>(缩回, 形变收缩核). 称 $f : X → Y$ 是 $f' : X' → Y'$ 的缩回, 若存在以下交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_df04d9cbd4adc.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>其中 $r_1$ 与 $r_2$ 是 ses.</p>
+</div>
+
+<div class="note">
+  <p>对加法范畴, $f'$ 缩回是 $f$ 当且仅当存在同构 $φ$ 与 $ψ$, 使得 $φ f' ψ = (f ⊕ f'')$.</p>
+</div>
+
+<div class="theorem">
+  <p>(闭模型结构的原始定义).</p>
+</div>
+
+<h3 id="结论汇总-通常模型结构">结论汇总: 通常模型结构</h3>
+
+<p>基于对始对象与终对象的操作.</p>
+
+<ol>
+  <li>($𝖢𝗈𝖿𝗂𝖻$ 的右传递). 对 $X_{∈ 𝒞} \xrightarrow{𝖢𝗈𝖿𝗂𝖻} Y$, 总有 $Y ∈ 𝒞$;</li>
+  <li>($𝖥𝗂𝖻$ 的左传递). 对 $X \xrightarrow{𝖥𝗂𝖻} Y_{∈ ℱ }$, 总有 $X ∈ ℱ$;</li>
+  <li>($𝖳𝖢𝗈𝖿𝗂𝖻$ 的右传递). 对 $X_{∈ 𝖳𝒞} \xrightarrow{𝖳𝖢𝗈𝖿𝗂𝖻} Y$, 总有 $Y ∈ 𝖳𝒞$;</li>
+  <li>($𝖳𝖥𝗂𝖻$ 的左传递). 对 $X \xrightarrow{𝖳𝖥𝗂𝖻} Y_{∈ 𝖳ℱ}$, 总有 $X ∈ 𝖳ℱ$;</li>
+</ol>
+
+<p>相对单-满:</p>
+
+<ol>
+  <li>$(𝖳𝒞 , 𝖥𝗂𝖻)$ 满, $(𝒞 , 𝖳𝖥𝗂𝖻)$ 满;
+    <ul>
+      <li>依照定义, 这些配对取达闭包.</li>
+    </ul>
+  </li>
+  <li>$(𝖢𝗈𝖿𝗂𝖻, 𝖳ℱ )$ 满, $(𝖳𝖢𝗈𝖿𝗂𝖻, ℱ)$ 满;
+    <ul>
+      <li>依照定义, 这些配对取达闭包.</li>
+    </ul>
+  </li>
+  <li>若 $C ∈ (𝖳)𝒞$, 余积的典范态射 $X → X ∐ C$ 属于 $(𝖳)𝒞$;
+    <ul>
+      <li>特例: 若 $X ∐ C \xrightarrow {(a,b)} Z ∈ (𝖳)𝖢𝗈𝖿𝗂𝖻$, 则 $a ∈ (𝖳)𝒞$.</li>
+    </ul>
+  </li>
+  <li>若 $F ∈ (𝖳)ℱ$, 积的典范态射 $F ∏ X → X$ 属于 $(𝖳)ℱ$;
+    <ul>
+      <li>特例: 若 $F ∏ X \xrightarrow {(a,b)} Z ∈ (𝖳)𝖥𝗂𝖻$, 则 $b ∈ (𝖳)ℱ$.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>加法范畴的特例.</p>
+
+<ol>
+  <li>对正合列 $0 → K \xrightarrow i X \xrightarrow f Y \xrightarrow p C → 0$,
+    <ul>
+      <li>若 $f ∈ (𝖳)𝖥𝗂𝖻$, 则 $K ∈ 𝖳(ℱ)$;</li>
+      <li>若 $f ∈ (𝖳)𝖢𝗈𝖿𝗂𝖻$, 则 $C ∈ 𝖳(𝒞)$;</li>
+    </ul>
+  </li>
+</ol>
+
+<p>态射分解:</p>
+
+<ol>
+  <li>五类态射包含同构;</li>
+  <li>五类态射合成闭;</li>
+  <li>$𝖬𝗈𝗋 = 𝖳𝖥𝗂𝖻 ∘ 𝖢𝗈𝖿𝗂𝖻 = 𝖥𝗂𝖻 ∘ 𝖳𝖢𝗈𝖿𝗂𝖻$;</li>
+  <li>$𝖶𝖾𝗊 = 𝖳𝖥𝗂𝖻 ∘ 𝖳𝖥𝗂𝖻$;</li>
+</ol>
+
+<p>弱等价:</p>
+
+<ol>
+  <li>弱等价的二推三性质: $\{f,g,gf\}$ 中两者是弱等价, 则第三者亦然;</li>
+  <li>$𝖶𝖾𝗊 = 𝖳𝖥𝗂𝖻 ∘ 𝖳𝖥𝗂𝖻$;</li>
+  <li>对 $W, W' ∈ 𝒲$, 则 $\mathrm{Hom}(W,W') ⊆ 𝖶𝖾𝗊$.</li>
+</ol>
+
+<p>态射提升 (四组):</p>
+
+<ol>
+  <li>左提升 $l(𝖳𝖥𝗂𝖻) = 𝖢𝗈𝖿𝗂𝖻$ 与 $l(𝖥𝗂𝖻) = 𝖳𝖢𝗈𝖿𝗂𝖻$;</li>
+  <li>右提升 $r(𝖳𝖢𝗈𝖿𝗂𝖻) = 𝖥𝗂𝖻$ 与 $r(𝖢𝗈𝖿𝗂𝖻) = 𝖳𝖥𝗂𝖻$.</li>
+</ol>
+
+<p>推出拉回:</p>
+
+<ol>
+  <li>$𝖥𝗂𝖻$ 关于任意态射的拉回封闭;</li>
+  <li>$𝖳𝖥𝗂𝖻$ 关于任意态射的拉回封闭;</li>
+  <li>$𝖢𝗈𝖿𝗂𝖻$ 关于任意态射的推出封闭;</li>
+  <li>$𝖳𝖢𝗈𝖿𝗂𝖻$ 关于任意态射的推出封闭.</li>
+</ol>
+
+<p>对于闭模型结构, 五个态射类对形变收缩核封闭. 对象类对直和项封闭.</p>
+
+<h2 id="态射范畴是模型结构">态射范畴是模型结构</h2>
+
+<p>给定模型范畴 $𝒜$, 其态射范畴 $𝒜^→$ 也有模型结构.</p>
+
+<ol>
+  <li>$𝖢𝗈𝖿𝗂𝖻 (𝒜 ^→)$ 中态射形如交换方块: <span class="tikzinline-diagram">         <embed src="/website/svg/Model/diagram_89aa9b730d35b.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 对 $𝖥𝗂𝖻$ 与 $𝖶𝖾𝗊$ 的表述类似;</li>
+  <li>对象类 $𝒞$, $ℱ$, $𝒲$, $𝖳ℱ$ 与 $𝖳𝒞$ 通过态射定义. 取 $𝒳$ 为上述任意一者, 则 $𝒳 (𝒜 ^→ ) = 𝒳 (𝒜 )^ → $.</li>
+</ol>
+
+<div class="lemma">
+  <p>(验证 M0). 若范畴具有某种图表的极限或余极限, 则函子范畴亦然: 先给所有对象逐次地构造极限, 态射是极限诱导的.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M1). 给定实线处的交换图, 其中左二弯曲箭头 (或右二弯曲箭头) 是弱等价. 此时存在虚线箭头 $s_{i}$ 使得平面图的所有胞腔与外周均交换:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_1ed9b54cc5851.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>态射 $(s_1 ⊕ s_2)$ 建立了态射范畴中的分解.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M2). 仅看分解 $𝖥𝗂𝖻 ∘ 𝖳𝖢𝗈𝖿𝗂𝖻$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_fc042f8082e23.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>中间的虚线态射由原范畴的模型结构给出.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M3-1). 显然五类态射包含同构, 同时对合成封闭.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M3-2). 例如 $𝖥𝗂𝖻$ 对拉回封闭, 这由极限与余极限的逐次构造给出.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M4). 同 M3-2 的验证.</p>
+</div>
+
+<div class="lemma">
+  <p>(验证 M5). 直接验证即可.</p>
+</div>
+
+<div class="question">
+  <p>问题 (<a href="https://ncatlab.org/nlab/show/Reedy+category">Reedy 范畴</a>基本解决了第一个问题).</p>
+  <ol>
+    <li>以上验证函子范畴的模型结构时, 似乎 M2 之外的公理均可依照函子范畴极限的泛性质验证. 对于何种函子范畴, M2 也成立? 这一问题似乎与局部化范畴有联系.</li>
+    <li>正合范畴, Abel 范畴等范畴关于函子范畴封闭. 对于正合范畴, 另有 Heller 通过 $3× 3$ 引理导出的正合范畴.</li>
+  </ol>
+</div>
+
+<h3 id="quillen-的同伦范畴">Quillen 的同伦范畴</h3>
+
+<div class="note">
+  <p>主要是路对象与柱对象的使用.</p>
+</div>
+
+<div class="definition">
+  <p>(柱对象, 左同伦). 称 $f,f' : A → B$ 是左同伦的, 若存在以下交换图:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_a93f84a83f430.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以上 $∂_i ∈ 𝖶𝖾𝗊$, 但 $(∂ _0, ∂ _1)$ 未必.</p>
+</div>
+
+<div class="definition">
+  <p>(左同伦关系: 左同伦交换图的精细刻画). 将左同伦的 $∂$-项分解做 $𝖢𝗈𝖿𝗂𝖻 ∘ 𝖳𝖥𝗂𝖻$, 得下图</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_7bd2279481d6d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此时 $(\partial_0, \partial _1) ∈ 𝖢𝗈𝖿𝗂𝖻$, 且 $∂_i ∈ 𝖶𝖾𝗊$. 称 $h$ 实现了左同伦 $f \overset l ∼ g$.</p>
+</div>
+
+<div class="lemma">
+  <p>左同伦关系吸收后继映射, 即, 对 $A \xrightarrow{f,g} B \xrightarrow v W$, 若 $f \overset l ∼ g$, 则 $vf \overset l ∼ vg$.</p>
+</div>
+
+<div class="lemma">
+  <p>若来源 $A ∈ 𝒞$, 则,</p>
+  <ol>
+    <li>左同伦交换图中, 余纤维态射的各分量 $∂_i ∈ 𝖢𝗈𝖿𝗂𝖻$, 因此 $∂_i ∈ 𝖳𝖢𝗈𝖿𝗂𝖻$.</li>
+    <li>态射集 $(A , B)$ 关于左同伦构成等价关系.</li>
+  </ol>
+  <p>此时, <strong>右同伦条件比左同伦更宽松</strong>. 特别地, 有以下结论:</p>
+  <ol>
+    <li>左同伦蕴含右同伦.</li>
+    <li>接上一条, 右同伦交换图如下:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Model/diagram_57b7b77dd452c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>重点: $B → B'$ 是平凡余纤维. 以上正好是 $\binom 11$ 的一种 $𝖥𝗂𝖻 ∘ 𝖳𝖢𝗈𝖿𝗂𝖻$ 分解.</p>
+    </li>
+    <li>接上一条, 右同伦关系吸收后继映射, 即 $f \overset r ∼ g \implies uf \overset r ∼ ug$, $A \xrightarrow{f,g} B \xrightarrow u C$.       <ul>
+        <li>一般地, 右同伦关系吸收前置映射.</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="corollary">
+  <p>对全子范畴 $𝒞$, 左同伦范畴的理想 (双边吸收).</p>
+</div>
+
+<div class="definition">
+  <p>(商范畴). 定义以下商范畴.</p>
+  <ol>
+    <li>右同伦是范畴 $𝒞$ 的等价关系, 可定义 Hom-商 $π : 𝒞 → π 𝒞$;</li>
+    <li>左同伦是范畴 $ℱ$ 的等价关系, 可定义 Hom-商 $π : ℱ → π ℱ$;</li>
+    <li>对 $𝒞 ∩ ℱ$ 中对象, $π : (𝒞 ∩ ℱ) → π (𝒞 ∩ ℱ)$ 通过左同伦 ($=$ 右同伦) 定义;</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>假定模型范畴 $𝒜$ (或是带有模型结构的较好的范畴) 的态射类 $𝖶𝖾𝗊$. 取全子范畴 $𝒳$, 定义局部化范畴 $𝖧𝗈(𝒳) := 𝒳 [(𝖶𝖾𝗊 ∩ 𝒳)^{-1}]$. <br /> <br /> 凡是关于 $𝖶𝖾𝗊$ 的局部化, 左 (右) 同伦的态射必被映至相同的态射. 下图除去 $\overline γ$ 箭头外, 所有三角型或四边形胞腔交换:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_338e1e69d1e7e.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>通过 $𝒞 ∩ ℱ → 𝒜 → 𝖧𝗈 (𝒜 )$, 可诱导 $\overline γ : π (𝒞 ∩  ℱ ) → 𝖧𝗈 (𝒜 )$. 上图由 $𝒞 ∩ ℱ$ 指向 $𝖧𝗈 (𝒜 )$ 的复合函子相同. 由于前项复合 $𝒞 ∩ ℱ → π (𝒞 ∩ ℱ )$ 是函子范畴的全忠实函子, 从而上图交换. <br /> <br /> Quillen 说明了以下交换图中:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Model/diagram_0bb70b667fd7b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>标注 $≃$ 的箭头均是严格的范畴同构. 且 $\overline {\gamma_{\mathscr C}}$ 是右侧三项复合的左伴随, $\overline {\gamma_{\mathscr F}}$ 是左侧三项复合的右伴随.</p>
+</div>
+
+<div class="corollary">
+  <p>$(\mathscr C \cap \mathscr F) \to\pi (\mathscr C \cap \mathscr F)$ 将弱等价变成同构.</p>
+</div>
+
+<h2 id="abel-范畴的-hovey-三元组">Abel 范畴的 Hovey 三元组</h2>
+
+<h3 id="cotorsion-pair">Cotorsion pair</h3>
+
+<div class="definition">
+  <p>(Cotorsion theory). 对定义 $\mathrm{Ext}^1$ 的范畴, 记 $⟂$ 是关于 $\mathrm{Ext}^1$ 的垂直.</p>
+  <ol>
+    <li>(Cotorsion pair). 称 $(𝒞 , ℱ )$ 是 cotorsion pair, 若 $𝒞 ^⟂ = ℱ$, $𝒞 = {}^⟂ ℱ$.</li>
+    <li>(完备 cotorsion pair). 称 cotorsion pair $(𝒞 , ℱ )$ 是完备的, 若       <ol>
+        <li>任意 $X$ 可以嵌入短正合列 $0 → F → C → X → 0$, 满足           <ul>
+            <li>$F ∈ ℱ $, 且 $C ∈ 𝒞$;</li>
+            <li>对任意 $C' ∈ 𝒞$, 以上短正合列是 $\mathrm{Hom}(C', -)$ 正合的.</li>
+          </ul>
+        </li>
+        <li>任意 $X$ 可以嵌入短正合列 $0 → X → F → C → 0$, 满足           <ul>
+            <li>$F ∈ ℱ $, 且 $C ∈ 𝒞$;</li>
+            <li>对任意 $F ∈ ℱ$, 以上短正合列是 $\mathrm{Hom}(-, F')$ 正合的.</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+    <li>(遗传 cotorsion pair). 称 cotorsion pair $(𝒞 , ℱ )$ 是遗传的, 若 $𝒞$ 关于满射的 kernel 封闭, $ℱ$ 关于单射的 cokernel 封闭.</li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>称右 $𝒳$-逼近 $X \overset σ → A$ 是特殊的, 若存在短正合列 $0 → Y → X \overset σ → A → 0$ 使得其 $\mathrm{Hom}(𝒳, -)$-正合, 同时 $X ⟂ Y$.</p>
+</div>
+
+<div class="proposition">
+  <p>给定有足够投射对象与内射对象的范畴, 以上关于 cotorsion pair 的系列定义可以适当地弱化:</p>
+  <ol>
+    <li>(完备 cotorsion pair 的等价定义). 全体对象有特殊左 $ℱ$-逼近, 当且仅当全体对象有特殊右 $𝒞$-逼近;</li>
+    <li>(遗传 cotorsion pair 的等价定义). $𝒞$ 关于满射的 kernel 封闭, 当且仅当 $ℱ$ 关于单射的 cokernel 封闭, 当且仅当 $\mathrm{Ext}^2(𝒞 , ℱ ) = 0$, 当且仅当 $\mathrm{Ext}^{≥ 2}(𝒞 , ℱ ) = 0$.</li>
+    <li>(遗传 cotorsion pair 的扩张闭性质). 假定 cotorsion pair 遗传, 给定 ses $0 → K → X → C → 0$.       <ol>
+        <li>若有 $K$ 与 $C$ 的特殊左 $ℱ$-逼近, 则存在 $X$ 的特殊左 $ℱ$-逼近使得有 $3 × 3$ ses 交换图;</li>
+        <li>若有 $K$ 与 $C$ 的特殊右 $𝒞$-逼近, 则存在 $X$ 的特殊右 $𝒞$-逼近使得有 $3 × 3$ ses 交换图.</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<h3 id="hovey-三元组">Hovey 三元组</h3>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#model">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Model</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#通用记号">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">通用记号</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#模型结构-闭模型结构-模型范畴的公理">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">模型结构, 闭模型结构, 模型范畴的公理</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#结论汇总-通常模型结构">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">结论汇总: 通常模型结构</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#态射范畴是模型结构">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">态射范畴是模型结构</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#quillen-的同伦范畴">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">Quillen 的同伦范畴</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#abel-范畴的-hovey-三元组">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">Abel 范畴的 Hovey 三元组</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#cotorsion-pair">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Cotorsion pair</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#hovey-三元组">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">Hovey 三元组</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/20250516Talk" title="NEXT: 2025-05-16-讨论班">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Stable_Cat_Analogue" title="PREV: 外三角范畴 (2025-05-15 讲稿)">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>三角范畴的定义, 八面体公理
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Tri_Cat_Def">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>三角范畴的定义, 八面体公理</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 10, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#预三角范畴-三角范畴" id="markdown-toc-预三角范畴-三角范畴">预三角范畴, 三角范畴</a></li>
+  <li><a href="#八面体公理是同伦的推出拉回" id="markdown-toc-八面体公理是同伦的推出拉回">八面体公理是同伦的推出拉回</a>    <ul>
+      <li><a href="#拓扑学背景" id="markdown-toc-拓扑学背景">拓扑学背景</a></li>
+      <li><a href="#八面体公理的解释" id="markdown-toc-八面体公理的解释">八面体公理的解释</a></li>
+      <li><a href="#同伦的推出拉回" id="markdown-toc-同伦的推出拉回">同伦的推出拉回</a></li>
+      <li><a href="#应用-mv-序列" id="markdown-toc-应用-mv-序列">应用: MV 序列?</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="预三角范畴-三角范畴">预三角范畴, 三角范畴</h2>
+
+<div class="definition">
+  <p>(预三角范畴). 给定以下资料</p>
+  <ul>
+    <li>加法范畴 $𝒞$,</li>
+    <li>自同构函子 $T : 𝒞 ≃ 𝒞$ (平移函子),</li>
+    <li>三角类 $ℰ = \{X \xrightarrow u Y\xrightarrow vZ\xrightarrow w TX\}$.</li>
+  </ul>
+  <p>称 $(𝒞 , T, ℰ)$ 是预三角范畴, 若三角类满足以下关系.</p>
+  <ul>
+    <li>(TR 1-1, $ℰ$ 对同构封闭). 任给定态射的交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_f3500e602729b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+      <p>其纵向是同构. 若某横行属于 $ℰ$, 则另一横行亦属于 $ℰ$</p>
+    </li>
+    <li>(TR 1-2, 态射可嵌入三角). 任意态射 $f ∈ 𝖬𝗈𝗋 (𝒞)$ 可以嵌入好三角 $[∙ \xrightarrow f ∙ → ∙ → ∙]$.</li>
+    <li>(TR 1-3, 平凡三角). 对任意 $X$, $[X = X → 0 → TX] ∈ ℰ$, 称作平凡三角.</li>
+    <li>(TR 2, 顺时针旋转). 若 $[X \xrightarrow u Y\xrightarrow vZ\xrightarrow w TX] ∈ ℰ$, 则 $[Y\xrightarrow vZ\xrightarrow w TX \xrightarrow {-Tu} TY] ∈ ℰ$.</li>
+    <li>(TR 3, 二推三原则). 态射范畴的态射 ($2 × 2$ 交换方块) 可以嵌入三角射 (TR 1-2 的态射表述).       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_0358420be95ea.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ul>
+  <p>规范一些名词:</p>
+  <ul>
+    <li>(好三角). 指 $ℰ$ 中元素, 由六元组 $(X,Y,Z,u,v,w)$ 表示;</li>
+    <li>(三角射). 好三角的作成的交换图, 形如 ($TX → TX'$ 必须是 $Tf$)       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_81127c1e93fd9.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>(平移函子, 悬挂函子). 经常使用 $Σ$ 与 $[1]$ 表示平移.</li>
+  </ul>
+</div>
+
+<div class="note">
+  <p>以下是一些注意事项.</p>
+  <ol>
+    <li>请注意 TR 2 中的符号. 顺时针旋转改变符号, 但对三角射而言, $Tf$ 不加负号.</li>
+    <li>TR3 中延拓的态射未必唯一.</li>
+    <li>函子 $T^2$ 给出三角范畴的同构, 但这不以为着对 $\triangle ∈ ℰ$, 有三角同构 $Δ ≃ T^2 Δ$.</li>
+  </ol>
+</div>
+
+<div class="proposition">
+  <p>由定义, 以下是预三角范畴的性质.</p>
+  <ol>
+    <li>(逆平移函子). 平移函子是范畴 $𝒞$ 的自同构, 依照 <a href="NBGC">NBGC</a> 公理选定骨架, 从而构造逆函子 $T^{-1}$. 一般地, 只能找到 $G$ 使得有自然同构 $GF ≃ \mathrm{id}$ 与 $FG ≃ \mathrm{id}$.</li>
+    <li>(三角关于逆时针旋转封闭). 使用类的选则公理.       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_0e3dc6bb4172c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>(嵌入唯一). TR 1-2 中态射嵌入的三角 (在同构的意义下) 是唯一的.</li>
+    <li>(嵌入无向). TR 1-2 中的态射可以嵌入三角的任意位置.</li>
+    <li>(<a href="Yoneda_Homological">上同调函子</a>). 米田嵌入是上同调函子, 换言之, 任意可表函子导出长正合列.</li>
+    <li>三角中的单态射是可裂单, 满态射是可裂满.</li>
+  </ol>
+</div>
+
+<p>称预三角范畴 $(𝒞 , [1], ℰ)$ 是三角范畴, 若其满足以下公理.</p>
+
+<div class="definition">
+  <p>(八面体公理). 若下图中 $r_1$, $r_2$ 与 $c_3$ 均为好三角, 则 $c_2$ 是好三角且所有方块交换:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_c244f93c0f3e9.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>红色箭头是题设中的, 强调了 $u[1]$ 与 $v[1]$ 的符号.</p>
+</div>
+
+<div class="note">
+  <p>由 TR 1-2 (态射嵌入三角), 可精简八面体公理的表述: 若有态射 <span class="tikzinline-diagram">       <embed src="/website/svg/Tri_Cat_Def/diagram_93b04a455f3a3.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 则可以向下且向右地补全八面体公理的描述图.</p>
+</div>
+
+<p>将好三角横向放置的三项 $[X → Y → Z]$ 类比作 ses, 回顾米田积 $\mathrm{Ext}^1$ 的函子性.</p>
+
+<ul>
+  <li>八面体公理对 $Y$ 处态射做了手脚. 根本上是 <span class="tikzinline-diagram">         <embed src="/website/svg/Tri_Cat_Def/diagram_7917ec2b7c647.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 对做分析.</li>
+  <li>类似 ses 的推出, 余积变换对 $X → ?$ 做了手脚. 根本上是对 <span class="tikzinline-diagram">         <embed src="/website/svg/Tri_Cat_Def/diagram_1748c5950601e.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 做分析.</li>
+  <li>类似 ses 的拉回, 基变换对 $? → Z$ 做了手脚. 根本上是对 <span class="tikzinline-diagram">         <embed src="/website/svg/Tri_Cat_Def/diagram_2a61ad9da973f.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 做分析.</li>
+</ul>
+
+<p>每一项命题均有完整版本 (三个好三角推一个好三角) 与精简版本 (两个态射延拓成全图)</p>
+
+<div class="proposition">
+  <p>(基变换, 余积变换). 以下是八面体公理的等价形式 (请注意符号). 以下默认初始三角 $[X → Y → W]$ 的坐标是 $(r;c) = (1;[1,2,3])$.</p>
+  <ol>
+    <li>
+      <p>(基变换, 完整版本). 若下图中 $r_1$, $r_2$ 与 $c_3$ 均为好三角, 则 $c_2$ 是好三角且所有方块交换:</p>
+      <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_d0d1f8d515813.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>(基变换, 精简版本). 基变换中, 绿色部分 (横三角 + 纵箭头) 补成全图.</li>
+    <li>(基变换, 完整版本). 余基变换中, 若下图中 $r_2$, $r_3$ 与 $c_1$ 均为好三角, 则 $c_2$ 是好三角且所有方块交换:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_8cfe7cd75451d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>(基变换, 精简版本). 余基变换中, 绿色部分 (横三角 + 纵箭头) 补成全图.</li>
+  </ol>
+</div>
+
+<h2 id="八面体公理是同伦的推出拉回">八面体公理是同伦的推出拉回</h2>
+
+<h3 id="拓扑学背景">拓扑学背景</h3>
+
+<div class="example">
+  <p>(映射锥). 拓扑地看, 态射 $f:X → Y$ 对应的映射锥如下:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_828368fb720ab.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>(映射筒). 拓扑地看, 态射 $f:X → Y$ 对应的映射筒如下:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_da394a07eb8d0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>(悬挂). 依照 Puppe 的长纤维序列, $\mathrm{Cone}(i(f):Y\to \mathrm{Cone}(f))$ 对应 $X$ 的悬挂:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_8efe8370a2609.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>同理, $\mathrm{Cone}(p(f):\mathrm{Cone}(f)\to X[1])$ 对应 $Y$ 的悬挂:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_f8d7f008440a1.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>(符号法则: 为什么顺时针/逆时针旋转需要加上负号?). 给定好三角 $X\xrightarrow f Y\xrightarrow{\binom 01} \mathrm{Cone}(f)\xrightarrow{(1\,\,0)} X[1]$. 以下给出 $\mathrm{Cyl}(f)$:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_e6489b190bda2.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<h3 id="八面体公理的解释">八面体公理的解释</h3>
+
+<div class="example">
+  <p>取标准三角 $X\xrightarrow f Y\xrightarrow{i(f)} \mathrm{Cone}(f)\xrightarrow {p(f)} X[1]$ 为标准三角, 则下图交换:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_84c0c09d3225a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此处 $f$ 与 $g$ 是任意选取的, 从而八面体公理等价于</p>
+  <ul>
+    <li>对任意 $g$, 总有同伦范畴中的同构 $\mathrm{Cone}(g) ≃ \mathrm{Cone}(g_∗)$</li>
+  </ul>
+  <p>虚线处类似 Noether 同构 $A/B ≃ (A/C)/(B/C)$, 图示如下:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_4ec9380fc9324.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>将上图沿虚线压缩至一点 (这是同伦关系), 得下图. 对大多数拓扑情形而言, 八面体公理是可以直接证出的.</p>
+</div>
+
+<div class="example">
+  <p>($⋆$ 处的同构). 八面体公理中有如下交换方块:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_f55c9d795ea26.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>拓扑地解释如下:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_c535b0c73f133.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<h3 id="同伦的推出拉回">同伦的推出拉回</h3>
+
+<div class="example">
+  <p>(Abel 范畴的推出-拉回方块). 称交换图 <span class="tikzinline-diagram">       <embed src="/website/svg/Tri_Cat_Def/diagram_958c8d8eca773.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span> 是推出拉回方块, 当且仅当以下是四条 ses 的交换图</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_f5ce26b48e667.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>也当且仅当存在短正合列 $$\begin{equation}
+0\to X\xrightarrow{\binom{a_1}{b_1}} Y_2\oplus Y_1\xrightarrow{(b_2,-a_2)} Z\to 0.
+\end{equation}$$</p>
+</div>
+
+<div class="definition">
+  <p>(同伦推出拉回). 若 $⋆$ 处 $2 × 2$ 规格的交换方块是同伦推出拉回的, 若存在好三角</p>
+  <p>$$\begin{equation}
+X\xrightarrow{\binom{a_1}{b_1}} Y_2⊕ Y_1\xrightarrow{(b_2,-a_2)} Z\xrightarrow h X[1].
+\end{equation}$$</p>
+  <p>考虑其同伦背景, 有时将第二项记作 $Y_2∨ Y_1$. 将满足以上条件的方块 $⋆$ 称作同伦的推出拉回.</p>
+</div>
+
+<div class="example">
+  <p>(三角范畴中同伦推出拉回的特例, <a href="Homotopic_PBPO">证明</a>). 若以上 $⋆$ 能补全作两行两列的好三角</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_281e65eddf85c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>则 $⋆$ 是同伦推出拉回.</p>
+</div>
+
+<div class="theorem">
+  <p>(八面体公理的等价定义, <a href="Homotopic_PBPO_Oct">证明</a>). 预预三角范畴是三角范畴, 当且仅当</p>
+  <ol>
+    <li>预三角范畴满足八面体公理;</li>
+    <li>任意两个红色态射给出如下三角射与交换图:       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_2ed4ffc418ca6.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+    <li>给定红色处三角与同伦推出拉回方块, 则可补全下图三角与三角射       <center> <br /> <div class="tikz-diagram">
+          <embed src="/website/svg/Tri_Cat_Def/diagram_276effd110343.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+        </div> <br /> </center>
+    </li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>注意: 对条件 2. 与 3. 的同伦推出拉回方块, 需要反号的态射是 $⇒$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_a2484d7dfcde4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(<a href="https://www.sciencedirect.com/science/article/pii/002186939190292G">Neeman 公理</a>). 预三角范畴是三角范畴, 若对任意交换图 <span class="tikzinline-diagram">       <embed src="/website/svg/Tri_Cat_Def/diagram_e015c8674b31a.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, 存在态射 $h$ 使得有三角射</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_0376f20e45fde.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以及好三角 $$\begin{equation}
+Y \oplus X' \xrightarrow{\begin{pmatrix}-v&0\\g&u'\end{pmatrix}} Z \oplus Y' \xrightarrow{\begin{pmatrix}-w&0\\h&v'\end{pmatrix}} X[1] \oplus W\xrightarrow{\begin{pmatrix}-u[1]&0\\f[1]&w'\end{pmatrix}} Y[1]\oplus X'[1]
+\end{equation}$$</p>
+</div>
+
+<div class="slogan">
+  <p>TR3 中二推三态射可以选的好一些.</p>
+</div>
+
+<h3 id="应用-mv-序列">应用: MV 序列?</h3>
+
+<div class="example">
+  <p>(MV-序列). 考虑以下同伦的推出拉回:</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_9a1c49ac48632.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此时有函子的长正合列 $$
+\begin{align}
+\cdots\to [M,Y]&\xrightarrow{\begin{pmatrix}{[M,g_\ast]} \ \ {[M,i(f)]}\end{pmatrix}} [M,Z]\oplus [M,\mathrm{Cone}(f)]\\[6pt]
+&\xrightarrow{\begin{pmatrix}[M,i(f\circ g)]& -[M,g_\ast]\end{pmatrix}} [M,\mathrm{Cone}(g\circ f)]\xrightarrow{[M,\delta]}[M,Y[1]]\to \cdots. 
+\end{align}
+$$</p>
+  <p>作为特例, 传统的 MV 序列 $$\begin{aligned}
+\cdots &\to H_n(X\cap Y)\to H_n(X)\oplus H_n (Y) \to\\
+&\to H_n(X\cup Y)\to H_{n-1}(X\cap Y)\to\cdots 
+\end{aligned}$$ 连接态射 $\delta$ 定义作以下两种相同的复合 (八面体公理). 一者是 $$\begin{equation}
+\mathrm{Cone}(g\circ f)\to \mathrm{Cone}[Z\to \mathrm{Cone}(g\circ f)]\to Y[1]. 
+\end{equation}$$</p>
+  <p>对应示意图</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_66e70587b8c58.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>另一者是 $\mathrm{Cone}(g\circ f)\to X[1]\to Y[1]$, 对应示意图</p>
+  <center> <br /> <div class="tikzmathcha-diagram">
+      <embed src="/website/svg/Tri_Cat_Def/diagram_598762190ee29.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#预三角范畴-三角范畴">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">预三角范畴, 三角范畴</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#八面体公理是同伦的推出拉回">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">八面体公理是同伦的推出拉回</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#拓扑学背景">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">拓扑学背景</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#八面体公理的解释">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">八面体公理的解释</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#同伦的推出拉回">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">同伦的推出拉回</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#应用-mv-序列">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">应用: MV 序列?</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Additive_Oplus_Closed_Implies" title="NEXT: 若 $S$ 对直和封闭, 则局部化是加法函子">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Extriangulated_Category" title="PREV: 外三角范畴 (基本定义?)">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

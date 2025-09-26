@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>CT3
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/25SumLec3">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>CT3</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        July 27, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#lecture-3" id="markdown-toc-lecture-3">Lecture 3</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+    </ul>
+  </li>
+  <li><a href="#all-covers-are-projective-covers" id="markdown-toc-all-covers-are-projective-covers">All Covers are Projective Covers</a>    <ul>
+      <li><a href="#the-projective-cover" id="markdown-toc-the-projective-cover">The Projective Cover</a></li>
+      <li><a href="#functorial-approach" id="markdown-toc-functorial-approach">Functorial Approach</a></li>
+      <li><a href="#a-tautological-comparison" id="markdown-toc-a-tautological-comparison">A Tautological Comparison</a></li>
+      <li><a href="#example-vnr-rings" id="markdown-toc-example-vnr-rings">Example: vNR Rings</a></li>
+      <li><a href="#example-torsion-theory" id="markdown-toc-example-torsion-theory">Example: Torsion Theory</a></li>
+      <li><a href="#envelopes-and-examples" id="markdown-toc-envelopes-and-examples">Envelopes and Examples</a></li>
+    </ul>
+  </li>
+  <li><a href="#set-theoretic-consideration" id="markdown-toc-set-theoretic-consideration">Set-theoretic Consideration</a>    <ul>
+      <li><a href="#flat-cotorsion-pair" id="markdown-toc-flat-cotorsion-pair">Flat Cotorsion Pair</a></li>
+      <li><a href="#precover--cover" id="markdown-toc-precover--cover">Precover ⇒ Cover</a></li>
+      <li><a href="#special-preenvelope--special-envelope" id="markdown-toc-special-preenvelope--special-envelope">Special Preenvelope ⇒ Special Envelope</a></li>
+      <li><a href="#envelope--preenvelope" id="markdown-toc-envelope--preenvelope">Envelope ⇒ Preenvelope</a></li>
+      <li><a href="#special-precover--special-cover" id="markdown-toc-special-precover--special-cover">Special Precover ⇒ Special Cover</a></li>
+      <li><a href="#remarks" id="markdown-toc-remarks">Remarks</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lecture-3">Lecture 3</h2>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>A wide range of cotorsion pairs are constructed via covering and enveloping. We analyse the existence of projective covers at the outset, and identify where the obstacle arises. Subsequently, we introduce criteria for the existence of covers and envelopes.</p>
+  </div>
+</div>
+
+<h2 id="all-covers-are-projective-covers">All Covers are Projective Covers</h2>
+
+<p>We explain the general theory of (pre)covers with projective (pre)covers in a functorial approach.</p>
+
+<h3 id="the-projective-cover">The Projective Cover</h3>
+
+<p>For an Abelian category with enough projectives, we provide two equivalent definitions of projective cover.</p>
+
+<div class="definition">
+  <p>(Small/superfluous). A subobject $i : K ↪ X$ is small if, for any subobject $j : L ↪ X$ with $L + K = X$, then $j$ must be an isomorphism.</p>
+</div>
+
+<p><strong>A subobject is characterised by a morphism</strong>, rather than a plain object. The expression $L + K = X$ means that the following $θ$ induced by the pushout is an isomorphism</p>
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/25SumLec3/diagram_8c84b83712b2f.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p>One may also write $L × _X K =: L ∩ K$ for convenience.</p>
+
+<div class="problem">
+  <p>Show that $i : k ↪ X$ is small if there exists some <strong>pushout pullback square</strong> of the form <span class="tikzinline-diagram">       <embed src="/website/svg/25SumLec3/diagram_605b8baf0abfc.svg" type="image/svg+xml" style="display: inline-block; width: 10%; height: 10%; white-space: nowrap" />
+ </span>, then $j$ must be an isomorphism.</p>
+</div>
+
+<div class="theorem">
+  <p>Suppose $p : P → M$ is a projective cover if the following equivalent conditions hold (projective cover = $𝐏𝐫𝐨𝐣$-cover!):</p>
+  <ol>
+    <li>(Projective cover). $p$ is an epimorphism, and $\ker p$ (as a morphism) is small;</li>
+    <li>($𝐏𝐫𝐨𝐣$-cover). Any morphism $Q → M$ ($Q$ projective) factors through $p$, and any $p ∘ α = p$ implies $α$ is a(n)       <ol>
+        <li>epimorphism;</li>
+        <li>monomorphism;</li>
+        <li>automorphism.</li>
+      </ol>
+    </li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2-(3)). Clearly, $Q → M$ factors through $p$ by the lifting property of projectives. We show that $p ∘ α = p$ implies $α$ is an automorphism. We construct the pullback square of monomorphisms:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_496ecc2b2f048.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By $p ∘ α = p$, the morphism $p|_{\operatorname{im}α }$ is epic, thus the first row is a short exact sequence. By exercise, the subobject $\operatorname{im}(α ) ↪ P$ is an isomorphism. This shows $α$ is epic. We show $α$ is also monic. Let $j$ be the right inverse of $α$ (by the lifting property of projectives). Then $p ∘ j = p ∘ α ∘ j = p$. Hence $j$ is epic. Since $j$ is also split monic, $j$ is an isomorphism. Therefore $α$ is an automorphism. <br /> (2(1) → 1). $p$ is epic, since any epimorphism $Q ↠ M$ factors through $p$. We show $\ker p$ is small. If not, there exists a proper subobject $N ↪ P$ such that $N + \ker p = P$. Therefore we have the pullback pushout square of short exact sequences. We introduce $l$ by the lifting property of projectives, then $α : λ ∘ l$ is a non-epimorphism such that $p ∘ α = p$, a contradiction.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_0e8ee8dcb17d4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p><br /> We show 1 → 2(3) → 2(1,2), and 2(1) → 1. It remains to show 2(2) → 2(3). If there is a strict monomorphism $α$ s.t. $p ∘ α = p$, then there is an induced monomorphism $α|_{\ker p} : \ker p → \ker p$.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_832e2c634fbbb.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>In the above diagram, the left square is pullback-pushout. Hence $\operatorname{im}α + \ker p = P$. A contradiction.</p>
+  </div>
+</div>
+
+<p>Here <strong>we do not require that the objects are well-powered</strong>, which means that all subobjects of a certain object form a set.</p>
+
+<div class="problem">
+  <p>Show another equivalent definition of projective cover: say $p : P → A$ is a projective cover if and only if it is an <em>essential epimorphism</em>, i.e., $p ∘ g$ is epic if and only if $g$ is epic.</p>
+</div>
+
+<h3 id="functorial-approach">Functorial Approach</h3>
+
+<div class="lemma">
+  <p>The Yoneda embedding $\mathcal{A} ↪ 𝐏𝐒𝐡 (\mathcal{A})$ via $X ↦ (-, X)_\mathcal{A}$ is fully faithful and left exact. In particular, the <strong>representable functor $(-, X)_\mathcal{A}$ are projective</strong> in $𝐏𝐒𝐡 (\mathcal{A})$.</p>
+  <div class="proof">
+    <p>The Yoneda embedding yields a bijection $(X,Y) ↔ [(-, X), (-, Y)]_{𝐏𝐒𝐡 (\mathcal{A})}$, which identifies $f$ with a collection of natural transformations $\{(A, f)\}_{A ∈ \mathcal{A}}$.</p>
+    <ul>
+      <li>The assignment $? ↦ (-, ?)$ preserves all limits, and is thus left exact;</li>
+      <li>For any surjection $θ : F → G$ of presheaves, we observe $[(-, ?), θ_-] ≃ θ_?$ is surjective. Hence, representable functors are projective in $𝐏𝐒𝐡 (\mathcal{A})$.</li>
+    </ul>
+  </div>
+</div>
+
+<p>We now provide a functorial characterisation of (pre)cover. Throughout, $\mathcal{F}$ denotes a replete (= closed under isomorphism) class of objects.</p>
+
+<div class="definition">
+  <p>((Pre)cover). Let $X ∈ \mathcal{A}$ and $F ∈ \mathcal{F}$. We say $f : F → X$ is an $\mathcal{F}$-<strong>precover</strong> if the following equivalent conditions hold:</p>
+  <ol>
+    <li>Any morphism $g : G → X$ with $G ∈ \mathcal{F}$ factors through $f$;</li>
+    <li>There exists an epimorphism $f_∗ : (- , F)_\mathcal{F} ↠ (-, X)_\mathcal{A}$ from the projective object $(-, F)_\mathcal{F} ∈ 𝐏𝐒𝐡 (\mathcal{F})$.</li>
+  </ol>
+  <p>A precover $f : F → X$ is termed a <strong>cover</strong> if the following equivalent conditions hold:</p>
+  <ol>
+    <li>Any endomorphism $α : F → X$ such that $f ∘ α = f$ implies $α$ is an automorphism;</li>
+    <li>The epimorphism $f_∗ : (-, F)_\mathcal{F} ↠ (-, X)_\mathcal{A}$ is a projective cover.</li>
+  </ol>
+  <p>Note that for $2$, $\mathrm{End}_\mathcal{F}(F) ≃ \mathrm{End}_{𝐏𝐒𝐡 (\mathcal{F})}((-, F)_\mathcal{F})$ via $α ↦ α _∗$.</p>
+</div>
+
+<div class="problem">
+  <p>Show that projective precovers are precisely those epimorphisms from projective objects.</p>
+</div>
+
+<div class="problem">
+  <p>Show that if $M$ has a $\mathcal{F}$-cover, then it is a summand of any $\mathcal{F}$-precover.</p>
+</div>
+
+<p>From a categorical perspective, to study covers, it suffices to study projective covers.</p>
+
+<p>The functorial construction yields remarkable results for AR theory, e.g., <a href="20250523Talk#与-ar-理论的关系">this note</a>, or a general theory of Auslander algebra.</p>
+
+<h3 id="a-tautological-comparison">A Tautological Comparison</h3>
+
+<p>From the above, we deduce that</p>
+
+<ul>
+  <li>both projective precovers and covers are epic;</li>
+  <li>if $M$ admits a projective cover, then it is unique up to isomorphism, and is always a summand of $Q ↠ M$;</li>
+  <li>$p : P ↠ M$ is a (pre)cover whenever $p_∗ : (-, P)_{𝐏𝐫𝐨𝐣} ↠ (-|_{𝐏𝐫𝐨𝐣}, M)_{\mathcal{A}}$ is.</li>
+</ul>
+
+<p>We are pleased to compare the projective covers with those arising in the functorial context.</p>
+
+<div class="example">
+  <p>(Idempotent obstacle). There exist cases where an idempotent morphism $e : X → X$ does not split. In this case, $\mathrm{im}(-, e)$ is a non-representable finitely generated projective object.</p>
+</div>
+
+<p><strong>Assuming $\mathcal{A}$ is idempotent complete</strong>, we begin with a well-known lemma.</p>
+
+<div class="problem">
+  <p>(Special Yoneda lemma). This is a standard result in representation theory. Let $T'$ be a summand of finite biproducts of $T$. There is an isomorphism</p>
+  <p>$$\begin{equation}
+(T', M)_{\mathcal{A}} → ((T,T')_\mathcal{A}, (T, M)_\mathcal{A})_{\mathrm{End}(T)}, \quad f ↦ f_∗ .
+\end{equation}$$</p>
+  <p>The right module structure of $(T,M)$ is given by $f ⋅ α = f ∘ α$ for $α ∈ \mathrm{End}(T)$.</p>
+</div>
+
+<div class="theorem">
+  <p>(Projectivisation). Let $𝐚𝐝𝐝 (T)$ denote the full subcategory containing $T$ and closed under isomorphisms, finite biproducts and summands. Then there is an equivalence(s):</p>
+  <p>$$\begin{aligned}
+(T,-) : 𝐚𝐝𝐝 (T) &→ 𝐩𝐫𝐨𝐣 (𝐦𝐨𝐝 _{\mathrm{End}(T)}),\quad T_0 ↦ (T, T_0)\\
+𝐀𝐝𝐝 (T) &→ 𝐏𝐫𝐨𝐣 (𝐌𝐨𝐝 _{\mathrm{End}(T)}),\quad T_0 ↦ (T, T_0).
+\end{aligned}$$</p>
+  <div class="proof">
+    <p>The first equivalence holds due to special Yoneda lemma. The full subcategory $𝐩𝐫𝐨𝐣 ↪ 𝐏𝐫𝐨𝐣$ is a $\{∐, 𝐒𝐦𝐝\}$-closure of the $𝐩𝐫𝐨𝐣 ↪ (𝐏𝐒𝐡(𝐩𝐫𝐨𝐣 ^{\mathrm{op}}))^{\mathrm{op}}$. Note that direct summands are determined by image of idempotent morphism in endomorphisms algebras. Hence the second isomorphism holds.</p>
+  </div>
+</div>
+
+<p>The tautological comparison is as follows.</p>
+
+<div class="theorem">
+  <p>We assume idempotent completeness. Let $p : P → M$ be a $\mathcal{P}$-precover, then the following are equivalent.</p>
+  <ol>
+    <li>$p : T → M$ admits a $\mathcal{P}$-cover;</li>
+    <li>$p_∗ : (-, P)_{\mathcal{P}} ↠ (-|_{\mathcal{P}}, M)$ admits a projective cover;</li>
+    <li>$p_∗ : (-, P)_{𝐚𝐝𝐝 (P)} ↠ (-|_{𝐚𝐝𝐝 (P)}, M)$ admits a projective cover;</li>
+    <li>$p_∗ : (P, P)_{\mathrm{End}(P)} ↠ (P, M)_{\mathrm{End}(P)}$ admits a projective cover.</li>
+  </ol>
+  <p>Note that the last three are projective precovers as they are epimorphisms.</p>
+  <div class="proof">
+    <p>(1 ↔ 2) follows from the definition. In the case of $1$, a $\mathcal{P}$-cover must be a summand of $p$. Since there is no differences between $\mathcal{P}$-cover and $𝐚𝐝𝐝 (P)$-cover for $M$, we show (1 ↔ 3). (3 → 4) is given by the special Yoneda lemma. It remains to show (4 → 1). <br /> When $p_∗ : (P, P)_{\mathrm{End}(P)} ↠ (P, M)_{\mathrm{End}(P)}$ admits a projective cover, it takes the form</p>
+    <p>$$\begin{equation}
+(P, P)_{\mathrm{End}(P)} ↠ Q ↠ (P, M)_{\mathrm{End}(P)}.
+\end{equation}$$</p>
+    <p>Note that $Q ≃ (P, P_0)_{\mathrm{End}(P)}$ for $P_0 ∈ 𝐒𝐦𝐝 (P)$ by projectivisation. With the special Yoneda lemma, we may write the mapping sequence as</p>
+    <p>$$\begin{equation}
+(P, P)_{\mathrm{End}(P)} \overset {a_∗ } ↠ (P, P_0)_{\mathrm{End}(P)} \overset {b_∗ } ↠ (P, M)_{\mathrm{End}(P)}.
+\end{equation}$$</p>
+    <p>We show that $b : P_0 → M$ is a $\mathcal{P}$-cover. By special Yoneda lemma, $(ba)_∗ = p _∗$ yields $ba = p$. As $a$ is split epic, $b$ and $p$ factors through each other, <strong>which shows that $b$ is a $\mathcal{P}$-precover</strong>. If there exists $b ∘ γ = b$, we have $b_∗ ∘ γ _∗ = b_∗$. Now $γ _∗$ is an isomorphism as $b_∗$ is a projective cover. By projectivisation, $γ$ is an automorphism. Hence $b$ is a $\mathcal{P}$-cover.</p>
+  </div>
+</div>
+
+<p>It is a local property to exhibit a projective cover. For idempotent complete cases, a $\mathcal{P}$-precover $P → M$ admits a $\mathcal{P}$-cover when $\mathrm{End}(P)$ is right semi-perfect (where f.g. modules admits a projective cover).</p>
+
+<h3 id="example-vnr-rings">Example: vNR Rings</h3>
+
+<p>A ring $R$ with such that $𝐏𝐫𝐨𝐣 = 𝐌𝐨𝐝_R$ is known as a semisimple ring. In comparison with this, the ring $R$ with $𝐅𝐥𝐚𝐭 = 𝐌𝐨𝐝 _R$ is called vNR (von Neumann regular).</p>
+
+<ul>
+  <li>The property of being either semisimple or vNR is a <strong>symmetric property</strong>, i.e., there is no need to distinguish left and right modules.</li>
+  <li>This is not the original definition in sense of von Neumann; but it is a beautiful coincidence that these two definitions coincide.</li>
+</ul>
+
+<div class="theorem">
+  <p>The followings are equivalent definition for $R$ to be a vNR ring. The first definition shows being vNR is a <strong>symmetric property</strong>. We proof for right modules only.</p>
+  <ol>
+    <li>(von Neumann’s original definition). For any $x ∈ R$, there exists some $y ∈ R$ s.t. $xyx=x$.</li>
+    <li>All modules are flat.</li>
+    <li>All f.g. ideals are projective.</li>
+  </ol>
+  <div class="proof">
+    <p>(2 → 3). Clear. <br /> (3 → 2). All modules are filtered colimit of f.p. modules. Note that $𝐦𝐨𝐝 ⊆ 𝐏𝐫𝐨𝐣$ in this case. <br /> (3 → 1). Any principal ideal $(x)$ is generated by an idempotent element $e$. We write $x = ez$ and $e = xy$. Now</p>
+    <p>$$\begin{equation}
+x = ez = e(ez) = xyx.
+\end{equation}$$</p>
+    <p>(1 → 3). Clearly, principal ideals are projective. By induction, it suffices to show all $2$-generated ideals are principal and projective. Let $(x,y)$ be such ideal. Then $(x)$ and $(y)$ are projective. Since $(x,y) = (x,(1-x)y)$, we assume $xy = 0$. We take $\overline y$ s.t. $y \overline y y = y$. We take idempotent element</p>
+    <p>$$\begin{equation}
+e := y \overline y (1-x) ,\quad e^2 = e.
+\end{equation}$$</p>
+    <p>We show $(e + x) = (x,y)$. $e,x ∈ (x,y)$ is clear. Conversely, $y = (e+x) y$, and $x = (e+x)x$. Since $(e+x)$ is principal,it is projective.</p>
+  </div>
+</div>
+
+<p>We show a class of examples of vNR rings.</p>
+
+<div class="example">
+  <p>Let $V$ be a vector space over a field $𝔽$, then $\mathrm{End}_𝔽(V)$ is vNR. Since $φ$ has the matrix form $\binom {0 \ 0}{0 \ 1}$ over $V ≃ (\ker φ ⊕ \operatorname{im}(φ ))$. <br /> In particular, once $\dim_𝔽  (\operatorname{im}(φ )) = κ$ is an infinite cardinal, then the left (right) ideal generated by $φ$ contains precisely the endomorphisms with $\dim_𝔽  (\operatorname{im}(φ )) ≤ κ$. Therefore,</p>
+  <ol>
+    <li>$\mathrm{End}_𝔽 (V)$ is simple iff $\dim _𝔽 V < ∞$;</li>
+    <li>$\mathrm{End}_𝔽 (V)$ has a non-trivial ideal iff $\dim _𝔽 V ≥ ω$.</li>
+  </ol>
+  <p>This example shows the <strong>non-projective f.g. flat modules</strong>.</p>
+</div>
+
+<p>We show some vNR-invariant operations.</p>
+
+<div class="problem">
+  <p>Show that for idempotent $e ∈ R$. $eRe$ is vNR if $R$ is vNR.</p>
+</div>
+
+<div class="lemma">
+  <p>(Kaplansky). When $R$ is a vNR ring, then so is the matirx ring $\mathrm{M}_n (R)$.</p>
+  <ul>
+    <li>Hence, being vNR is Morita invariant (i.e., it passes up from $R ↦ 𝐌𝐨𝐝 _R$).</li>
+  </ul>
+  <div class="proof">
+    <p>Let $P_k$ denote the proposition that $\mathrm M_n (R)$ is vNR. The previous problem shows that $P_{n+1} → P_n$. Once we show $P_{n} → P_{2n}$, the lemma is proved by induction. <br /> It suffices to show $P_2$. We write $[p; q] := p - pqp$ for simplicity. Note that $R$ is vNR iff $\ker [x; (-)] ≠ ∅$ for each $x$. Note that</p>
+    <p>$$\begin{equation}
+[[a;b];c] = [a; b+c-cab-bac+bacab].
+\end{equation}$$</p>
+    <p>Hence, if $[a ; b]$ is a vNR element, then so is $a$. We shall show that</p>
+    <p>$$\begin{equation}
+\binom {∗ \ ∗ }{∗ \ ∗}\  \text{are vNR} \overset {α}← \binom {∗ \ ∗ }{0 \ ∗}\  \text{are vNR} \overset {β}← \binom {0 \ ∗ }{0 \ 0}\  \text{are vNR} \overset {γ} ← \ \text{True}.
+\end{equation}$$</p>
+    <p>(α). If we take arbitrary $[c; \overline c] = 0$, then</p>
+    <p>$$\begin{equation}
+\left[\binom {a \ b}{c \ d} ; \binom {0 \ \overline c}{0 \ 0} \right] ∈ \binom {∗ \ ∗ }{0 \ ∗ }.
+\end{equation}$$</p>
+    <p>(β). If we take arbitrary $[a; \overline a] = [d; \overline d] = 0$, then</p>
+    <p>$$\begin{equation}
+\left[\binom {a \ b}{0 \ d} ; \binom {\overline a \ 0}{0 \ \overline d} \right] ∈ \binom {0 \ ∗ }{0 \ 0 }.
+\end{equation}$$</p>
+    <p>(γ). By the same procedure as α.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that over vNR,</p>
+  <ol>
+    <li>f.g modules $=$ f.g. $𝐏𝐫𝐨𝐣$;</li>
+    <li>there are no nilpotent ideals;</li>
+    <li>prime ideals $=$ maximal ideals. Hint: $R / I$.</li>
+  </ol>
+</div>
+
+<h3 id="example-torsion-theory">Example: Torsion Theory</h3>
+
+<p><strong><em>The covering need not be epimorphisms!</em></strong> A trivial example is that every additive category admits a $\{0\}$-covering. A general kind of examples is known as the <em>torsion theory</em>.</p>
+
+<div class="problem">
+  <p>Show that every f.g. Abelian group is a unique direct sum of finite Abelian groups and a f.g. free group.</p>
+</div>
+
+<p>Let $t : 𝐚𝐛 → 𝐚𝐛^{\text{finite}}$ be the functor of taking maximal torsion subgroup. Then $t(M) ↪ M$ is an $𝐚𝐛^{\text{finite}}$-cover.</p>
+
+<p>The f.g. torsion groups ($𝐚𝐛^{\text{finite}}$) and f.g. free Abelian groups ($𝐚𝐛^{\text{f.g. free}}$) are <strong>orthogonal</strong> with respect to the $\mathrm{Hom}$-functor. We write $X ⟂_o Y$ for $\mathrm{Hom}(X,Y) = 0$, and denote $(-)^o := (-)^{⟂_o}$ and $^o(-) := {}^{⟂_o}(-)$ for simplicity.</p>
+
+<p>Unwinding a brief introduction, we enumerate some closure properties of a torsion class as follows.</p>
+
+<div class="definition">
+  <p>(Torsion theory). Let $\mathcal{A}$ be an Abelian category which is <strong>well-powered</strong> and <strong>subobjects are closed under transfinite filtrations</strong>. Then the following are equivalent for defining a torsion theory $(\mathcal{T}, \mathcal{F})$:</p>
+  <ol>
+    <li>There is a subfunctor $t ⊆ 1_\mathcal{A}$ such that $t ∘ t = t$ and $t(\frac{M}{tM}) = 0$. Here $t ∘ t = t$ means that $t(tM) = tM$ when identifying subobjects of $tM$ as that of $M$. Set $\mathcal{T} = \operatorname{im} t$ and $\mathcal{F} = \ker t$.</li>
+    <li>$\mathcal{T}⟂ _o \mathcal{F}$, and every object $M$ fits into a short exact sequence $0 → tM → M → M/tM → 0$. In this case, such a sequence is functorial in $M$.</li>
+    <li>$\mathcal{T}^o = \mathcal{F}$ and $\mathcal{T} = {}^o \mathcal{F}$, or other equivalent form given by Galois connection.</li>
+    <li>$\mathcal{F} = \mathcal{T}^o$, and $\mathcal{T}$ is closed under taking transfinite filtrations (including extensions) and quotient objects.</li>
+    <li>$\mathcal{F} = \mathcal{T}^o$, and there is a class of objects $\mathcal{X}$ such that $\mathcal{T}$ consists of objects which are transfinite filtrations of quotient objects in $\mathcal{X}$.</li>
+  </ol>
+  <div class="proof">
+    <p>We explain $1 \leftrightarrow 2 \rightarrow 3 \rightarrow 4 \leftrightarrow 5$ in a few words, and show $5 \rightarrow 1$ (which requires supplementary conditions).<br /> ($1 \leftrightarrow 2$). A canonical injection refers to a canonical short exact sequence $t$. ($2 \rightarrow 3$). For instance, we show $\mathcal{F} = \mathcal{T} ^o$. We claim $\mathcal{T} ⟂ _o \mathcal{F}$; if there is a non-zero $f : T → F$, then $\operatorname{im}(f) ∈ \mathcal{T}$ is a subobject of $F$, yielding $tF ≠ 0$. Conversely, we show $\mathcal{T} ^o ⊆ \mathcal{F}$; notice that every $X ∈ \mathcal{T} ^o$ has no subobjects in $\mathcal{T} ∖ \{0\}$. ($3 \rightarrow 4$). Note that any $^o\mathcal{X}$ is closed under extensions and quotients. ($4 \leftrightarrow 5$). Clearly, $→$ is by taking $\mathcal{X} = \mathcal{T}$. Conversely, any particular class $𝐅𝐢𝐥 (\text{quotients of } \ \mathcal{X})$ is closed under transfinite filtrations and quotient objects. <br /> ($4 \rightarrow 2$). We show $X ∈ \mathcal{A}$ has a maximal subobject in $\mathcal{T}$, which is also the greatest. Let $\mathcal{S}$ denote the set of subobjects of $X$ lying in $\mathcal{T}$. $0 ∈ \mathcal{S}$ is non-empty. Notice that,</p>
+    <ul>
+      <li>Every chain in $\mathcal{S}$ has an upper bound, as $\mathcal{T}$ is closed under transfinite filtrations.</li>
+      <li>Any two maximal objects $T_1, T_2 ∈ \mathcal{S}$ coincide. If not, then $(T_1 + T_2) ∈ \mathcal{T}$, a contradiction.</li>
+    </ul>
+    <p>Let $tX$ denote such a maximal subobject in $\mathcal{T}$; we complete the proof.</p>
+  </div>
+</div>
+
+<p>We call $\mathcal{T}$ a torsion class, and $\mathcal{F}$ a torsion-free class.</p>
+
+<p>The above are equivalent for either $𝐌𝐨𝐝 _R$ or $C(R)$. Note that these categories are well-powered and cocomplete.</p>
+
+<div class="problem">
+  <p>Show that subobjects in either $𝐌𝐨𝐝 _R$ or $C(R)$ are closed under transfinite filtrations. Hint:</p>
+  <ol>
+    <li>the forgetful functor $U : \mathcal{A} → 𝐒𝐞𝐭𝐬$ creates all filtered colimits, and</li>
+    <li>$i_∙ : M_∙ ↪ X$ induces a monomorphism $\varinjlim ^{fil} M_∙ ↪ X$.</li>
+  </ol>
+</div>
+
+<p>Another <em>almost-example</em> for torsion theory derives from complete hereditary cotorsion pair $(\mathcal{C}, \mathcal{F})$. Recall that $\mathcal{C}^o = \mathcal{F}$ and ${}^o\mathcal{C} = \mathcal{F}$ holds in $\frac{\mathcal{A}}{\mathcal{C} ∩ \mathcal{F}}$. When $\frac{\mathcal{A}}{\mathcal{C} ∩ \mathcal{F}}$ has exact structure, we almost done.</p>
+
+<h3 id="envelopes-and-examples">Envelopes and Examples</h3>
+
+<p>This is the dual statement of covers. The general theory of envelopes also translates to that of projective covers.</p>
+
+<div class="definition">
+  <p>Let $\mathcal{E}$ be a replete class of objects. For any $E ∈ \mathcal{E}$, say $j : X ↪ E$ is</p>
+  <ol>
+    <li>a preenvelope, provided there is an epimorphism from projective objects $j ^∗ : (E, -)_\mathcal{E} ↠ (X, -|_\mathcal{E})_{\mathcal{A}}$;</li>
+    <li>an envelope, provided the projective cover $j ^∗ : (E, -)_\mathcal{E} ↠ (X, -|_\mathcal{E})_{\mathcal{A}}$.</li>
+  </ol>
+</div>
+
+<p>There <em>might</em> (the writer has never encountered it before) be a dual concept called co-small quotient module or co-superfluous quotient module. Say $p: X ↠ C$ is co-small, provided for any quotient object $q: X ↠ C'$ such that $X \xrightarrow ∼ C' × _{C ⊔ _X C'} C$, $q$ is an isomorphism.</p>
+
+<p>For set-theoretic consideration, we <strong>substitute the expression co-small with essential extension</strong>.</p>
+
+<div class="lemma">
+  <p>$p : X ↠ C$ is co-small, if and only if $\ker p ↪ X$ is an <strong>essential extension</strong> which is defined as follows:</p>
+  <ul>
+    <li>any non-zero submodule $L ↪ X$ has a non-zero intersection with $\ker p$.</li>
+  </ul>
+  <div class="proof">
+    <p>($\rightarrow$). Suppose $p : X ↠ C$ is co-small, while there exists a non-zero submodule $L ↪ X$ such that $L ∩ \ker p = 0$. Then we shall see contradictions. By definition, one has the following pushout-pullback square</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_4751401dcf0d3.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By definition of co-small, $X = \frac{X}{L \cap \ker p} ↠ \frac{X}{L}$ is an isomorphism, yielding $L = 0$, a contradiction. <br /> ($\leftarrow$). Conversely, suppose that $\ker p ↪ X$ is essential yet $p : X ↠ \frac{X}{\ker p}$ is not co-small. Then it is possible to find a non-zero submodule $L$ such that the above diagram is a pushout-pullback square. Now $L ∩ \ker p = 0$, a contradiction.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show $i : X → E$ is an injective envelope, provided the following equivalent conditions:</p>
+  <ol>
+    <li>$i$ is injective with a co-small cokernel;</li>
+    <li>$i ^∗ : (E, -)_\mathcal{E} ↠ (X, -|_\mathcal{E})_{\mathcal{A}}$ is a projective cover.</li>
+  </ol>
+</div>
+
+<p>Unlike projective covers, the injective envelopes always exist.</p>
+
+<div class="theorem">
+  <p>Every module $X ∈ 𝐌𝐨𝐝 _R$ has an injective envelope.</p>
+  <div class="proof">
+    <p>Set $\mathcal{S} : \{i : X ↪ Y ∣ i \ \text{is essential}\}$. We claim every ascending chain in $\mathcal{S}$ has an upper bound. Note that</p>
+    <p>$$\begin{equation}
+⋃ _{i ∈ I} (L ∩ Y_i) = L ∩ (⋃_{i ∈ I} Y_i)\qquad (⇔ \text{AB5 condition}).
+\end{equation}$$</p>
+    <p>We take any <strong>maximal object $Q ∈ \mathcal{S}$</strong>. Clearly $Q$ has only trivial essential extensions. We claim that <strong>$Q$ is injective</strong> by showing any short exact sequence $0 → Q → E → E/Q → 0$ splits. Again by AB5, there is a maximal subobject $T ↪ E$ such that $T ∩ Q = 0$. By definition, $Q ↪ \frac{E}{T}$ is essential, thus $Q ↪ E ↠ \frac{E}{T}$ is an isomorphism. Now $Q+T = E$ and $Q ∩ T = 0$, hence $E = Q ⊕ T$. <br /> Finally, $X ↪ Q$ is an injective envelope as it is monic with co-small cokernel (= essential extension).</p>
+  </div>
+</div>
+
+<p>We provide a non-trivial example that projective cover does not exist, yet the injective envelope is easy to construct. We begin with a well-known theorem.</p>
+
+<div class="lemma">
+  <p>(Specker’s theorem). $\mathrm{Hom}(∏_ω ℤ , ℤ ) ≃ ∐_ω ℤ$.</p>
+  <div class="proof">
+    <p>We show that any $f : ∏_ω ℤ → ℤ$ vanishes in the <em>ultraproduct part</em>, that is, $f = 0$ if $f|_{∐_ω ℤ } = 0$.</p>
+    <ul>
+      <li>Suppose $f|_{∐_ω ℤ } = 0$, but there is some <em>infinite</em> sequence $(x_n)$ such that $A := f((x_n)) ≠ 0$. There is a way to write $x_n = 2^n ⋅ b_n+ 3^n ⋅ c_n$. Set $B := f((2^n ⋅ b_n))$ and $C := f((3^n ⋅ c_n))$. Now $A = B + C$. By cancelling the first finite terms, we see $2^n ∣ B$ for any $n$. Hence $B = 0$. Similarly $C = 0$. Now $A = 0$.</li>
+    </ul>
+    <p>It suffices to show $f(e_k)$ vanishes for some large $k$. If not, then we assume (without loss of generality) every $f(e_k) ≠ 0$. We construct a <em>sharply increasing sequence</em> $s := (2^{n_0}, 2^{n_1}, \ldots )$, so that $|f(s_{≤ k})| ≪ n_{k+1}$ for $k ≥ 1$. Now we have the triangle inequality</p>
+    <p>$$\begin{equation}
+|f(s)| + |f(s_{≤ k})| ≥ |f((s_{≥ k+1}))| = 2^{n_{k+1}} ⋅ (\text{something in } \ ℕ_+) \quad (∀ k).
+\end{equation}$$</p>
+    <p>Since $f(s)$ is constant, and $\lim_{k → ∞ }\frac{|f(s_{≤ k})|}{|f((s_{≥ k+1}))|} = 0$, a contradiction.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>We show a non-trivial example of a module with injective envelope but no projective cover. Take $R = ℤ$ which is a PID (hence coherent), set $X = ℤ^ω$.</p>
+  <ol>
+    <li>$X$ is flat, since flatness is preserved by products over coherent rings.</li>
+    <li>$X$ is not projective (= free over PID). If there is $ℤ ^{(λ)} ≃ ℤ^ω $, then $ℤ ^λ ≃ \mathrm{Hom}(ℤ^{(λ)}, ℤ ) ≃ \mathrm{Hom}(ℤ^ω, ℤ ) ≃ ℤ^{(ω)}$. Since $λ$ is uncountable, we see the contradiction.</li>
+    <li>$X$ has an injective envelope $ℤ ^ω ↪ ℚ ^ω$. $ℚ ^ω$ is clearly injective. Since $ℤ ↪ ℚ$ is essential, $ℤ ^ω ↪ ℚ ^ω$ is also essential.</li>
+  </ol>
+</div>
+
+<p>For Noetherian rings, the assignment $M ↦ E(M)$ preserves both products and coproducts. <a href="https://msp.org/pjm/1958/8-3/pjm-v8-n3-p13-p.pdf">Matlis’s theory</a> shows the $1:1$ correspondence between indecomposable injective modules and prime ideals, namely $𝔭 ↦ E(R / 𝔭)$.</p>
+
+<div class="theorem">
+  <p>(Injective modules and Noetherian rings). For arbitrary ring $R$, the followings are equivalent.</p>
+  <ol>
+    <li>$R$ is Noetherian.</li>
+    <li>$𝐈𝐧𝐣$ is closed under coproducts.</li>
+    <li>$𝐈𝐧𝐣$ is closed under filtered colimits.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2 and 3). Note that any inclusion of ideal ($i$) is a monomorphism between f.p. modules. Let $I_∙$ denote a filtered system in $𝐈𝐧𝐣$, we see</p>
+    <p>$$\begin{equation}
+\varinjlim{}^{fil}(ι , I_∙) ≃ (ι , \varinjlim{}^{fil} I_∙) ,\quad ∐ (ι , I_∙ ) ≃ (ι , ∐ I_∙)
+\end{equation}$$</p>
+    <p>are surjections. <br /> (2 → 1). When there exists some non-f.g. ideals, one can find a countably ascending chain of ideals</p>
+    <p>$$\begin{equation}
+0 = I_0 ⊊ I_1 ⊊ I_2 ⊊ \cdots,\quad I_ω = \bigcup_{n < ω} I_n.
+\end{equation}$$</p>
+    <p>Note that $(π _n)_{n ∈ ℕ} : I_ω → ∐_{n ∈ ω} \frac{I}{I_n}$ is well-defined. Since $∐_{n ∈ ω} \frac{I}{I_n} ↪ ∐_{n ∈ ω} E(\frac{I}{I_n} )$ is an essential extension towards injective, we obtain $φ$:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_8f375edb191cd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Hence, $φ ∘ i$ factors through some $∐ _{n < n_0} E(\frac{I}{I_0})$ while $(∐ ι _n) ∘ (π)_∙$ does not. A contradiction.</p>
+    <p><br /> (3 → 1). Consider $∐ _{k ∈ ω } E_k = \varinjlim^{fil}_{n ∈ ω }(∐ _{k ≤ n}E_k)$. Then use (2 → 1).</p>
+  </div>
+</div>
+
+<h2 id="set-theoretic-consideration">Set-theoretic Consideration</h2>
+
+<p>We show few results of the existence of (special) cover/envelope, provided the existence of (special) precover/preenvelope. The analysis holds for general well-powered Abelian category closed under some (co)limits. To conclude, we have the following theorem.</p>
+
+<div class="theorem">
+  <p>Suppose $(\mathcal{C},\mathcal{F})$ is a complete cotorsion theory such that either</p>
+  <ul>
+    <li>$\mathcal{C}$ is closed under filtered colimits, or</li>
+    <li>$\mathcal{F}$ is closed under cofiltered limits.</li>
+  </ul>
+  <p>Then $\mathcal{C}$ is a covering class and $\mathcal{F}$ is an enveloping class.</p>
+</div>
+
+<h3 id="flat-cotorsion-pair">Flat Cotorsion Pair</h3>
+
+<p>The example comes from flat cotorsion pair.</p>
+
+<div class="lemma">
+  <p>Flat modules are closed under transfinite filtrations.</p>
+  <div class="proof">
+    <p>We prove with transfinite induction. Suppose $\{M_γ\}_{γ < α}$ is a transfinite filtration of flat modules.</p>
+    <ol>
+      <li>$M_0 = 0$ is flat.</li>
+      <li>If $M_γ$ and $M_{γ + 1} / M_γ$ are flat, then the extension $M_{γ + 1}$ is also flat (by taking $\mathrm{Tor}_1$).</li>
+      <li>If $\{M_{β}\}_{γ < β}$ are flat for some limit ordinal $β$, then for any ses $θ$, the filtered colimit of ses $\varinjlim^{fil}_{γ < β} (M_γ ⊗ θ)$ is also a ses.</li>
+    </ol>
+  </div>
+  <p>$𝐅𝐥𝐚𝐭$ is closed under filtered colimits, as $(\varinjlim^{fil}F_∙ ⊗ -) ≃ \varinjlim^{fil}(F_∙ ⊗ -)$ is exact.</p>
+</div>
+
+<p>It is straightforward to show that $(𝐅𝐥𝐚𝐭 , 𝐅𝐥𝐚𝐭 ^⟂ )$ is a cotorsion theory. Since</p>
+
+<ul>
+  <li>$𝐏𝐫𝐨𝐣 ⊆ 𝐅𝐥𝐚𝐭$;</li>
+  <li>$𝐅𝐥𝐚𝐭$ is closed under taking summands;</li>
+  <li>$𝐅𝐥𝐚𝐭$ is closed under transfinite filtrations.</li>
+</ul>
+
+<p>Hence, $𝐅𝐥𝐚𝐭 = 𝐒𝐦𝐝 (𝐏𝐫𝐨𝐣 ∗ 𝐅𝐢𝐥 (𝐅𝐥𝐚𝐭)) = {}^⟂ (𝐅𝐥𝐚𝐭^⟂ )$.</p>
+
+<div class="definition">
+  <p>We call $(𝐅𝐥𝐚𝐭 , 𝐅𝐥𝐚𝐭 ^⟂)$ a <em>flat cotorsion theory</em>.</p>
+</div>
+
+<p>We call $𝐅𝐥𝐚𝐭 ^⟂$ <em>Enochs cotorsion modules</em>. There are analogous definitions, e.g., Warfield cotorsion modules stands for the right orthogonal class of torsion-free modules.</p>
+
+<p>It has long been a conjecture that whether the flat cotorsion pair is cogenerated by a set. The existence of flat covers (Enochs’s flat covering theorem) solves the problem.</p>
+
+<h3 id="precover--cover">Precover ⇒ Cover</h3>
+
+<p>Let $\mathcal{P}$ is a replete class of modules or chain complexes. We assume <strong>$\mathcal{P}$ is closed under filtered colimits</strong> and <strong>summands</strong>, e.g. $\mathcal{P} = 𝐅𝐥𝐚𝐭$ or the entire category.</p>
+
+<p>In this case, it is feasible to weaken the definition of $\mathcal{P}$-cover.</p>
+
+<div class="lemma">
+  <p>Let $p : P → M$ be a $\mathcal{P}$-precover. It is a $\mathcal{P}$-cover, iff the following equivalent conditions holds:</p>
+  <ol>
+    <li>for any other morphism $q$ from $\mathcal{P}$ to $M$, $q ∘ α = p$ implies $α$ is monic,</li>
+    <li>for any other $\mathcal{P}$ precover $p$, $p' ∘ α = p$ implies $α$ is monic,</li>
+    <li>$p ∘ α = p$ implies $α$ is monic,</li>
+    <li>$p ∘ α = p$ implies $α$ is an isomorphism.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2 → 3) is clear. For (3 → 1), we take any such $q$ with $q ∘ α = p$. Since $p$ is a $\mathcal{P}$-precover, there is and $q = p ∘ β$. We see $(β ∘ α)$ is monic. Hence $α$ is monic. (4 → 2) is clear.<br /> We show (3 → 4). If not, then there exists a stricly injection $i : P → P$ such that $p ∘ i = p$. We shall construct a transfinite composition which terminates at $κ ≫ |P|$:</p>
+    <p>$$\begin{equation}
+P_0 \xrightarrow {f_{1,0}} P_1  \xrightarrow {f_{2,1}} P_2 → \cdots P_γ \xrightarrow {f_{γ +1,γ }} \cdots P_{κ}.
+\end{equation}$$</p>
+    <p>For any $\mathcal{P}$-precover $p_γ : P_γ → M$, we define $P_{γ + 1} := P$ and $p_{γ + 1} = p$. In particular,</p>
+    <ul>
+      <li>when $P_γ = P$, we take $f_{γ + 1, γ } = i$,</li>
+      <li>when $γ$ is a limit ordinal, then $p_{γ}$ is induced by universal property of colimit. By closure property of $\mathcal{P}$, we see $P_γ ∈ \mathcal{P}$.</li>
+    </ul>
+    <p>Clearly, $p_{γ} = p$ when $γ$ is not a limit ordinal. We take the subsystem $S := \{P_γ ∣ p_γ = p\}$ consisting of strict monomorphisms. As a result, the subobjects of $P$ has cardinality $κ$. Since $κ$ is arbitrary large, a contradiction.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>There is a small gap in the proof. Let $α$ be any infinite ordinal. Show that</p>
+  <p>$$\begin{equation}
+|\{γ ∈ α ∣ ∃ β \ \text{s.t.} \ γ = β^+\}| = |α|.
+\end{equation}$$</p>
+</div>
+
+<p>Therefore, in the over-category $\mathcal{P} → M$, the $\mathcal{P}$-cover <em>dominates the injections</em>. It is convenient to define the following.</p>
+
+<div class="definition">
+  <p>The collection of <em>admissible kernels</em> of $q : Q → M$, a morphism from $\mathcal{P}$ to $M$, is defined as</p>
+  <p>$$\begin{equation}
+\mathrm{KER}(q) := \{\ker α ⊆ Q ∣ ∃ \ \text{precover} \ p, \ \text{and} \ p ∘ α =q\}.
+\end{equation}$$</p>
+  <p>Clearly, for any $\mathcal{P}$-precover $p$, $\mathrm{KER}(p)$ is a singleton $\{0\}$ <strong>iff</strong> $p : P → M$ is a $\mathcal{P}$-cover.</p>
+</div>
+
+<p>Now we show every $M$ has a $\mathcal{P}$-cover when there is a $\mathcal{P}$-precover.</p>
+
+<p>Again by Grothendieck’s insight, we firstly show the existence of <em>relative covering</em>.</p>
+
+<div class="definition">
+  <p>(Base change). Let $q = p ∘ α$ be a commutative diagram where</p>
+  <ol>
+    <li>$p$ is a $\mathcal{P}$-precover from $P$ to $M$,</li>
+    <li>$α : P → Q$ is a morphism from $\mathcal{P}$ to $\mathcal{P}$.</li>
+  </ol>
+  <p>Then there is a induced map</p>
+  <p>$$\begin{equation}
+α ^♯ : \mathrm{KER}(p) → \mathrm{KER}(q), \quad \ker (?) ↦ \ker (? ∘ α).
+\end{equation}$$</p>
+  <p>We say $α ^♯$ is a relative cover, provided $\operatorname{im}(α ^♯)$ is a singleton $\{\ker α \}$.</p>
+</div>
+
+<p>Now we show the existence of relative $\mathcal{P}$-covering.</p>
+
+<div class="lemma">
+  <p>For any morphism $q : Q → M$, there is some $α : Q → P$ ($p = q ∘ α$, and $p$ is a $\mathcal{P}$-precover) such that $α ^♯$ is a relative cover.</p>
+  <div class="proof">
+    <p>If not, then there is an transfinite composition</p>
+    <p>$$\begin{equation}
+(Q; q) := (P_0; p_0) \xrightarrow {f_{1,0}} (P_1; p_1) \xrightarrow {f_{2,1}} \cdots (P_γ; p_γ ) \xrightarrow {f_{γ +1,γ }} \cdots (P_{κ}; p_κ),
+\end{equation}$$</p>
+    <p>such that</p>
+    <ol>
+      <li>$p_{γ + 1 } ∘ f_{γ +1, γ } = p_γ$ for each $γ$;</li>
+      <li>if $γ$ is a successor ordinal, $p_γ$ is a $\mathcal{P}$-precover;</li>
+      <li>if $γ$ is a limit ordinal, then $p_γ$ is induced by colimit;</li>
+      <li>$\{\ker f_{γ , 0}\}$ strictly ascends when composing $f_{β +2, β +1}$.</li>
+    </ol>
+    <p>Again, let $κ ≫ |P|$, we see the contradiction.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Let $\mathcal{P}$ be a class of modules or complexes closed under summands and filtered colimits. <strong>When $X$ has a $\mathcal{P}$-precover, then it has a $\mathcal{P}$-cover.</strong></p>
+  <div class="proof">
+    <p>We construct a transfinite composition of relative covers:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_a36f3ebadeb93.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>We explain the followings ($γ$ is a limit ordinal).</p>
+    <ol>
+      <li>$\varinjlim^{fil}_{\beta < \gamma }(P_\beta) → M$, induced by colimit, is just a morphism from $\mathcal{P}$, which not necessary a precover. We take $\overline {p_γ} : \overline {P_γ} → M$ as arbitrary precover it factors through. Then there is a relative cover $\overline {P_γ } → P_γ$.</li>
+      <li>We claim $α _1 |_{\mathrm{im}(α _0)} : \mathrm{im}(α _0) ↪ \mathrm{im}(α _1)$ is an injection. This is due to $\ker (α _1 ∘ α _0) = \ker (α _0)$.</li>
+      <li>The monomorphism $\varinjlim^{fil}_{\beta < \gamma }(\alpha _\beta) ↪ \mathrm{im}(\alpha _\gamma)$ is induced by the monomorphisms $\mathrm{im}(\alpha _\beta) ↪ \mathrm{im}(\alpha _\gamma)$. Notice that the coposition $P_β → P_γ$ is a relative cover.</li>
+    </ol>
+    <p>If we fix a certian precover $\overline {p_γ} : \overline {P_γ} → M$ for all limit ordinals $γ$, then the inclusion chain for $\operatorname{im}(α _β)$’s stablises for $|β| ≫ |P_γ|$. Now such $\mathrm{im}(α _β)$ belongs to $𝐒𝐦𝐝 (\mathcal{P}) = \mathcal{P}$. <br /> We denote $q : S → M$ as such summand of $p_{β +1} : P_{β +1} → M$. It remains to show that $q$ is a cover. Note that $q$ is a precover. It suffices to show that</p>
+    <ul>
+      <li>for any precover $r : R → M$ and $r ∘ δ = q$, $δ$ is monic.</li>
+    </ul>
+    <p>Consider the following diagram.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_f99b141bfa12d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By definition of relative covering ($⋆$),</p>
+    <p>$$\begin{equation}
+\ker (π _β) = \ker (α _β ) \overset ⋆= \ker ((δ ∘ π  _{β +1}) ∘ α _β) = \ker (δ ∘ π _β ).
+\end{equation}$$</p>
+    <p>Hence $δ$ is monic. Now we see that $q$ is a $\mathcal{P}$-cover.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show the (<strong>partly</strong>) equivalent definition of (right) perfect rings. All modules are right modules.</p>
+  <ol>
+    <li>$𝐅𝐥𝐚𝐭 = 𝐏𝐫𝐨𝐣$,</li>
+    <li>$𝐅𝐥𝐚𝐭$-precovers are $𝐏𝐫𝐨𝐣$-precovers,</li>
+    <li>$𝐏𝐫𝐨𝐣$-cover exists.</li>
+  </ol>
+  <p>Hint: (1 → 2) is clear. (2 → 3) is due to the analysis above, as $𝐏𝐫𝐨𝐣$-precover always exists. (3 → 1) is due to the fact that flat module with a projective cover is projective (see above section).</p>
+</div>
+
+<h3 id="special-preenvelope--special-envelope">Special Preenvelope ⇒ Special Envelope</h3>
+
+<p>We show a criterion that, for any subclass of modules or complexes $\mathcal{C}$ <strong>closed under summand, extensions and filtered colimits</strong>, if any $M$ admits a special $\mathcal{C}^⟂$-preenvelope (monic pre-envelope with cokernel in $\mathcal{C}$), then there is a special $\mathcal{C}^⟂$-envelope.</p>
+
+<p>Recall the procedure for showing the existence of $\mathcal{P}$-cover when there is a $\mathcal{P}$-precover.</p>
+
+<ol>
+  <li>For a general morphism $q$ from $Q ∈ \mathcal{P}$ to $M$, one can find $α$ from $q$ to some precover $p$ such that $α ^♯$ is a relative cover.</li>
+  <li>We start from any precover a transfinite composition of relative covers. We see the ascending chain of images. Filling every gap at the limit ordinals with a fixed precover, we obtain a stabilised summand $s : S → M$, which is a precover.</li>
+  <li>For any morphism of precovers from $s$, e.g., $α : s → p$, we show $α$ is monic. Hence $s$ must be a cover for set-theoretic issues.</li>
+</ol>
+
+<p>Anaglously, we substitute</p>
+
+<ul>
+  <li>Morphisms of the type $\mathcal{P} → M$, with ses of the type $0 → M → ? → \mathcal{C} → 0$;</li>
+  <li>$\mathcal{P}$-precover, with those ses with <em>lifting property</em>;</li>
+  <li>$\mathcal{P}$-cover, with minimal ses with <em>lifting property</em>.</li>
+</ul>
+
+<p>Recall that the morphisms for $\mathcal{P} → M$ are</p>
+
+<p>$$\begin{equation}
+\text{General Morphism} → \text{Precover} → \text{Cover}.
+\end{equation}$$</p>
+
+<p>Now analogously take the morphisms of extensions in $\mathrm{Ext}^1(\mathcal{C}, M)$ as</p>
+
+<p>$$\begin{equation}
+\text{General Extension} → \text{Preenvelift} → \text{Envelift}.
+\end{equation}$$</p>
+
+<p>We analysis the <em>admissible kernels</em> at $P$ and $F$, respectively:</p>
+
+<center> <br /> <div class="tikz-diagram">
+    <embed src="/website/svg/25SumLec3/diagram_af35637559c9a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+  </div> <br /> </center>
+
+<p><strong>The proof starts here.</strong> We define the <em>so-called envelift</em> of ses among the those of the type $\mathrm{Ext}^1(\mathcal{C}, M)$.</p>
+
+<div class="definition">
+  <p>Say $[θ] ∈ \mathrm{Ext}^1(\mathcal{C}, M)$ is a <em>$\mathcal{C}$-preenvelift</em>, provided for any ses $[τ] ∈ \mathrm{Ext}^1(\mathcal{C}, M)$, there is a morphism of extensions $θ → τ$. Say a pre-envelift $θ$ is a <strong>$\mathcal{C}$-envelift</strong>, provided for any endomorphism of extension $α : θ → θ$, $α$ is an automorphism.</p>
+  <ul>
+    <li>We use the morphism in the middle $f$ term to stand for the morphism of extensions $(1_M, f, f|_{\mathrm{coker}})$.</li>
+  </ul>
+</div>
+
+<div class="definition">
+  <p>For a general extension $[δ] ∈ \mathrm{Ext}^1(\mathcal{C}, M)$, we denote</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec3/diagram_6b17d427eaf24.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Moreover, when there is a morphism $α : δ → θ$ from $δ$ to a $\mathcal{C}$-preenvelift $θ$, we have the <strong>base change</strong></p>
+  <p>$$\begin{equation}
+α ^♯ := \mathrm{KER}(θ) → \mathrm{KER}(δ), \quad \ker (?) ↦ \ker (? ∘ α).
+\end{equation}$$</p>
+  <p>Say $α$ is a relative envelift, provided $\operatorname{im}(α ^♯)$ is a singleton $\{\ker α\}$.</p>
+</div>
+
+<p>We show firstly the existence of relative envelift.</p>
+
+<div class="lemma">
+  <p>If $δ$ has a preenvelift, then $δ$ has a relative envelift.</p>
+  <div class="proof">
+    <p>If not, then there is a transfinite composition of morphisms of extensions:</p>
+    <p>$$\begin{equation}
+δ = θ _0 \xrightarrow {f_{1,0}} θ _1 \xrightarrow {f_{2,1}} \cdots θ _γ \xrightarrow {f_{γ +1,γ }} \cdots θ _{κ},
+\end{equation}$$</p>
+    <p>such that</p>
+    <ol>
+      <li>$θ _{γ + 1} ∘ f_{γ +1, γ } = θ _γ$ for each $γ$;</li>
+      <li>if $γ$ is a successor ordinal, $θ _γ$ is a $\mathcal{C}$-preenvelift;</li>
+      <li>if $γ$ is a limit ordinal, then $θ _γ$ is induced by colimit;         <ul>
+          <li>Remark: $0 → M → \varinjlim^{fil}X_∙ → \varinjlim^{fil}C_∙ → 0$ is again exact. Meanwhile, $\varinjlim^{fil}C_∙ ∈ \mathcal{C}$ by assumption.</li>
+        </ul>
+      </li>
+      <li>$\{\ker f_{γ , 0}\}$ strictly ascends when composing $f_{β +2, β +1}$.</li>
+    </ol>
+    <p>Let $κ ≫ |θ|$, we see the contradiction.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>When $δ$ (of the type $\mathrm{Ext}^1(\mathcal{C}, M)$) admits a $\mathcal{C}$-preenvelift $θ$, then it has a $\mathcal{C}$-envelift.</p>
+  <div class="proof">
+    <p>We construct a transfinite composition of relative envelifts:</p>
+    <p>$$\begin{equation}
+θ = θ _0 \xrightarrow {α _0} θ _1 \xrightarrow {α _1} \cdots θ _γ \xrightarrow {α _γ} \cdots θ _{κ}.
+\end{equation}$$</p>
+    <p>For every limit ordinal $γ$, we firstly take $\overline {θ _γ }$ by colimit, then take $\overline {θ } → θ$. The stablised image $ε$ sequence is a summand of some preenvelift, thus $ε$ is a preenvelift.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_8a40f6400e95a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>In this case, any endomorphism $α : ε → ε$ is injective. Since all objects are well-powered, $α$ is an automorphism. Once we show that the middle term of $ε$ ($ε _2$) lies in $C^⟂$, we complete the proof. We take Noether’s isomorphism:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec3/diagram_919fc7cfe051c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>$C' ∈ 𝐅𝐢𝐥 (\mathcal{C}) = \mathcal{C}$. Hence $q : ε → ε '$ is a morphism of extensions of type $\mathrm{Ext}^1(M, \mathcal{C})$. Since $ε$ is a $\mathcal{C}$-preenvelift, there is another morphism $s : ε ' → ε$. Since $s ∘ q$ is an automorphism, $ε_2 ∈ 𝐒𝐦𝐝 (\mathcal{C}^⟂) = \mathcal{C}^⟂$.</p>
+  </div>
+</div>
+
+<h3 id="envelope--preenvelope">Envelope ⇒ Preenvelope</h3>
+
+<p>Suppose $\mathcal{E}$ is a class of modules closed under summand, along with the following concession.</p>
+
+<div class="definition">
+  <p>(Concession). If there is a preenvelope $i : M → E$, then any morphism from $M$ to the cofiltered limit $\varprojlim^{cof} E_∙$ factors through $i$.</p>
+  <ul>
+    <li>In particular, the concession holds if $\mathcal{E}$ is closed under cofiltered limits.</li>
+  </ul>
+</div>
+
+<p>We denote $\widetilde {\mathcal{E}}$ as the $\varprojlim ^{cof}$-completion of $\mathcal{E}$, and introduce the <em>relative cokernel</em> (or <em>relative image</em> for convenience).</p>
+
+<div class="definition">
+  <p>(Image). For a general morphism of the type $j : M → \widetilde {\mathcal{E}}$, we define</p>
+  <p>$$\begin{equation}
+\mathrm{IM}(j) := \{\operatorname{im}(α ) ∣ α : i → j,\ i \ \text{ is a preenvelope}\}.
+\end{equation}$$</p>
+  <p>We also have the <em>cobase change</em>. Say $α ∈ \mathrm{IM}(j)$ is a <strong>relative envelope</strong>, provided</p>
+  <p>$$\begin{equation}
+α _♯ : \mathrm{IM}(i) → \mathrm{IM}(j), \quad \operatorname{im}(?) ↦ \operatorname{im}(α ∘ ?),\ \text{such that} \ \operatorname{im}(α _♯ ) = \{\operatorname{im}(α )\}.
+\end{equation}$$</p>
+</div>
+
+<p>We show the existence of relative envelope.</p>
+
+<div class="lemma">
+  <p>Any morphism of the type $j : M → F ∈ \widetilde {\mathcal{E}}$ has a relative envelope.</p>
+  <div class="proof">
+    <p>If not, then there is a transfinite composition of towers</p>
+    <p>$$\begin{equation}
+\cdots \overset {f_{γ +1, γ+0}}→  (E _{γ +1}, i _{γ +1}) \overset {f_{γ,γ+1}} → (E_γ, i _γ ) \cdots \overset {f_{1,2}}→  (E_1, i _1) \overset {f_{0,1}}→ (E_0, i _0) = (F, j),
+\end{equation}$$</p>
+    <p>such that</p>
+    <ol>
+      <li>for any $β$, $i_β ∘ α _β = i_{β +1}$;</li>
+      <li>if $β$ is a successor ordinal, then $i_β$ is a preenvelope;</li>
+      <li>if $β$ is a limit ordinal, then $i_β$ is induced by limit;</li>
+      <li>$\{\operatorname{im}(f_{0, γ})\}$ strictly descends when composing $f_{β +1, β +2}$.</li>
+    </ol>
+    <p>Let $κ ≫ |F|$, we see the contradiction.</p>
+  </div>
+</div>
+
+<p>We leave the dual procedure to readers.</p>
+
+<div class="problem">
+  <p>Show that</p>
+  <ol>
+    <li>Any preenvelope $i : M → E$ admits a trasnfinite tower of relative envelopes;</li>
+    <li>The stablised image $ε$ is a preenvelope;</li>
+    <li>Any endomorphism $α : ε → ε$ is surjective, hence bijective.</li>
+  </ol>
+</div>
+
+<h3 id="special-precover--special-cover">Special Precover ⇒ Special Cover</h3>
+
+<p>Suppose $\mathcal{F}$ is a class of modules closed under <strong>summands, extensions, and cofiltered limits</strong>. A special ${}^⟂\mathcal{F}$-(pre)cover is an epic ${}^⟂ \mathcal{F}$-(pre)cover with kernel in $\mathcal{F}$.</p>
+
+<div class="theorem">
+  <p>For $M$ admits a special ${}^⟂\mathcal{F}$-precover, $M$ there has a special ${}^⟂ \mathcal{F}$-cover.</p>
+  <div class="proof">
+    <p>Recall in the subsection <code class="language-plaintext highlighter-rouge">Special Preenvelope ⇒ Special Envelope</code>, we did not use AB5 property.</p>
+  </div>
+</div>
+
+<h3 id="remarks">Remarks</h3>
+
+<p>We are interested in <em>cogenerating</em> construction for set-theoritic issuse. For instance,</p>
+
+<div class="theorem">
+  <p>(Shelah). It is independent of ZFC that every whitehead group ($^⟂ℤ$) is a free group. A <a href="https://www.karlin.mff.cuni.cz/~trlifaj/en/ANK_6.pdf">minicourse</a>.</p>
+</div>
+
+<p>Completion (with ideal-metric) is a special case of cofiltered limit. We might see that in the study of (Enoch’s) cotorsion modules, etc.</p>
+
+<p>One can similarly define $\mathrm{Tor}$-cotorsion theory. Note that the left and right class of modules are closed under extensions, summands, coproducts, and <strong>filtered colimits</strong>. In this case, any $\varinjlim^{fil}$-closed $\mathcal{C}$-class corresponds to a $\mathrm{Tor}$-torsion theory.</p>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#lecture-3">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Lecture 3</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#all-covers-are-projective-covers">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">All Covers are Projective Covers</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#the-projective-cover">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">The Projective Cover</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#functorial-approach">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">Functorial Approach</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#a-tautological-comparison">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">A Tautological Comparison</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#example-vnr-rings">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Example: vNR Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#example-torsion-theory">
+        <span class="toc-number">2.5.</span>
+        <span class="toc-title">Example: Torsion Theory</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#envelopes-and-examples">
+        <span class="toc-number">2.6.</span>
+        <span class="toc-title">Envelopes and Examples</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#set-theoretic-consideration">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">Set-theoretic Consideration</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#flat-cotorsion-pair">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Flat Cotorsion Pair</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#precover--cover">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">Precover ⇒ Cover</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#special-preenvelope--special-envelope">
+        <span class="toc-number">3.3.</span>
+        <span class="toc-title">Special Preenvelope ⇒ Special Envelope</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#envelope--preenvelope">
+        <span class="toc-number">3.4.</span>
+        <span class="toc-title">Envelope ⇒ Preenvelope</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#special-precover--special-cover">
+        <span class="toc-number">3.5.</span>
+        <span class="toc-title">Special Precover ⇒ Special Cover</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#remarks">
+        <span class="toc-number">3.6.</span>
+        <span class="toc-title">Remarks</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Topological-Six-Functors" title="NEXT: Topological Six Functors">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/25SumLec2" title="PREV: CT2">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

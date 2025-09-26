@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>遗传代数与箭图
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Quiver-and-Hereditary-Algebra">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>遗传代数与箭图</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 4, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#箭图-不带关系" id="markdown-toc-箭图-不带关系">箭图 (不带关系)</a>    <ul>
+      <li><a href="#箭图的基本要件" id="markdown-toc-箭图的基本要件">箭图的基本要件</a></li>
+      <li><a href="#直和分解" id="markdown-toc-直和分解">直和分解</a></li>
+      <li><a href="#泛性质" id="markdown-toc-泛性质">泛性质</a></li>
+      <li><a href="#投射分解" id="markdown-toc-投射分解">投射分解</a></li>
+      <li><a href="#模" id="markdown-toc-模">模</a></li>
+    </ul>
+  </li>
+  <li><a href="#遗传代数" id="markdown-toc-遗传代数">遗传代数</a>    <ul>
+      <li><a href="#遗传代数的定义" id="markdown-toc-遗传代数的定义">遗传代数的定义</a></li>
+    </ul>
+  </li>
+  <li><a href="#遗传代数的箭图表示" id="markdown-toc-遗传代数的箭图表示">遗传代数的箭图表示</a></li>
+</ul>
+
+<h2 id="箭图-不带关系">箭图 (不带关系)</h2>
+
+<h3 id="箭图的基本要件">箭图的基本要件</h3>
+
+<div class="definition">
+  <p>(箭图). 箭图定义作四要件 $Q = (Q_0, Q_1, s, t)$, 其中</p>
+  <ol>
+    <li>$Q_0$ 是点集;</li>
+    <li>$Q_1$ 是边集;</li>
+    <li>$s : Q_1 → Q_0$ 将边对应至来源;</li>
+    <li>$t : Q_1 → Q_0$ 将边对应至去向.</li>
+  </ol>
+  <p>简单地说, 任意 $α ∈ Q_1$ 形如 $s(α)\xrightarrow{α} t(α )$.</p>
+</div>
+
+<div class="note">
+  <p>从范畴的视角看, 可以将 $Q_0$ 视作平凡道路集, 从而 $Q$ 是如下小范畴:</p>
+  <ol>
+    <li>(对象集). $𝖮𝖻 (Q) = Q_0$;</li>
+    <li>(恒等态射). 对任意 $x ∈ Q_0$, 引入恒等态射 $\mathrm{id}_x$;</li>
+    <li>(态射集). $𝖬𝗈𝗋 (Q) = ⨆_{k ≥ 0} Q_1^k$, 其中 $Q_1^k$ 表示长度为 $k$ 的道路, 具体地       <ol>
+        <li>$Q_1^0$ 是全体恒等态射,</li>
+        <li>$Q_1^1 := Q_1$,</li>
+        <li>$Q_1^{k+1}$ 形如 $Q_1^k ∘ Q_1$;</li>
+      </ol>
+    </li>
+    <li>(复合律). 依照惯用右模的习惯, 所有箭头是右朝向的, $α ∘ β$ 合法当且仅当 $t(α) = s(β)$.</li>
+  </ol>
+</div>
+
+<div class="lemma">
+  <p>记 $Q^ →$ 是通常意义下的态射范畴, 则有三伴随函子</p>
+  <p>$$
+(t ⊣ \mathrm{id} ⊣ s) : Q^→ \ \substack{⟶\\⟵\\⟶} \ Q.
+$$</p>
+</div>
+
+<div class="definition">
+  <p>(路代数). 令 $k$ 是域, 则 $k$-充实的范畴 $kQ$ 是路代数.</p>
+</div>
+
+<div class="definition">
+  <p>(有限性条件). 称 $Q$ 是有限的, 若 $Q_1 ∪ Q_0$ 是有限集; 称 $Q$ 是有限维的, 若 $kQ$ 是有限维代数.</p>
+</div>
+
+<div class="note">
+  <p>容易检验, $kQ$ 有限维当且仅当 $Q$ 有限无环.</p>
+</div>
+
+<div class="example">
+  <p>(关于单位元). 若 $Q_0$ 有限, 则 $kQ$ 有单位元.</p>
+</div>
+
+<h3 id="直和分解">直和分解</h3>
+
+<p>假定 $Q_0$ 有限, 则 $A := kQ$ 是有单位元的 $k$ 代数.</p>
+
+<div class="lemma">
+  <p>(幂等分解, 证明略). $kQ$ 的一个幂等分解表示作有限和 $1_A = ∑_{1 ≤ i≤ m} e_i$, 满足</p>
+  <ol>
+    <li>$e_i ⋅ e_j = e_i ⋅ δ _{i,j}$;</li>
+    <li>以上求和是极大的, 即, 不存在 $e_{i_0} = a +b$ 使得 $a^2= a$ 且 $b^2 = b$.</li>
+  </ol>
+  <p>在相差一个代数自同构的意义下, 幂等分解是唯一的.</p>
+</div>
+
+<div class="lemma">
+  <p>(正交幂等分解, 证明略). $kQ$ 的一个正交幂等分解表示作有限和 $1_A = ∑_{1 ≤ i≤ m} e_i$, 满足</p>
+  <ol>
+    <li>$e_i ⋅ A ⋅ e_j = (e_i ⋅ A ⋅ e_i) ⋅ δ _{i,j}$;</li>
+    <li>以上求和是极大的, 即, 不存在 $e_{i_0} = a +b$ 使得 $a^2= a$ 且 $b^2 = b$.</li>
+  </ol>
+  <p>在相差一个代数自同构的意义下, 幂等分解是唯一的.</p>
+</div>
+
+<div class="slogan">
+  <p>幂等分解与正交幂等分解是不同意义下的极小直和分解:</p>
+  <ol>
+    <li>幂等分解对应 $Q_0$, 即, 将正则模 $kQ$ 写作不可分解投射模的直和;</li>
+    <li>正交幂等分解对应 $π_0(Q)$, 即, 将环 $kQ$ 写作连通环的直和.</li>
+  </ol>
+</div>
+
+<div class="lemma">
+  <p>(中心, 证明略). 记 $Z(A) : = \{r ∈ A ∣ ∀ x∈ A (rx=xr)\}$ 是代数 $A$ 的中心, 则 $Z(A)$ 的幂等分解对应 $A$ 的正交幂等分解.</p>
+</div>
+
+<div class="lemma">
+  <p>(矩阵表示). 记正交幂等分解 $1 = ∑_{i ∈ Q_0}e_i$, 则 $A$ 有矩阵形式</p>
+  <p>$$
+A ≃ (a_{i,j})_{|Q_0| × |Q_0|},\quad a_{i,j} := e_i ⋅ kQ ⋅ e_j.
+$$</p>
+  <p>项 $a_{i,j}$ 的基是 $i → \cdots → j$ 类型的道路. 在合适的置换下, 矩阵的每一对角分块对应代数 $A$ 的一个连通分支.</p>
+</div>
+
+<h3 id="泛性质">泛性质</h3>
+
+<p>以下假定 $Q_0$ 有限, $Q$ 连通. 此时 $A := kQ$ 是有单位元的连通 $k$ 代数.</p>
+
+<div class="lemma">
+  <p>函子 $k (-): 𝐐𝐮𝐢𝐯𝐞𝐫 → k𝐀𝐥𝐠$ 是自由函子, 其右伴随是遗忘函子.</p>
+</div>
+
+<div class="definition">
+  <p>(表示). 记函子范畴 $𝐑𝐞𝐩_k(Q) := 𝐅𝐮𝐧𝐜𝐭(Q, 𝐌𝐨𝐝_k)$ 是 $Q$ 的 $k$-表示范畴.</p>
+</div>
+
+<div class="example">
+  <p>通常使用 $(M,φ)$ 表示一个 $𝐅𝐮𝐧𝐜𝐭(Q, 𝐌𝐨𝐝_k)$-类型的函子, 写作</p>
+  <ol>
+    <li>$M : Q_0 → 𝐌𝐨𝐝_k,\quad i ↦ M_i$;</li>
+    <li>$φ : Q_1 → 𝐌𝐨𝐝_k^→,\quad α ↦ φ _α$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(Curry). 存在范畴等价 $𝐑𝐞𝐩_k(Q) ≃ 𝐌𝐨𝐝_{kQ}$.</p>
+</div>
+
+<div class="proof">
+  <p>依照模的定义, 有范畴等价 $𝐌𝐨𝐝_k ≃ 𝐅𝐮𝐧𝐜𝐭_ℤ(k^{\mathrm{op}}, ℤ)$, 其中 $𝐅𝐮𝐧𝐜𝐭_ℤ$ 是加法函子范畴. 此时 $$
+\begin{aligned}
+  𝐅𝐮𝐧𝐜𝐭(Q, 𝐌𝐨𝐝_k) &≃ 𝐅𝐮𝐧𝐜𝐭(Q, 𝐅𝐮𝐧𝐜𝐭_ℤ(k^{\mathrm{op}}, 𝐀𝐛))\\
+  &≃ 𝐅𝐮𝐧𝐜𝐭_ℤ(ℤQ ⊗_ℤ k^{\mathrm{op}}, 𝐀𝐛)\\
+  &≃ 𝐌𝐨𝐝_{kQ}.
+\end{aligned}
+$$</p>
+</div>
+
+<div class="slogan">
+  <p>表示范畴即路代数的模范畴!</p>
+</div>
+
+<div class="example">
+  <p>(张量代数视角). 对 $B ∈ k 𝐀𝐥𝐠$, 集合的映射 $φ: (Q_0 ∪ Q_1) → B$ 能提升作 $k$-代数同态 $A → B$, 当且仅当</p>
+  <ol>
+    <li>对 $i,j ∈ Q_0$, $φ(i) ⋅ φ(j) = δ_{i,j} ⋅ φ (i)$;</li>
+    <li>对 $α ∈ Q_1$, $φ(α) = φ (s(α)) ⋅ φ (α) ⋅ φ (t(α))$.</li>
+  </ol>
+</div>
+
+<div class="proof">
+  <p>给定 $φ$. 视 $V:= kQ_1$ 为交换代数 $K:= kQ_0$-模, 此时得代数同态 $\widetilde{\varphi} : T_KV → B$. 由 $Q$ 的结合律得生成关系 $R$, 使得 $T_KV / R ≃ kQ$. 由于 $\widetilde{\varphi}(R) = 0$, 故 $\widetilde{\varphi}$ 通过 $kQ$ 唯一分解, 从而 $φ$ 可以唯一地提升作 $k$-代数同态.</p>
+</div>
+
+<h3 id="投射分解">投射分解</h3>
+
+<p>$kQ$ 投射维数 $≤ 1$ ($kQ$ 半单当且仅当 $Q_1 = ∅$), 极小投射分解见<a href="Ringel_Resolution#mathjax_protectedjgtrjamathjax_protected-的标准分解">标准分解</a>.</p>
+
+<p>$i$ 向 $j$ 的连边正是 $\mathrm{Ext}^1(S(i), S(j))$ 的一组自由基, 见<a href="Ringel_Resolution#单对象与-mathjax_protectedjfxtyxrocm17rxh0fsqmathjax_protected-群">此处</a></p>
+
+<h3 id="模">模</h3>
+
+<p>以下假定 $kQ$ 是代数闭域中的有限维代数. Artin 代数的通用记号见<a href="AR-notes#artin-代数的要件">此处</a>.</p>
+
+<div class="lemma">
+  <p>(证明略). 以下刻画 $kQ$ 的单对象, 不可分解投射对象, 以及不可分解内射对象. 这三种同构类恰好以 $Q_0$ 为指标, 对 $i ∈ Q_0$</p>
+  <ol>
+    <li>不可分解单对象 $S(i) := e_i ⋅ A ⋅ e_i$;</li>
+    <li>不可分解投射对象 $P(i) := e_i ⋅ A$;</li>
+    <li>不可分解内射对象 $I(i) := A ⋅ e_i$.</li>
+  </ol>
+</div>
+
+<div class="lemma">
+  <p>(证明略). 以下刻画 $kQ$ 中的 $\mathrm{Rad}$, $\mathrm{Top}$, $\mathrm{Soc}$, $\mathrm{Bot}$. 任取 $M = (M_∙, φ_∙)$</p>
+  <ol>
+    <li>$\mathrm{Rad}(M)$ 是 $M$ 的子对象:       <ol>
+        <li>$i ∈ Q_0$ 处取值 $∑ \operatorname{im}(φ_{? → i})$,</li>
+        <li>态射继承 $φ_∙$, 此处 $φ_{i → j} : (\mathrm{Rad}(M))_i → (\mathrm{Rad}(M))_j$ 在子对象上良定义;</li>
+      </ol>
+    </li>
+    <li>$\mathrm{Top}(M)$ 是 $M$ 的半单商对象:       <ol>
+        <li>$i ∈ Q_0$ 处取值 $⋀ \operatorname{cok}(φ_{? → i})$,</li>
+        <li>态射为 $0$;</li>
+      </ol>
+    </li>
+    <li>$\mathrm{Soc}(M)$ 是 $M$ 的半单子对象:       <ol>
+        <li>$i ∈ Q_0$ 处取值 $⋂ \ker φ_{i → ?}$;</li>
+        <li>态射为 $0$;</li>
+      </ol>
+    </li>
+    <li>$\mathrm{Bot}(M)$ 是 $M$ 的商对象:       <ol>
+        <li>$i ∈ Q_0$ 处取值 $⋁ \mathrm{coim}(φ_{i → ?})$;</li>
+        <li>态射继承 $φ_∙$, 此处 $φ_{i → j} : (\mathrm{Bot}(M))_i → (\mathrm{Bot}(M))_j$ 在商对象上良定义;</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<h2 id="遗传代数">遗传代数</h2>
+
+<h3 id="遗传代数的定义">遗传代数的定义</h3>
+
+<p>以下定义中, $k$ 是任意交换环, $A$ 是任意 $k$ 代数.</p>
+
+<div class="definition">
+  <p>(遗传代数, <a href="Hereditary_Alg_Eq_Def">证明</a>). 称 $A$ 是 $k$ 上的遗传代数, 若以下等价命题成立.</p>
+  <ol>
+    <li>$A$ 整体维数 $≤ 1$;</li>
+    <li>有限生成投射模的子模投射;</li>
+    <li>投射模的子模投射;</li>
+    <li>理想是投射模;</li>
+    <li>内射模的商模内射;</li>
+    <li>特征模 $(_AA)^+ ∈ 𝐌𝐨𝐝_A$ 的商模内射.</li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>对域上的有限维代数 $A$, 特征模函子可换用 $k$-对偶. 此时 $A$ 遗传, 当且仅当有限生成内射模的商模内射.</p>
+</div>
+
+<div class="corollary">
+  <p>由遗传等价定义的<a href="Hereditary_Alg_Eq_Def">证明过程</a>, 遗传代数的投射模必是理想的余积.</p>
+</div>
+
+<div class="theorem">
+  <p>右遗传代数的左理想平坦.</p>
+</div>
+
+<div class="proof">
+  <p>左理想 ${_AI} ↪ {_AA}$ 对应商对象 $(_AA)^+ ↠ (_AI)^+$. 由遗传等价定义的<a href="Hereditary_Alg_Eq_Def">证明过程</a>, 内射模 $(_AA)^+$ 的商对象 $(_AI)^+$ 仍是内射模, 从而 ${_AI}$ 是平坦模.</p>
+</div>
+
+<div class="corollary">
+  <p>若环的左理想有限生成 (如域上的有限维代数), 则右遗传蕴含左遗传.</p>
+</div>
+
+<div class="example">
+  <p>(左遗传但非右遗传的例子, <a href="L_Here_not_R_Here">证明</a>). 考虑矩阵环 $\binom{ℤ \ \ O}{ℚ \ \ ℚ}$, 则存在非投射 (但平坦) 的右理想. 同时这也是左 Noether 但非右 Noether 的例子.</p>
+</div>
+
+<div class="proposition">
+  <p>(<a href="AR_Proj">证明</a>). 对遗传代数,</p>
+  <ol>
+    <li>不可分解投射模之间的态射要么为零, 要么是单的;</li>
+    <li>不可分解内射模之间的态射要么为零, 要么是满的;</li>
+    <li>不可分解投射模是 brick;</li>
+    <li>不可分解内射模是 brick.</li>
+  </ol>
+</div>
+
+<h2 id="遗传代数的箭图表示">遗传代数的箭图表示</h2>
+
+<div class="theorem">
+  <p>(遗传代数与路代数的相互转换, 证明略). 以下 $k$ 是域.</p>
+  <ol>
+    <li>给定有限维连通无环的箭图 $Q$, 记 $A := kQ$ 是路代数, 则遗传代数 $A$ 对应的箭图同构于 $Q$;</li>
+    <li>给定有限维连通, 基础的遗传代数 $A$, 记 $Q$ 是 $A$ 对应的 quiver, 则有代数同构 $kQ ≃ A$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(AR quiver 的投射的结构部分, 证明略). 对有限维, 连通, 基础的遗传代数 $A ≃ kQ$, 不可分解投射对象的不可约态射空间 $\mathrm{Irr}(P(i), P(j))$ 线性同构于 $e_j \frac{\mathrm{Rad}(A)}{\mathrm{Rad}^2(A)} e_i$. 特别地,</p>
+  <p>$$
+|\mathrm{Hom}_{Q}(i,j)| = \dim \mathrm{Ext}^1(S(i), S(j)) ≃ \dim e_j \frac{\mathrm{Rad}(A)}{\mathrm{Rad}^2(A)} e_i ≃ |\mathrm{Hom}_{Γ (kQ)}(P(i), P(j))|.
+$$</p>
+  <p>因此, $Γ(A)$ 中投射对象所在的子图同构于 $Q^{\mathrm{op}}$</p>
+</div>
+
+<div class="note">
+  <p>内射对象的类似表述略.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#箭图-不带关系">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">箭图 (不带关系)</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#箭图的基本要件">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">箭图的基本要件</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#直和分解">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">直和分解</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#泛性质">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">泛性质</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#投射分解">
+        <span class="toc-number">1.4.</span>
+        <span class="toc-title">投射分解</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#模">
+        <span class="toc-number">1.5.</span>
+        <span class="toc-title">模</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#遗传代数">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">遗传代数</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#遗传代数的定义">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">遗传代数的定义</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#遗传代数的箭图表示">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">遗传代数的箭图表示</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/AR_Finite_No_Multiple_Arrows" title="NEXT: 有限表示代数的 AR quiver 无重边">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Coxeter-Reflection" title="PREV: Coxeter 反射简介">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

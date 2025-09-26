@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Radicals
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="&lt;!–Radicals">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Radicals">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Radicals</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        August 25, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 
+## Radicals
+
+The general theory of ring radicals are related to torsion theories. The subgroup of radical elements usually forms a radical ideal.
+
+### Radical
+
+Throughout,
+
+- ideals means two-sided ideals;
+- $\mathcal{R}$ is a class of non-unital associative rings closed under ideals (admissible subobjects) and homomorphic images (admissible quotients);
+- $P$ is a property over $\mathcal{R}$.
+
+<div class='definition'><p>($P$-radical). Say the property $P$ is radical over $\mathcal{R}$, provided</p>
+
+<ol>
+  <li>the ring with property $P$ is closed under homomorphic images;</li>
+  <li>for any $R ∈ \mathcal{R}$, there is a largest ideal $r(R) ↪ R$ such that $I$ has property $P$;</li>
+  <li>the quotient $r(R/r(R)) = 0$.</li>
+</ol>
+</div>
+
+<div class='example'><p>We show some examples.</p>
+
+<ol>
+  <li>(Brown–McCoy). $P$: being a ring with no non-zero homomorphism into a simple ring with identity. $r(R)$ is the intersection of all maximal ideals of $R$.</li>
+  <li>(Jacobson). $P$: being a ring with no non-zero homomorphism into a simple module. $r(R)$ is the intersection of all right (or left) primitive ideals (= annihilator some some simple module) of $R$.</li>
+  <li>(Nil, or Baer). $P$: being a ring with nilpotent elements. $r(R)$ is the sum of all nilpotent ideals of $R$.</li>
+</ol>
+</div> -->
+
+<h2 id="ring-radicals">Ring Radicals</h2>
+
+<p>We clarify some concepts about general theory of ring radicals.</p>
+
+<h3 id="jacobson-radical">Jacobson Radical</h3>
+
+<p>We show differences of semisimple rings and ring with $0$ Jacobson radical.</p>
+
+<h4 id="the-definitions">The Definitions</h4>
+
+<div class="definition">
+  <p>(Jacobson Radical). The Jacobson radical element $x ∈ R$ admits the following equivalent characterisations.</p>
+  <ol>
+    <li>$Sx = 0$ for any simple right $R$-module $S$;</li>
+    <li>$x ∈ 𝔪$ for any maximal right ideal $𝔪$;</li>
+    <li>$1 - xr$ has a right inverse for all $r ∈ R$;</li>
+    <li>$1 - sxr$ is a unit for all $r,s ∈ R$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). Note that $\mathrm{ann}(R/𝔪) ⊆ 𝔪$ for every maximal ideal. If $x$ annihilators each simple modules, then it lies in any maximal ideal. <br /> (2 → 3). We show (2 ∧ ¬ 3 → False). If $1 - xr$ has no right inverse, then $1 - xr$ belongs to some maximal right ideal $𝔪$, and so is $rx$. Hence $1 ∈ 𝔪$, a contradiction. <br /> (3 → 1). We show (3 ∧ ¬ 1 → False). When there is some simple module $S = (s_0)$ s.t. $Sx ≠ 0$. Then $(s_0x) = (s_0)$. We take $r$ s.t. $s_0xr = s_0$. Now $s_0 (1-xr) = 0$, a contradiction. <br /> (4 → 3). Take $s = 1$. <br /> (1 ∧ 2 ∧ 3 → 4). Since $sx$ annihilates all simple modules, $1 - (sx)r$ has right inverse $t$. Now $t = 1 + sxrt$ has a right inverse. Since $t$ has bi-inverses, it is a unit.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>The annihilator of a simple module is called primitive ideal.</p>
+  <ol>
+    <li>Primitive ideals are two-sided;</li>
+    <li>Every maximal ideal contains some primitive ideal;</li>
+    <li>The matrix ring $M_2 (ℂ)$ has non-trivial right maximal ideals, by only trivial primitive ideals.</li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>For commutative rings, simple modules are precisely the residue fields of maximal ideals.</p>
+</div>
+
+<p>Note that the final definition is symmetric, hence</p>
+
+<div class="theorem">
+  <p>$J(R)$ is an intersection of two-sided ideals, thus it is two-sided.</p>
+</div>
+
+<div class="theorem">
+  <p>$J(M_n (R)) = M_n (J(R))$ for any matrix ring.</p>
+  <div class="proof">
+    <p>On one hand, for any $X ∈ M_n (J(R))$, $(I - XA)$ has a right inverse $(\det (I - XA))^{-1} ⋅ \mathrm{adj}(I - XA)$. Here $\det (I - XA) ∈ 1 + J(R)$ is a unit in $R$. On the other hand, $J(M_n (R))$ is a two-sided ideal of a full matrix ring, thus (consider entry $(1,1)$) it takes the form $M_n (I)$ for some two-sided ideal $I ⊆ R$. Taking diagonal matrices, we see $I ⊆ J(R)$, thus $I = J(R)$.</p>
+  </div>
+</div>
+
+<p>Corollary, the property $J(R) = 0$ is Morita invariant.</p>
+
+<div class="example">
+  <p>Let $U$ be the ring of upper triangular matrices over a field $k$. Then $J(U)$ consists of $0$-diagonal matrices. This indicates that the <em>shift</em> of $J(R)$ are units.</p>
+</div>
+
+<div class="proposition">
+  <p>$J(R)$ is the maixmal left/right/two-sided ideal $I$ s.t. $1 + I ⊆ \text{Units}$.</p>
+  <div class="proof">
+    <p>(Left case). By analysis of units, $1 + J(R) ⊆ \text{Units}$. If $I$ is a left ideal s.t. $1 + I ⊆ \text{Units}$, then for any $x ∈ I$, $1 - x$ has a right inverse. Hence $I ⊆ J(R)$. Note $J(R)$ is the maximal left ideal with the property $1 + J(R) ⊆ \text{Units}$. <br /> The right case is similar. The two-sided case follows since $J(R)$ is a two-sided ideal.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>If $\text{Units} ∪ \{0\}$ is a (division) ring, then $J(R) = 0$. For instance, $D[S]$ (polynomial) and $D⟨S⟩$ (free algebra) over division ring $D$ has $0$ radical.</p>
+</div>
+
+<div class="example">
+  <p>$R$ and $R / J(R)$ has (up to a categorical equivalence) the same semi-simple modules. The finite-length modules may differs (e.g. for those $R / J(R)$ is a field).</p>
+</div>
+
+<h4 id="nakayama-lemma">Nakayama Lemma</h4>
+
+<p>We highlight this short-but-useful lemma. Recall the existence of maximal ideals.</p>
+
+<div class="theorem">
+  <p>F.g. modules has maximal submodules.</p>
+  <div class="proof">
+    <p>We show for cyclic modules $(x) ≃ R / I$. Note that the submodules corresponds to ideals containing $I$. Zorn’s lemma complete the proof. Assume we show every $k$-generated module has maximal submodules. For every $k+1$-generated module $⟨x_1, \ldots ,x_{k+1}⟩$, there exists a maximal submodule of $\frac{⟨x_1, \ldots ,x_{k+1}⟩}{⟨x_1, \ldots ,x_{k}⟩} ≃ \text{some cyclic module}$. This is recovers maximal submodules of $⟨x_1, \ldots ,x_{k+1}⟩$ containing $⟨x_1, \ldots ,x_{k}⟩$. Induction completes the proof.</p>
+  </div>
+</div>
+
+<p>We show two variant forms of Nakayama lemma.</p>
+
+<div class="theorem">
+  <p>Let $J ⊆ J(R)$ be an ideal of $R$, and $N, L ⊆ M$ be submodule s.t. $M / N$ is f.g.. If $N + LJ(R) = M$, then $N = M$.</p>
+  <div class="proof">
+    <p>Let $K = \frac{M}{N}$ be f.g.. It suffices to show $(KJ(R) = K) → (K = 0)$. Let $K'$ be any maximal submodule of $K$, then $(K/K')(R) = 0$, i.e., $KJ(R) ⊆ K'$. A contradiciton.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Let $I$ be a nilpotent ideal of $R$, and $N, L ⊆ M$ be any submodule. If $N + LI = M$, then $N = M$.</p>
+  <div class="proof">
+    <p>We take $K = \frac{M}{N}$. It suffices to show $(KI = K) → (K = 0)$. Now $K = KI^{n} = K0$ for some $n$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>(Easy form). If $MI = M$ with either $I$ nilpotent or $(I ⊆ J(R)) ∧ (M \ \text{f.g.})$, then $M = 0$.</p>
+</div>
+
+<p>Remember the twin conditions for Nakayama lemma:</p>
+
+<p>$$\begin{equation}
+\boxed{\text{either nilpotent ideal, or f.g. module with ideal in Jacobson radical}}
+\end{equation}$$</p>
+
+<div class="theorem">
+  <p>(The origin form). Let $M$ be a f.g. module and $I$ be any ideal s.t. $MI = M$. Then there is $x ∈ I$ s.t. $M(x-1) = 0$.</p>
+  <div class="proof">
+    <p>Let $𝐦$ be the row vector of generating elements of $M$. There is $I$-square matrix $𝐀$ s.t. $𝐦𝐀 = 𝐦$. By characteristic polynomial, $(𝐈 - 𝐀) ⋅ \mathrm{adj}(𝐈 - 𝐀) = \det (𝐈 - 𝐀) ⋅ \mathrm{id}$. Note that $\det (𝐈 - 𝐀) = 1 - x$ for some $x ∈ I$. We see $(1 - x)$ annihilates the generating set of $M$, thus $M(1-x) = 0$.</p>
+  </div>
+</div>
+
+<p>We proof original lemma with Jacobson radical under good conditions.</p>
+
+<div class="example">
+  <p>We assume $I$ satisfies the Ore condition, i.e., for any $a ∈ I$ and $r ∈ R$, there is $a', a'' ∈ I$ s.t. $ra' = ar$ and $a''r = ra$. Then $S := (1 + I)$ is multiplicative, and $S^{-1} R$ is a filtered colimit of $R$’s. Hence, morphism $I ⊗ S^{-1}R → S^{-1}R$ is an inclusion, where the image takes the form $a(1+a')^{-1}$ for some $a,a' ∈ I$. For any $θ ∈ S^{-1} R$, Ore’s condition shows</p>
+  <p>$$\begin{equation}
+a(1+a')^{-1} θ + 1 = a'' (1 + a''')^{-1} + 1 = (1 + a'' + a''') (1 + a''')^{-1} ∈ \text{Units}.
+\end{equation}$$</p>
+  <p>Hence $I (S^{-1} R) ⊆ J(S^{-1} R)$. We obtain</p>
+  <p>$$\begin{equation}
+M ⊗ S^{-1} R = (M I) ⊗ S^{-1} R ⊆ (M ⊗ S^{-1} R) ⊗ (I S^{-1} R).
+\end{equation}$$</p>
+  <p>By elementwise verification, the inclusion is identical. By Nakayama lemma (radical form), $M ⊗ S^{-1} R = 0$. Since $M$ is f.g., there is $s ∈ S$ s.t. $Ms = 0$.</p>
+</div>
+
+<h4 id="small-superfluous-submodules">Small (Superfluous) Submodules</h4>
+
+<p>A small submodule $L ↪ M$ is a proper submodule s.t. $L + N = M$ implies $N = M$.</p>
+
+<div class="proposition">
+  <p>For chain inclusions $K ⊆ L ⊆ M$, the small subobject satisfies the usual properties of inclusions:</p>
+  <ol>
+    <li>If $L ↪ M$ is small, then $K ↪ M$ and $\frac{L}{K} ↪ \frac{M}{K}$ are small;</li>
+    <li>If $K ↪ L$ and $\frac{L}{K} ↪ \frac{M}{L}$ are small, then $K ↪ M$ is small;</li>
+    <li>The small inclusion is closed under transfinite compositions.</li>
+  </ol>
+  <div class="proof">
+    <p>(1). Clear. <br /> (2). For $K + X = M$, we have $K + (X ∩ L) = L$, thus $X ∩ L = L$. We obtain $L + X = M$. Taking $\frac{L}{K} + \frac{X}{K} = \frac{M}{K}$, we see $\frac{X}{K} = \frac{M}{K}$. Hence $\frac{M}{X} = 0$. <br /> (3). We show $X_0 ⊆ ⋃ _{β < α} X_β$ is small for any ordinal $α$. If $X_0 + Y = X_α$, then $X_0 + (Y ∩ X_β) = X_β$ for any $β < α$. By assumption, $(Y ∩ X_β) = X_β$. AB5 condition shows $Y = X_α$.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>The system of supersluous submodules is closed under finite sums and arbitrary submodules. Corollary, a f.g. submodule of arbitrary sum of supersluous submodules is superfluous.</p>
+</div>
+
+<p>The definition is highly connected to Nakayama lemma.</p>
+
+<div class="proposition">
+  <p>$MI ⊆ M \ (≠ 0)$ is small if either one of the following conditions holds:</p>
+  <ol>
+    <li>$M$ is f.g. and $I ⊆ J(R)$;</li>
+    <li>$I$ is nilpotent.</li>
+  </ol>
+  <div class="proof">
+    <p>Corollaries of Nakayama lemma.</p>
+  </div>
+</div>
+
+<p>An characterisation of lifting worth mentioning.</p>
+
+<div class="proposition">
+  <p>Let $f : L → M$ be a morphism of modules, and $I$ be an ideal. Assume either one of the following conditions holds:</p>
+  <ol>
+    <li>$M$ is f.g. and $I ⊆ J(R)$;</li>
+    <li>$I$ is nilpotent.</li>
+  </ol>
+  <p>Then $(\widetilde f : L/LI ↠ M/MI) ↔ (f : L ↠ M)$.</p>
+  <div class="proof">
+    <p>When $\widetilde f$ is surjective, we have $\mathrm{im}(f) + MI = M$. Nakayama lemma shows $\mathrm{im}(f) = M$. Hence $f$ is surjective. The other direction is given by universal property of cokernel.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Not all $M ⋅ J(R)$ is small in $M$. Let $R = k[x] / (x^2)$ be an $2$-dimensional algebra over a field $k$. We take $M = R^{(ω)}$ as the countable coproduct ring. Clearly $J(R) = (x)$. We take</p>
+  <p>$$\begin{equation}
+L = \mathrm{span}(e_k - (x) ⋅ e_{k+1})_{k ∈ ℕ}.
+\end{equation}$$</p>
+  <p>$L ⊆ M$ is proper submodule, whereas $L + MJ(R) = M$.</p>
+</div>
+
+<h4 id="radical-of-modules">Radical of Modules</h4>
+
+<p>We show an observation of rings.</p>
+
+<div class="example">
+  <p>Every proper right ideal $I ⊆ R$ satisfies $I + J(R) ≠ R$.</p>
+  <div class="proof">
+    <p>$I ⊆ 𝔪$ for some maximal right ideal $𝔪$, and $J(R) ⊆ 𝔪$.</p>
+  </div>
+</div>
+
+<p>Corollary, $J(R)$ is the greatest superfluous submodule of $R$.</p>
+
+<div class="definition">
+  <p>(Radical of a Module). The radical of a module $M$ admits the following equivalent definitions:</p>
+  <ol>
+    <li>the intersection of all maximal submodules of $M$;</li>
+    <li>the sum of all superfluous submodules of $M$.</li>
+  </ol>
+  <p>Note that $⋂_∅$ is the entire set.</p>
+  <div class="proof">
+    <p>Note that superfluous submodules are closed under finite sum and submodules. Hence</p>
+    <p>$$\begin{equation}
+x ∈ ∑ \ \text{superfluous submodules} \quad ↔ \quad (x)\ \text{is superfluous}.
+\end{equation}$$</p>
+    <p>If $(x)$ is superfluous, then any maximal submodule (if exists) contains $x$. Conversely, if $x$ belongs to all maximal submodules, then for any identity $(x) + N = M$, one has either $N = M$, or $M / N$ is a quotient ring. For the latter case, $N$ belongs to some maximal submodule, a contradiction.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Clearly $MJ(R) ⊆ J(M)$. The converse doesnot holds true, i.e., $J(ℚ) = ℚ$ but $ℚ J(ℤ) = 0$.</p>
+</div>
+
+<div class="example">
+  <p>If $R / J(R)$ is semisimple, then $J(M) = MJ(R)$.</p>
+  <div class="proof">
+    <p>Since $\frac{M}{MJ(R)}$ is a module over semisimple ring, we have $J(\frac{M}{MJ(R)}) = 0$. In this case, superfluous submodules of $M$ are precisely those contained in $MJ(R)$. Hence $J(M) = M J(R)$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>If $R / J(R)$ is commutative, then all $M𝔪$ are vector spaces over $R / 𝔪$, hence semi-simple.</p>
+  <ul>
+    <li>Fact: for $N ⊆ M$ s.t. $\frac{M}{N}$ semisimple, $N$ is a intersection of maximal submodules. Proof: take $\frac{M}{N} = ∐ _{i ∈ I}S_i$ as a coproduct of simple modules. Then $N = ⋂ \ker [M ↠ S_i]$ is a intersection of maximal submodules.</li>
+  </ul>
+  <p>Now $J(M) = ⋂ _{\text{maximal}} M' ⊆ ⋂ _{𝔪} (M𝔪)$. Hence $J(M) = ⋂ _{𝔪} (M𝔪)$.</p>
+</div>
+
+<p>We show some functorial property of $J : 𝐌𝐨𝐝 _R → 𝐌𝐨𝐝 _R$.</p>
+
+<div class="theorem">
+  <p>$J$ is a subfunctor of identity. Moreover, $J$ satisfies the following properties:</p>
+  <ol>
+    <li>$J(f) := f|_{J(M)} : J(M) → J(N)$ by functoriality;</li>
+    <li>if $f : M ↠ N$ has superfluous kernel, then $J(f) : J(M) ↠ J(N)$ and $\frac{M}{J(M)} ≃ \frac{N}{J(N)}$ by cokernel;</li>
+    <li>the quotient functor $1/J$ preserves and reflects the epimorphisms;</li>
+    <li>$J(M / J(M)) = 0$;</li>
+    <li>$J$ preserves arbitrary coproducts;</li>
+    <li>$\ker J$ consists of $M$ s.t. $M ⊆ ∏_i S_i$ ($S_i$’s are simple modules) and $(p_i)|_M ↠ S_i$ for each $i$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1). Recall that $J(M)$ is the intersection of morphism of the type $φ : M → S$ ($S$ is simple). We show $f(J(M)) ⊆ J(N)$. <br /> (2). Is $f$ is an epimorphism with superfluous kernel, then $f$ and $f^{-1}$ shows a $1:1$ correspondence of maximal submodules of $M$ and $N$. The rest is clear. We show such corrrespondence:</p>
+    <ul>
+      <li>If $Y ⊆ N$ is maximal, then $f^{-1}(Y) ⊆ M$ is proper. Assume $f^{-1}(Y)$ is not maximal, then there is $x ∉ f^{-1}(Y)$ s.t. $(x) + f^{-1}(Y)$ is proper. Since $Y$ is maximal, $f^{-1}f((x) + f^{-1}(Y)) = f^{-1}(N) = M$. Note that $f^{-1}f((x) + f^{-1}(Y)) = (x) + f^{-1}(Y) + \ker f ≠ M$, a contradiction.</li>
+      <li>If $X ⊆ M$ is maximal, then $f(X)$ is proper as $\ker f ⊆ X$. Assume $f(X)$ is not maximal, then there is $y ∉ f(X)$ s.t. $(y) + f(X)$ is proper. We take $x ∈ f^{-1}(y)$. Note that $x ∉ X$ and $(x) + X$ is proper, a contradiction.</li>
+    </ul>
+    <p>(3). When there is $f : M ↠ N$, we see $\frac{M}{J(M)} ↠ \frac{N}{J(N)}$ by cokernel. Conversely, if $\frac{M}{J(M)} ↠ \frac{N}{J(N)}$, then $f(M) + J(N) = N$. Since $J(N) ⊆ J$ is superfluous, we obtain $f(M) = N$. <br /> (4). If $\frac{M}{J(M)}$ has a superfluous submodule $\frac{X}{J(M)}$, then $X ⊆ M$ is superfluous. We must have $X = J(M)$. <br /> (5). $J(X_∙ ) ⊆ J(∐ (X_∙ ))$ shows $∐ J(X_∙ ) ⊆ J(∐ X_∙ )$. Conversely, for any maximal submodule $X_i' ⊆ X_i$, $X_i' ⊕ ∐ _{≠ i}X_∙$ is a maximal submodule of $∐ X_∙$. Hence $∐ J(X_∙ )$ is an intersection of some maximal submodules of $∐ X_∙$. We obtain $J(∐ X_∙ ) ⊆ ∐ J(X_∙ )$. <br /> (6). By previous analysis, $J(M) = 0$ if $M$ is a submodule of a product of simple modules. Conversely, if $J(M) = 0$, then any non-zero element $x ∈ M$ survives in some $M → S$. Let $S$ be the product of all simple modules, then there is monomorphism</p>
+    <p>$$\begin{equation}
+φ ∈ (M, ∏ _{(M,S)} S) ≃ ∏_{(M,S)}(M,S) ∋ 1_{(M,S)}.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>By analysis on summands and $∐$, one has $J(P) = PJ(R)$ for $P$ projective.</p>
+</div>
+
+<div class="proposition">
+  <p>In general, $J (∏ M_∙ ) ⊆ ∏ J(M_∙ )$. The equality may fails.</p>
+  <div class="proof">
+    <p>Recall that</p>
+    <p>$$\begin{equation}
+J (∏ M_∙ ) = ⋂ \text{some maximal submod} ⊆ ⋂ \text{all maximal submod} = ∏ J(M_∙ ).
+\end{equation}$$</p>
+    <p>A non-exmaple takes over $R := k[x_1, x_2, \ldots ]$. The radical is the unique maximal ideal $𝔪$. Note that</p>
+    <p>$$\begin{equation}
+(x_i)_{i ∈ ℕ} ∈ ∏_ℕ J(R) ⊇ J(∏_ℕ R) = 𝔪 ∏_ℕ R.
+\end{equation}$$</p>
+    <p>The equality fails.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>In general, $J$ fails to be neither left nor right exact. It fails to preserves filtered colimits neither.</p>
+  <div class="proof">
+    <p>Note that for $θ : ℤ ↪ ℚ ↠ ℚ / ℤ$, ses in $𝐀𝐛$, $J(θ)$ fails to be exact at $ℚ$. Consider $ℚ = \varinjlim ^{fil}_{\text{congruence}}ℤ$, the equality fails when taking $J(-)$ on both sides.</p>
+  </div>
+</div>
+
+<h4 id="jacobson-radical-vs-nilpotents">Jacobson Radical v.s. Nilpotents</h4>
+
+<div class="example">
+  <p>(On descending chain). Let $R = \mathrm{End}(ℝ^{(ω)})$, then $J(R)$ consisting of finite rank operators is a unique two-sided ideal. Note that $J(R)^2 = J(R) ≠ 0$.</p>
+</div>
+
+<div class="theorem">
+  <p>Artinian rings have nilpotent Jacobson radical.</p>
+  <div class="proof">
+    <p>Let $R$ be Artinian. There is a descending chain $J(R) ⊇ J(R)^2 ⊇ \cdots$ which stabilises at some $n$. We show $J^n(R) = 0$. By Artinian, there is some minimal non-zero ideal $I$ s.t. $J^n(R) ⋅ I ≠ 0$. Clearly, $J^n (R) ⋅ I = I$ and $I = (x)$ is principal. We take $r ∈ J^n (R)$ s.t. $rx = x$. Since $(1-r) x = 0$, we see $x = 0$, a contradiction!</p>
+  </div>
+</div>
+
+<p>Corollary, $J(R)$ consisting of nilpotent elements for any Artinian ring $R$.</p>
+
+<p>Clearly, any nilpotent element belongs to Jacobson radical.</p>
+
+<div class="example">
+  <p>The Jacobson radical may contains no nilpotent elements. For instance, note that the units in formal power series ring $R[[x]]$ are precisely those with unital constant terms. Hence $J(R[[x]]) = (x) + J(R)$.</p>
+</div>
+
+<p>In the rest of the subsection, we assume $R$ is an algebra over the field $k$.</p>
+
+<p>The following lemma characterises nilpotent elements in $J(R)$.</p>
+
+<div class="theorem">
+  <p>For $x ∈ J(R)$, $x$ is nilpotent <strong>iff</strong> $x$ is algebraic over $k$, i.e., there is some $p(t) ∈ k[t] ∖ \{0\}$ s.t. $p(x) = 0$.</p>
+  <div class="proof">
+    <p>A nilpotent element is annihilated by some polynomial $t^n$. Conversely, we take monic polymonial $p$ s.t. $p(x) = 0$ and assume $p$ is not monic. Assume the least term in $p(x)$ has degree $k$, then $(x^k) ⋅ (x) = (x^k)$. By Nakayama lemma, $x^k = 0$.</p>
+  </div>
+</div>
+
+<p>The following theorem is due to Amitsur.</p>
+
+<div class="theorem">
+  <p>If $\dim R < |k|$. Then $J(R)$ consists of nilpotent elements.</p>
+  <div class="proof">
+    <p>We show any $x ∈ J(R)$ is nilpotent (= algebraic). Note that the collection $\{(λ - x)^{-1} : λ ∈ (k ∖ \{0\})\}$ is linearly dependent, as $\dim R < |k|$. Clearing the denominators in a vanishing linear combination, we see $x$ is algebraic.</p>
+  </div>
+</div>
+
+<h4 id="propositions">Propositions</h4>
+
+<p>We show some computations.</p>
+
+<div class="proposition">
+  <p>For $I ⊆ J(R)$, we have $J(R/I) = J(R) / I$.</p>
+  <div class="proof">
+    <p>$J(R / I)$ is the intersection of all maximal ideals of $R / I$. Since $I$ is contained in all maximal ideals of $R$, the maximal ideals of $R / I$ are in $1:1$ correspondence with those of $R$ containing $I$. Hence</p>
+    <p>$$\begin{equation}
+J(R / I) = \bigcap _{𝔪 ⊇ I} 𝔪 / I = (\bigcap _{𝔪 ⊇ I} 𝔪) / I = J(R) / I.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>Corollary, we have the following theorem:</p>
+
+<div class="theorem">
+  <p>$J(R / J(R)) = 0$.</p>
+</div>
+
+<h3 id="vnr">VNR</h3>
+
+<p>To show the differences between semisimple rings and those satisfies $J(R)= 0$, we introduce von Neumann regular rings (vNR rings) which lay between</p>
+
+<ul>
+  <li>semisimple rings $>$ <a href="25SumLec3#example-vnr-rings">vNR rings</a> $>$ rings with $0$ Jacobson radical.</li>
+</ul>
+
+<p>Note that being semisimple/vNR/$J(R) = 0$ is two-sided, and Morita invariant.</p>
+
+<h4 id="semisimple-rings">Semisimple Rings</h4>
+
+<p>Wedderburn-Artin theorem characterises semisimple rings.</p>
+
+<div class="theorem">
+  <p>$R$ is semisimple <strong>iff</strong> the following equivalent conditions hold:</p>
+  <ol>
+    <li>$R$ is a finite product of simple Artinian rings (= matrix over division rings);</li>
+    <li>$R$ is Artinian and $J(R) = 0$;</li>
+    <li>$R$ is a left (or right) semisimple module;</li>
+    <li>$𝐌𝐨𝐝 = 𝐏𝐫𝐨𝐣$, i.e., every left (or right) module is projective;</li>
+    <li>$𝐦𝐨𝐝 _R$ is a semisimple category;</li>
+    <li>…</li>
+  </ol>
+  <div class="proof">
+    <p>Well-known.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Being semisimple is Morita invariant.</p>
+  <div class="proof">
+    <p>For any matrix ring $M_n (R)$, one has $𝐦𝐨𝐝 _{M_n (R)} = 𝐦𝐨𝐝 _{R}$. Note that $R$ is semisimple iff $𝐦𝐨𝐝 _R$ is semisimple category.</p>
+  </div>
+</div>
+
+<h4 id="definition-of-vnr-rings">Definition of vNR Rings</h4>
+
+<div class="theorem">
+  <p>The followings are equivalent definition for $R$ to be a vNR ring. The first definition shows being vNR is a <strong>symmetric property</strong>. We proof for right modules only.</p>
+  <ol>
+    <li>$𝐅𝐥𝐚𝐭 = 𝐌𝐨𝐝$, i.e., all modules are flat.</li>
+    <li>All f.g. ideals are projective.</li>
+    <li>$𝐩𝐫𝐨𝐣 = 𝐦𝐨𝐝$, i.e., finitely presented modules are projective.</li>
+    <li>(von Neumann’s original definition). For any $x ∈ R$, there exists some $y ∈ R$ s.t. $xyx=x$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 ↔ 3) is due to compact-$\varinjlim^{fil}$ argument. (1 → 2) is clear. We show (2 → 3). Note that the identity $𝐩𝐫𝐨𝐣 = 𝐦𝐨𝐝$ is Morita invariant, and every $M ∈ 𝐦𝐨𝐝 _R$ is the quotient ring of some $M_n (R)$ by a f.g. ideal. <br /> (2 → 4). Any principal ideal $(x)$ is generated by an idempotent element $e$. We write $x = ez$ and $e = xy$. Now</p>
+    <p>$$\begin{equation}
+x = ez = e(ez) = xyx.
+\end{equation}$$</p>
+    <p>(4 → 2). Clearly, principal ideals are projective. By induction, it suffices to show that any $2$-generated ideal $(x,y)$ is principal. We assume</p>
+    <ul>
+      <li>$x^2 = x$, since $(x)$ is projective;</li>
+      <li>$xy = 0$, since $(x,y) = (x, (1-x)y)$.</li>
+    </ul>
+    <p>We take $\overline y$ s.t. $y \overline y y = y$, and consider the idempotent element</p>
+    <p>$$\begin{equation}
+e := y \overline y (1-x) ,\quad e^2 = e.
+\end{equation}$$</p>
+    <p>We show $(e + x) = (x,y)$. $e,x ∈ (x,y)$ is clear. Conversely,</p>
+    <ul>
+      <li>$y = (e+x) y = ey = y \overline y y = y$, and</li>
+      <li>$x = (e+x)x = ex + x = 0 + x = x$.</li>
+    </ul>
+  </div>
+</div>
+
+<p>Corollary,</p>
+
+<div class="theorem">
+  <p>Being vNR is two-sided and Morita invariant.</p>
+  <div class="proof">
+    <p>The final definition is two-sided. The identity $𝐩𝐫𝐨𝐣 = 𝐦𝐨𝐝$ is Morita invariant.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Another symmetric (by rarely used) definition of vNR is that $I ∩ J = IJ$ for any right ideal $I$ and left ideal $J$.</p>
+  <div class="proof">
+    <p>Clearly $I ∩ J ⊇ IJ$. For any $x ∈ I ∩ J$, there is some $y ∈ R$ s.t. $xyx = x$. Now $x ∈ I$ and $yx ∈ J$. Hence $x = (x)(yx) ∈ IJ$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$J(R) = 0$ when $R$ is vNR.</p>
+  <div class="proof">
+    <p>For any $x ∈ J(R)$, we take $y$ s.t. $xyx = x$. Now $1 - xy$ is not a unit, a contradiciton.</p>
+  </div>
+</div>
+
+<p>Hence a vNR has no nilpotent elements.</p>
+
+<div class="theorem">
+  <p>The prime ideals coincides maximal ideals in a vNR ring.</p>
+  <div class="proof">
+    <p>Suppose $R / I$ has no non-zero divisor. For $[x] ∈ R / I$, there is some $y$ s.t. $[x][y][x] = [x]$. Hence $[y]$ is a two-sided inverse of $[x]$ when $[x] ≠ 0$. Hence $R / I$ is a division ring.</p>
+  </div>
+</div>
+
+<p>$$\begin{equation}
+\boxed{\text{Flat = Mod, and prime ideals = maximal ideals over vNR rings!}}
+\end{equation}$$</p>
+
+<h4 id="examples-of-vnr-rings">Examples of VNR Rings</h4>
+
+<p>Semisimple rings are special vNR rings.</p>
+
+<div class="theorem">
+  <p>Semisimple rings = left or right Noetherian vNR rings.</p>
+  <div class="proof">
+    <p>Semisimple rings are Noetherian and vNR. Conversely, any ideal in a Noetherian vNR ring is projective, thus the ring is semisimple.</p>
+  </div>
+</div>
+
+<p>The following example shows that vNR rings somehow generalise semisimple rings.</p>
+
+<div class="example">
+  <p>Let $M$ be any semisimple module. Then $\mathrm{End} _R (M)$ is a vNR ring.</p>
+  <div class="proof">
+    <p>For $f ∈ \mathrm{End} _R (M)$, one has $M = K ⊕ f(M)$. We define</p>
+    <p>$$\begin{equation}
+g : K ⊕ f(M) → K ⊕ f(M),\quad (a,f(m)) ↦ (0, f(m)).
+\end{equation}$$</p>
+    <p>Hence $fgf = g$.</p>
+  </div>
+  <p>In particular, $\mathrm{End} _R (M)$ is semisimple <strong>iff</strong> $M$ has finite length.</p>
+  <div class="proof">
+    <p>$J(\mathrm{End} _R (M)) = 0$ as it is vNR. $\mathrm{End} _R (M)$ is Artinian <strong>iff</strong> $M$ has finite length.</p>
+  </div>
+  <p>Taking $R = k$ (a field) and $M = k^{(ω)}$, the endomorphism ring has a non-trivial right ideal consisting of finite rank operators. This shows</p>
+  <ul>
+    <li>The Jacobson radical is not an intersection of maximal two-sided ideals, as the above ideal is the unique non-zero two-sided ideal;</li>
+    <li>There exists some f.g. flat module which is not projective.</li>
+  </ul>
+</div>
+
+<h4 id="example-banach-algebras">Example: Banach Algebras</h4>
+
+<div class="definition">
+  <p>((Semi-)primitive ring). A ring $R$ is semi-primitive if $J(R) = 0$. Another definition for $R$ to be (semi-)primitive is that $\mathrm{ann}(M) = 0$ for some (semi-)simple module $M$.</p>
+</div>
+
+<p>It remains to show the differences between vNR rings and rings with semi-simple ones.</p>
+
+<div class="theorem">
+  <p>(For Banach spaces). Let $X$ be a real or complex Banach space. Let $\mathcal{B}(X)$ denote the endomorphism ring consisting of bounded linear operators. Then $J(\mathcal{B}(X)) = 0$, whereas $\mathcal{B}(X)$ is not vNR for most $X$.</p>
+  <div class="proof">
+    <p>By Hahn-Banach theorem, for any $x,y ∈ (X ∖ 0)$ there is $φ ∈ \mathcal{B}(X)$ mapping $x$ to $y$. The $\mathcal{B}(X)$-module $X$ is generated by any non-zero element, thus it is simple. By definition, $\mathrm{ann}(X) = 0$. Hence $J(\mathcal{B}(X)) = 0$. <br /> The ring $\mathcal{B}(X)$ is not vNR for most $X$. When $\mathcal{B}(X)$ is vNR, then all $T$ has a generalized inverse $S$ s.t. $TST = T$. Note that $\mathrm{Range}(T) = \mathrm{Range}(TS) = \ker (I - TS)$ is a closed subspace. However, not all continuous operators have closed range.</p>
+  </div>
+</div>
+
+<!-- #### Example: Group Rings
+
+<div class='theorem'><p>Connell’s <a href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/29E2EC3F9179FB3C6225A26EC88CBB77/S0008414X00029849a.pdf/on-the-group-ring.pdf?utm_source=chatgpt.com">well-known theorem</a> shows that $R [G]$ is artinian <strong>iff</strong> $R$ is artinian and $G$ is finite.</p>
+
+<div class="proof">
+  <p>We omit the proof. A key step is to show that if $R$ is artinian and $|G| = ∞$, then there is an infinite descending chain of ideals. We take $I_1 := \ker (\text{evaluation} : R[G] ↠ R)$ and $I_{k} := I_1^k$.</p>
+</div>
+</div>
+
+We discuss the Jacobson radical of group rings.
+
+<div class='theorem'><p>Let $k$ be a field and $G$ a group. Suppose</p>
+
+<p>$$\begin{equation}
+\sup_{G \ \text{ is a f.g. subgroup}} |G| < |k|,
+\end{equation}$$</p>
+
+<p>then $J(k[G]) = 0$.</p>
+
+<div class="proof">
+  <p>For any $r ∈ J(k[G])$, there is a f.g. subgroup $H$ s.t. $r ∈ k[H]$. By Amitsur’s theorem, $r ∈ J()$</p>
+</div>
+</div>
+
+In particular,
+
+1. if $\mathrm{char}(k) = 0$ and $G$ is locally finite, then $J(k[G]) = 0$;
+2. if $k$ is uncountable, then $J(k[G]) = 0$ for any group $G$. -->
+
+<h3 id="semi-local-rings">(Semi-)Local Rings</h3>
+
+<p>Recall that $J(R) + 1 ⊆ \text{Units}$. A local ring is precisely a ring s.t. $R = J(R) ⊔ \text{Units}$.</p>
+
+<h4 id="local-rings">Local Rings</h4>
+
+<div class="definition">
+  <p>(Division rings, simple rings). A division ring $R$ has a unique maximal left or right ideal $0$. A simple ring $R$ has a unique maximal two-sided ideal $0$.</p>
+</div>
+
+<div class="example">
+  <p>Division rings are simple; $M_2 (ℂ)$ is simple but not a division ring.</p>
+</div>
+
+<p>Now we equivalent definitions of local rings.</p>
+
+<div class="definition">
+  <p>(Local rings). The following are equivalent definitions for $R$ to be local.</p>
+  <ol>
+    <li>Definitions by non-units:       <ol>
+        <li>$R = J(R) ⊔ \text{Units}$;</li>
+        <li>$R ∖ \text{Units}$ is an ideal;</li>
+        <li>$R ∖ \text{Units}$ is an additive group;</li>
+        <li>$x + y ∈ \text{Units}$ iff $x$ or $y$ is a unit;</li>
+        <li>for any $x$, either $x$ or $1-x$ is a unit.</li>
+      </ol>
+    </li>
+    <li>Definitions by maximal ideals:       <ol>
+        <li>$R$ has a unique maximal left ideal;</li>
+        <li>$R$ has a unique maximal right ideal.</li>
+      </ol>
+    </li>
+    <li>$R / J(R)$ is a field.</li>
+  </ol>
+  <div class="proof">
+    <p>Clearly (1.1 → 1.2 → 1.3 → 1.4 ↔ 1.5). <br /> (2.2 → 1.1). If $J(R)$ is the unique maximal right ideal, then $x ∈ (R ∖ J(R))$ contains in no maximal ideal. Hence $x$ is a unit. <br /> (3 ↔ 2.1 ↔ 2.2). $J(R)$ is a maximal right ideal iff the maximal right ideal is unique. Since $J$ commutes with $(-)^{\mathrm{op}}$, $(R/J(R))_R$ is a field iff $(R/J(R))_{R^{\mathrm{op}}}$ is a field. <br /> (1.4 → 3). It suffices show the maximal right ideal is unique. Since all non-units is closed under addition and multiplications, it is an ideal. Such ideal contains all maximal right ideals, hence it is the unique maximal right ideal.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>A local ring has a unique two-sided ideal and only trivial idempotents. The converse is not true.</p>
+  <ol>
+    <li>The vNR ring $\mathrm{End}(ℝ ^{(ω )})$ has a unique maximal two-sided ideal consisting of finite rank operators, but it is not local.</li>
+    <li>The ring $ℤ$ has only trivial idempotents, it is not local neither.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(Artinian case). A right Artinian ring is local iff the idempotents are $\{0,1\}$.</p>
+  <div class="proof">
+    <p>The local ring has idempotent $\{0,1\}$. Conversely,</p>
+  </div>
+</div>
+
+<p>Corollary, a left Artinian local ring is right Artinian.</p>
+
+<h4 id="semi-local-rings-1">Semi-local Rings</h4>
+
+<div class="definition">
+  <p>(Generated and cogenerated). Say $M$ is finitely generated iff the following equivalent definitions hold:</p>
+  <ol>
+    <li>for any sum of submodules $M = ∑ M_∙$, there a finite sub-sum $M = ∑ _{i=1}^n M_i$;</li>
+    <li>any surjection $∐ M_∙ ↠ M$, factors through a finite sub-coproduct $∐ _{i=1}^n M_i ↠ M$;</li>
+    <li>any transfinite limit of inclusion of proper submodules is proper;</li>
+    <li>for any cogenerator $E$ (e.g. $(_RR)^+$), there is an injection $M ↪ E^n$ for some $n$.</li>
+  </ol>
+  <p>Dually, $M$ is finitely cogenerated iff the following equivalent definitions hold:</p>
+  <ol>
+    <li>for any intersection of submodules $0 = ⋂ M_∙$, there a finite sub-intersection $0 = ⋂ _{i=1}^n M_i$;</li>
+    <li>any injection $M ↪ ∏ M_∙$, factors through a finite subproduct $M ↪ ∏ _{i=1}^n M_i$;</li>
+    <li>any transfinite colimit of inclusion of proper submodules is non-zero;</li>
+    <li>for any generator $Q$ (e.g. $R_R$), there is a surjection $Q^n ↠ M$ for some $n$.</li>
+  </ol>
+</div>
+
+<div class="definition">
+  <p>(Semi-local rings). The following are equivalent for $R$ to be semi-local:</p>
+  <ol>
+    <li>$\frac{R}{J(R)}$ is semisimple;</li>
+    <li>$\frac{R}{J(R)}$ is right Artinian;</li>
+    <li>$\frac{R}{J(R)}$ is finitely cogenerated;</li>
+    <li>right semi-simple modules over $R$ are closed under $∏$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). By Wedderburn-Artin theorem. <br /> (2 → 3). For $M ↪ ∏ M_∙$, we identify $M$ as a submodule of $∏ M_∙$. If this product never factors through a finite subproduct, then we obtain an infinite descending chain of submodules of $M$ by projection to finite subproducts. A contradiction! <br /> (3 → 2). Since $J(\frac{R}{J(R)}) = 0$, for any $\frac{R}{J(R)}$-module $M$, $⋂ _{f : M → \text{simple}} \ker f = 0$. Hence the product of simple modules is a cogenerator. By assumption, $\frac{R}{J(R)}$ is a submodule of finite product of simple modules, it is right Artinian. <br /> (1 → 4). The product of semi-simple modules is a module over $\frac{R}{J(R)}$, hence it is semi-simple as both an $\frac{R}{J(R)}$ module and an $R$ module. <br /> (4 → 1). By analysis of (3 → 2), we see $\frac{R}{J(R)}$ is a submodule of a product of simple modules, hence it is semi-simple.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Local rings and Artinian rings are semi-local.</p>
+</div>
+
+<p>Note that for $R = M_n(ℂ)$, $R / J(R)$ is simple but not a division ring. $R$ is semi-local but not local.</p>
+
+<div class="proposition">
+  <p>Being semi-local is two-sides and Morita invariant.</p>
+</div>
+
+<div class="proposition">
+  <p>Being semi-local is preserved by taking quotients and finite products.</p>
+  <div class="proof">
+    <p>For $I ⊆ R$, one has $\frac{R}{J(R)} ↠ \frac{R/I}{J(R/I)}$. If $\frac{R}{J(R)}$ is semisimple, then $\frac{R/I}{J(R/I)}$ is also semisimple. For finite products, note that $\frac{∐ R_i}{J(∐ R_i)} = ∐ \frac{R_i}{J(R_i)}$.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>A ring with finitely many maximal right ideals is semi-local. The converse holds for commutative rings.</p>
+  <div class="proof">
+    <p>Note that $R' := R / J(R)$ has finitely many maximal right ideals with intersection $0$. Hence $R' ↪ ∐ _{i=1}^n 𝔪 _i$, yielding that $R'$ is semi-simple. Consequently $R$ is semi-local. <br /> Conversely (for the case $R'$ is commutative), $R'$ is a product of finitely many fields, thus $R$ has finitely many maximal ideals.</p>
+  </div>
+</div>
+
+<h3 id="more">More</h3>
+
+<p>A division ring is precisely $R / J(R)$ where $R$ is local.</p>
+
+<p>A semisimple ring is precisely $R / J(R)$ where $R$ is left (or right) Artinian (or semi-local).</p>
+
+<p>There is <a href="https://arxiv.org/pdf/1004.0562">few study</a> on the ring $R$ with $R / J(R)$ being vNR.</p>
+
+<p>A semi-primitive ring is precisely $R / J(R)$ where $R$ is arbitrary ring.</p>
+
+<h2 id="semi-perfect-rings">(Semi-)Perfect Rings</h2>
+
+<p>This is another radical-based topic related to projective cover.</p>
+
+<h3 id="on-idempotents">On Idempotents</h3>
+
+<h4 id="definitions">Definitions</h4>
+
+<div class="definition">
+  <p>(Idempotents). Let $e ∈ R$. Say $e$ is idempotent if $e^2 = e$. Moreover,</p>
+  <ol>
+    <li>$e$ is central idempotent if $er = re$ for all $r ∈ R$;</li>
+    <li>$e$ is primitive idempotent if $Re$ is indecomposable;</li>
+    <li>(stronger than 2.) $e$ is local idempotent if $eRe$ is a local ring;</li>
+    <li>(stronger than 3.) $e$ is (right) irreducible idempotent if $eR$ is a minimal (right) ideal.</li>
+  </ol>
+</div>
+
+<div class="proposition">
+  <p>TFAE for defining primitive idempotents:</p>
+  <ol>
+    <li>there are no idempotents $e_1$ and $e_2$ s.t. $e_1 e_2 = 0 = e_2 e_1$ and $e = e_1 + e_2$;</li>
+    <li>$eR$ is indecomposable, or equivalently, $Re$ is indecomposable;</li>
+    <li>the idempotents in $eRe$ are $0$ and the unit $e$.</li>
+  </ol>
+  <div class="proof">
+    <p>Clear. Note that $\mathrm{End}_R(eR) ≃ eRe$ as Abelian groups.</p>
+  </div>
+</div>
+
+<p>For idempotent $e$, $eRe$ is the <em>corner part</em> of the endomorphism matrix $\mathrm{End}_R(eR ⊕ (1-e)R)$.</p>
+
+<h4 id="the-ring-mathjax_protectedjgvszsqmathjax_protected">The Ring $eRe$</h4>
+
+<p>A split monomorphism is related to pure embedding.</p>
+
+<div class="theorem">
+  <p>The homomorphism of rings $eRe ↪ R$ has the following property, for any right ideal $I ⊆ eRe$, $(I R) ∩ eRe = I$.</p>
+  <div class="proof">
+    <p>Note that $I = Ie ⊇ IRe ∩ eRee = I ∩ eRe = I$. Hence the equality holds.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$J(eRe) = eJ(R)e$ for any idempotent $e ∈ R$.</p>
+  <div class="proof">
+    <p>Note that</p>
+    <p>$$\begin{equation}
+J(eRe) = ⋂_{𝔪 ⊆ eRe} 𝔪 = eRe ∩ ⋂_{𝔪 ⊆ eRe} 𝔪R ⊆ eRe ∩ J(R) ⊆ eJ(R)e.
+\end{equation}$$</p>
+    <p>Conversely, for any $x ∈ J(R)$, we show $exe ∈ J(eRe)$. Note that any $e - exeeye = e(1-x(eye))$. We take $z$ s.t. $(1-xeye)z$ is a unit. Now $e - exeeye$ has right inverse $eze$.</p>
+  </div>
+</div>
+
+<p>We show some additive properties of Jacobson radical:</p>
+
+<p>$$\begin{equation}
+\boxed {\text{Jacobson radical commutes with corner rings, products, and matrix rings!}}
+\end{equation}$$</p>
+
+<h4 id="idempotents-in-mathjax_protectedjfiglybkjamathjax_protected">Idempotents in $R / J$</h4>
+
+<p>We take $R ↠ R/J =: R,\quad x ↦ x'$. Recall that</p>
+
+<div class="definition">
+  <p>(Idempotents). Let $e ∈ R$. Say $e$ is idempotent if $e^2 = e$. Moreover,</p>
+  <ol>
+    <li>$e$ is central idempotent if $er = re$ for all $r ∈ R$;</li>
+    <li>$e$ is primitive idempotent if $Re$ is indecomposable;</li>
+    <li>(stronger than 2.) $e$ is local idempotent if $eRe$ is a local ring;</li>
+    <li>(stronger than 3.) $e$ is (right) irreducible idempotent if $eR$ is a minimal (=simple) (right) ideal.</li>
+  </ol>
+</div>
+
+<p>We show some property of $e ↦ e'$.</p>
+
+<div class="theorem">
+  <p>$e$ is local iff $e'$ is right irreducible.</p>
+  <div class="proof">
+    <p>We take the homomorphism of $eRe$-bimodules, and obtain</p>
+    <p>$$\begin{equation}
+eRe ↠ e' R' e',\quad exe ↦ e'x'e'.
+\end{equation}$$</p>
+    <p>The kernel is $eJ(R)e = J(eRe)$. Hence $eRe / J(eRe) ≃ e' R' e'$. The ring $eRe$ is local <strong>iff</strong> $e' R' e'$ is a division ring. We show $e' R' e'$ is a division ring <strong>iff</strong> $e' R'$ is a minimal (=simple) right ideal.</p>
+    <ol>
+      <li>When $e'R'$ is simple, then $e'R'e'$ is a division ring by Schur’s lemma.</li>
+      <li>When $e'R'e'$ is a division ring, we show $e'R'$ is a simple right $R'$-module, i.e., $e'R'$ is cyclicly generated by arbitrary non-zero element $e'r'$. Note that $e's' = e'r'e (e'r'e')^{-1}(e's')$.</li>
+    </ol>
+  </div>
+</div>
+
+<p>Corollary, $e' ∈ R/J$ is right irreducible <strong>iff</strong> it is left irreducible.</p>
+
+<div class="proposition">
+  <p>Note that $e'R' = \frac{eR}{eJ}$. Equivalently, $e$ is local idempotent iff $eJ$ is the unique maximal submodule of $eR$.</p>
+  <div class="proof">
+    <p>When $eJ$ is the unique maximal submodule of $eR$, then $e'R' ≃ \frac{eR}{eJ}$ is simple. Conversely, suppose $e'R'$ is simple, and there is some ideal $I$ s.t. $I \not⊆ eJ$. Then $0 ≠ \frac{I + eJ}{eJ} ⊆ e'R'$. Hence $I + eJ = eR$. By Nakayama lemma, $I = eR$, a contradiction.</p>
+  </div>
+  <p>This shows the $\text{local} ↔ \text{division}$, $R ↔ R/J$ correspondence.</p>
+</div>
+
+<h3 id="endomorphism-ring">Endomorphism Ring</h3>
+
+<h4 id="finite-length-modules">Finite Length Modules</h4>
+
+<div class="definition">
+  <p>(Finite length module). Finite length modules are precisely the finite filtration of simple modules.</p>
+</div>
+
+<div class="proposition">
+  <p>Note that:</p>
+  <ol>
+    <li>The category of finite length modules are closed under extensions, subobjects and quotient objects, which forms a Serre subcategory;</li>
+    <li>Finite length modules are Artinian, Noetherian, and finitely generated (not necessary finitely presented, e.g., $k ↪ k[x_{≥ 1}]$);</li>
+    <li>Finite length modules over $𝐌𝐨𝐝 _{R}$ are precisely those over $𝐌𝐨𝐝 _{R/J(R)}$ (for $P$ semisimple, $PJ(R) = 0$).</li>
+  </ol>
+  <p>In particular, f.g. modules over an Artinian ring are precisely the finite length modules.</p>
+</div>
+
+<p>The following theorem defines the length function.</p>
+
+<div class="theorem">
+  <p>(Jordan-Hölder). Any two composition series of a finite length module have the same length and the same simple factors (up to permutation and isomorphism). In short, the simple factors are unique.</p>
+  <div class="proof">
+    <p>Let $0 = X_0 ⊆ \cdots ⊆ X_m = M$ and $0 ⊆ Y_0 ⊆ \cdots ⊆ Y_n = M$ be two composition series. By Zassenhaus lemma, we define</p>
+    <p>$$\begin{equation}
+M_{i,j}^→ := \frac{X_{i+1} ∩ (Y_{j+1} + X_i)}{X_{i+1} ∩ (Y_j + X_i)} ≃ \frac{Y_{j+1} ∩ (X_{i+1} + Y_j)}{Y_{j+1} ∩ (X_i + Y_j)} =: M_{i,j}^↓.
+\end{equation}$$</p>
+    <p>The tessellation $(M_{i,j})$ has precisely one simple factor in each row and column. Hence $m = n$ and the simple factors are the same.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>The theorem fails for non-finite length modules. We show an example where the indecomposable definitions existes but not unique. Note that the coordinate ring of a nonsingular (smooth), geometrically integral affine curve, hence $\frac{ℝ [X,Y]}{(X^2 + Y^2 - 1)}$ is a Dedekind domain (the ideal class group is infact $ℤ/2ℤ$). The maximal ideal $I = (X-1, Y)$ is not principal, but $I^2 = (X-1)$ is principal. We obtain two distinct decompositions into indecomposable modules:</p>
+  <p>$$\begin{equation}
+I ⊕ I ≃ R ⊕ I^2 ≃ R ⊕ R.
+\end{equation}$$</p>
+</div>
+
+<p>This defined a length function.</p>
+
+<div class="definition">
+  <p>(Length functor). We define the assignment $ℓ(M) ∈ ℕ^{\text{Simple Modules}}$, where $(ℓ (M))_{S}$ denote the number of $S$ in the composition series of $M$.</p>
+</div>
+
+<div class="proposition">
+  <p>$ℓ$ is compatible with ses, i.e., $ℓ (\frac{M}{L}) = ℓ (M) - ℓ (L)$.</p>
+</div>
+
+<div class="theorem">
+  <p>(Fitting). An endomorphism of a finite length module, $f ∈ \mathrm{End}(M)$, yields a decomposition $M = \ker(f^n) ⊕ \mathrm{im}(f^n)$ such that $f$ has a matrix form $\binom{0 \ 0}{0 \ 1}$.</p>
+  <div class="proof">
+    <p>Note that $\{\ker (f^n)\}_{n ≥ 1}$ stables at some $n$. We show $\ker f^n ∩ \operatorname{im} f^n = 0$.</p>
+    <ul>
+      <li>Suppose $x = f^n (y) ∈ \ker f^n ∩ \operatorname{im} f^n$. Then $y ∈ \ker f^{2n} = \ker f^n$. Hence $x = f^n (y) = 0$.</li>
+    </ul>
+    <p>We also show that $\ker f^n + \operatorname{im} f^n = M$.</p>
+    <ul>
+      <li>For any $x ∈ M$, there is $y$ s.t. $f^{2n}(y) = f^n (x)$. Now $x = (x-f^n(y)) + f^n (y)$ is the desired decomposition.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(KS). Any finite length module is a finite direct sum of indecomposable modules. Moreover, the indecomposable decomposition is unique up to permutation and isomorphism.</p>
+  <div class="proof">
+    <p>By finite length, any direct sum decomposition lies in a maximal one. For any two maximal decompositions $M = ∐ _i X_i = ∐_j Y_j$. We show $X_1 ≃ Y_j$ for some $j$. We define $x_i : M \overset {π_i} ↠ X_i \overset {ι _i} ↪ M$ and $y_j$ (similarly). Note that all $x_i$ and $y_j$ are idempotents. Since $x_1 ∑ y_j = x_1$, there is some $j$ s.t. $x_1 y_j ≠ 0$. Note that $(x_1y_j)|_{Y_j} ∘ (y_jx_1)|_{X_1} ∈ \mathrm{End}(X_1)$ is a non-zero idempotent, hence a unit. We see $X_1$ is a direct summand of $Y_j$. The rest of the proof is clear.</p>
+  </div>
+</div>
+
+<p>Now we consider endomorphism ring of finite length module.</p>
+
+<div class="theorem">
+  <p>Let $M$ be an indecomposable finite length module with $n$ composition factors. Then $\mathrm{End}(M)$ is a local artinian ring where $𝔪^n = 0$ for all maximal ideal. In particular,</p>
+  <p>$$\begin{equation}
+J(\mathrm{End}(M)) = \{f : \operatorname{im}(f) ↪ M \ \text{is superfluous}.\}.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>Fitting lemma shows that non-units in $\mathrm{End}(M)$ are nilpotent. By Nakayama lemma, multiplying a nilpotent strictly decreases the length of a f.g. module. Hence, the multiplication of $n$ nilpotent endomorphisms is $0$. It remains to show $f$ is nilpotent <strong>iff</strong> $f(M)$ is a superfluous submodule.</p>
+    <ul>
+      <li>Suppose $f^n(M) = 0$ for some minimal $n ≥ 1$, and $f(M) + N = M$ for proper submodule $N$. We see $0 ≠ f^{n-1}(M) = f^{n-1}(N)$. Nakayama lemma shows $f^{n-1}(N) = 0$, a contradiction.</li>
+      <li>Suppose $f(M) ⊆ M ≠ 0$ is superfluous, then it is a proper submodule by existence of maximal submodules. Note that the surjection never increase the length, hence there is no $g$ s.t. $gf(M) = M$. We see $f$ is a non-unit, thus nilpotent.</li>
+    </ul>
+  </div>
+  <p>The above indicates $M = M J(R)$. Moreover,</p>
+  <p>$$\begin{equation}
+J(\mathrm{End}(M)) ≃ (M, J(M)) ≃ (J(M), M).
+\end{equation}$$</p>
+</div>
+
+<p>Corollary, the statements holds for any finite length module $M$.</p>
+
+<h4 id="endolocal-modules">Endolocal Modules</h4>
+
+<div class="definition">
+  <p>(Endolocal). A module $M$ is endolocal if $\mathrm{End}(M)$ is a local ring.</p>
+</div>
+
+<div class="example">
+  <p>Indecompsosable modules are endofinite; the converse holds for finite length modules.</p>
+</div>
+
+<div class="example">
+  <p>Any indecomposable injective module $I$ is endolocal. This holds for general Grothendieck categories.</p>
+  <div class="proof">
+    <p>We show non-units $f,g ∈ \mathrm{End}(I)$ sums to a non-unit. By lifting property, $f$ and $g$ are not momic. By essential extension, $\ker f ∩ \ker g ≠ 0$. Hence $(f+g)$ is not a unit. <br /> We take indecomposable injective $I$ in the Grothendieck category. By (strong) generator $G$, $X$ is well-powered as $X → (G,X)$ faithfully maps subobjects to subgroups. To see any $S ↪ I$ is essential, we take $\mathcal{S} := \{T ↪ I ∣ T ∩ S = 0\}$. The AB5 condition $∑ (X_λ ∩ Y) = (∑ X_λ) ∩ Y$ shows that $\mathcal{S}$ has a maximal element $S'$, which satisfies $S' ⊕ S = I$. Hence $S' = 0$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Indecomposable pure injective modules (= indecomposable summand of some character module) are endolocal.</p>
+  <div class="proof">
+    <p>Note that the functor category $(𝐦𝐨𝐝 _R, 𝐀𝐛 )$ from f.p. modules to Abelian groups satisfies AB3 and AB5 conditions. Moreover $∐ _{M ∈ 𝐦𝐨𝐝 _R}(M, -)$ is a generator. Hence $(𝐦𝐨𝐝 _R, 𝐀𝐛)$ is Grothendieck, which has enough injectives. The f.p. compact objects takes the form</p>
+    <p>$$\begin{equation}
+(- ⊗ \operatorname{cok} (_R φ )) = \operatorname{cok} ((φ _R), -)_R \quad (φ \ \text{any morphism of f.g. free modules}).
+\end{equation}$$</p>
+    <p>We show the fully faithful embedding ${}_R𝐌𝐨𝐝 ↪ (𝐦𝐨𝐝 _R, 𝐀𝐛 ), \quad M ↦ \varinjlim {}^{fil} (- ⊗ M_∙)$:</p>
+    <p>$$\begin{aligned}
+& (\varinjlim {}^{fil} (- ⊗ M_∙), \varinjlim {}^{fil} (- ⊗ N_∙)) ≃ \varprojlim {}^{cofil} ( (- ⊗ M_∙), \varinjlim {}^{fil}(- ⊗ N_∙)) \\
+≃ \ & \varprojlim {}^{cofil} ( (M'_∙, -), \varinjlim {}^{fil}(N'_∙, -)) ≃ \varprojlim {}^{cofil} \varinjlim {}^{fil}(N'_∙, M'_∙ )_{𝐦𝐨𝐝 _R} \\
+≃ \ & (\varinjlim {}^{fil} N'_∙, \varinjlim {}^{fil} M'_∙ )_{𝐌𝐨𝐝 _R} ≃ (M, N)_{𝐌𝐨𝐝 _R}.
+\end{aligned}$$</p>
+    <p>We show injectives in $(𝐦𝐨𝐝 _R, 𝐀𝐛 )$ are precisely $- ⊗ E$ where $E$ is pure injective, and vise versa.</p>
+    <ul>
+      <li>
+        <p>Suppose $F ∈ (𝐦𝐨𝐝 _R, 𝐀𝐛 )$ is injective. We show $F$ is right exact:</p>
+        <p>$$\begin{equation}
+  F(\operatorname{cok}φ) ≃ ((\operatorname{cok}φ ,-), F(-)) ≃ \operatorname{cok}((φ ,-), F(-)) ≃ \operatorname{cok} F(φ ).
+  \end{equation}$$</p>
+        <p>Since the right exact functor $- ⊗ F(R) = F(-)$ over f.g. free modules, the coincides in $(𝐦𝐨𝐝 _R, 𝐀𝐛 )$. To see that $F(R)$ is pure injective, we take any pure embedding $i$ ($- ⊗ i$ is functorial monic) and see that</p>
+        <p>$$\begin{equation}
+  (i, F(R))_{_R 𝐌𝐨𝐝 } ≃ (- ⊗ i, - ⊗ F(R)) \ \ \text{is epic}.
+  \end{equation}$$</p>
+      </li>
+      <li>
+        <p>Conversely, when $E ∈ 𝐌𝐨𝐝 _R$ is pure injective. We take any embedding to injective object $ι : - ⊗ E ↪ F$ where $F = - ⊗ F(R)$. Hence, $ι = - ⊗ e$ for some $e : E → F(R)$ by fully faithful embedding. We see $e$ is a pure embedding, thus $E$ is a summand of pure injective module $F(R)$.</p>
+      </li>
+    </ul>
+    <p>Therefore, if $M$ is pure injective, then $- ⊗ M$ is indecomposable injective. By fully faithful embedding,</p>
+    <p>$$\begin{equation}
+\mathrm{End}_R(M) ≃ \mathrm{End}_{(𝐦𝐨𝐝 _R, 𝐀𝐛)}(- ⊗ M) \ \ \text{is endolocal}.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<h4 id="ksra-theorem">KSRA Theorem</h4>
+
+<p>The KS theorem admits a generalisation for modules with infinite length, wherein endolocal modules generalises indecomposable modules with finite length.</p>
+
+<div class="theorem">
+  <p>(Cancellable summands). Let $A ⊕ B = A ⊕ C$ as internal direct sums. Then $B ≃ C$ via the canonical projection.</p>
+  <div class="proof">
+    <p>We take $π : A ⊕ B ↠ C$. Note that $π ((a,b)) = π ((0,b))$. Hence $π |_B$ is epic. If $π ((0,b)) = 0$, then $b ∈ A$. Hence $b = 0$, yields $π |_B$ is also monic. We see $π |_B$ is an isomorphism.</p>
+  </div>
+</div>
+
+<p>This theorem fails for external direct sums, e.g., $ℤ ^{(ω)} ⊕ ℤ ≃  ℤ ^{(ω)} ⊕ 0$.</p>
+
+<div class="example">
+  <p>KS theorem comes form the unique factorisation. The key construction is</p>
+  <ul>
+    <li>For any $M ⊕ N = ∐_{i ∈ I} X_i$, there is a collection of submodules $Y_i ⊆ X_i$ s.t. $M ⊕ N = M ⊕ ∐ Y_i$.</li>
+  </ul>
+  <p>When $I = 1$, we may take $Y = X ∩ N$. Such construction fails even for the case $|I|=2$ when $R$ is a Dedekind domain with complicated ideal class group.</p>
+</div>
+
+<div class="definition">
+  <p>(Exchange property). Say $M$ is $κ$-exchangable if for any decomposition $M ⊕ N = ∐ _{i ∈ I} X_i$ with $|I| = κ$ there is a collection of submodules $Y_i ⊆ X_i$ s.t. $M ⊕ N = M ⊕ ∐ Y_i$.</p>
+  <ul>
+    <li>Here we fixed $M ∐ N$ for arbitrary chosen $N$, and view $M ⊕ N = ∐ _{i ∈ I} X_i$ as internal direct sum.</li>
+    <li>By cancellable property, $N ≃ ∐ Y_i$ via canonial projections.</li>
+  </ul>
+</div>
+
+<p>The exchane property is compatible with the summand of $N$.</p>
+
+<div class="proposition">
+  <p>$Y_i$ are summands of $X_i$ in the above definition.</p>
+  <div class="proof">
+    <p>For each $i$, one has $Y_i ⊆ X_i ⊆ Y_i ⊕ Z_i$ for $Z_i = M ⊕ ∐_{≠ i} Y_j$. We see</p>
+    <ul>
+      <li>$Y_i ∩ (Z_i ∩ X_i) = 0$, and</li>
+      <li>$X_i = (Y_i + Z_i) ∩ X_i = Y_i + (Z_i ∩ X_i)$ by modular law.</li>
+    </ul>
+    <p>Hence $X_i = Y_i ⊕ (Z_i ∩ X_i)$.</p>
+  </div>
+  <p>The decomposition writes</p>
+  <p>$$\begin{equation}
+M ⊕ N = ∐ _I X_i ,\quad X_i = Y_i ⊕ Z_i, \quad N ≃ ∐ _I Y_i ,\quad M ≃ ∐ _I Z_i.
+\end{equation}$$</p>
+</div>
+
+<p>In particular, if $X_i$ happens to be direct summand of $N$, then we have the following refinement.</p>
+
+<div class="proposition">
+  <p>When $M ⊕ N = ∐ _{i ∈ I} X_i$ for $N = X_0 ⊕ L$. Then we can take $Y_0 = X_0$.</p>
+  <div class="proof">
+    <p>Set $J = I ∖ \{0\}$. We have $M ⊕ L ⊕ X_0 = ∐ _J X_∙ ⊕ X_0$. Cancellable property yields $φ : ∐ _J X_∙ ≃ (M ⊕ L)$. Hence</p>
+    <p>$$\begin{equation}
+M ⊕ L \xleftarrow[∼ ]φ ∐ _J X_∙ = φ ^{-1}(M) ⊕ ∐ _J Y_∙ .
+\end{equation}$$</p>
+    <p>Now $M ⊕ L ⊕ X_0 = M ⊕ (∐ _J φ (Y_∙ )) ⊕ X_0$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Being $|I|$-exchangable is closed under finite direct sums.</p>
+  <div class="proof">
+    <p>Let $M$ and $M'$ be $|I|$-exchangable. Suppose $\text{all} = M ⊕ M' ⊕ N = ∐ _I X_∙$. We obtain</p>
+    <p>$$\begin{equation}
+M ⊕ (M'⊕ N) = M ⊕ (∐ _I Y_∙),\quad φ : (M'⊕ N) ≃ ∐ _I Y_∙.
+\end{equation}$$</p>
+    <p>By assumption, $∐ _I Y_∙ = φ (M)' ⊕ ∐ _I Z_∙$. Hence</p>
+    <p>$$\begin{equation}
+M ⊕ M' ⊕ N = (M ⊕ M') ⊕ ∐ _I φ ^{-1}(Z_∙).
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Being $|I|$-exchangable is closed under finite direct summands.</p>
+  <div class="proof">
+    <p>Let $M = M_1 ⊕ M_2$ be $|I|$-exchangable. Suppose $M_1 ⊕ N = ∐ _I X_∙$, then $M ⊕ N = (M_2 ⊕ X_0) ⊕ ∐ _{≠ 0} X_∙$. We take $Y_0 ⊆ (M_2 ⊕ X_0)$ and $Y_{≠ 0} ⊆ X_{≠ 0}$ s.t. $M ⊕ N = M ⊕ ∐ Y_∙$. Let $π : M ⊕ N ↠ M_1 ⊕ N$ be canonical projection. It straightforward to check that $M_1 ⊕ ∐ _I π (Y_∙) = M_1 ⊕ N$.</p>
+  </div>
+</div>
+
+<p>We show a criterion of $|I|$-changable modules on endomorphism rings.</p>
+
+<div class="theorem">
+  <p>$M$ is $|I|$-exchangable iff for any $(f_i)_{|I|} ∈ (M, ∐ M) ⊆ ∏_I \mathrm{End}(M)$ summing up to $1_M$, there are orthogonal idempotents $\{g_i ∘ f_i\}_I$ summing up to $1$.</p>
+  <ul>
+    <li>Note that for each $m$, only finite many $f_i(m)$ are non-zero.</li>
+  </ul>
+  <div class="proof">
+    <p>Suppose $M$ is $|I|$-exchangable. For any given $(f_i)$, there is a retract $M \xrightarrow {(f_∙ )} ∐ _I M \xrightarrow{Σ } M$. We take</p>
+    <p>$$\begin{equation}
+M ⊕ ∐ _I M_∙ ^s = ∐ _I M_∙ ,\quad M_∙ = M_∙ ^s ⊕ M_∙ ^c.
+\end{equation}$$</p>
+    <p>Let $τ : ∐ _I M_∙ ^c ≃ M$ denote the isomorphism by canonical projection. We take</p>
+    <p>$$\begin{equation}
+e_i : M \xrightarrow {(f_∙ )} \underset{\text{induced by } \ τ }{\underbrace{∐ _I M_∙ ↠ M_i ^c ↪ ∐ _I M_∙}} \xrightarrow {Σ } M.
+\end{equation}$$</p>
+    <p>Conversely, suppose there is identity $M ⊕ N = ∐_I X_∙$, we take the composition</p>
+    <p>$$\begin{equation}
+f_i := M ↪ M ⊕ N ↠ X_i ↪ ∐ _I X_∙ ↠ M.
+\end{equation}$$</p>
+    <p>This extends to $(f_∙ ) ∈ (M, ∐ M)$ which summing up to $1$. By assumption, there are orthogonal idempotents $\{g_i ∘ f_i\}_I$ summing up to $1$. Now $Y_i := \operatorname{im}(M ↪ M ⊕ N ↠ X_i )$ is the desired summand of $X_i$.</p>
+  </div>
+</div>
+
+<p>Now we show a criterion for being finite exchangable.</p>
+
+<div class="theorem">
+  <p>$M$ is finite exchangable iff it is $2$-exchangable.</p>
+  <div class="proof">
+    <p>We show $M$ is $(k+1)$-exchangable when it is $k$-exchangable ($k ≥ 2$). We take $(f_i)_{i=0}^k$ summing up to $1$. We apply $2$-exchangable property to $f_0 + (∑ _{0<∙ ≤ k}f_∙)$, hence WLOG we assume $f_0$ is idenpotent. Set $e := (1-f_0)$. Now $∑ _{0< ∙ ≤ k}ef_∙ e = e$. Note $Me$ is $k$-exchangable with endomorphism ring $e \mathrm{End}(M)e$. Now there is some idempotent decomposition in $e\mathrm{End}(M)e$:</p>
+    <p>$$\begin{equation}
+∑ _{0 < i ≤ k} e g_i e f_i e = e,\quad (e g_i e f_i e)(e g_j e f_j e) = δ ^{i,j} (e g_i e f_i e).
+\end{equation}$$</p>
+    <p>We set $F_i := e g_i e f_i e g_i e f_i$ for $0 < i ≤ k$, and $F_0 := 1 - ∑ _{0<∙ ≤ k}F_∙$.</p>
+    <ul>
+      <li>$F_i^2 = (e g_i e f_i e)^3 g_i e f_i = F_i$;</li>
+      <li>$F_i F_j = e g_i e f_i (e g_i e f_i e g_j e f_j e) g_j e f_j = 0$ when $i ≠ j$;</li>
+      <li>$F_0 F_{≠ 0} = F_{≠ 0} F_0 = 0$ and $F_0^2 = F_0$ follow from the construction;</li>
+      <li>$F_0 f_0 = F_0 - F_0e = F_0$. Hence $F_0 = ? ∘ f_0$.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>The following are equivalent for any module $M$:</p>
+  <ol>
+    <li>$M$ is endolocal;</li>
+    <li>$M$ is indecomposable and finite exchangable;</li>
+    <li>$M$ is indecomposable and $κ$-exchangable for arbitrary $κ$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). Endolocal modules are indecomposable by checking idempotents. When $\mathrm{End}(M)$ is local, any $x+y = 1$ implies $x$ or $y$ is a unit. WLOG we take $x^{-1}x = 1$ and $0y = 0$, hence $M$ is $2$-exchangable. By previous analysis, $M$ is finite exchangable. <br /> (2 → 3). We show $M$ is $|I|$ exchangable when it is finite exchangable. When $M ⊕ N = ∐ _I X_∙$, we take non-zero $m ∈ M$ which lies in a minimal finite summand $∐ _{I_0} X_∙$. Now we consider $M ⊕ N = ∐ _{I_0} X_∙ ⊕ (∐ _{I ∖ I_0}X_∙ ) =: ⨁ _{t=0}^{|I_0|} L_t$. By finite exchangable property, there is $L_t := Y_t ⊕ Z_t$ s.t. $M ⊕ ∐_{t=0} Y_t = M ⊕ N$. Hence $M ≃ ⨁_{t=0}^{|I_0|} Z_t$ by cancellable property. Since $M$ is indecomposable, there is precisely one $t_0$ s.t. $Z_{t_0} ≃ M$. We see $t_0 ≠ 0$, as $X_{i_0} ∩ M ≠ 0$ for any $i _0 ∈ I_0$. In this case,</p>
+    <p>$$\begin{equation}
+M ⊕ N = M ⊕ L_{t_0} ⊕ (∐ _{t ≠ t_0} X_t) ⊕ (∐ _{I ∖ I_0}X_∙ ).
+\end{equation}$$</p>
+    <p>Hence $M$ is $|I|$-exchangable. <br /> (3 → 1). We take $κ =2$ and show that $x + y = 1$ implies $x$ or $y$ is a unit.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>(A kind of compactness). The finite direct sum of endolocal modules $K := ⨁ M_∙$ are somehow compact: for $K ⊕ N = ∐ _{I} X_∙$,</p>
+  <ul>
+    <li>there is a finite subset $I_0 ⊆ I$ s.t. $K ⊕ N = K ⊕ (∐ _{I_0} Y_∙) ⊕ (∐ _{I ∖ I_0}X_∙ )$;</li>
+    <li>corollary, there is finite subset $I_0 ⊆ I$ and $Y ⊕ Z = ∐ _{I_0}X_∙$ s.t. $K ≃ Y$ and $K ⊕ N = Y ⊕ Z ⊕ (∐ _{I ∖ I_0}X_∙)$;</li>
+    <li>corollary, the set $\{i ∣ K ∩ X_i ≠ 0\}$ is always finite.</li>
+  </ul>
+  <p>Note that it is not true that $M ∩ (X_1 ⊕ X_2) = (M ∩ X_1) ⊕ (M ∩ X_2)$ for endolocal modules. One may find non-examples in $ℝ ⊆ ℝ ^2$.</p>
+</div>
+
+<p>We complete the section with KSRA theorem.</p>
+
+<div class="theorem">
+  <p>(Krull-Schmidt-Remak-Azumaya). Let $M = ∐ M_∙$ be a coproducts of endolocal modules. Then any indecomposable decomposition of $M$ is unique up to permutation and isomorphism.</p>
+  <div class="proof">
+    <p>Such decomposition exists by definition. We show any indecomposable summand is endolocal.</p>
+    <ul>
+      <li>We take $L ⊕ N = ∐ M_∙$. For any non-zero $x ∈ L$, there is a minimal finite summand $∐ _{I_0} M_∙$ containing $x$. Note that $∐ _{I_0}X_∙ ⊕ ∐ _{I ∖ I_0}X_∙ = L ⊕ N$ where $∐ _{I_0}X_∙$ is finite exchangable. Now $L ⊕ N = ∐ _{I_0}X_∙ ⊕ L_0 ⊕ N_0$ for $L_0 ⊆ L$ and $N_0 ⊆ N$ are summands. $L_0 = 0$ as $L ∩ (∐ _{I_0}X_∙ ) ≠ 0$. Hence $L$ is isomorphic to a summand of finite exchangable module $∐_{I ∖ I_0}X_∙$, thus endolocal.</li>
+    </ul>
+    <p>To see the uniqueness, we take $∐ M_∙ = ∐ N_∙$. Clearly $N_∙$’s are endolocal. We fix an endolocal module $E$ and take $G = \{i ∣ M_i ≃ E\}$ and $H = \{j ∣ N_j ≃ E\}$. We show $|G| = |H|$. <br /> ($|G| < ∞$ iff $|H| < ∞$). Suppose $|G| < ∞$. There is finite $J_0 ⊆ J$ s.t. $∐ _G M_∙ ⊆ ∐ _{I_0} N_∙$. Clearly $H ∩ (I ∖ I_0) = ∅$; otherwise $∐ _{I ∖ G}M_∙$ has a summand isomorphic to $E$, and exchangable property shows contradiction. A symmetric analysis shows $|G| < ∞$ iff $|G| < ∞$. <br /> ($|G| = |H|$ for finite case). There are finite sets $I_0$ and $J_0$ s.t.</p>
+    <p>$$\begin{equation}
+∐ _GM_∙ ⊆ ∐ _{H ∪ J_0} N_∙ ⊆ ∐ _{G ∪ I_0} M_∙.
+\end{equation}$$</p>
+    <p>Hence, there is $∐ _GM_∙ ⊕ ? = ∐ _{H ∪ J_0} N_∙$. By exchangable property, there are summands $N_∙ '$ s.t. $∐ _{H ∪ J_0} N_∙ ' = ∐ _GM_∙$. Hence $|H| ≥ |G|$. A symmetric analysis shows $|G| = |H|$. <br /> ($|G|$ and $|H|$ are infinite). For each $t ∈ G$, there are finite sets $H_t$, $I_t$ and $J_t$ s.t.</p>
+    <p>$$\begin{equation}
+M_t ⊆ ∐ _{H_t ∪ J_t} N_∙ ⊆ ∐ _{G ∪ I_t} M_∙.
+\end{equation}$$</p>
+    <p>Hence $∐ _G M_∙ ⊆ ∐ _{⋃ H_t ∪ ⋃ J_t} N_∙ ⊆ ∐ _{G ∪ ⋃ I_t} M_∙$. By exchangable property, $∐ _G M_∙ ⊆ ∐ _{⋃ H_t ∪ ⋃ J_t} N_∙$ is a summand. Since $∐ _{J ∖ (⋃ H_t ∪ ⋃ J_t)} N_∙$ is isomorphic to a summand of $∐ _{I ∖ G} M_∙$, it contains no summand isomorphic to $E$. Hence $⋃ H_t = H$. Now $|G| ≤ ω |H| = |H|$. A symmetric analysis shows $|G| = |H|$.</p>
+  </div>
+</div>
+
+<h3 id="from-nilpotent-to-radical">From Nilpotent to Radical</h3>
+
+<p>We generalise several properties of nilpotent ideals to radicals, e.g., the idempotent lifting property, Nakayama lemma, etc.</p>
+
+<h4 id="nil-lifting">Nil Lifting</h4>
+
+<div class="definition">
+  <p>(Nil ideal). The ideal with all elements nilpotent is called a nil ideal.</p>
+</div>
+
+<div class="example">
+  <p>The maximal ideal of the commutative local ring $k[x_1, x_2, \ldots] / (\{x_k^k\}_{k ≥ 1})$ is nil but not nilpotent.</p>
+</div>
+
+<div class="theorem">
+  <p>(Nil lifting). Let $I$ be a nil ideal. Then idempotent element $[x] ∈ R/I$ has an idempotent preimage in $R$. In particular, the lifting is unique for commutative rings.</p>
+  <div class="proof">
+    <p>Let $e$ be arbitrary preimage of $[x]$. There is $k$ s.t. $(e(1-e))^k = 0$. There is a polynomial $p = p(e)$ s.t. $e^k + (1-e)^k + p = 1$. Clearly $p ∈ I$, we take $q := (1-p)^{-1}$ (also a polynomial in $e$). Now</p>
+    <ul>
+      <li>$e^kq$ is a preimage of $[x]$;</li>
+      <li>$e^kq + (1-e)^kq = (1-p)^{-1}q = 1$;</li>
+      <li>$e^kq (1-e)^kq = 0$;</li>
+      <li>$(e^kq)^2 = e^kq (1-(1-e^k)q) = e^kq$.</li>
+    </ul>
+    <p>Let $e$ and $e'$ be liftings of $[x]$. When the ring is commutative, we conclude from $(e-e')^3 = (e-e')$ and $(e-e')^N = 0$ that $e = e'$. For non-commutative rings, the lifting is not unique in general. For instance, we take $M_2(ℤ / 4ℤ) ↠ \frac{M_2(ℤ / 4ℤ)}{J(M_2(ℤ / 4ℤ))} ≃ M_2(𝔽 _2)$, then $\mathrm{id}$ has distinct liftings $\mathrm{id}$ and $\binom{1 \ 2}{0 \ 1}$.</p>
+  </div>
+</div>
+
+<p>There are several generalisations of the property “nil lifting”.</p>
+
+<div class="proposition">
+  <p>Let $I$ be a nil ideal. Any lifting of the unit $[x] ∈ R / I$ is also a unit. The lifting is unique when $R$ is commutative.</p>
+  <div class="proof">
+    <p>Let $[y]$ be the inverse of $[x]$. Note that $(xy-1)^N = 0$ for some $N$. Hence $(x) = 1$, i.e., $x$ is a unit. The uniqueness of commutative case comes from $(x-x')^3 = (x-x')$.</p>
+  </div>
+</div>
+
+<p>The nil ideals are close to nilpotent ones. The following interesting theorem shows they are the same in Noetherian rings.</p>
+
+<p>$$\begin{equation}
+\boxed{\text{For CommRings, Nil lifting is always unique!}}
+\end{equation}$$</p>
+
+<p>There is a concern whether nillifting preserves orthogonality.</p>
+
+<div class="proposition">
+  <p>Let $I ⊆ J(R)$ be a right ideal which admits idempotent lifting property. For any orthogonal idempotents $[e], [f] ∈ \frac{R}{J(R)}$ and any idempotent lifting $e$ of $[e]$, there exists an idempotent lifting $f'$ of $[f]$ s.t. $e,f'$ are orthogonal in $R$.</p>
+  <div class="proof">
+    <p>Let $f$ be any idempotent lifting of $f$. Then $fe ∈ I ⊆ J(R)$. We take $$\begin{equation}
+f' := (1-e)(1-fe)^{-1}f(1-fe)
+\end{equation}$$</p>
+    <p>We see that</p>
+    <ul>
+      <li>$(f - f') ≡ (1-e)(f - (1-fe)^{-1}f(1-fe)) ≡ 0 \mod I$;</li>
+      <li>$ef' = (e-e^2)(1-fe)^{-1}f(1-fe) = 0$;</li>
+      <li>$f' e = (1-e)(1-fe)^{-1}(fe - ffee) = 0$;</li>
+      <li>$f' ^2 = (1-e)(1-fe)^{-1}\underset{= f}{\underbrace{f(1-fe)(1-e)(1-fe)^{-1}f}}(1-fe) =f'$.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>For any countable set of orthogonal idempotents $\{[e_i]\}_{i ∈ ℕ} ⊆ R / I$, where $I ⊆ J(R)$ admits the idempotent lifting property. Then there is a way to find orthogonal idempotent liftings $\{e_i\}_{i ∈ ℕ} ⊆ R$. Moreover one can begin with any choice of lifting $e_{n_0} ↦ [e_{n_0}]$.</p>
+  <div class="proof">
+    <p>By induction. Since being an othogonal idempotent set is verified by collection of finite sums, the induction extends to countable sets.</p>
+  </div>
+</div>
+
+<p>Hence, for nil ideals, idempotent lifting can be chosen to preserve orthogonality.</p>
+
+<p>$$\begin{equation}
+\boxed{\text{Nil idempotent lifting preserves orthogonality!}}
+\end{equation}$$</p>
+
+<div class="theorem">
+  <p>(Levitzki). Let $R$ be a right Noetherian ring. Then every nil right ideal is nilpotent.</p>
+  <div class="proof">
+    <p>Let $I$ be such nil ideal. By Noetherian conditions, there is a maximal nilpotent ideal $N ⊆ I$. Suppose $N ≠ I$, then $\{\mathrm{ann}(x) : x ∈ (I ∖ N)\}$ has a maximal element $\mathrm{ann}(x_0)$. For any $r ∈ I$, there is $n$ s.t. $(x_0 r)^n = 0$. One has either $x_0rx_0 = 0$ or $\mathrm{ann}(x_0rx_0) = \mathrm{ann}(x_0)$ by maximality of $\mathrm{ann}(x_0)$. By induction, $x_0 r x_0 = 0$. Suppose $N^k = 0$, then $(N + (x_0))^{2k}$ is generated by elements of the types</p>
+    <ol>
+      <li>the monomial consisting of at least two $x_0$, or</li>
+      <li>the monomial with letters in $N^k$.</li>
+    </ol>
+    <p>Hence $(N + (x_0))$ is nilpotent, a contradiction!</p>
+  </div>
+</div>
+
+<p>$$\begin{equation}
+\boxed{\text{For Noetherian rings, nil = nilpotent!}}
+\end{equation}$$</p>
+
+<p>The commutative case is easy, which reveals $\mathrm{Spec}(R/I) ≃ \mathrm{Spec}(R)$ induced by $R ↠ R/I$ for any nil ideal $I$.</p>
+
+<h4 id="nil-lifting-fg-projectives">Nil Lifting f.g. Projectives</h4>
+
+<p>We show nil lifting for idempotents, which suggests a bijection between f.g. projective modules.</p>
+
+<div class="theorem">
+  <p>Let $I$ be a nil right ideal, then $φ : R ↠ R / I$ induces a bijection between the isomorphism classes of f.g. projective modules via $φ^∗ : 𝐩𝐫𝐨𝐣(R/I) → 𝐩𝐫𝐨𝐣 (R)$ and $P ↦ P/PI$.</p>
+  <ul>
+    <li>This shows isomorphism between the Grothendieck groups $K_0(R) ≃ K_0(R/I)$.</li>
+  </ul>
+  <div class="proof">
+    <p>If $P ∈ 𝐌𝐨𝐝 _R$ is projective, then $P/PI ∈ 𝐌𝐨𝐝 _{R/I}$ is projective.</p>
+    <ul>
+      <li>(Surjective). Any projective module $Q$ over $R/I$ takes the form $[e] (R/I)^n$. By idempotent lifting, $Q = (eR^n)/I$.</li>
+      <li>(Injective). For projective $R$ modules $P$ and $P'$ s.t. $P/PI ≃ P'/P'I$. We take $P ↠ P/PI$ and $P' ↠ P'/P'I$. The lifting property yields $P → P'$. Note that $\operatorname{im}(P → P') + P'I = P'$, and $P' I ⊆ P' J(R)$ is superfluous (by Nakayama lemma). Hence $P → P'$ is surjective. By symmetric analysis, $P ≃ P'$.</li>
+    </ul>
+  </div>
+</div>
+
+<h4 id="semiperfect-rings">Semiperfect Rings</h4>
+
+<p>We generalise nil lifting to radical lifting.</p>
+
+<div class="definition">
+  <p>(Semi-perfect rings). $R$ is semiperfect if it is semi-local (i.e., $R/J(R)$ is semi-simple) and idempotents lift modulo $J(R)$.</p>
+</div>
+
+<div class="example">
+  <p>Any left or right Artinian ring $R$ is semiperfect.</p>
+  <div class="proof">
+    <p>$R / J(R)$ is Artinian with $J(R/J(R)) = 0$, hence semisimple. Note that $J(R)$ is nilpotent. The idempotent lifting follows from nil lifting.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Semi-primitive rings (= $J(R) = 0$) with finite many primitive orthogonal idempotents are semiperfect.</p>
+</div>
+
+<p>A semi-perfect ring looks like a matrix with finite many local diagonal blocks.</p>
+
+<div class="theorem">
+  <p>The following are equivalent:</p>
+  <ol>
+    <li>$R$ is semi-perfect;</li>
+    <li>there are finite local orthogonal idempotents $\{e_i\}_{i=1}^n$. That is, $e_i e_j = δ _{i,j} e_i$ and each $e_i R e_i$ is local;</li>
+    <li>$R ≃ \mathrm{End}(⨁ M_∙ )$ for $⨁ M_∙$ is a finite direct sum of endolocal modules.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). When $R$ is semi-perfect, then $R / J(R) ≃ ∏ M_{n}(D)$ by Wedderburn-Artin theorem. It is clear to find a complete set of primitive orthogonal idempotents $\{e_i'\}_{i=1}^n ⊆ R / J(R)$ which lifts to $\{e_i\}_{i=1}^n ⊆ R$.</p>
+    <ol>
+      <li>If $n = 1$, then $R ≃ \mathrm{End}(R)$ is local. We complete the proof.</li>
+      <li>We show $n$ from $n - 1$. Let $e$ be any lifting of $e_1'$. By induction, there is $\{(1-e)e_i(1-e)\}_{i=2}^2 ⊆ (1-e)R(1-e)$ primitive orthogonal which lifts $(1-e_1')e_i'(1-e_1') = e_i$. We define $e_1 := (1-∑ _{i=2}^n e_i)$ serving as a lifting of $e_1'$. Clearly, each $\frac{\mathrm{End}(e_i R)}{J(\mathrm{End}(e_i R))}$ is a division ring (= diagonal entries of each $M_n(D)$).</li>
+    </ol>
+    <p>(2 → 3). Take $M_i := e_i R$. <br /> (3 → 1). We arrange $M_∙$’s by isomorphism classes. By fitting lemma, $\frac{\mathrm{End}(⨁ M_∙ )}{J(\mathrm{End}(⨁ M_∙ ))} ≃ ∏ M_{n_i} (\frac{\mathrm{End}(M_i)}{J(\mathrm{End}(M_i))})$, where $n_i$ is the multiplicity of the isomorphism class of $M_i$. Hence $\frac{R}{J(R)}$ is semi-simple. This also determined a finite complete set of orthogonal idempotents in $R / J(R)$. The lifting property of idempotents follows from the finite exchangable property of $⨁ M_∙$.</p>
+  </div>
+</div>
+
+<p>The final definition shows $\mathrm{End}(M)$ is semi-perfect, when there is $M' = ⨁ \text{endolocal}$ s.t. $\mathrm{End}(M) ≃ \mathrm{End}(M)$. Indeed,</p>
+
+<div class="proposition">
+  <p>$\mathrm{End}(M)$ is semi-perfect iff $M$ is a finite direct sum of endolocal modules.</p>
+  <div class="proof">
+    <p>(→). Clear. (←). Corollary of KSRA.</p>
+  </div>
+</div>
+
+<p>$$\begin{equation}
+\boxed{\text{Semi-perfect = End (⨁ finite endolocal modules)!}}
+\end{equation}$$</p>
+
+<p>There is another simple definition for commutative case.</p>
+
+<div class="example">
+  <p>Commutative semi-perfect rings are precisely finite products of commutative local rings.</p>
+  <div class="proof">
+    <p>(←). Clear. (→). Conversely, $\frac{R}{J(R)}$ is a product to fields. The lifting property shows $R ≃ ∏ R_i$ where each $R_i$ is local.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Note that an Artinian ring has radical lifting property. Hence, commutative Artinian rings are precisely finite products of commutative local Artinian rings.</p>
+</div>
+
+<div class="theorem">
+  <p>Being semi-perfect if Morita invariant.</p>
+  <div class="proof">
+    <p>Note that semi-simple rings are precisely $\mathrm{End}(⨁ _{\text{finite}} \ \text{endolocal modules})$.</p>
+  </div>
+</div>
+
+<h4 id="transfinite-nilpotent-ideals">Transfinite Nilpotent Ideals</h4>
+
+<p>The concept of transfinite nilpotent ideals has to do with a kind of compactness characterised by Nakayama lemma.</p>
+
+<div class="definition">
+  <p>(Transfinite nilpotent). The following are equivalent for an right ideal $I$ to be transfinite nilpotent:</p>
+  <ol>
+    <li>for any sequence $(r_i)_{i ∈ ℕ} ⊆ I$, there is some $n$ s.t. $r_n x_{n-1} \cdots r_1 r_0 = 0$;</li>
+    <li>for any non-zero left module $X$, there is some non-zero $x ∈ X ∖ \{0\}$ s.t. $Ix = 0$;</li>
+    <li>for any non-zero left module $M$, there is a transfinite sequence of submodules satisfies       <ul>
+        <li>$X_0 = 0$, $X_{k+1} ⊆ I X_{k}$ for any $k$;</li>
+        <li>$X_γ ⊆ ⋃ _{< γ } X_∙$ for limit ordinal $γ$;</li>
+        <li>$⋃ X_∙ = X$.</li>
+      </ul>
+    </li>
+    <li>there is a transfinite sequence of left ideals satisfies       <ul>
+        <li>$R_0 = 0$, $R_{k+1} ⊆ I R_{k}$ for any $k$;</li>
+        <li>$R_γ ⊆ ⋃ _{< γ } R_∙$ for limit ordinal $γ$;</li>
+        <li>$⋃ R_∙ = R$.</li>
+      </ul>
+    </li>
+    <li>for any right module $M$, $MI = M$ implies $M = 0$;</li>
+    <li>for any right module $M$ and submodule $L$, $N$, $N + LI = M$ implies $N = M$;</li>
+    <li>for any right module $R^{(ω)}$ and submodule $L$, $N$, $N + LI = R^{(ω)}$ implies $N = R^{(ω)}$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). We show (¬ 2 → ¬ 1). If there is a left module $X$ s.t. any non-zero element $x$ satisfies $Ix ≠ 0$, then we may take $x_0 ≠ 0$ and $x_{k+1} := r_k x_k$. Note that $x_∙$ never vanishes, hence (1) fails. <br /> (2 → 3). We take $X_{k+1} := \{x : Ix ⊆ X_k\}$ for any $k$, and $X_γ := ⋃ _{< γ} X_∙$ for limit ordinal $γ$. For $\frac{X}{X_α} ≠ 0$, we see $\frac{X_{α + 1}}{X_α} = \{[x] : I[x] = [0]\} ≠ 0$, hence $X_α ⊊ X_{α + 1}$ is proper. By cardinality argument, the chain $X_0 ⊊ X_1 ⊊ \cdots ⊊ X_α ⊊ \cdots$ stabilises at some ordinal. <br /> (3 → 4). We take $X := R$ in $3$. <br /> (4 → 5). We take $\{R_δ\}_{δ ∈ α}$ obtained by $3$, and see</p>
+    <p>$$\begin{equation}
+0 = MR_0 = MIR_1 = MR_1 = \cdots.
+\end{equation}$$</p>
+    <p>In particular, $MR_γ = ⋃ _{β < γ} MR_β = ⋃ _{β < γ} MIR_{β +1}= MI R_γ$ for limit ordinal $γ$. By transfinite induction on $α$, we see $M = 0$. <br /> (5 → 6). WLOG we assume $L = M$. Note that</p>
+    <p>$$\begin{equation}
+\frac{M}{N}J = \{(x + N) : x ∈ MJ \} = \frac{MJ + N}{N}.
+\end{equation}$$</p>
+    <p>Hence $\frac{M}{N} J = M$. By assumption, $\frac{M}{N} = 0$, thus $M = N$. <br /> (6 → 7). Clear. <br /> (7 → 1). Once $\{r_∙ \}$ is given, we take</p>
+    <p>$$\begin{equation}
+M = L = ∐ _{n ∈ ℕ} R,\quad N = (\{1_{n+1} r_n - 1_n\}_{n ∈ ℕ}).
+\end{equation}$$</p>
+    <p>Now $M = LI + N$. Hence $N = M$. We take $1_0$ as a finite combination of $(1_{n+1} r_n - 1_n)$’s. The rest is clear.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Nilpotent $⊆$ right transfinite nilpotent $⊆$ nil.</p>
+  <ol>
+    <li>The polynomial ring $k[x_i]_{i ∈ ℕ} / (x_i^{i+1})$ has the nil maximal ideal which is not transfinite nilpotent.       <ul>
+        <li>This example also shows that being left and right transfinite nilpotent do not imply being nilpotent.</li>
+      </ul>
+    </li>
+    <li>The free $k$-algebra with presentation $⟨ \{x_i\}_{i ≥ 0} ∣ \{x_j x_i ∣ j ≥ 1\}⟩$ has the transfinite nilpotent maximal ideal which is not nilpotent.       <ul>
+        <li>This example also shows that being left or right transfinite nilpotent does not imply each other.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Informally, $\text{uniformly bounded} ≪ \text{well-ordered} ≪ \text{locally bounded}$.</p>
+</div>
+
+<div class="example">
+  <p>A transfinite nilpotent ideal must be nil, thus</p>
+  <ul>
+    <li>it lifts idempotents from quotient rings (and preserves orthogonality);</li>
+    <li>it is contained in the Jacobson radical.</li>
+  </ul>
+</div>
+
+<div class="proposition">
+  <p>Any finite subset $S$ of a transfinite nilpotent ideal $I$ is nilpotent.</p>
+  <div class="proof">
+    <p>We construct the graph $G(V,E)$ where</p>
+    <ul>
+      <li>$V$ consists of all non-vanishing letters in $S$;</li>
+      <li>$u ∼ v$ iff there is $s ∈ S$ s.t. $s u = v$ or $s v = u$.</li>
+    </ul>
+    <p>This is a graph of finite components and each vertex has finite degree. If $G$ is infinite, then there is an infinite path (<a href="https://en.wikipedia.org/wiki/K%C5%91nig%27s_lemma">Kőnig</a>), contradiction.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Over finite field, a f.g. sub-ideal of transfinite nilpotent ideal is nilpotent.</p>
+</div>
+
+<h4 id="transfinite-nilpotent-ideal-ii">Transfinite Nilpotent Ideal (II)</h4>
+
+<p>We conclude a sufficient condition for $J(R)$ to be transfinite nilpotent.</p>
+
+<div class="proposition">
+  <p>$J(R)$ is right transfinite nilpotent</p>
+  <ul>
+    <li>if every non-zero right module has a maximal submodule;</li>
+    <li>if every non-zero left module has a minimal submodule.</li>
+  </ul>
+  <div class="proof">
+    <p>If any right module $M (≠ 0)$ has a maximal submodule, then $MJ ⊆ J(M) ⊊ M$. Hence $J$ is transfinite nilpotent. The converse is not true (see following example). <br /> If left module $X (≠ 0)$ has a minimal submodule $X_0$, then $X_0$ is simple. Note that $J$ contains the annihilator of any simple module. Hence $J X_0 = 0$. Hence, $J$ is transfinite nilpotent. Conversely, $ℤ$ over $ℤ$ is a non-example.</p>
+  </div>
+</div>
+
+<p>We show some theorems (due to Hamsher) over commutative rings.</p>
+
+<div class="theorem">
+  <p>Let $R$ be commutative. Then the following are equivalent</p>
+  <ol>
+    <li>Every $M ≠ 0$ has maximal submodule;</li>
+    <li>$J(R)$ is transfinite nilpotent and every $R / J(R)$-module has a maximal submodule;</li>
+    <li>$J(R)$ is transfinite nilpotent and $R / J(R)$ is vNR.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). $J(R)$ is transfinite nilpotent by previous proposition. $J(R/J(R)) = 0$ is again transfinite nilpotent. <br /> (2 → 3). We take arbitrary non-zero $[x] ∈ R / J(R)$ and show that $([x]) ⊕ \mathrm{ann}([x]) = R / J(R)$. WLOG We assume $J(R) = 0$. We consider the flat module $F:= \operatorname{cok}(R^{(ω )}\xrightarrow {1- x} R^{(ω)})$.</p>
+    <ul>
+      <li>If $F = 0$, then $\varinjlim (x^k) = 0$. By non-existence of nilpotent, $x = 0$.</li>
+    </ul>
+    <p>If $F ≠ 0$, we take a maximal submodule $M ⊊ F$.</p>
+    <p>Let $[e_n]$ (we assume $R^{(ω )} = ∐_{n ≥ 1} R e_n$) be the least coordinal idempotent $∉ M$. We take the combination</p>
+    <p>$$\begin{equation}
+([e_n]) + M = F,\quad r[e_n] + m = [e_{2n}],
+\end{equation}$$</p>
+    <p>and obtain</p>
+    <p>$$\begin{equation}
+[e_{2n}] = x^n [e_n] = r[e_n] + m
+\end{equation}$$</p>
+  </div>
+</div>
+
+<h3 id="right-perfect-rings">Right Perfect Rings</h3>
+
+<h4 id="def-via-idempotents">Def via Idempotents</h4>
+
+<div class="definition">
+  <p>$R$ is right prefect if $J(R)$ is right transfinite nilpotent and $\frac{R}{J(R)}$ is semi-simple.</p>
+</div>
+
+<p>Right perfect rings generalise semi-perfect rings by requiring radical to be transfinite nilpotent.</p>
+
+<div class="example">
+  <p>A right perfect ring with $\frac{R}{J(R)}$ simple is exactly the matrix ring $M_n (S)$, where $S$ is local with transfinite nilpotent maximal ideal.</p>
+  <div class="proof">
+    <p>(1 → 2). When $R$ is right perfect, it is semi-perfect, i.e., the endomorphism ring of a finite direct sum of endolocal modules. Since $\frac{R}{J(R)}$ is simple, $R$ takes the form $\mathrm{End}(M^n)$. Now $R ≃ M_n (\mathrm{End}(M))$. We take $S:= \mathrm{End}(M)$. Hence $J(R) = M_n (J(\mathrm{End}(M)))$. By checking the $(1,1)$-th entry, $J(S)$ is transfinite nilpotent. <br /> (2 → 1). By Morita equivalence, $R = M_n (S) ≃ \mathrm{End}(S^n)$ is semi-perfect. Note that $J(R) = M_n (J(S))$ is right transfinite nilpotent when $J(S)$ is .</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>The local ring $l⟨ \{x_i\}_{i ≥ 0} ∣ \{x_j x_i ∣ j ≥ 1\}⟩$ is right perfect but not left-perfect, as the maximal ideal is right transfinite nilpotent but not left-transfinite nilpotent.</p>
+</div>
+
+<div class="proposition">
+  <p>Right perfect ring has no infinite set of orthogonal idempotents.</p>
+  <div class="proof">
+    <p>If not, then there is also an infinite set of orthogonal idempotents in $\frac{R}{J(R)}$. This contradicts the semi-simplicity.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>Let $X$ be any non-zero left module over a right perfect ring $R$. Then $\mathrm{soc}(X) ≠ 0$ (i.e., $X$ has a simple submodule).</p>
+  <div class="proof">
+    <p>By characterisation of transfinite nilpotent ideals, there is some non-zero $x ∈ X$ s.t. $J(R)x = 0$. Hence $Rx$ is a $\frac{R}{J(R)}$ module thus it has a simple submodule.</p>
+  </div>
+</div>
+
+<p>Now we show the converse.</p>
+
+<div class="theorem">
+  <p>Let $R$ be a ring s.t.</p>
+  <ol>
+    <li>there are no infinite sets of orthogonal idempotents;</li>
+    <li>any non-zero left module $X$ has a simple submodule.</li>
+  </ol>
+  <p>Then $R$ is right perfect.</p>
+  <div class="proof">
+    <p>We show $J(R)$ is right transfinite nilpotent.</p>
+    <ul>
+      <li>Any left module $X ≠ 0$ has a simple submodule $(x)$. By radical property, $J(R) x = 0$.</li>
+    </ul>
+    <p>Now we show $R' := \frac{R}{J(R)}$ is semi-simple.</p>
+    <ul>
+      <li>By assumption, any left ideal contains a simple left ideal $S$. By $J(R') = 0$, there is a maximal ideal $𝔪 ∩ S = 0$. Hence $S ⊕ 𝔪 = R$. Note that the procedure of taking simple summands of $R'$ terminates within finite steps. $R'$ has to be semi-simple.</li>
+    </ul>
+  </div>
+</div>
+
+<h4 id="projective-cover-overview">Projective Cover (Overview)</h4>
+
+<p>The projective cover are defined in several ways, by superfluous kernel (usual projective cover), right minimal precover $𝐏𝐫𝐨𝐣$-cover, etc.</p>
+
+<div class="definition">
+  <p>(Projective precover). $p : P → M$ is a projective cover if the following equivalent conditions hold:</p>
+  <ol>
+    <li>(Projective precover). $p$ is an epimorphism;</li>
+    <li>($𝐏𝐫𝐨𝐣$-precover). any $q : Q → M$ passes through $p$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). By lifting property of projectives. (2 → 1). If $p$ is not epic, then we take any $x ∈ (M ∖ p(P))$. The morphism $q : R → M, \quad 1 ↦ x$ does not pass through $p$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(Projective cover). $p : P → M$ is a projective cover if the following equivalent conditions hold:</p>
+  <ol>
+    <li>(Projective cover). $p$ is an epimorphism, and $\ker p$ (as a morphism) is small;</li>
+    <li>($𝐏𝐫𝐨𝐣$-cover). Any morphism $Q → M$ ($Q$ projective) factors through $p$, and any $p ∘ α = p$ implies $α$ is a(n)       <ol>
+        <li>epimorphism;</li>
+        <li>monomorphism;</li>
+        <li>automorphism.</li>
+      </ol>
+    </li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2-(3)). Clearly, $Q → M$ factors through $p$ by the lifting property of projectives. We show that $p ∘ α = p$ implies $α$ is an automorphism. We construct the pullback square of monomorphisms:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Radicals/diagram_496ecc2b2f048.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By $p ∘ α = p$, the morphism $p|_{\operatorname{im}α }$ is epic, thus the first row is a short exact sequence. By exercise, the subobject $\operatorname{im}(α ) ↪ P$ is an isomorphism. This shows $α$ is epic. We show $α$ is also monic. Let $j$ be the right inverse of $α$ (by the lifting property of projectives). Then $p ∘ j = p ∘ α ∘ j = p$. Hence $j$ is epic. Since $j$ is also split monic, $j$ is an isomorphism. Therefore $α$ is an automorphism. <br /> (2(1) → 1). $p$ is epic, since any epimorphism $Q ↠ M$ factors through $p$. We show $\ker p$ is small. If not, there exists a proper subobject $N ↪ P$ such that $N + \ker p = P$. Therefore we have the pullback pushout square of short exact sequences. We introduce $l$ by the lifting property of projectives, then $α : λ ∘ l$ is a non-epimorphism such that $p ∘ α = p$, a contradiction.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Radicals/diagram_0e8ee8dcb17d4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p><br /> We show 1 → 2(3) → 2(1,2), and 2(1) → 1. It remains to show 2(2) → 2(3). If there is a strict monomorphism $α$ s.t. $p ∘ α = p$, then there is an induced monomorphism $α|_{\ker p} : \ker p → \ker p$.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/Radicals/diagram_832e2c634fbbb.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>In the above diagram, the left square is pullback-pushout. Hence $\operatorname{im}α + \ker p = P$. A contradiction.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>Projective cover is unique (if exists) up to isomorphism.</p>
+</div>
+
+<div class="example">
+  <p>$R ↠ R / I$ is a projective cover iff $I ⊆ J(R)$. Note that $J(R)$ is maximal superfluous.</p>
+</div>
+
+<div class="example">
+  <p>If $p$ and $q$ and projective covers, then so is $p ⊕ q$.</p>
+</div>
+
+<p>A functorial characterisation shows more equivalent definitions.</p>
+
+<div class="theorem">
+  <p>We assume idempotent completeness. Let $p : P → M$ be a $\mathcal{P}$-precover (e.g., $\mathcal{P} = 𝐏𝐫𝐨𝐣$), then the following are equivalent.</p>
+  <ol>
+    <li>$p : T → M$ admits a $\mathcal{P}$-cover;</li>
+    <li>$p_∗ : (-, P)_{\mathcal{P}} ↠ (-|_{\mathcal{P}}, M)$ admits a projective cover;</li>
+    <li>$p_∗ : (-, P)_{𝐚𝐝𝐝 (P)} ↠ (-|_{𝐚𝐝𝐝 (P)}, M)$ admits a projective cover;</li>
+    <li>$p_∗ : (P, P)_{\mathrm{End}(P)} ↠ (P, M)_{\mathrm{End}(P)}$ admits a projective cover.</li>
+  </ol>
+  <p>Note that the last three are projective precovers as they are epimorphisms. The projective cover always appears as a direct summand of any projective precovers.</p>
+  <div class="proof">
+    <p>(1 ↔ 2) follows from the definition. In the case of $1$, a $\mathcal{P}$-cover must be a summand of $p$. Since there is no differences between $\mathcal{P}$-cover and $𝐚𝐝𝐝 (P)$-cover for $M$, we show (1 ↔ 3). (3 → 4) is given by the special Yoneda lemma. It remains to show (4 → 1). <br /> When $p_∗ : (P, P)_{\mathrm{End}(P)} ↠ (P, M)_{\mathrm{End}(P)}$ admits a projective cover, it takes the form</p>
+    <p>$$\begin{equation}
+(P, P)_{\mathrm{End}(P)} ↠ Q ↠ (P, M)_{\mathrm{End}(P)}.
+\end{equation}$$</p>
+    <p>Note that $Q ≃ (P, P_0)_{\mathrm{End}(P)}$ for $P_0 ∈ 𝐒𝐦𝐝 (P)$ by projectivisation. With the special Yoneda lemma, we may write the mapping sequence as</p>
+    <p>$$\begin{equation}
+(P, P)_{\mathrm{End}(P)} \overset {a_∗ } ↠ (P, P_0)_{\mathrm{End}(P)} \overset {b_∗ } ↠ (P, M)_{\mathrm{End}(P)}.
+\end{equation}$$</p>
+    <p>We show that $b : P_0 → M$ is a $\mathcal{P}$-cover. By special Yoneda lemma, $(ba)_∗ = p _∗$ yields $ba = p$. As $a$ is split epic, $b$ and $p$ factors through each other, which shows that $b$ is a $\mathcal{P}$-precover. If there exists $b ∘ γ = b$, we have $b_∗ ∘ γ _∗ = b_∗$. Now $γ _∗$ is an isomorphism as $b_∗$ is a projective cover. By projectivisation, $γ$ is an automorphism. Hence $b$ is a $\mathcal{P}$-cover.</p>
+  </div>
+</div>
+
+<h4 id="def-via-existence-of-projective-covers">Def via Existence of Projective Covers</h4>
+
+<p>We discuss the existence of projective covers. Recall that $J(P) = PJ$ for projective module $P$.</p>
+
+<div class="proposition">
+  <p>(Radical of projective modules). $J(P) ⊊ P$ is proper for $P ≠ 0$.</p>
+  <div class="proof">
+    <p>If not, then $J(P) = P ≠ 0$. For any non-zero $p ∈ P$, we can find $P ⊕ Q = R^{(I)}$ s.t. $p = (p_1, \ldots, p_n) ∈ R^n ⊆ R^{(I)}$. Now we consider the projection $π : P ⊕ Q ↠ P$ restricted to $R^n$. WLOG we assume $p (R^n) ⊆ R^m$.</p>
+    <ul>
+      <li>There is a $J$-matrix $A$ s.t. $π (e_{[1,n]}) = e_{[1,m]} J$.</li>
+    </ul>
+    <p>Consider $p = π (p)$, there is matrix $B$ s.t. $p = p AB$. Now $p(I-AB) = 0$. Since $I - AB$ is invertible by Nakayama lemma, we see $p = 0$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>We never claim that $J(P)$ is superfluous in $P$.</p>
+  <ul>
+    <li>Nakayama lemma shows $PJ ↪ P$ is superfluous for f.g. projective modules.</li>
+    <li>Recall we show that $J$ is transfinite nilpotent iff $J(R^{(ω)}) ↪ R^{(ω)}$ is superfluous.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>Recall an epimorphism with superfluous kernel induces a bijection on maximal submodules. Hence, the module with $M = J(M)$ has no projective covers, e.g., $ℚ$ is not a projective Abelian group.</p>
+</div>
+
+<p>Now we use projective covers to characterise semi-perfect and right perfect rings.</p>
+
+<div class="theorem">
+  <p>The following are equivalent for a ring $R$:</p>
+  <ol>
+    <li>$R$ is semi-perfect (i.e., $R / J(R)$ is semi-simple and idempotents lift modulo $J(R)$);</li>
+    <li>there are finite local orthogonal idempotents $\{e_i\}_{i=1}^n$. That is, $e_i e_j = δ _{i,j} e_i$ and each $e_i R e_i$ is local;</li>
+    <li>$R ≃ \mathrm{End}(⨁ M_∙ )$ for $⨁ M_∙$ is a finite direct sum of endolocal modules;</li>
+    <li>All cyclic right modules have a projective cover.</li>
+    <li>All f.g. right modules have a projective cover.</li>
+  </ol>
+  <p>We show (1 ↔ 2 ↔ 3) previously. Note that being semi-perfect is symmetric.</p>
+  <div class="proof">
+    <p>(1 → 5). When $M$ is f.g., then $\frac{M}{MJ}$ is semi-simple with finite length. By idempotent lifting, we take</p>
+    <p>$$\begin{equation}
+⨁ _{i= 1}^n e_i R \overset p → M ↠ \frac{M}{MJ} ≃ ⨁ _{i= 1}^n \frac{e_i R}{e_i J}.
+\end{equation}$$</p>
+    <p>Note that $\operatorname{im} p ↠ \frac{M}{MJ}$. Hence $\operatorname{im} p + MJ = M$. Nakayama lemma shows $\operatorname{im} p = M$. Hence $p$ is surjective. $\ker p ⊆ ⨁ _{i= 1}^n e_i J$ is superfluous. Hence $p$ is a projective cover. <br /> (5 → 4). Clear. <br /> (4 → 1). We show idempotent lifting property and semi-simplicity of $\frac{R}{J}$ in turns.</p>
+    <ol>
+      <li>(Idempotent lifting). For any $e' ∈ \frac{R}{J}$ and $f' := 1' - e'$, there are projective converse $P → \frac{eR}{eJ}$ and $Q → \frac{fR}{fJ}$. Taking direct sums, WLOG we assume $P ⊕ Q = R$, and write $P = xR$ and $Q = yR$ for $x$ and $y$ idempotents. Note that $x' + y' = 1' = e' + f'$ in $\frac{R}{J}$. Taking projection shows $x' = e'$ and $y' = f'$.</li>
+      <li>(Semi-simplicity). For cyclic $\frac{R}{J}$-module $([x])$, there is a projective cover $p : P ↠ (x)$. Clearly $p' := \frac{P}{PJ} ↠ ([x])$ is epic as $[x]$ is mapped from $P$. Note that $\ker p' = \frac{\ker p}{PJ}$, which is superfluous in $\frac{P}{PJ}$. Hence $p'$ is also a projective cover. Since $J(\frac{P}{PJ}) = 0$, $\ker p' ⊆ J = 0$. Hence $p'$ is an isomorphism. It yields that any cyclic modules are semi-simple, thus $\frac{R}{J}$ is semi-simple.</li>
+    </ol>
+  </div>
+</div>
+
+<p>We show anaglously the characterisation of right perfect rings.</p>
+
+<div class="theorem">
+  <p>The following are equivalent for a ring $R$:</p>
+  <ol>
+    <li>$J(R)$ is right transfinite nilpotent and $\frac{R}{J(R)}$ is semi-simple.</li>
+    <li>$R$ satisfies the following:       <ul>
+        <li>there are no infinite sets of orthogonal idempotents;</li>
+        <li>any non-zero left module $X$ has a simple submodule.</li>
+      </ul>
+    </li>
+    <li>All right modules have a projective cover.</li>
+  </ol>
+  <p>We show (1 ↔ 2) previously.</p>
+  <div class="proof">
+    <p>(1 → 3). The proof is similar to the semi-perfect case. We summarise the procedure:</p>
+    <ol>
+      <li>for any $M$, take complete set of orthogonal idempotents of the semi-simple module $\frac{M}{MJ}$;</li>
+      <li>lifting idempotents to $R$, we obtain a projective module;</li>
+      <li>prove the projective cover map, wherein $MJ ↪ M$ is always superfluous as $J$ is transfinite nilpotent.</li>
+    </ol>
+    <p>(3 → 1). $R$ is semi-perfect. Since arbitrary $M$ has a projective cover, the $1:1$ correspondence of maximal submodules yields $J(M) ≠ 0$. Hence $MJ = M$ yields $M = 0$, i.e., $J$ is right transfinite nilpotent.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>Both semi-perfect rings and right perfect rings are stable under Morita equivalences.</p>
+  <div class="proof">
+    <p>Projective covers are preserved under Morita equivalences.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>Both semi-perfect rings and right perfect rings are stable under quotients rings.</p>
+  <div class="proof">
+    <p>Indeed, projective covers are preserved under ideal quotients. Let $R ↠ R/I$ be a quotient map, $p : P ↠ M$ be a projective cover. Then</p>
+    <ol>
+      <li>$p' : \frac{P}{PI} → \frac{M}{MI}$ is epic by tracking preimages;</li>
+      <li>$\ker p' = \frac{\ker p + p^{-1}(MI)}{PI} = \frac{\ker p}{PI}$. Since $\ker p ⊆ P$ is superfluous, $\ker p' ⊆ \frac{P}{PI}$ is also superfluous.</li>
+    </ol>
+    <p>Hence, $p'$ is also a projective cover.</p>
+  </div>
+</div>
+
+<h4 id="def-via-hereditary-radical">Def via Hereditary Radical</h4>
+
+<p>Recall that for ses $0 → L → M → N → 0$, there is an induced chain complex $0 → J(L) → J(M) → J(N) → 0$. Note that $J(-)$ preserves only monomorphisms, but neither epimorphisms nor left/right exactness.</p>
+
+<div class="definition">
+  <p>$J(-)$ is hereditary iff for any inclusion $L ⊆ M$, one has $J(L) = L ∩ J(M)$.</p>
+</div>
+
+<div class="example">
+  <p>$J(-)$ is not hereditary over $ℤ$, e.g., consider $ℤ ⊆ ℚ$.</p>
+</div>
+
+<div class="proposition">
+  <p>$J(-)$ is left exact iff it is hereditary.</p>
+  <div class="proof">
+    <p>Since $J(-)$ preserves inclusions, left exactness means $J(L) = \ker [J(M) → J(M / L)]$. Note that</p>
+    <p>$$\begin{aligned}
+\ker [J(M) → J(M/L)] & = \ker [J(M) → J(M / L) ↪ L] \\
+&= \ker [J(M) ↪ M ↠ L] \quad = L ∩ J(M).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>$J$ is hereditary iff $R$ is right perfect.</p>
+  <div class="proof">
+    <p>(←). When $R$ is right perfect, we show $J(M) = MJ$.</p>
+    <ul>
+      <li>$M/MJ$ is semi-simple as $R / J(R)$ is. Now $J(M / MJ) = 0$. Hence, $J(M) ⊆ MJ$. The other inclusion is clear.</li>
+    </ul>
+    <p>checkcheck</p>
+  </div>
+</div>
+
+<h4 id="def-via-flat-modules">Def via Flat Modules</h4>
+
+<div class="theorem">
+  <p>Let $p : P ↠ F$ be a projective cover of a flat module, then $F$ is projective.</p>
+  <div class="proof">
+    <p>Set $\ker p = : K ⊆ P$. We aim to construct a defect morphism:</p>
+    <ul>
+      <li>for any $x ∈ K ⊆ P$, there is some $φ _x : P → K$ preserving $x$.</li>
+    </ul>
+    <p>Now $\operatorname{im}φ _x ⊆ P$ is superfluous. We claim $φ _x ∈ J(\mathrm{End}(P))$.</p>
+    <ul>
+      <li>It suffices to show $φ _x$ lies in every maximal right ideal. If not, then there is $(φ _x) + 𝔪 = R$. We take $φ _x r + m = 1$. Since $\operatorname{im} (φ _x r) + \operatorname{im} (m) = P$ and $\operatorname{im}(φ _x r)$ is superfluous, we see $m$ is surjective and thus has a right inverse. A contradiction!</li>
+    </ul>
+    <p>Hence $(1 - φ _x)$ is a unit while $(1 - φ _x)(x) = 0$. Hence, $x = 0$. <br /> $φ _x$ is constructed by purity. We show $KI = K ∩ XI$ for any ideal $I$:</p>
+    <ul>
+      <li>$\ker [K ↪ P ↠ P/PI] = K ∩ XI$ by definition;</li>
+      <li>$K/KI ≃ K ⊗ R/I ↪ P ⊗ R/I ≃ P/PI$ is monic as $F$ is flat.</li>
+    </ul>
+    <p>WLOG assume $P$ is free by adding idempotents. Set any $x = (c_λ)_{λ ∈ Λ _0} ⊆ P$. We take $I$ as the right ideal generated by $\{c_λ\}$. Since $x ∈ K ∩ PI = KI$, we write $x = ∑ c_λ k_λ$ for $k_λ ∈ K$. We define $φ _x : P → K$ by $1_λ ↦ k_λ$ when $λ ∈ Λ _0$, and $1_λ ↦ 0$ otherwise. This is the desired morphism.</p>
+  </div>
+</div>
+
+<p>$$\begin{equation}
+\boxed{\text{Flat module with a projective cover is projective!}}
+\end{equation}$$</p>
+
+<p>We recall a special countably presented flat module (it has projective dimension $≤ 1$) when characterising transfinite nilpotent ideals.</p>
+
+<div class="theorem">
+  <p>For any sequence $\{r_∙\} ⊆ R$, then there is a descending chain of principal left ideals $R r_n \cdots r_0$. We denote</p>
+  <p>$$\begin{equation}
+F:= R^{(ω )} / (\{(1_n - 1_{n+1} r_n )_{n ∈ ℕ}\}).
+\end{equation}$$</p>
+  <p>This is flat (with projective dimension $≤ 1$). Moreover,</p>
+  <ul>
+    <li>it is projective iff the chain stabilises;</li>
+    <li>it is zero iff the chain is eventually zero.</li>
+  </ul>
+  <div class="proof">
+    <p>Note that $F$ is countably presented by $F = \ker [∐ R^{ω } \overset {φ }↪ ∐ R^{ω}]$, thus is a filtered colimit of a cotower. By Lazard’s theorem, $F$ is flat. <br /> Consider $φ =(1-r) : (x_0,x_1,\ldots) ↦ (x_0 - x_1r_0, x_1 - x_2 r_1, x_2 - x_3r_2, \ldots)$. When it is split monic, we denote the right inverse by</p>
+    <p>$$\begin{equation}
+ψ : (y_0,y_1,\ldots) ↦ (∑ y_∙ c_{∙, 0}, ∑ y_∙ c_{∙, 1}, \ldots).
+\end{equation}$$</p>
+    <p>Note that for each fixed $k$, $c_{k, ∙}$ are almost zero. We take the maximal $n$ s.t. $c_{0, n - 1} ≠ 0$. We obtain</p>
+    <p>$$\begin{equation}
+c_{k,n} - c_{k+ 1,n}r_k = δ _{k, n}.
+\end{equation}$$</p>
+    <p>Hence, $c_{n,n} r_{n-1} \cdots r_0 = 0$. We take $c_{n,n} =c_{n+1, n}r_n + 1$, then</p>
+    <p>$$\begin{equation}
+c_{n+1, n} r_n \cdots r_0 = - r_{n-1} \cdots r_0.
+\end{equation}$$</p>
+    <p>We see the ideal stablise when multiplying $r_{≥ n}$. The converse is clear. Once such limit exists, it corresponds to the following countable composition stabilises:</p>
+    <p>$$\begin{equation}
+R \xrightarrow {r_0} (r_0) \xrightarrow {r_1} (r_1 r_0) \xrightarrow {r_2} (r_2 r_1 r_0) \xrightarrow {r_3} \cdots.
+\end{equation}$$</p>
+    <p>Hence the PID vanishes iff the above colimit stables at $0$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>The following are equivalent for $R$:</p>
+  <ol>
+    <li>$J(R)$ is right transfinite nilpotent and $\frac{R}{J(R)}$ is semi-simple.</li>
+    <li>$R$ satisfies the following:       <ul>
+        <li>there are no infinite sets of orthogonal idempotents;</li>
+        <li>any non-zero left module $X$ has a simple submodule.</li>
+      </ul>
+    </li>
+    <li>All right modules have a projective cover.</li>
+    <li>All flat modules are projective.</li>
+    <li>All countably presented flat modules are projective.</li>
+    <li>The collection of principal left ideals satisfies descending chain condition.</li>
+  </ol>
+  <p>We show (1 ↔ 2 ↔ 3) previously.</p>
+  <div class="proof">
+    <p>(3 → 4). Note that flat module with a projective cover is projective. <br /> (4 → 5). Clear. <br /> (5 → 6). We construct countably preserted flat module $F$ for any descending chain of principal left ideals. Such chain stabilises as $F$ is projective. <br /> (6 → 1). $\frac{R}{J(R)}$ satisfies descending chain condition of principal left ideals, hence semi-simple. We show $J(R)$ is transfinite nilpotent. <br /> For any decsending principal left ideal $\{(r_n \cdots r_0)\}_{n ∈ ℕ}$ with each $r_∙ ∈ J$, there is $r_{n+1}$ s.t. $(r_n \cdots r_0) = (r_{n+1} \cdots r_0)$. We take $a$ s.t. $r_n \cdots r_0 = ar_{n+1} r_n \cdots r_0$. Note that $(1- ar_{n+1})$ is a unit, we see $r_n \cdots r_0 = 0$.</p>
+  </div>
+</div>
+
+<h4 id="coherency-and-chase-theorem">Coherency and Chase Theorem</h4>
+
+<p>The theorem shows when projective modules are closed under $∏$.</p>
+
+<div class="theorem">
+  <p>The following are equivalent for a ring $R$:</p>
+  <ol>
+    <li>$R$ is right perfect and left coherent;</li>
+    <li>any product of projective left modules is projective;</li>
+    <li>$∏ _I R$ is projective for any set $I$.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2). Over a right perfect ring, any flat right modules are projective. Over a left coherent ring, any product of flat right modules is flat. Hence, any product of projective left modules is projective. <br /> (2 → 3). Clear. <br /> (3 → 1). The product of free right modules is flat iff the ring is left coherent.</p>
+  </div>
+</div>
+
+<h4 id="def-via-bass-chain-condition">Def via Bass’ Chain Condition</h4>
+<!-- 
+Recall that once $J(R) = 0$ (= $R$ is semi-primitive), $R$ is semisimple iff it is Artinian.
+
+<div class='theorem'><p>The following are equivalent for a semi-primitive ring:</p>
+
+<ol>
+  <li>$R$ is semi-simple;</li>
+  <li>$R$ if right (or left) Artinian;</li>
+  <li>all right (or left) principal ideals satisfies descending chain condition.</li>
+</ol>
+
+<div class="proof">
+  <p>We show for right modules. Note that (1 ↔ 2 → 3). We show (3 → 1). Note that any right ideal has a simple submodule. Now $R$ has enough simple summands. We claim that that the procedure of taking simple summands of $R$ terminates within finite steps. If not, then there is an infinite descending sequence of summands ($⊆$ principal ideals), a contradiction!</p>
+</div>
+</div>
+
+Here is a criterion on descending chain condition of principal left ideals.
+
+
+
+Now we show a criterion of Bass.
+
+<div class='theorem'><p>The following are equivalent for $R$:</p>
+
+<ol>
+  <li>$R$ is a right perfect ring;</li>
+  <li>any descending chain of principal left ideals stabilises.</li>
+</ol>
+
+<div class="proof">
+  <p>(2 → 1).</p>
+  <p>(¬ 2 → ¬ 1). Assume there is an infinite descending chain of principal left ideals $\{Rx_n\}_{n ∈ ℕ}$ which never stabilises. We show the image in $R ↠ \frac{R}{J(R)}$ stabilises.</p>
+  <ul>
+    <li>If not, then $\frac{R}{J(R)}$ never Artinian, hence not semi-simple. This contradicts the definition of right perfect rings.</li>
+  </ul>
+  <p>WLOG we assume $x_n$ has the same image in $\frac{R}{J(R)}$. We also assume $⋂ Rx_∙ = 0$ by the substitution $R ↦ \frac{R}{⋂ Rx_∙}$. Note that $Rx_{n+1} + J(R) = Rx_n + J(R)$, we take</p>
+  <p>$$\begin{equation}
+t_n x_{n+1} = x_n + j_n ,\quad (∀ j_n ∈ J). 
+\end{equation}$$</p>
+  <p>Here $0 ≠ j_n ∈ Rx_n ∩ J(R)$.</p>
+</div>
+</div> -->
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#ring-radicals">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Ring Radicals</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#jacobson-radical">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">Jacobson Radical</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-definitions">
+        <span class="toc-number">1.1.1.</span>
+        <span class="toc-title">The Definitions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#nakayama-lemma">
+        <span class="toc-number">1.1.2.</span>
+        <span class="toc-title">Nakayama Lemma</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#small-superfluous-submodules">
+        <span class="toc-number">1.1.3.</span>
+        <span class="toc-title">Small (Superfluous) Submodules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#radical-of-modules">
+        <span class="toc-number">1.1.4.</span>
+        <span class="toc-title">Radical of Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#jacobson-radical-vs-nilpotents">
+        <span class="toc-number">1.1.5.</span>
+        <span class="toc-title">Jacobson Radical v.s. Nilpotents</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#propositions">
+        <span class="toc-number">1.1.6.</span>
+        <span class="toc-title">Propositions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#vnr">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">VNR</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#semisimple-rings">
+        <span class="toc-number">1.2.1.</span>
+        <span class="toc-title">Semisimple Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#definition-of-vnr-rings">
+        <span class="toc-number">1.2.2.</span>
+        <span class="toc-title">Definition of vNR Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#examples-of-vnr-rings">
+        <span class="toc-number">1.2.3.</span>
+        <span class="toc-title">Examples of VNR Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#example-banach-algebras">
+        <span class="toc-number">1.2.4.</span>
+        <span class="toc-title">Example: Banach Algebras</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#semi-local-rings">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">(Semi-)Local Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#local-rings">
+        <span class="toc-number">1.3.1.</span>
+        <span class="toc-title">Local Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#semi-local-rings-1">
+        <span class="toc-number">1.3.2.</span>
+        <span class="toc-title">Semi-local Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#more">
+        <span class="toc-number">1.4.</span>
+        <span class="toc-title">More</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#semi-perfect-rings">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">(Semi-)Perfect Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#on-idempotents">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">On Idempotents</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#definitions">
+        <span class="toc-number">2.1.1.</span>
+        <span class="toc-title">Definitions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#the-ring-mathjax_protectedjgvszsqmathjax_protected">
+        <span class="toc-number">2.1.2.</span>
+        <span class="toc-title">The Ring $eRe$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#idempotents-in-mathjax_protectedjfiglybkjamathjax_protected">
+        <span class="toc-number">2.1.3.</span>
+        <span class="toc-title">Idempotents in $R / J$</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#endomorphism-ring">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">Endomorphism Ring</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#finite-length-modules">
+        <span class="toc-number">2.2.1.</span>
+        <span class="toc-title">Finite Length Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#endolocal-modules">
+        <span class="toc-number">2.2.2.</span>
+        <span class="toc-title">Endolocal Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#ksra-theorem">
+        <span class="toc-number">2.2.3.</span>
+        <span class="toc-title">KSRA Theorem</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#from-nilpotent-to-radical">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">From Nilpotent to Radical</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#nil-lifting">
+        <span class="toc-number">2.3.1.</span>
+        <span class="toc-title">Nil Lifting</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#nil-lifting-fg-projectives">
+        <span class="toc-number">2.3.2.</span>
+        <span class="toc-title">Nil Lifting f.g. Projectives</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#semiperfect-rings">
+        <span class="toc-number">2.3.3.</span>
+        <span class="toc-title">Semiperfect Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#transfinite-nilpotent-ideals">
+        <span class="toc-number">2.3.4.</span>
+        <span class="toc-title">Transfinite Nilpotent Ideals</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#transfinite-nilpotent-ideal-ii">
+        <span class="toc-number">2.3.5.</span>
+        <span class="toc-title">Transfinite Nilpotent Ideal (II)</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#right-perfect-rings">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Right Perfect Rings</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#def-via-idempotents">
+        <span class="toc-number">2.4.1.</span>
+        <span class="toc-title">Def via Idempotents</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#projective-cover-overview">
+        <span class="toc-number">2.4.2.</span>
+        <span class="toc-title">Projective Cover (Overview)</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#def-via-existence-of-projective-covers">
+        <span class="toc-number">2.4.3.</span>
+        <span class="toc-title">Def via Existence of Projective Covers</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#def-via-hereditary-radical">
+        <span class="toc-number">2.4.4.</span>
+        <span class="toc-title">Def via Hereditary Radical</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#def-via-flat-modules">
+        <span class="toc-number">2.4.5.</span>
+        <span class="toc-title">Def via Flat Modules</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#coherency-and-chase-theorem">
+        <span class="toc-number">2.4.6.</span>
+        <span class="toc-title">Coherency and Chase Theorem</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-4">
+      <a href="#def-via-bass-chain-condition">
+        <span class="toc-number">2.4.7.</span>
+        <span class="toc-title">Def via Bass’ Chain Condition</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/25AutumnExtri" title="NEXT: 外三角范畴讨论班">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/DGAlgCat-Intro" title="PREV: Differential Graded">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

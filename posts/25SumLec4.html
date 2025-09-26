@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>CT4
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/25SumLec4">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>CT4</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        August 4, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#lecture-4" id="markdown-toc-lecture-4">Lecture 4</a>    <ul>
+      <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+    </ul>
+  </li>
+  <li><a href="#definable-subgroups" id="markdown-toc-definable-subgroups">Definable Subgroups</a>    <ul>
+      <li><a href="#pp-condition" id="markdown-toc-pp-condition">PP Condition</a></li>
+      <li><a href="#pp-lattice" id="markdown-toc-pp-lattice">PP Lattice</a></li>
+      <li><a href="#herzogs-pairing" id="markdown-toc-herzogs-pairing">Herzog’s Pairing</a></li>
+      <li><a href="#presentation" id="markdown-toc-presentation">Presentation</a></li>
+      <li><a href="#purity" id="markdown-toc-purity">Purity</a></li>
+      <li><a href="#examples-of-pure-ses" id="markdown-toc-examples-of-pure-ses">Examples of Pure ses</a></li>
+    </ul>
+  </li>
+  <li><a href="#pure-relative-homological-algebra" id="markdown-toc-pure-relative-homological-algebra">Pure-Relative Homological Algebra</a>    <ul>
+      <li><a href="#pure-proj" id="markdown-toc-pure-proj">Pure Proj</a></li>
+      <li><a href="#recollection-ml-conditions" id="markdown-toc-recollection-ml-conditions">Recollection: ML Conditions</a></li>
+      <li><a href="#ml-module-revisited" id="markdown-toc-ml-module-revisited">ML Module Revisited</a></li>
+      <li><a href="#pure-injective-and-compactness" id="markdown-toc-pure-injective-and-compactness">Pure Injective and Compactness</a></li>
+      <li><a href="#fp-injective" id="markdown-toc-fp-injective">Fp-Injective</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="lecture-4">Lecture 4</h2>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>We discuss purity and its cotorsion theory. We introduce definable subgroups and pp conditions, as a threshod for purity. We study pure exact sequence, pure projectives (and ML modules), pure injectives (= algebraically compact modules). A general pure-relative homological theory is based on cotorsion pairs which is discussed in the forthcoming lectures.</p>
+  </div>
+</div>
+
+<h2 id="definable-subgroups">Definable Subgroups</h2>
+
+<p>We refer to <a href="https://home.mathematik.uni-freiburg.de/ziegler/preprints/modules/modules.pdf">Ziegler’s foundational article</a> for model theory of modules. The theory established a equivalence between</p>
+
+<ul>
+  <li><em>axiomatisable</em> subcategories (aka definable subcategory) of some $𝐌𝐨𝐝 _R$, and</li>
+  <li>the category of exact functors $\mathcal{A} → 𝐀𝐛$ for $\mathcal{A}$ essentially small.</li>
+</ul>
+
+<p>A typical example: the categry of injective (= divisible Abelian groups) is equivalent to the category of exact functors $\mathrm{Exact}(𝐚𝐛^{\mathrm{op}}, 𝐀𝐛)$.</p>
+
+<h3 id="pp-condition">PP Condition</h3>
+
+<p>We explain <em>axiomatisable</em> in positive primitive (<strong>pp</strong> for short) formula. All modules are <strong>right modules</strong> for convention, and all vectors are <strong>row vectors</strong>.</p>
+
+<div class="example">
+  <p>Consider ses of multiplicating $r$:</p>
+  <p>$$\begin{equation}
+0 → \mathrm{ann}_r(M) → M \xrightarrow{× r} Mr → 0.
+\end{equation}$$</p>
+  <p>We <em>axiomise</em></p>
+  <ul>
+    <li>$\mathrm{ann}_r(M) = \{x ∈ M^1 : x ⋅ r = 0\}$;</li>
+    <li>$Mr = \{x ∈ M^1 : ∃ y ∈ M^1 \ (x - y ⋅ r = 0)\}$.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>(Another definition of f.p. modules). Once we fix the expression $R^m \xrightarrow {⋅ 𝐂 } R^n → M → 0$, then $(M, -)_R$ is a subfunctor of $(R^n, - ) : 𝐌𝐨𝐝 _R → 𝐀𝐛$ defined by sending</p>
+  <p>$$\begin{equation}
+X ↦ \{𝐱 ∈ X^n : 𝐱 ⋅ 𝐂^T = \mathbf 0\}.
+\end{equation}$$</p>
+  <p>We may rewrite the conditions as $⋀_{j=1}^m ∑ _{i =1} ^n c_{j,i} x _i = 0$.</p>
+</div>
+
+<p>We shall axiomatise such assignments (<em>functors</em>). Recall a <strong>structure</strong> over the <strong>language</strong> $\mathcal{L}$ (e.g. $\mathcal{N} = (ℕ, 0, ++)$ due to Peano) consists of an underlying set $M$, some chosen constants, together with some operations.</p>
+
+<p>Our language $M_R$ consists of first order logic and right module operations, e.g., $∧$, $¬$, $∃$, $∀$ and $⋅_R$, $+_R$, $1_R$, $0_R$.</p>
+
+<div class="definition">
+  <p>((pp-)definable subgroup). A definable subgroup of $M ∈ 𝐌𝐨𝐝 _R$ given by positive primitive (p.p) formula $φ$</p>
+  <p>$$\begin{equation}
+φ (M) := \{𝐱 ∈ M^k : M ⊧ φ [𝐱 , 𝐲]\},
+\end{equation}$$</p>
+  <p>where $φ$ takes the form $∃ 𝐲 \ ((𝐱 \ 𝐲) ⋅ \binom{𝐀}{ - 𝐁} = \mathbf 0)$, or simply $𝐁 ∣ 𝐱 𝐀$. The formula consists of $k = |𝐱|$ <strong>free variables</strong> and $(n-k) = |𝐲|$ <strong>bounds</strong>.</p>
+</div>
+
+<p>We write $φ [-]$ for a formula, and $φ (-)$ for functors.</p>
+
+<div class="lemma">
+  <p>$φ(-)$ is a <strong>subfunctor</strong> of the forgotful one $(R^n, -)_R : 𝐌𝐨𝐝 _R → 𝐀𝐛$.</p>
+  <div class="proof">
+    <p>For morphism of modules, $f : M → N$, we define</p>
+    <p>$$\begin{equation}
+φ (f) : \{𝐱 ∈ M^k : 𝐁 ∣ 𝐱 𝐀 \} ↠ \{f(𝐱) ∈ N^k : 𝐁 ∣ 𝐱 𝐀 \} ↪ \{𝐱' ∈ N^k : 𝐁 ∣ 𝐱' 𝐀 \}.
+\end{equation}$$</p>
+    <p>We obtain the natural inclusion $φ ↪ (R^n,-)$, which shows the functoriality.</p>
+  </div>
+</div>
+
+<p>We notice that</p>
+
+<ol>
+  <li>$φ$ preserves monomorphisms: larger underlying set implies larger solution set.
+    <ul>
+      <li>For submodule $L ↪ M$, one has $φ (L) ⊆ (φ (M) ∩ L)$. The equality does not hold in general (<strong>unless $L ↪ M$ is a pure submodule</strong>), e.g. $2ℤ ↪ ℤ$ with condition $φ [x , y] := ∃ y \ (x = y ⋅ 2)$.</li>
+    </ul>
+  </li>
+  <li>$φ$ does not preserve epimorphisms, e.g. $φ [x , y] := (x⋅2 = 0)$ and $ℤ ↠ ℤ / 2ℤ$.</li>
+  <li>$φ(M)$ is not necessary an $R$-submodule of $M^k$, but instead a $\mathrm{End}(M_R)$-submodule (under diagonal action).</li>
+</ol>
+
+<div class="problem">
+  <p>Recall <a href="25SumLec0#mathjax_protectedjpcdkiwnzcr8j2qqpcdkkmkmathjax_protected-mathjax_protectedjpcdkijwnzcn8j2qoyqmathjax_protected-and-mathjax_protectedjpcdkixwnzcl8j2qmvcdkk0kmathjax_protected">that</a> $M$ is flat iff $𝐦 ⋅ 𝐂 = \mathbf 0$ implies the existence of $𝐀$ s.t. $(A ∣ 𝐦) ∧ (𝐀𝐂 = 0)$. Show that $M$ is flat iff $M ⋅ ϕ (R) ⊆ ϕ (M)$ holds equality for all pp formula with $1$ free variable.</p>
+</div>
+
+<h3 id="pp-lattice">PP Lattice</h3>
+
+<p>We denote $φ [𝐱, 𝐲]$ by $∃ 𝐲 \ (𝐱 , 𝐲 )⋅ H = \mathbf 0$, and $H = \binom{A }{-B}$. We use</p>
+
+<ul>
+  <li>$A$, $B$ and $H$ for matrices in determing pp conditions,</li>
+  <li>$k = |𝐱|$ the number of free variables, $n = |𝐱| + |𝐲|$ the number of total variables.</li>
+</ul>
+
+<p>in the procedding analysis without mentioning.</p>
+
+<p>As how we learn linear algebra, we write $x$ (instead of $𝐱$) for general vectors (row vectors for default).</p>
+
+<p>Before we proceed, we introduce a criterion for $φ' ≤ φ$.</p>
+
+<div class="theorem">
+  <p>$φ' ≤ φ$ <strong>iff</strong> there are matrices $X$, $Y$ and $Z$ s.t. $\binom{I \ X}{O \ Y} ⋅ H = H' ⋅ Z$.</p>
+  <div class="proof">
+    <p>(← ). Consider</p>
+    <p>$$\begin{aligned}
+(x ∈ φ '(M)) ↔ (B' ∣ xA') → (B'Z ∣ xA'Z) ↔ (YB ∣ x(A-XB))\\[6pt]
+→ (B ∣ x(A-XB)) → (B ∣ xA) ↔ (x ∈ φ (M)).
+\end{aligned}$$</p>
+    <p>(→). We take $φ' (M) = \{x : B' ∣ xA'\}$ as the projection of the first $k$ coordinates of f.p. module $M: = \{(x,y) : (x,y)\binom{A'}{-B'}=O\} = \operatorname{cok}(A'^T, -B'^T)$. Let $\{z_k\}_{k=1}^n$ denote the image of coordinal basis along $R^n ↠ M$ generating set of $M$, which is a generating set of $M$. By definition, $(z_{[1,k]}, z_{(k,n]})\binom{A'}{-B'} = O$. Hence $(z_{[1,k]}, w)\binom{A}{-B} = O$ for some $w$. We write $w = z_{(k,n]}\binom{X}{Y}$ which recovers the construction.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>(Lattice). All pp condition (with $k$ free variabels) forms a lattice. For pp conditions</p>
+  <p>$$\begin{equation}
+φ _i[𝐱 ,𝐲_i] := ∃ 𝐲_i \ ((𝐱 , 𝐲 _i)⋅ H_{i} = \mathbf 0)\quad (i =1,2),
+\end{equation}$$</p>
+  <p>one has</p>
+  <ol>
+    <li>$(φ_1 ∧ φ _2) [𝐱 , ...] = ∃ 𝐲 _1, 𝐲 _2 \ ((𝐱, 𝐲_1 ) ⋅ H_{1} = 0 ∧ (𝐱, 𝐲_2 ) ⋅ H_{2} = 0)$, and</li>
+    <li>$(φ_1 ∨ φ _2) [𝐱 , ...] = ∃ 𝐚,𝐛,𝐜,𝐝  \ (𝐱 = 𝐚 + 𝐛 ∧ (𝐚, 𝐛) ⋅ H_{1} = 0 ∧ (𝐜, 𝐝) ⋅ H_{2} = 0)$.</li>
+  </ol>
+</div>
+
+<div class="lemma">
+  <p>The lattice is modular.</p>
+  <div class="proof">
+    <p>We show for $α' ≤ α$, one has $(α ∧ β ) ∨ α ' = α ∧ (β  ∨ α ')$. By universal property of $∧$ and $∨$, we obtain $⊆$. Conversely, consider</p>
+    <p>$$\begin{equation}
+α ∧ (β  ∨ α ') [𝐱 ,...]= ∃ \ ((𝐱,𝐚 )H_α =0 ∧ (𝐛 ,𝐜 )H_β =0∧ (𝐞, 𝐟 )H_{α '} =0 ∧ 𝐱=𝐛+𝐞 ).
+\end{equation}$$</p>
+    <p>We see $𝐱=𝐛+𝐞$ satisfies</p>
+    <p>$$\begin{equation}
+(𝐛 , 𝐚 - 𝐟 ) H_α = 0 ∧ (𝐛 , 𝐜 ) H_β = 0 ∧ (𝐞 , 𝐟 ) H_{α '} = 0.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="definition">
+  <p>(Galois connection). Once we fix $M ∈ 𝐌𝐨𝐝 _R$, there is a pairing to truth value</p>
+  <p>$$\begin{equation}
+\text{definable subgrps}  \ × \ \text{pp formula} → 𝔽 _2,\quad (G, φ) ↦ \{G ⊆ φ (M) \ ?\}.
+\end{equation}$$</p>
+  <p>We define the vanishing set of $𝐱 ∈ M^k$ as $pp^M_k(𝐱 ) := \{φ : 𝐱 ∈ φ (M)\}$. We write $pp(x)$ for simplicity.</p>
+</div>
+
+<div class="problem">
+  <p>Show that $pp(𝐱 )$ is a <strong>filter</strong>, i.e.,</p>
+  <ol>
+    <li>if $α , β ∈ pp(𝐱 )$ then $(α ∧ β ) ∈ pp(𝐱 )$,</li>
+    <li>if $α ∈ pp(𝐱 )$ then $α ' ∈ pp(𝐱 )$ for all $α ' ≥ α$.</li>
+  </ol>
+</div>
+
+<p>In particular, $pp(𝐱)$ is either principal (generated by one element) or infinitely generated.</p>
+
+<ul>
+  <li>A filter on the finite poset is always principal; note that the filtered colimit over finite index category is the valuation at the terminal object.</li>
+  <li>The assignment $X ↦ \mathcal{P}(\mathcal{P}(X)), \quad x ↦ \{A : x ∈ A\}$ takes each element in the set $X$ to its generating principal ultrafilter (ultra = maximal). Each filter is contained in some ultrafilter, as each ideal in $(𝔽_2)^X$ is contained in some maximal ideal. However, there exists some non-principle ($≈$ <em>unconstructable</em>) ultrafilter. Set $X = ℤ _{≥ 1}$, then any ultrafilter containing $\{k ℤ \}_{k ≥ 1}$ is non-principal. Such <em>unconstructable</em> ultrafilter yields a fruitful field of non-standard analysis.</li>
+</ul>
+
+<p>Fortunately, such filter of pp conditions is always principal for f.p. modules.</p>
+
+<div class="theorem">
+  <p>Let $M$ be f.p.. For any $x ∈ M^k$, $pp(x)$ is principal.</p>
+  <div class="proof">
+    <p>We write $R^m \overset {C^T} → R^n \overset π → M → 0$, then $\{z_k = π (e_k)\}_{k=1}^n$ generates $M$. Now $z C = 0$. We set $x + z X = 0$ and define</p>
+    <p>$$\begin{equation}
+φ_m [x,y] := ∃ y \ ((x,y)\binom{I \ O}{X \ C} = 0).
+\end{equation}$$</p>
+    <p>To see $φ _m$ is the least pp condition, we take any $x ∈ φ(M)$ and show that $φ_m ≤ φ$. There is $y'$ s.t. $(x,y')\binom{A}{-B} = 0$. Since $z$ is a generating set, there is $(x,y') = (x,z)\binom{I \ O}{O \ Q}$. Hence,</p>
+    <p>$$\begin{equation}
+\binom{I\ O}{O \ Q} ⋅ \binom{A}{-B} = \binom {A}{-QB} ∈ \ker ((x,z) ⋅ ) \overset ⋆= \operatorname{im} (\binom{I \ O}{X \ C}⋅ ).
+\end{equation}$$</p>
+    <p>Here $⋆$ is equivalent to $\ker ((0, z)⋅) = \operatorname{im}(\binom{I \ O}{O \ C} ⋅)$, which is more over equivalent to $\ker π = \operatorname{im} (C^T)$.</p>
+  </div>
+</div>
+
+<h3 id="herzogs-pairing">Herzog’s Pairing</h3>
+
+<p>The tensor pairing yields the duality. Assume $M ⊗ N = 0$, then $M$ is $r$-annihilated iff $N$ is $r$-divisible. The dualised pp conditions are</p>
+
+<p>$$\begin{equation}
+xr = 0\quad ↔ ∃ y\ (x,y)\binom{1}{r} = 0.
+\end{equation}$$</p>
+
+<div class="definition">
+  <p>(Dualised pp condition). The dualised pp condition (for $𝐦𝐨𝐝 _R$) of</p>
+  <p>$$\begin{equation}
+φ (x) := ∃ y \ (x, y) \binom{A}{B} = 0
+\end{equation}$$</p>
+  <p>is (for $𝐦𝐨𝐝 _{R^{\mathrm{op}}}$)</p>
+  <p>$$\begin{equation}
+Dφ (c) := ∃ d \ (c,d) \binom{\ I \ \ \ O\ }{A^T \ B^T} =0.
+\end{equation}$$</p>
+</div>
+
+<p>We show that $D$ is an anti-isomorphism of lattices.</p>
+
+<div class="lemma">
+  <p>$φ ≤ φ'$ iff $Dφ' ≤ Dφ$. Moreover $D^2 φ = φ$.</p>
+  <div class="proof">
+    <p>(→). If $\binom{I \ X}{O \ Y} \binom{A}{B} = \binom{A'}{B'}Z$, then $$\begin{equation}
+\binom{I \ \ O\ }{O \ Z^T}\binom{I \ \ \ \ O\ }{A'^T \ B'^T} = \binom{I \ \ \ O\ }{A^T \ B^T}\binom{I \ \ \ O\ }{X^T \ Y^T}.
+\end{equation}$$</p>
+    <p>(←). It suffices to show $D^2 φ = φ$. Note that the matrix for for $φ$, $Dφ$, and $D^2 φ$ are $$\begin{equation}
+\binom{A}{ {\color{blue} B}} ↦ \binom{I \ \ O\ }{ {\color{blue}A^T \ B^T}} ↦ \binom{I \ O}{ {\color{blue}\binom{I \ A}{O \ B}}}.
+\end{equation}$$</p>
+    <p>Clearly $B ∣ Ax$ iff $\binom{I \ A}{O \ B} ∣ x (I \ 0)$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>By Galois connection, show that</p>
+  <p>$$\begin{equation}
+D(φ ∨ ψ) = Dφ ∧ Dψ,\quad\text{and} \quad D(φ ∧ ψ) = Dφ ∨ Dψ.
+\end{equation}$$</p>
+</div>
+
+<p>Now we show a criterion for determing whether $∑_i m_i ⊗ _R n_i = 0$ in $M ⊗ N$.</p>
+
+<div class="theorem">
+  <p>Let $𝐦$ and be a row vector and $𝐧$ be a column vector. Then $𝐦 ⊗ 𝐧 = ∑ m_i ⊗ n_i = 0 ∈ M ⊗ N$ <strong>iff</strong> there is $𝐥$, $𝐤$, $(X \ Y)$ s.t.</p>
+  <p>$$\begin{equation}
+𝐦 ⊗ 𝐧 = (𝐦\ \mathbf0) ⊗ \binom{𝐧 }{𝐤} = 𝐥 (X\ Y) ⊗ \binom{𝐧 }{𝐤} = 𝐥 ⊗ (X\ Y) \binom{𝐧 }{𝐤} = 𝐥 ⊗ \mathbf0.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>(←). Clear. (→). Note that $N$ is a filtered colimit of f.p. modules containing $𝐧$. Let $N_0$ be any f.p. module in such system, AB5 shows</p>
+    <p>$$\begin{equation}
+\ker [N_0 → N] = ⋃ _{0 → ?} \ker [N_0 → N_?].
+\end{equation}$$</p>
+    <p>Hence, $𝐦 ⊗ 𝐧 = 0$ in some $M ⊗ N_?$. WLOG, we assume $N$ is f.g. at the beginning. We extend $𝐧$ to $(𝐧 \ 𝐥) = \{y_j\}_{j=1}^q$ as a generating set of $N$. Now $(𝐦\ \mathbf0) ⊗ \binom{𝐧 }{𝐤} = 0$ in the image of each $M ⊗ \frac{N}{(\{y_j\}_{j ≠ j_0})}$. By definition, $M ⊗ \frac{R}{(r)} = \frac{M}{Mr}$, there is a vector $𝐯_{j_0}$ s.t.</p>
+    <p>$$\begin{equation}
+∑ (𝐦\ \mathbf0) ⊗ y_{j_0} = ∑ 𝐯 _{j_0} a ⊗ y_{j_0} = ∑ 𝐯 _{j_0} ⊗ a y_{j_0} = 0\quad ∈ M ⊗ N.
+\end{equation}$$</p>
+    <p>Combining each $𝐯 _{j_0}$ we obtain $(X \ Y)$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that $𝐦 ⊗ 𝐧 = 0$ iff there is some pp condition s.t. $φ (𝐦)$ and $Dφ (𝐧^T)$.</p>
+</div>
+
+<h3 id="presentation">Presentation</h3>
+
+<p>We wish a presentation of pp condition. Recall the assignment</p>
+
+<p>$$\begin{equation}
+(𝐦𝐨𝐝_R)_+ → \text{pp condition},\quad (M, x) ↦ \min pp^M(x).
+\end{equation}$$</p>
+
+<div class="problem">
+  <p>For pointed morphism $f : (M, m) → (N, n)$, one has $\min pp^M(m) ≥ \min pp^N(n)$.</p>
+</div>
+
+<div class="lemma">
+  <p>Such assignment is surjective.</p>
+  <div class="proof">
+    <p>Any $φ '$ has a preimage $(M, z_{[1,k]})$ as shown in the first theorem in <code class="language-plaintext highlighter-rouge">PP Lattice</code>, i.e.,</p>
+    <p>$$\begin{equation}
+φ' [z_{[1,k]},y] = ∃ y \ ((z_{[1,k]},y)⋅ \begin{pmatrix}I&O\\ -I&A\\ O&-B\end{pmatrix}).
+\end{equation}$$</p>
+    <p>One may take $y = z$ to obtain the <em>universal</em> solution.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>We denote $z = z_{[1,k]}$ in the previous lemma. The assignment $(M, z) ↦ φ$ gives the presentation of pp condition, i.e.,</p>
+  <p>$$\begin{equation}
+0 → (M / (z), - ) → (M, - ) → φ (-) → 0.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>The morphism $(M, N) → φ (N)$ sends $f ↦ f(z)$ (with diagonal action). To see it is surjective, any $s ∈ φ (N)$ satisfies $\binom{I \ -A}{O \ \ \ B \ } ∣ s I$. Hence, $s$ maps from the generating set $z ⊆ M$. For exactness, we see</p>
+    <p>$$\begin{equation}
+\ker [(M, N) \xrightarrow{(-)(z)} φ (N)] = \{f : f(z) = 0\} ≃ (M/(z), N).
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>This presentation indicates a universal property of $(M, z)$.</p>
+
+<div class="definition">
+  <p>(Free realisation). A free realisation of pp condition $φ$ is a pair $z ∈ φ (M)$ such that, for any $x ∈ φ (N)$, there is a morphism $f : (M, z) → (N, x)$ of pointed modules.</p>
+</div>
+
+<div class="problem">
+  <p>Verify such universal property according to the presentation.</p>
+</div>
+
+<p>Now we show functorial property of pp condition.</p>
+
+<div class="proposition">
+  <p>$φ$ preserves $∐$, $∏$, $\varinjlim^{fil}$, and summands.</p>
+  <div class="proof">
+    <p>We write $φ(-) := \operatorname{cok}((p,-))$, where $p: M → M/(z)$ is a morphism between f.p. modules. For any $☆ ∈ \{∐ , ∏ , \varinjlim^{fil}\}$,</p>
+    <p>$$\begin{equation}
+☆ φ (M_∙ ) = ☆ \operatorname{cok}((p, M_∙ )) ≃ \operatorname{cok}((p, ☆M_∙ )) = φ (☆ M_∙).
+\end{equation}$$</p>
+    <p>$φ$ is clearly a additive functor, which preserves summands.</p>
+  </div>
+</div>
+
+<h3 id="purity">Purity</h3>
+
+<p>The functor $φ$ preserves $∐$, $∏$, $\varinjlim^{fil}$ and summands. It might preserves <em>a more general class of submodules</em>; nonetheless, $2ℤ ↪ ℤ$ is a non-example, since $φ (2ℤ) ≠ 2ℤ ∩ φ (ℤ)$ for $φ [x,y] = ∃ y \ (x-2y=0)$.</p>
+
+<div class="definition">
+  <p>A pure submodule $L ↪ M$ is such that $φ (L) ⊆ φ (M) ∩ L^k$ holds equality for all pp formula $φ$.</p>
+</div>
+
+<ul>
+  <li>The notion of pure subgroup (reine Untergruppe) is due to <a href="https://link.springer.com/article/10.1007/BF01504333">Prüfer</a>, where the pp conditions are specialised to the form $x = y ⋅ n$ for some $n ∈ ℕ$.</li>
+</ul>
+
+<p>In this sense, $L ↪ M$ is a pure submodule iff $p^L(x) = p^M(x)$ for all $x ∈ L^k$, that is</p>
+
+<ul>
+  <li>a solution set of a pp condition $φ$ in $L$ is compatible with the restriction $L ↪ M$.</li>
+</ul>
+
+<div class="lemma">
+  <p>A <strong>pure submodule</strong>, or <strong>pure embedding</strong> $e_i : L_i ↪ M_i$ is preserved by $∐$, $∏$, $\varinjlim^{fil}$ and pure submodules (including summands).</p>
+  <div class="proof">
+    <p>For pp condition $φ$ and any $☆ ∈ \{∐ , ∏ , \varinjlim^{fil}\}$, one has</p>
+    <p>$$\begin{aligned}
+φ (☆ M_i) ∩ (☆ L_i)^k = (☆φ (M_i)) ∩ (☆ L_i^k) = \ker ☆(φ(M_i) ⊕ L_i^k → M_i)\\
+= ☆ \ker (φ(M_i) ⊕ L_i^k → M_i) = ☆ φ (L_i) = φ (☆ L_i).
+\end{aligned}$$</p>
+    <p>To see the pure embedding in transitive, we take $L ↪ M ↪ N$ and see that</p>
+    <p>$$\begin{equation}
+φ (M) ∩ L^k = (φ (M) ∩ N^k) ∩ L^k = φ (N) ∩ L^k = φ (L).
+\end{equation}$$</p>
+  </div>
+</div>
+
+<div class="lemma">
+  <p>A transfinite composition of pure embedding is again a pure embedding.</p>
+  <div class="proof">
+    <p>Let $L_0 ↪ L_1 ↪ \cdots L_γ ↪ \cdots$ be such system which terminates at some limit ordinal $α$. We denote $P_γ$ as the proposition that $L_0 ↪ L_γ$ is a pure embedding for some $γ ∈ α$. Clearly $P_0$ holds. $P_γ → P_{γ +1}$ is given by the transitivity of pure embedding. We see $⋀ _{β ∈ γ } P_β → P_γ$ for limit ordinal $γ$:</p>
+    <p>$$\begin{aligned}
+φ (L_γ) ∩ L_0 ^k &= φ (⋃\limits_{β ∈ γ } L_β) ∩ L_0 ^k = (⋃\limits_{β ∈ γ } φ (L_β)) ∩ L_0 ^k \\[6pt]
+&\overset{\text{AB5}}= ⋃\limits_{β ∈ γ } (φ (L_β) ∩ L_0 ^k) = ⋃\limits_{β ∈ γ } φ (L_0) =  φ (L_0).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Conclude that,</p>
+  <ul>
+    <li>for any filtered system of pure embeddings, the structure morphism $L_β ↪ \varinjlim^{fil}L_∙$ is again a pure embedding.</li>
+    <li>any embedding of f.g. projective module $P$ to a flat module $M$ is a pure embedding.</li>
+  </ul>
+</div>
+
+<p>This indicates that a pure embeddings are $\varinjlim^{fil}$-closure of split monomorphisms. A pure embedding $i : L ↪ M$ is defined by the equivalent manners:</p>
+
+<ol>
+  <li>(pp). $φ (L) = φ (M) ∩ L^k$ for all pp condition $φ$;</li>
+  <li>(exactness). The ses $0 → L → M → M/L → 0$ is preserved by all $⊗$-type functor.</li>
+  <li>(pure morphism). The pure morphism in locally finitely presented category ($𝐌𝐨𝐝 _R$).</li>
+</ol>
+
+<p>We show a theorem connecting the first two conditions.</p>
+
+<div class="theorem">
+  <p>Say $0 → A → B → C → 0$ is a pure ses provided $A ↪ B$ is a pure embedding. $θ$ is pure exact iff $(K, θ)$ is pure exact for all f.p. $K$.</p>
+  <div class="proof">
+    <p>Note that the latter statement is equivalent to that, f.p. modules lifts $B ↠ C$.<br /> (←). Recall that $φ(-) = \operatorname{cok}((M/(z),-) ↪ (M, -))$. By assumption, both $(M/(z),θ)$ and $(M, θ)$ are exact, thus $φ (θ)$ is exact. We obtain a monomorphis of ses:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_2854b7fd52125.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By inclusion of cokernels, $\square$ is a pullback. Hence $φ (B) ∩ A^k = φ (A)$. <br /> (→). For any pp condition $φ$, $c ∈ φ (C)$, there is $y$ s.t. $(c,z)H = 0$. Taking the preimage</p>
+    <p>$$\begin{equation}
+B^n ↠ C^n,\quad (b,y) ↦ (c , z),
+\end{equation}$$</p>
+    <p>we see $(b,y)H ∈ A^m$. By pure embedding, there is some $(a,x) ∈ A^n$ s.t. $(a,x)H = (b,y)H$. Hence, we obtain the induced surjection</p>
+    <p>$$\begin{equation}
+π : φ (B) ↠ φ (C),\quad (b-a) ↦ c.
+\end{equation}$$</p>
+    <p>Now we show that any morphism $h : K → C$ lifts to $\widetilde h : K → B$. Let $x$ be the generating set of $K$, and take $φ = \min pp^K(x)$. Now $h(x) ∈ φ (C)$. By induced surjection $φ (B) ↠ φ (C)$, there is some $y ∈ φ (B)$ s.t. $π (y) = h(x)$. Since $(K, x)$ is a free realisation of $φ$, there is a morphism $\widetilde h : K → B$ s.t. $\widetilde h (x) = y$. We see that $\widetilde h$ is a lift of $h$.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Let $0 → A \overset i→ B \overset π → C → 0$ be ses, show the following equivalent.</p>
+  <ol>
+    <li>$i$ is a pure embedding,</li>
+    <li>$i ⊗ X$ is monic for all $X ∈ 𝐌𝐨𝐝 _R$,</li>
+    <li>$i ⊗ K$ is monic for all $K ∈ 𝐦𝐨𝐝 _R$,</li>
+    <li>$(K, π)$ is epic for all $K ∈ 𝐦𝐨𝐝 _R$.</li>
+  </ol>
+  <p>Hint: we just show 1 ↔ 4. Since $\varinjlim^{fil}(𝐦𝐨𝐝 _R) = 𝐌𝐨𝐝_R$, and $\varinjlim^{fil}$ is exact, we see 2 ↔ 3. To see 3 ↔ 4, we consider two ways of finite cocompletion of $𝐚𝐝𝐝 (R)$ in $\mathrm{PSh}(𝐌𝐨𝐝 _R)$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_64314b193b615.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>We show another definition of purity.</p>
+
+<div class="definition">
+  <p>Say $f : X → Y$ is a pure morphism, if for any $g : A → B$ the morphism in $𝐦𝐨𝐝_R$, and for any commutative diagram $g ⇒ f$, there exists $s$ making $\circlearrowleft$ commutative:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_ee6ba8fb80e40.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="proposition">
+  <p>Any pure morphism $f:X → Y$ is monic.</p>
+  <div class="proof">
+    <p>Let $K$ be any f.p. module s.t. the composition $K \xrightarrow g X \xrightarrow f → Y$ is zero. We shall show that $g=0$. Recall that</p>
+    <ul>
+      <li>$f$ is a filtered colimit of morphisms between f.p.modules, and</li>
+      <li>any f.g. modules are $ω$-small objects.</li>
+    </ul>
+    <p>Hence, $g$ passes through some f.p. submodule $X_i ↪ X$, and $f(X_i)$ passed through some f.p. submodule $Y_j ↪ Y$. There is also dashed morphism $s$ making all $\circlearrowleft$ commutative:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_755b10f62feb4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By diagram chasing, $fg=0$ implies $g=0$.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Pure morphisms are <strong>precisely</strong> filtered colimits of split monomorphisms.</p>
+  <div class="proof">
+    <p>(←) split monomorphisms and pure. It suffices to show pure morphisms are closed under $\varinjlim^{fil}$. The partial lifting property of pure morphism $f_i$ and f.p. morphism $g$ is equivalent to $\operatorname{im}(2) ⊆ \operatorname{im}(3 ∘ 1)$ in the following diagram:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_af1c5fab3d6ba.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By exactness of filtered colimit, we obtain $\operatorname{im}(2) ⊆ \operatorname{im}(3 ∘ 1)$ in the colimit diagram. <br /> (→). Any pure morphism $f : X ↪ Y$ is a filtered colimit of the injective system $f_i ⇒ f$. We assign each $i$ a pushout diagram, wherein $e_i$ splits by partial lifting property:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_1aa5d96ad4ec0.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Now $\varinjlim^{fil} Y_i ↪ \varinjlim^{fil} (X ⊔ _{X_i} Y_i) ↪ Y$. Hence the isomorphisms holds.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>The followings are equivalent definitions for $f : X → Y$ to be a pure morphism.</p>
+  <ol>
+    <li>For any f.p. morphism $g:A → B$, and commutative diagram $g ⇒ f$, the morphism $A → X$ passes through $g$.</li>
+    <li>$f$ is a filtered colimit of split monomorphisms.</li>
+    <li>$f ⊗ X$ is injective for all $X ∈ 𝐌𝐨𝐝 _R$.</li>
+    <li>$f ⊗ K$ is injective for all f.p. $K ∈ 𝐦𝐨𝐝 _R$.</li>
+    <li>$(K, Y) ↠ (K, Y/X)$ is surjective for all f.p. $K ∈ 𝐦𝐨𝐝 _R$.</li>
+    <li>$φ (f(X)) = φ (Y) ∩ f(X)^k$ for any pp condition $φ$. There are various equivalent definition by pp conditions, e.g.,       <ol>
+        <li>For any $𝐑 ∈ R^{n × m}$, $\{x𝐑 ∣ x ∈ X^n\} = X^m ∩ \{y𝐑 ∣ y ∈ Y^n\}$.</li>
+        <li>Equation $𝐱 ⋅ 𝐑 = 𝐱_0$ has a solution in $Y$, then it has a solution in $X$.</li>
+      </ol>
+    </li>
+  </ol>
+  <div class="proof">
+    <p>We show 1 ↔ 2 and 5 ↔ 6, while 3 ↔ 4 ↔ 5 is an exercise. Clearly 2 → 3. It remains to show 5 → 1. <br /> (5 → 1). We shall find the partial lifting map $s$ in the diagram:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_7b1ccadf6bd44.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Here $\operatorname{cok}(g)$ is f.p.. By 5., there is dashed $t$ making $\circlearrowleft$ commutative. Since $(j - tp) ∈ (π _∗ )$, there is some $s$ s.t. $j - tp= fs$. Now</p>
+    <p>$$\begin{equation}
+(sg=i) ↔ (fsg=fi) ↔ ((j - tp)g =jg) ↔ \text{true}.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>We remark that purity comes from the <strong>defect</strong> of the pairing $- ⊗ ? : 𝖮𝖻 × 𝖬𝗈𝗋 → 𝐀𝐛$.</p>
+
+<ul>
+  <li>For $\mathrm{Hom}(-,?)$, $(-,p)$ is always epic <strong>iff</strong> $p$ is split epi.</li>
+  <li>For $\mathrm{Hom}(?,-)$, $(i, -)$ is always epic <strong>iff</strong> $i$ is split mono.</li>
+  <li>For $- ⊗ ?$, $i ⊗ X$ is always monic <strong>iff</strong> $i$ is pure mono.</li>
+</ul>
+
+<h3 id="examples-of-pure-ses">Examples of Pure ses</h3>
+
+<p>We show some examples of pure short exaxct sequences.</p>
+
+<div class="definition">
+  <p>We call the ker-coker pair in a pure exact sequence as <strong>pure monomorphism</strong> and <strong>pure epimorphism</strong>.</p>
+</div>
+
+<div class="problem">
+  <p>Let $g$ be an pure monomorphism. Then $g ∘ f$ is a pure monomorphism <strong>iff</strong> $f$ is a pure monomorphism. Hint: use $- ⊗ X$.<br /> Let $f$ be a pure epimorphism. Then $g ∘ f$ is a pure epimorphism <strong>iff</strong> $g$ is a pure epimorphism. Hint: use $(K,-)$.</p>
+</div>
+
+<div class="problem">
+  <p>Pure monomorphisms (resp. epimorphisms) are closed under pushout (resp. pullback). Hint: apply $(K, -)$.</p>
+  <ul>
+    <li>Corollary, if $N ↪ M$ is pure, then $\frac{N}{L} ↪ \frac{M}{L}$ is pure.</li>
+    <li>Corollary, if $L ↪ M$ and $\frac{N}{L} ↪ \frac{M}{L}$ are pure, then $L ↪ N$ is pure.</li>
+  </ul>
+</div>
+
+<p>This result shows convenience in construction when constructing a sequential pure embedding $M_0 ↪ M_1 ↪ M_2 ↪ \cdots ↪ M_α$.</p>
+
+<ul>
+  <li>If $M_{γ} ↪ M_α$ is a pure embedding, then for any pure submodule $\frac{M_{γ +1}}{M_γ } ↪ \frac{M_α }{M_γ}$, the embedding $M_γ ↪ M_{γ +1}$ is pure.</li>
+  <li>For limit cardinal $β$, $M_β ↪ M_α$ is a pure embedding when all $M_γ ↪ M_α$ ($γ < β$) are pure embeddings. Hence all $M_γ ↪ M_β$ are pure embeddings.</li>
+</ul>
+
+<p>Conversely, we wonder when a pushout morphisms is a pure embedding.</p>
+
+<div class="example">
+  <p>The left morphism yields the right diagram of four ses:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_2bb539c028cd8.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Hence, $f'$ is monic whenever $\ker f ⊆ \ker g$.</p>
+</div>
+
+<div class="proposition">
+  <p>$f'$ is pure embedding iff $\ker (f ⊗ 1_X) ⊆ \ker (g ⊗ 1_X)$ for all $X ∈ 𝐌𝐨𝐝_R$, iff $\ker (f ⊗ 1_X) ⊆ \ker (g ⊗ 1_X)$ for all $X ∈ 𝐦𝐨𝐝_R$.</p>
+  <div class="proof">
+    <p>Note that $⊗$ commutes with pushout and filtered colimits.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>The pure ses $0 → A → B → C → 0$ splits when $C ∈ 𝐦𝐨𝐝 _R$.</p>
+</div>
+
+<div class="example">
+  <p>The pure ses are preserved by $∐$, $∏$, $\varinjlim^{fil}$, and summands.</p>
+  <div class="proof">
+    <p>Recall that pure embeddings are preserves by these exact functors.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>For any filtered colimit, the following is pure ses</p>
+  <p>$$\begin{equation}
+0 → K → ∐ X_∙ → \varinjlim{}^{fil} X_∙ → 0.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>For any $K ∈ 𝐦𝐨𝐝 _R$, $f : K → \varinjlim{}^{fil} X_∙$ passes some $⨁ _{i=1}^n X_∙$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>The following is pure ses</p>
+  <p>$$\begin{equation}
+0 → ∐ X_∙ → ∏ X_∙ → C → 0.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>For any $K ∈ 𝐦𝐨𝐝 _R$, $K ⊗ -$ preserves $∐$ and $∏$.</p>
+  </div>
+</div>
+
+<div class="proposition">
+  <p>$F$ is flat iff any ses $0 → K → M → F → 0$ is pure.</p>
+  <div class="proof">
+    <p>If $F$ is flat, then it is the filtered colimit of projectives. Hence, this ses is a filtered colimit of split ses’s. Conversely, we take $∐_F R ↠ F$. For any $K ∈ 𝐦𝐨𝐝 _R$, $K → F$ factors through some f.g. free module. Hence $F$ is flat.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>(Löwenheim–Skolem). For any $x ∈ M$ belongs to a pure submodule $x ∈ L ↪ M$ for $|L| ≤ \max (ω , |R|)$.</p>
+  <ul>
+    <li>This theorem is specialised from <em>(Downward) Löwenheim–Skolem Theorem</em> in model theory, which discuss the existence and cardinality of models.</li>
+  </ul>
+  <div class="proof">
+    <p>Note that the cardinal of the set of pp conditions is no more than $\max (ω , |R|)$. Set $L_0 := (x)$. For each $x ∈ L_0$ and pp condition $φ$, one can find finitely many bound variables ${}^xS^0_φ ⊆ M$ such that $φ (M) ∩ L_0 ⊆ ({}^xS^0_φ ∪ L_0)$. Take</p>
+    <p>$$\begin{equation}
+L_{k+1} := (L_{k} ∪ ⋃ \limits_{x ∈ L_0, φ ∈ \ \text{pp condition}}{}^xS^k_φ),\quad k ∈ ℕ.
+\end{equation}$$</p>
+    <p>Hence, for arbitrary $k$ and pp condition $φ$, one has $φ (M) ∩ L_{k} ⊆ L_{k+1}$. Note that $|L_k|≤ \max (ω , |R|)$. We obtain the desired pure submodule $L := ⋃ _{k ∈ ℕ }L_k$.</p>
+  </div>
+</div>
+
+<h2 id="pure-relative-homological-algebra">Pure-Relative Homological Algebra</h2>
+
+<p>Relative homological studies the pairing of object and morphism classes. For instance, once we take $Θ := \{\text{specialised ses}\}$, then</p>
+
+<ul>
+  <li>a specialised projective objects is $Q$ such that $(Q, η )$ is exact for all $η ∈ Θ$,</li>
+  <li>a specialised injective objects is $J$ such that $(η , J)$ is exact,</li>
+  <li>a specialised flat objects is $G$ such that $G ⊗ η$ is exact for all $η ∈ Θ$,</li>
+  <li>…</li>
+</ul>
+
+<h3 id="pure-proj">Pure Proj</h3>
+
+<p>Analogous to the definition of projective object, say $Q$ is pure projective provided $(Q, η )$ is ses for all pure ses $η$.</p>
+
+<div class="example">
+  <p>Both projectives and f.p. modules are pure projective.</p>
+</div>
+
+<div class="theorem">
+  <p>(Structure of pure projectives). Pure projective modules are <strong>precisely</strong> the summand of $∐ (𝐦𝐨𝐝_R)$. Hence, any pure projective modules is a coproduct of countably generated pure projective modules.</p>
+  <div class="proof">
+    <p>Summands of $∐ (𝐦𝐨𝐝_R)$ are pure projective, as pure projectives are closed under $∐$. Conversely, any pure porjective $M$ is a filtered colimit of f.p. modules. By definition of pure exactness, the following ses splits:</p>
+    <p>$$\begin{equation}
+0 → K → ∐_{i ∈ I} M_i → \varinjlim{}^{fil} M_i → 0.
+\end{equation}$$</p>
+    <p>By the proof of Kaplansky theorem, a summand of coproducts of countably generated modules is also a coproduct of countably generated modules.</p>
+  </div>
+</div>
+
+<p>The following tensor-product argument characterise the f.g. modules, f.p. modules and Mittag-Leffler modules. The latter contains all pure projective modules.</p>
+
+<div class="example">
+  <p>Let $M$ be a module. For any collection of left modules $\{N_∙ \}_{i ∈ I}$, one has the natural transformation</p>
+  <p>$$\begin{equation}
+M ⊗ ∏ _{i ∈ I} N_i → ∏_{i ∈ I} (M ⊗ N_i),\quad ∑ m_s ⊗ (n^s_i)_{i ∈ I} ↦ (m_s ⊗ n^s_i)_{i ∈ I}.
+\end{equation}$$</p>
+  <p>In particular, the above is an <strong>isomorphism iff $M$ is f.p.</strong>, and an <strong>epimorphism iff $M$ is f.g.</strong>. See <a href="25SumLec0#the-real-compact-modules">Lec0</a> for details. In general, a pure projective module $Q ∈ 𝐒𝐦𝐝 (∐ (𝐦𝐨𝐝 _R))$ yields the <strong>monic</strong> natural transformation, as $∐ ∏ ↪ ∏ ∐$.</p>
+</div>
+
+<div class="definition">
+  <p>(Mittag-Leffler module in sense of Raynaud and Gruson). $M$ is said to be Mittag-Leffler (ML for short), provided the above natural transformation is monic.</p>
+</div>
+
+<div class="problem">
+  <p>Show that ML modules are closed under $∐$, $\varinjlim^{fil}$, and summands.</p>
+</div>
+
+<p>Recall that for any f.p. module $M$ and $x ∈ M^k$, the filter $pp^M(x)$ is principal. This property is easily generalised to $∐ (𝐦𝐨𝐝 _R)$ and moreover to pure projective modules. In fact,</p>
+
+<div class="theorem">
+  <p>$M$ is ML iff $pp^M(x)$ is principal for any $k$ and $x ∈ M^k$.</p>
+  <div class="proof">
+    <p>We apply Herzog’s pairing to the assignment</p>
+    <p>$$\begin{equation}
+M ⊗ ∏ _{i ∈ I} N_i → ∏ (M ⊗ N_i),\quad x ⊗ (y_i)_{i ∈ I} ↦ (x ⊗ y_i)_{i ∈ I}.
+\end{equation}$$</p>
+    <p>(→). When M is ML, the above is monic. Assume that $pp^M(x)$ is non-principal. We take $N_φ$ be such that $\max pp^N(y_φ) = Dφ$, where $φ$ runs through $pp^M(x)$. Since $x ⊗ (y_φ)_{φ ∈ pp^M(x)} = 0$, there exists pp condition $ψ$ s.t. $x ∈ ψ (M)$ and $$\begin{equation}
+(y_φ)_{φ ∈ pp^M(x)} ∈ (Dψ) (∏\limits_{φ ∈ pp^M(x)} N_φ), \quad \text{that is,}\quad ⋀\limits_{φ ∈ pp^M(x)} (y_φ ∈ Dψ (N_φ )).
+\end{equation}$$</p>
+    <p>Hence, $ψ ∈ pp^M(x)$ is smaller than any $φ ∈ pp^M(x)$, yielding that $x$ is principle. A contradiction. <br /> (←). Assume that $pp^M(x)$ is principal. For any $(x ⊗ y_i)_{i ∈ I} = 0$ in $∏ (M⊗ N_i)$, there is a list of pp conditions $\{φ _i\}_{i ∈ I}$ s.t. $$\begin{equation}
+x ∈ φ _i (M) ∧ y_i ∈ Dφ _i (N_i),\quad i ∈ I.
+\end{equation}$$</p>
+    <p>Taking $ψ = \min pp^M(x)$, we see that</p>
+    <p>$$\begin{equation}
+x ∈ ψ (M) ∧ (y_i ∈ Dψ (N_i)),\quad i ∈ I.
+\end{equation}$$</p>
+    <p>Since $φ$ preserves $∏$, $ψ$ shows $x ⊗ (y_i)_{i ∈ I} = 0$ in $M ⊗ ∏ _{i ∈ I} N_i$ by Herzog’s pairing.</p>
+  </div>
+</div>
+
+<p>We care about the structure of countably generated pure projective modules, as they are the building blocks of pure projectives.</p>
+
+<div class="theorem">
+  <p>Let $M$ be countably generated. When $M$ is pure projective iff it is ML.</p>
+  <div class="proof">
+    <p>We show (←), i.e., a countably generated ML module $X$ is pure projective. Let $\{x_i\}_{i ∈ ω }$ be generating set of $X$. For each $n$ we denote $φ _n := \min pp^X_{n+1} (x_0,\ldots, x_n)$. We also define</p>
+    <p>$$\begin{equation}
+φ ' _{n+1} [x_0, \ldots, x_n] := ∃ y \ φ _{n+1}[x_0, \ldots, x_n, y].
+\end{equation}$$</p>
+    <p>Let $p : Q ↠ X$ be any pure epimorphism. We shall construct the right inverse of $p$ by assigning $x_i ↦ q_i$. We choose any $q_0$ to be the inverse image of $x_0$ s.t. $(q_0) ∈ φ_0(x_0)$. Suppose that we have $(q_0, \ldots, q_n)$ such that</p>
+    <ol>
+      <li>$φ _k [q_0, \ldots, q_k]$ for arbitrary $k ≤ n$, and</li>
+      <li>$x_k ↦ q_k$ for $k ≤ n$.</li>
+    </ol>
+    <p>We shall find $q_{n+1}$ satisfying the inductive conditions. We see that $φ '_{k+1}[q_0, \ldots, q_k]$. Consider the following tuples in $Q^{k+1}$:</p>
+    <ol>
+      <li>Let $\widetilde {q_{k+1}}$ be the indeterminant such that $φ_{k+1}[q_0, \ldots, q_k, \widetilde{q_{k+1}}]$.</li>
+      <li>Let $(r_i)_{i ≤ k+1}$ be preimages of each $x_i$.</li>
+    </ol>
+    <p>Hence, $(q_i - r_i)_{i ≤ k} ∈ (\ker p)^{k+1}$. By pure embedding, there is some $λ ∈ (\ker p)^{k+1}$ s.t.</p>
+    <p>$$\begin{equation}
+(q_0 - r_0, \ldots , q_k - r_k, λ ) ∈ φ _{k+1} (Q).
+\end{equation}$$</p>
+    <p>Set $q_{k+1} := r_{k+1} + λ$, we complete the induction. <br /> Finally, we show $x_i ↦ q_i$ is well-defined. When there is $∑_{i ≤ l} x_i a_i = 0$, we have $φ _l (x_∙) → φ _l (q_∙)$. Hence $∑_{i ≤ l} q_i a_i = 0$.</p>
+  </div>
+</div>
+
+<p>This shows that pure projective modules are exactly the coproducts of countably generated Mittag-Leffler modules.</p>
+
+<h3 id="recollection-ml-conditions">Recollection: ML Conditions</h3>
+
+<p>We show the exact meaning of Mittag-Leffler conditions, and show more equivalent definitions of Mittag-Leffler modules. Our base category is either $𝐌𝐨𝐝 _R$ or $C(R)$.</p>
+
+<div class="example">
+  <p>(Cotower and Colimit). A cotower is a $ω$-transfinite composition</p>
+  <p>$$\begin{equation}
+X_0 \xrightarrow{φ _0} X_1 \xrightarrow{φ _1} X_2 \xrightarrow{φ _2} \cdots
+\end{equation}$$</p>
+  <p>We set $φ : ∐ _{n ≥ 0} X_n → ∐ _{n ≥ 0} X_n,\quad (x_0, x_1,\ldots ) ↦ (0, x_0, x_1,\ldots)$ and ontain ses</p>
+  <p>$$\begin{equation}
+0 → ∐ _{n ≥ 0} X_n \xrightarrow{1 - φ } ∐ _{n ≥ 0} X_n → \varinjlim{}^{fil} X_n → 0.
+\end{equation}$$</p>
+  <div class="proof">
+    <p>Note that $(1 - φ) (x_n)_{n ≥ 0} = 0$ iff $x_0 = 0$ and $φ_k (x_k) = x_{k+1}$ for each $k$. Hence $1-φ$ is injective. We show $\operatorname{cok}(1-φ ) ≃ \varinjlim X_∙$ by Yoneda lemma.</p>
+    <p>$$\begin{aligned}
+(\operatorname{cok}(1-φ ), M) &≃ \ker (1-φ , M) = \{f ∈ (∐ X, M) ∣ f_{k+1} = φ _k ∘ f_k\} \\[6pt]
+& ≃ (X_0 \xrightarrow{φ _0} X_1 \xrightarrow{φ _1} X_2 \xrightarrow{φ _2} \cdots,\quad M=M=\cdots  )_{𝐏𝐒𝐡} \\[6pt]
+& ≃ (\varinjlim X_∙ , M).
+\end{aligned}$$</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>A tower is a countable <em>cocomposition</em> of morphisms $$\begin{equation}
+\cdots → X_2 \overset{ψ _1}→ X_1 \overset{ψ _0}→ X_0 → 0.
+\end{equation}$$</p>
+  <p>Set $ψ : ∏ X → ∏ X,\quad (x_0, x_1, x_2, \ldots ) ↦ (ψ _0(x_1), ψ _1(x_2), \ldots)$. Show that</p>
+  <ul>
+    <li>$\ker (1-ψ) ≃ \varinjlim X_∙$ (by Yoneda lemma),</li>
+    <li>$\operatorname{cok}(1 - ψ)$ is surjective if all $ψ _∙$ are surjections,</li>
+    <li><strong>$\operatorname{cok}(1 - ψ)$ is not necessary surjective!</strong></li>
+  </ul>
+</div>
+
+<p>The defect of AB5* yields $\varprojlim {}^1 X_∙ := \operatorname{cok}(1 - ψ)$. Note that the functor $\varinjlim{}^1$ is defined over $ω$-tower for default.</p>
+
+<div class="theorem">
+  <p>$\varprojlim {}^1$ is the right derived functor of $\varprojlim_{ω \text{-tower}}$.</p>
+  <div class="proof">
+    <p>The functor $X ↦ [\cdots = X = \overset{\deg n} X → 0 = 0 → \cdots → 0]$ has left adjoint $(Y_∙, ψ_∙) ↦ Y_n$. Since an exact left adjoint preserves injective objects, the category of $ω$-towers has enough injectives, i.e.,</p>
+    <p>$$\begin{equation}
+(Y_∙, ψ_∙) ↪ I^0(Y_∙) := [\cdots = E(∐ Y_∙)= E(∐ Y_∙)].
+\end{equation}$$</p>
+    <p>We obtain ses of $ω$-towers $0 → Y → I^0 → C → 0$. The morphisms in $I^0$ are surjections, hence $\varprojlim{}^1 I^0 = 0$. By snake lemma, we have the $4$-term ker-coker sequence</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_8e7f874668d52.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>By injective resolution $Y \overset ι ↪ I^0 \overset {g_0}→ I^1\overset {g_1}→ \cdots$,</p>
+    <p>$$\begin{equation}
+(\mathrm R^1 \varprojlim) Y = \frac{\ker [\varprojlim (g_1)]}{\operatorname{im} [\varprojlim (g_0)]} ≃ \frac{\varprojlim \ker (g_1)}{\operatorname{im} [\varprojlim (g_0)]}≃ \frac{\varprojlim C}{\operatorname{im} [\varprojlim I^0 → \varprojlim C]} ≃ \varprojlim {}^1 C
+\end{equation}$$</p>
+  </div>
+</div>
+
+<p>In particular, $\varprojlim {}^1$ is right exact. The higher derived limits for $ω$-towers vanish.</p>
+
+<div class="example">
+  <p>$\varprojlim{}^1$ is closely related to the completion. Consider a descending sequence of submodules $\cdots ⊆ M_{k+1} ⊆ M_{k} ⊆ \cdots ⊆ M_0$, aka open neighbourhoods. Applying $\varprojlim$ to the ses $0 → M_k → M → \frac{M}{M_k} → 0$, we obtain the following exact sequence</p>
+  <p>$$\begin{equation}
+0 → \varprojlim M_k → M → \varprojlim \frac{M}{M_k} → \varprojlim {}^1 M_k → 0\quad (=\varprojlim {}^1 M).
+\end{equation}$$</p>
+  <p>Assume $\{M_∙\}$ is Hausdorff, i.e., $\varprojlim M_k  = ⋂ M_k = 0$. Then $∏ M_k /∼_{\text{Cauchy Seq}} ↠ \varprojlim {}^1 M_k$.</p>
+</div>
+
+<p>Some remarks:</p>
+
+<ol>
+  <li>A computation of <a href="Spectral_sequence_filtered#导出极限">spectra sequence</a> shows more on derived limits.</li>
+  <li>The derived (co)limit are usually talked over (co)towers. One can show that $\mathrm R^1 [A → B ← C ↦ A × _B C]$ is $A ⊔_{A × _C B} B$, i.e., the sum $A + C$.</li>
+  <li>A general construction of higher derived limits is seen in <a href="https://mathscinet.ams.org/mathscinet/article?mr=132091">Roos’s inaccessible paper</a>, where there is also <a href="https://londmathsoc.onlinelibrary.wiley.com/doi/abs/10.1112/S0024610705022416">a famous mistake</a>.</li>
+</ol>
+
+<div class="example">
+  <p>We are interested in the case when $\varprojlim {}^1 X = 0$. For instance, when morphisms in tower are surjections, then $\varprojlim {}^1 X = 0$.</p>
+</div>
+
+<div class="definition">
+  <p>(Mittag-Leffler condition). An inverse directed system is said to be Mittag-Leffler provided</p>
+  <p>$$\begin{equation}
+∀ X \ ∃ (Y \overset f → X) \ ∀ (Z \xrightarrow g Y) \ (\operatorname{im} (g ∘ f) = \operatorname{im}(f)).
+\end{equation}$$</p>
+  <p>Here all objects and morphisms belongs to the inverse system.</p>
+  <ul>
+    <li>The ML condition is talked over inverse directed systems. There is no worry to talk about ML conditions over the system of cofiltered limits, as every filtered category is cofinal to a directed category.</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>(Mittag-Leffler tower). Let $(X, ψ)$ be tower. For each $m$, the descending sequence of image $\{\operatorname{im}(ψ _{n+k, n})\}_{k ≥ 1}$ stabilises for large $k$. Hence, the tower is cofinal to (has the same limit as) the surjective system of images:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_cb3c00247ef58.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>The quotient system $\frac{X_k }{\operatorname{im}(ψ _{∞ , k})}$ is also Mittag-Leffler since the stable image is $0$ at each degree. We see $\varprojlim{}^1X_k = 0$ by the ses below $$\begin{equation}
+0 = \varprojlim{}^1\operatorname{im}(ψ _{∞ , k}) → \varprojlim{}^1X_k → \varprojlim{}^1\frac{X_k }{\operatorname{im}(ψ _{∞ , k})} = 0.
+\end{equation}$$</p>
+</div>
+
+<div class="example">
+  <p>Countable ML condition guarentees the vanishing of $\mathrm R^1\varprojlim _{ω}$. <strong>It is NOT ture that $\mathrm R^1 \varprojlim ^{ML}_I$ vanishes for uncountable $I$!</strong></p>
+</div>
+
+<p><a href="ML_analysis">This note</a> explains the Mittag-Leffler theorem in analysis.</p>
+
+<h3 id="ml-module-revisited">ML Module Revisited</h3>
+
+<p>We show another equivalent definition of Mittag-Leffler modules in language of Mittag-Leffler system.</p>
+
+<div class="example">
+  <p>Recall that for morphisms $A \overset f ← X \overset g→ B$, we denote $f' : B → A ⊔ _X B$ and $g' := A → A ⊔ _X B$ as the pushout morphisms.</p>
+  <ol>
+    <li>$f'$ is injective iff $\ker g ⊇ \ker f$.</li>
+    <li>$f'$ is pure injective iff $\ker (g ⊗ -) ⊇ \ker (f ⊗ -)$ as a subfunctor.</li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>Let $(M_∙, f_∙ )$ be a filtered system (WLOG directed). The inverse system $((M_∙ , X), f^∗ _∙ )$ is ML provided</p>
+  <p>$$\begin{equation}
+∀ i \ ∃ (i → j) \ ∀ (i → j → k)\ (\operatorname{im}(f^∗ _{k,i}) = \operatorname{im}(f^∗ _{j,i})).
+\end{equation}$$</p>
+  <p>In diagram:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_1835905281b60.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>We take $X := ∏ M_∙$, and see that $f_{j,i}$ factors through all $f_{k,i}$ for $k ≥ 1$.</p>
+</div>
+
+<div class="problem">
+  <p>Conclude that the following are equivalent for a filtered directed system $(M_∙ , f_∙ )$.</p>
+  <ol>
+    <li>$((M_∙ , X), f^∗ _∙ )$ is ML for arbitrary $X$;</li>
+    <li>For any $i$, there is $j$ s.t. $f_{j,i}$ factors through $f_{k,i}$ for all $k ≥ j$.</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>Let $M = \varinjlim ^{fil}M_∙$ be a filtered colimit of f.p. modules. <strong>Say $M$ is ML, iff the following equivalent definitions hold</strong>:</p>
+  <ol>
+    <li>for any $𝐱 ∈ M^k$, $pp^M_k (𝐱 )$ is a principal filter;</li>
+    <li>the natural transformation $M ⊗ ∏ N_∙ → ∏ (M ⊗ N_∙)$ is injective;</li>
+    <li>the natural transformation $M ⊗ ∏ N_∙ → ∏ (M ⊗ N_∙)$ is injective for $N_∙$ f.p.;</li>
+    <li>the system $(M_∙ , X)$ is ML for any $X$;</li>
+    <li>for any structure morphism $e_i : M_i → M$, there is $f_{j,i} : M_i → M_j$ s.t. the two poshout morphisms are pure embeddings;</li>
+    <li>for any morphism $X → M$ ($M ∈ 𝐦𝐨𝐝_R$), there is a morphism $(X → Y) ∈ 𝐦𝐨𝐝 _R$ s.t. the two poshout morphisms are pure embeddings.</li>
+  </ol>
+  <div class="proof">
+    <p>We show (1 → 2 → 3 → 1). We show in previous subsection shows (1 ↔ 2). Recall that in the proof of (2 → 1), the collection $N_φ$ s.t. $φ = \min pp^{N_φ }(y_φ )$ is chosen to be f.p. modules. Hence, (3 → 1) holds. <br /> We show (6 → 5 → 4 → 6). <br /> (6 → 5). We take any $e_i : M_i → M$ and $g : M_i → X$ s.t. the pushouts are pure embeddings. Note that $\operatorname{cok}[M_j → M_j ⊔ _{M_i} X]$ is f.p. (pure projective), $e_i$ factors through $g$ via some $s :X → M$. By smallness of compact objects, there is $M_j$ making the following diagram commute:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_a421635a8cd87.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>To see that the pushout morphisms of $e_i$ and $f_{j,i}$ are pure embeddings, we observe $$\begin{equation}
+\ker (f_{j,i} ⊗ -) ⊆ \ker (e_i ⊗ -) = \ker (g ⊗ -) ⊆ \ker (f_{j,i} ⊗ -).
+\end{equation}$$ The equality holds. <br /> (5 → 4). Note that for any $i$, there is $i → j$ s.t. $\ker (e_i ⊗ -) = \ker (f_{j,i} ⊗ -)$. We obtain the pure embedings:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_f4b54b7947ffc.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Note that pure embedding splits when cokernel is pure projective. Hence $f_{j,i}$ factors through $f_{k,i}$. <br /> (4 → 6). We take arbitrary $f : X → M$. There is $e_i$ where $f$ passes through. By ML condition, there is $j$ s.t. for any $j → k$, $f_{j,i}$ factors through $f_{k,i}$.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_dc7a174450a89.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>For each $j → k$ we have the left pushout square. $M_j  → M_j \sqcup _{X}M_k$ is split monic by factoring morphism. Taking filtered colimit we obtain the right pushout square. The morphism $X_j →  M_j \sqcup _X\varinjlim ^{fil}M_k$ is a pure embedding since it is a filtered colimit of split monomorphisms. By cofinality, $\varinjlim ^{fil}_{k \ (j → k)}M_k ≃ M$. The morphism $X → M$ factors through $e_j$, thus the pushout of $X → M_j$ also splits. <br /> We finally show (1,2,3 ↔ 4,5,6). Note that the canonical morphism in 2. is</p>
+    <p>$$\begin{equation}
+\varinjlim{}^{fil}_i ∏_λ  (M_i ⊗ N_λ) → ∏_λ \varinjlim{}^{fil}_i (M_i ⊗ N_λ).
+\end{equation}$$</p>
+    <p>(3 → 6). For any $f : X → M$, we take index set $$\begin{equation}
+Λ := ⨆ \limits_{K ∈ 𝐦𝐨𝐝 _R} \ker (f ⊗ K) =\{(λ, K_λ)\}.
+\end{equation}$$</p>
+    <p>Explicitly, $λ := (λ, K_λ)$ is an element in $Λ$, $λ ∈ \ker (f ⊗ K_λ)$. $K_λ$ is a representative of the isomorphism class of $𝐦𝐨𝐝 _R$. The above is well-defined since</p>
+    <ul>
+      <li>$𝐦𝐨𝐝 _R$ is essentially small, and</li>
+      <li>$X ⊗ ∏ K_λ ≃ ∏ (X ⊗ K_λ)$ as $X$ is f.p..</li>
+    </ul>
+    <p>Let $x := (λ)_{λ ∈ Λ } ∈ ∏ (X ⊗ K_λ)$ be the universal element. By Herzog’s tensor pairing, any $x ∈ \ker (f ⊗ ∏ _{λ ∈ Λ} K_λ)$ lies in some $\ker (g ⊗ ∏ _{λ ∈ Λ} K_λ)$, where $g : P → Y$ is a morphism between f.p. modules.</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_67197f23ed734.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>It suffices to consider in the right column, that is, $x = (λ) ∈ ∏ X ⊗ K_λ$ belongs to $∏ \ker (f⊗ 1)$. By structure of $λ$, $\ker (g ⊗ K) ⊆ \ker (f ⊗ K)$ for any $K ∈ 𝐦𝐨𝐝 _K$. Let $f'$ and $g'$ denote the pushout morphisms of $f$ and $g$. Therefore, $g'$ is pure monic and $f'$ splits monic. <br /> (5 → 2). When $(M_∙ , X)$ is ML system, we show $\ker (M ⊗ ∏ N_∙ → ∏ (M ⊗ N_∙ )) = 0$. Equivalently, for any $i$ there is $i → j$ s.t. any</p>
+    <p>$$\begin{equation}
+x ∈ \ker \left(M_i ⊗ ∏ N_∙ → ∏ (M ⊗ N_∙ )\right) ≃ ∏_{λ ∈ Λ } \ker (e_i ⊗ N_λ ) ∋ (x_λ )
+\end{equation}$$</p>
+    <p>maps to $0$ under $f_{j,i} ⊗ 1$. Note that there is $j$ s.t. $\ker (e_i ⊗ -) = \ker (f_{j,i} ⊗ -)$ by ML system.</p>
+  </div>
+</div>
+
+<p>We remark that the definition of ML modules is <strong>independent of the choice of the filtered system</strong>.</p>
+
+<div class="example">
+  <p>Let $Q_∙$ and $M_∙$ be the filtered system with colimit $M$. We assume there is an assignment $φ$ s.t. the following diagram commutes for each $i$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_e2ec43a87312b.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Assume $M_∙$ is ML, we shall show taht $Q_∙$ is also ML. There is some $φ (φ (i)) → j$ s.t. $f_{j, φ (i)}$ factors through $f_{k, φ (i)}$ ($∀ j → k$). We claim that</p>
+  <ul>
+    <li>for any $φ (j) → l$, $f_{φ (j), i}$ factors through $f_{l,i}$.</li>
+  </ul>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/25SumLec4/diagram_85e07c9e31fa1.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>Note that</p>
+  <p>$$\begin{aligned}
+& Q_i → Q_{φ (j)} \ \text{factors through} \ Q_i → Q_l \\
+← \ & Q_i → Q_{φ (j)} \ \text{factors through} \ Q_i → Q_l → \ M_{φ (l)} \\
+↔ \ & Q_i → Q_{φ (j)} \ \text{factors through} \ Q_i → M_{φ (l)} → M_{φ (l)} \\
+↔ \ & Q_i → Q_{φ (j)} \ \text{factors through} \ Q_i → M_{φ (l)} → M_{φ (j)} \\
+← \ & Q_i → Q_{φ (j)} \ \text{factors through} \ Q_i → M_{φ (l)} → M_{φ (j)} → Q_{φ (j)} \quad = \text{True}\\
+\end{aligned}$$</p>
+</div>
+
+<p>We revisit some examples of ML modules.</p>
+
+<div class="example">
+  <p>Pure projectives ($= 𝐒𝐦𝐝 (∐ 𝐦𝐨𝐝 _R)$), including $𝐦𝐨𝐝_R$ and $𝐏𝐫𝐨𝐣$, are ML. For countably generated modules, pure projectives coincides ML.</p>
+</div>
+
+<p>We show some closure property.</p>
+
+<div class="proposition">
+  <p>ML modules are closed under $∐$, $𝐒𝐦𝐝$, $⊗$, pure subobjects, pure extensions, as well as pure syzygies.</p>
+  <div class="proof">
+    <p>($∐$). We show $∐ _{i ∈ I} M_i$ is ML provided each $M_i$ is ML. Note that</p>
+    <p>$$\begin{aligned}
+(∐ \limits_{i ∈ I} M_i) ⊗ ∏ \limits_{λ ∈ Λ }N_λ & ≃ ∐ \limits_{i ∈ I} (M_i ⊗ ∏ \limits_{λ ∈ Λ }N_λ) ↪ ∐ \limits_{i ∈ I} ∏ \limits_{λ ∈ Λ } (M_i ⊗ N_λ) \\[6pt]
+& ↪ ∏ \limits_{λ ∈ Λ } ∐ \limits_{i ∈ I} (M_i ⊗ N_λ) ≃ ∏ \limits_{λ ∈ Λ } ((∐ \limits_{i ∈ I} M_i) ⊗ N_λ).
+\end{aligned}$$</p>
+    <p>($𝐒𝐦𝐝$). Note that summand of a monomorphism is again monic. <br /> ($⊗$). Let $(M_i, f)$ and $(N_a, φ )$ be filtered systems of $M$ and $N$, respectively. The Catersian product of the underlying diagram is also filtered, with colimit</p>
+    <p>$$\begin{equation}
+\varinjlim_{(i, a) ∈ I × A}{}^{fil} M_i ⊗ N_a ≃ M ⊗ A.
+\end{equation}$$</p>
+    <p>For $(i, a) ∈ I × A$, there exists $(i, a) → (j,b)$ s.t.</p>
+    <ul>
+      <li>for any $j → k$, $f_{j,i}$ factors through $f_{k,i}$ via some $α$, and</li>
+      <li>for any $b → c$, $φ_{b,a}$ factors through $φ_{c,a}$ via some $β$.</li>
+    </ul>
+    <p>Hence, for any $(j, b) → (k,c)$, the morphism $f_{j,i} ⊗ φ _{b,a}$ factors through $f_{k,i} ⊗ φ _{c,a}$ via $α ⊗ β$. It yields that $M ⊗ N$ is ML module. <br /> (Pure subobjects and pure extensions). Let $0 → K → M → C → 0$ be pure exact. Then we obtain the commutative diagram:</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_8a9b8a4f2cd97.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>If $β$ is monic, then $α$ is also monic; if $α$ and $γ$ are monic, then $β$ is also monic.</p>
+  </div>
+</div>
+
+<p>We finally shows the <em>differences</em> between projectives and ML modules.</p>
+
+<div class="proposition">
+  <p>Consider the following conditions:</p>
+  <ol>
+    <li>$M$ is flat;</li>
+    <li>$M$ is ML;</li>
+    <li>$M$ is $∐$ of countably generated modules.</li>
+  </ol>
+  <p>In particular, (1 ∧ 2 ∧ 3) ↔ projective, (2 ∧ 3) ↔ pure projective; there are <a href="https://arxiv.org/pdf/1907.00356">some characterisation</a> of (1 ∧ 3) for commutative Noetherian rings, we show that it has projective dimension $≤ 1$.</p>
+  <div class="proof">
+    <p>(1 ∧ 2 ∧ 3 ↔ projective). (←). Any projective module satisfies 1 and 3. Any countably generated ML module is pure projective, including projectives. (→). Let $M = \varinjlim^{fil}F_∙$ be filtered colimit of f.g. free obejects. Let $\{x_i\}_{i ≥ 0}$ be the generating set of $x_i$. One can inductively find</p>
+    <ul>
+      <li>a countable chain $i_0^{(0)} → i_1^{(0)} → \cdots$ s.t. $\{x_{≤ k}\} ⊆ \operatorname{im} e_{i_k ^{(0)}}$;</li>
+      <li>$i_p ^{(t+1)} := φ (i_p ^{(t)} )$, by ML condition.</li>
+    </ul>
+    <p>By Cantor’s diagonal argument, we obtain a sequence $\{\overline {n}_i \}_{i ∈ ω}$. We take $n_0 := \overline {n} _0$ and $n_k ← n_{k+1} → \overline {n}_{k+1}$ and obtain an $ω$-chain $\{n_i\}_{i ∈ ω}$. We show $\varinjlim^{fil} M_{n_i}$.</p>
+    <ul>
+      <li>Clearly $\varinjlim ^{fil}_{i ∈ ω } M_{n_i} ↠ M$.</li>
+      <li>To see the injection, $\ker (e_{n_i}) = \ker ⋃ _{ {n_i} → {n_j} } φ _{n_j,n_i} = \ker φ _{n_k , n_i}$ for some $n_k ≥ φ (n_i)$. Hence, if $x ∈ M_{n_i}$ maps to $0$, then it vanishes within finite steps, which shows the injection.</li>
+    </ul>
+    <p>Hence, we find a cofinal $ω$-chain of the filtered system which is also ML under $(-, N)$ ($∀ N$). Note that $\varprojlim ^{fil}(M_i, -)$ is an exact functor, $M$ is projective. <br /> (2 ∧ 3 ↔ $\text{Pure Proj}$). A pure projective module is a summand of $∐ 𝐦𝐨𝐝_R$. By Kaplansky’s argument,</p>
+    <p>$$\begin{equation}
+𝐒𝐦𝐝 (∐(\text{Countably generated})) = ∐(\text{Countably generated}).
+\end{equation}$$</p>
+    <p>Hence pure projective satisties 2. and 3.. Conversely, recall that countably generated ML modules are pure projective. Hence, any module satisfying 2. and 3. is pure projective. <br /> (1 ∧ 3 → pd $M ≤ 1$). A countably generated flat module $M$ is a filtered colimit of f.g. free modules. Follwoing the countable generating set, the system is cofinal to a countable transfinite composition. Hence, we obtain a presentation</p>
+    <p>$$\begin{equation}
+0 → ∐ _{n ∈ ω } F_n \xrightarrow {1- φ } ∐ _{n ∈ ω } F_n → M → 0.
+\end{equation}$$</p>
+    <p>Therefore $p.d. M ≤ 1$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <p>We show some examples of the above comparision.</p>
+  <ol>
+    <li>(¬ 1 ∧ 2 ∧ 3). Any f.p. module is countably generated and ML, but not flat in general.</li>
+    <li>(1 ∧ ¬ 2 ∧ 3). $ℚ ∈ 𝐌𝐨𝐝 _ℤ$ is countably generated flat. $ℚ$ is never ML, since $ℚ ⊗ ∏_{n ≥ 1} ℤ / n ℤ ≠ 0 = ∏ _{n ≥ 0}(ℚ ⊗ ℤ / n ℤ)$.</li>
+    <li>(1 ∧ 2 ∧ ¬ 3). $ℤ ^ω ∈ 𝐌𝐨𝐝 _ℤ$ is flat and ML, but not a coproduct of countably generated module. $ℤ ^ω$ is flat since $ℤ$ is coherent. To see it is ML, we take any turple $x = (x^s)_{s ∈ ω} ∈ (ℤ^ω )^k$. By commuting of pp condition and $∏$, $\min pp(x) = ⋀ _{s ∈ ω } pp (x^s)$ exists. Hence $pp^{ℤ ^ω }(x)$ is principal. We finally show that $ℤ^ω$ is not a coproduct of countable abelian groups. Sperker’s theorem shows $(ℤ ^ω ,ℤ ) ≃ ℤ ^{(ω)}$. If $ℤ ^ ω = ∐_{i ∈ I} A_i$ is coproduct of countable Abelian groups, then $ℤ ^{(ω )}$ is a product of the dual groups. Since $|2^ω| > ω$, there are exactly finite many $i$ s.t. $(A_i, ℤ ) ≠ 0$. Hence, there is some uncountable summand $M ↪ ℤ ^ω$ s.t. $(M, ℤ) = 0$. Consider the projection $M \xrightarrow{p_k} ℤ$, a contradiction.</li>
+  </ol>
+</div>
+
+<div class="problem">
+  <p>Show the <em>local property</em> of ML module $M$:</p>
+  <ul>
+    <li>any finite subset $S ⊆ M$ is contained in some pure projective submodule $P ⊆ M$;</li>
+    <li>any countable subset $S ⊆ M$ is contained in some countably generated pure projective submodule $P ⊆ M$.</li>
+  </ul>
+</div>
+
+<h3 id="pure-injective-and-compactness">Pure Injective and Compactness</h3>
+
+<p>Anagolously to pure projectives, a pure injective module $X$ is such that $(θ , X)$ is exact for any pure exact sequence $θ$.</p>
+
+<div class="example">
+  <p>For any injective module $I$ and any module $X$, $(X, I)$ is pure exact. Note that $(θ , (X , I)) ≃ (θ ⊗ X , I)$ is exact.</p>
+</div>
+
+<div class="problem">
+  <p>Show basic properties of pure injective module:</p>
+  <ol>
+    <li>$M$ is pure injective iff any pure exact sequence $0 → M → X → Y → 0$ splits.</li>
+    <li>$M$ is injective iff the canonical pure embedding $M ↪ M^{++}$ splits.</li>
+    <li>Pure injective modules are closed under $∏$, $𝐒𝐦𝐝$。</li>
+    <li>If $X$ is pure injective, then $\mathrm{Ext}^k(M,X)$ are pure injective for any $k ≥ 0$.</li>
+  </ol>
+</div>
+
+<p>We show pure injective means algebraically compact. We show some examples before explaining the definitions</p>
+
+<div class="example">
+  <p>(Bohr’s compactification for Toplogical Abelian Groups). Let $T = ℝ / ℤ$ be the torus group. We endow $X^c := (X,T)_ℤ$ with discrete topology. In this case $X^{cc}$ is compact Hausdorff with dense subspace $X$.</p>
+  <ol>
+    <li>Note that $X^{cc} ↪ (X^c, T)_{𝐒𝐞𝐭𝐬} = T^{X^c}$ is a product of compact Hausdorff space. $X^{cc} = \{(t_f) : t_{f+g} = t_{f}+t_{g}\}$ is clearly a closed subspace, thus it is compact hausdorff.</li>
+    <li>We show the essnetial image $X ↪ X^{cc},\quad x ↦ (f(x))_{f ∈ X^c}$ is dense. If not, then $\overline {X} ⋐ X^{cc}$ is compact subset. We take non-zero continuous character $χ : X^{cc} → T$ which vanishes on $\overline {X}$. By Pontryagin-duality theorem, $χ$ is evaluation of some $f ∈ X^c$. Since $χ : \overline {X} → 0$, we have $f = 0$. It yields $χ = 0$, a contradiction.</li>
+  </ol>
+  <p>Hence, for any compact group $G$, the group homomorphism $X → G$ uniquely extends to a continuous homomorphism $X^{cc} → G$. Note that $(-)^{cc}$ is a left adjoint to the inclusion $𝐀𝐛𝐓𝐨𝐩𝐆𝐫𝐩 → 𝐂𝐩𝐭𝐇𝐚𝐮𝐬𝐀𝐛𝐓𝐨𝐩𝐆𝐫𝐩$. The adjuntion is generalised to the non-commutative case, see <a href="https://link.springer.com/article/10.1007/BF01359979">here</a> for the general theory.</p>
+</div>
+
+<div class="definition">
+  <p>(Scalar-compact). A module $M ∈ 𝐌𝐨𝐝 _R$ is scalar-compact <strong>iff</strong> there is some compact Hausdorff space over $M$ making each</p>
+  <p>$$\begin{equation}
+M → M,\quad m ↦ mr\quad (r ∈ R)
+\end{equation}$$</p>
+  <p>a continuous map.</p>
+</div>
+
+<div class="example">
+  <p>$X^{cc}$ is scalar-compact. We identify $r : X → X$ as a continuous endomorphism of discrete space $X$. The scalar maps extends to a continuous endomorphism of $X^{cc}$ by the universal property of Bohr’s compactification.</p>
+</div>
+
+<div class="definition">
+  <p>(Algebraically compact). The definition is related to <a href="https://ncatlab.org/nlab/show/%C5%81o%C5%9B+ultraproduct+theorem">Łoś’s theorem</a>, we provide a simple definition here. Say $M$ is algebraically compact, <strong>iff</strong> for any linear system</p>
+  <p>$$\begin{equation}
+\mathcal{S} := \left\{∑ _{j ∈ J} m_i r_{i,j} = 0 ∣ i ∈ I\right\},\quad (∀ i ∈ I, \{r_{i,j}≠ 0 ∣ j ∈ J\} \ \text{is finite}).
+\end{equation}$$</p>
+  <p>when any finite subset of $\mathcal{S}$ has a solution, then the whole system $\mathcal{S}$ has a solution.</p>
+  <ul>
+    <li>Any such system <strong>identifies</strong> an element in $∏ _{i ∈ I} ∐ _{j ∈ J} R$.</li>
+  </ul>
+</div>
+
+<div class="problem">
+  <p>Show that algebraically compact modules are closed under summands.</p>
+  <ul>
+    <li>We shall see that the <em>idempotent completion</em> of scalar-compact modules are algebraically compact ones.</li>
+  </ul>
+</div>
+
+<p>Now we show equivalent definition of pure injective modules.</p>
+
+<div class="theorem">
+  <p>$M$ is pure injective <strong>iff</strong> the following equivalent definitions are satisfied.</p>
+  <ol>
+    <li>$(-, M)$ preserves the exactness of pure exact sequences.</li>
+    <li>$M → M^{cc}$ or $M → M^{++}$ splits.</li>
+    <li>$M$ is a summand of some scalar-compact module.</li>
+    <li>$M$ is algebraically compact.</li>
+    <li>The summation $Σ : ∐_{λ ∈ Λ }M → M$ extends to $∏_{λ ∈ Λ }M → M$.</li>
+  </ol>
+  <div class="proof">
+    <p>Recall that $M ↪ M^{++}$, $M ↪ M^{cc}$, and $∐ _{λ ∈ Λ } M ↪ ∏ _{λ ∈ Λ } M$ are pure embeddings. Hence, (1 ↔ 2 → 3 ∧ 5). is clear.<br /> (3 → 4). It suffices to show all scalar-compact modules are algebraically compact. We take arbitrary system $r_{∙,∙} ∈ ∏ _I ∐ _J R$. Note that for each finite $I_0 ⊆ I$, $M^{I_0}$ is zero of a continuous map, which is closed. Hence the solution set (with $I_0$ linear equations) is a closed subset of $M^I$, thus it is compact. By <strong>finite intersection argument</strong> of compact sets, $M$ is algebraically compact. <br /> (4 → 1). For any pure submodule $X ↪ Y$, we show $h : X → M$ extends to $Y → M$. We take infinite turple $f ∈ M^Y$ with the following set of equations</p>
+    <p>$$\begin{equation}
+\{f_{y}r+f_{y'}r'-f_{yr+y'r'}=0\}_{y,y' ∈ Y, \text{and} \ r,r' ∈ R} ∪ \{f_y = h(y)\}_{y ∈ X ⊆ Y}.
+\end{equation}$$</p>
+    <p>When these equality holds, we obtain a homomorphism $f : Y → M$ with $f|_X = h$. Any finite subset of the above equations are of the form $𝐦 ⋅ 𝐑 = 𝐦 _0$, which has a solution in the pushout $M ⊔ _A B$. Since $M → M ⊔ _A B$ pure embedding, any such finite set of equation has a solution in $M$. By assumption of algebraically compactness, the global solution exists. <br /> (5 → 4). A linear equation of the form $𝐱_{I_k} ⋅ 𝐑 ^{n × m} = 𝐱_0$ determines a composition of morphism</p>
+    <p>$$\begin{equation}
+∐ _{I_k} M \xrightarrow{⋅ 𝐑 \ \text{termwise}} ∐ _{I_k}∐ _{J_k} M↪∐ _{I}∐ _{J_k} M \xrightarrow {∐ _{J_k}Σ} ∐ _{J_k}M.
+\end{equation}$$</p>
+    <p>We assume $J_∙$ to be the juxtaposition of constant terms, i.e., for $i ≠ j$, we take $J_i ∩ J_j = ∅$. By lifting property of $Σ$, we obtain</p>
+    <center> <br /> <div class="tikz-diagram">
+        <embed src="/website/svg/25SumLec4/diagram_27375a7f3c9ba.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+      </div> <br /> </center>
+    <p>Since $\coprod_{J_0}\Sigma$ is surjective, $\coprod_{J_i}\widetilde {\Sigma}$ is surjective. The colimit functor of $\varinjlim _{J_i}$ preserves surjection, thus $\coprod_{J}\widetilde {\Sigma}$ is surjective. We denote $𝐲$ as the disjoint union of the constant part of the equation, taking $I$-projection of any $(\coprod_{J}\widetilde {\Sigma})^{-1}(𝐲)$ yields the solution.</p>
+  </div>
+</div>
+
+<div class="theorem">
+  <p>Any additive functor preserving both $∐$ and $∏$ preserves pure injective modules.</p>
+  <div class="proof">
+    <p>Let $F$ be such a functor. Let $\widetilde {Σ} : ∏ _I X → X$ denote any lifting map of $Σ : ∐ _I X→ X$. Now $∐ _I (FX) \xrightarrow Σ FX$ has a lifting map</p>
+    <p>$$\begin{equation}
+∏_I FX ≃ F∏_I X \xrightarrow {F\widetilde {Σ}} FX.
+\end{equation}$$</p>
+  </div>
+</div>
+
+<h3 id="fp-injective">Fp-Injective</h3>
+
+<p>Another name for FP-Injective module is <em>absolutely pure</em> module. It is a dual notion of flat module.</p>
+
+<div class="example">
+  <p>Recall that, $M$ is flat <strong>iff</strong> any ses $0 → K → X → M → 0$ is pure.</p>
+</div>
+
+<div class="theorem">
+  <p>(Fp-Inj). The following are equivalent for $M$.</p>
+  <ol>
+    <li>Any ses $0 → M → X → Y → 0$ is pure exact;</li>
+    <li>$M ∈ (𝐦𝐨𝐝_R)^⟂$ (standard $\mathrm{Ext}^1$-orthogonality);</li>
+    <li>$M$ is a pure submodule of some injective module.</li>
+  </ol>
+  <div class="proof">
+    <p>(1 → 2, 3). Clear. <br /> (3 → 1). Assume $M ↪ I$, is pure embedding, then any monomorphism $M ↪ X$ passes through $X → I$. Recall that</p>
+    <ul>
+      <li>if $gf$ is pure embedding, then so is $f$.</li>
+    </ul>
+    <p>Hence $M ↪ X$ is a pure embedding. <br /> (2 → 3). Let $M ↪ I$ be any injective preenvelope. Since $\mathrm{Ext}^1(𝐦𝐨𝐝 _R, M) = 0$, for any $K ∈ 𝐦𝐨𝐝 _R$ the morphism $K → I/M$ lifts up to $K → I$. Hence $M → I → I/M$ is pure exact.</p>
+  </div>
+</div>
+
+<div class="problem">
+  <p>Show that $(𝐒𝐦𝐝 (𝐅𝐢𝐥 (𝐦𝐨𝐝 _R)), \text{fp-Injective})$ is cogenerated by set, thus it is complete.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#lecture-4">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Lecture 4</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#definable-subgroups">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">Definable Subgroups</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#pp-condition">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">PP Condition</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#pp-lattice">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">PP Lattice</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#herzogs-pairing">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">Herzog’s Pairing</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#presentation">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Presentation</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#purity">
+        <span class="toc-number">2.5.</span>
+        <span class="toc-title">Purity</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#examples-of-pure-ses">
+        <span class="toc-number">2.6.</span>
+        <span class="toc-title">Examples of Pure ses</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#pure-relative-homological-algebra">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">Pure-Relative Homological Algebra</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#pure-proj">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Pure Proj</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#recollection-ml-conditions">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">Recollection: ML Conditions</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#ml-module-revisited">
+        <span class="toc-number">3.3.</span>
+        <span class="toc-title">ML Module Revisited</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#pure-injective-and-compactness">
+        <span class="toc-number">3.4.</span>
+        <span class="toc-title">Pure Injective and Compactness</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#fp-injective">
+        <span class="toc-number">3.5.</span>
+        <span class="toc-title">Fp-Injective</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/25SumLec5" title="NEXT: CT5">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Topological-Six-Functors" title="PREV: Topological Six Functors">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

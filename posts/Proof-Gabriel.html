@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Proof of Gabriel's Theorem
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="  Abstract      关键步骤: 表示的轨道语言; Krull 维数公式; 不可约表示是极大开子轨道; 图分类定理 (有限型与仿射型).  推广: Kac 定理等?  ">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Proof-Gabriel">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Proof of Gabriel's Theorem</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 24, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>关键步骤: 表示的轨道语言; Krull 维数公式; 不可约表示是极大开子轨道; 图分类定理 (有限型与仿射型). <br /> 推广: Kac 定理等?</p>
+  </div>
+</div>
+
+<h2 id="gabriel-定理">Gabriel 定理</h2>
+
+<h3 id="轨道">轨道</h3>
+
+<div class="definition">
+  <p>(不带关系的箭图). 选定有限无环的 quiver $Q$, 定义代数闭域 $k = \overline k$ 上的路代数 $kQ$, 并将 $Q$ 的资料记作 $(Q_0, Q_1, s, t)$, 其中 $t(α) \xleftarrow α s(α)$.</p>
+</div>
+
+<div class="definition">
+  <p>(路代数). 回顾小 $k$-范畴的 $k$-等价 $𝐦𝐨𝐝_{kQ} ≃ 𝐫𝐞𝐩_k(Q)$. 将路代数的模记作函子</p>
+  <p>$$
+M : Q → \mathrm{vec}_k, \quad [i ↦ M_i,\quad α ↦ M_α].
+$$</p>
+</div>
+
+<p>记 $P(i)$ 是 $i ∈ Q_0$ 处对应的投射模. 以上 $kQ$ 是有限维遗传代数. 任意 $M ∈ 𝐦𝐨𝐝_{kQ}$ 的<a href="Ringel_Resolution">极小投射分解</a>是</p>
+
+<p>$$
+0 → ⨁_{α∈ Q_1}P(t(α))^{\dim  M_{s(α)}} → ⨁_{i∈ Q_0}P(i)^{\dim M_i} → M → 0.
+$$</p>
+
+<div class="definition">
+  <p>(维数向量). 子范畴 $ι: Q_0 ↪ Q_1$ 给出拉回</p>
+  <p>$$
+𝐝𝐢𝐦:= \quad ι^∗: 𝐦𝐨𝐝_{kQ} → 𝐦𝐨𝐝_{kQ_0},\quad M ↦ (\dim M_i)_{i ∈ Q_0}.
+$$</p>
+</div>
+
+<p>简单地看, $ι(M)$ 是将一切 $M_α$ 替换作零态射. 函子 $𝐦𝐨𝐝$ 本质满, 但未必全忠实.</p>
+
+<div class="definition">
+  <p>(轨道). 给定 $𝐯 ∈ 𝐦𝐨𝐝_{kQ_0}$. 一个以 $𝐯$ 为维数向量的表示, 对应以下同构类中的一个代表元</p>
+  <p>$$
+\{M ∈ 𝐫𝐞𝐩_k(Q) ∣ 𝐝𝐢𝐦 \ M = 𝐯\} / ≃ .
+$$</p>
+  <p>以下使用轨道定义之.</p>
+  <ol>
+    <li>
+      <p>(Variety) 定义 representation variety:</p>
+      <p>$$
+   𝐫𝐞𝐩(𝐯) = ∏_{α ∈ Q_1} k^{𝐯_{t(α )} × 𝐯_{s(α)}}.
+   $$</p>
+      <p>$X$ 中的一个对象 (一族 $Q_1$-指标的矩阵) 对应一个以 $𝐯$ 为维度向量的模. 特别地,</p>
+      <p>$$
+   M_{t(α )} \xleftarrow{M_{α }} M_{s(α )} ,\quad k^{𝐯_{t(α )}} \xleftarrow{Y} k^{𝐯_{s(α)}}\quad (Y ∈  k^{𝐯_{t(α )} ×  𝐯_{s(α )}}).
+   $$</p>
+    </li>
+    <li>
+      <p>(代数群) 称 $𝐫𝐞𝐩(𝐯) =$ 中元素等价 ($M ∼  N$), 当且仅当其作为 $kQ$-模同构. 相应地, 存在 $g ∈  ∏ _{i ∈  Q_0}\mathrm{GL}(k, 𝐯_i)$ 使得</p>
+      <p>$$
+   g_{t(α )} ⋅  M_α  = N_α  ⋅  g_{s(α )} \ \quad (∀  α  ∈  Q_1)
+   $$</p>
+    </li>
+    <li>
+      <p>(群作用) 定义 $G := ∏ _{i ∈  Q_0}\mathrm{GL}(k, 𝐯_i)$ 在 $𝐫𝐞𝐩(𝐯) =$ 上的 (共轭) 作用如下:</p>
+      <p>$$
+   g. (x_α )_{α  ∈  Q_1} := (g_{t(α )} ⋅  x_α  ⋅  g_{s(α )}^{-1})_{α  ∈  Q_1}.
+   $$</p>
+    </li>
+  </ol>
+</div>
+
+<p>记 $[M]$ 是 $M$ 所在的轨道. $[M]$ 代表一个表示.</p>
+
+<div class="slogan">
+  <p>Gabriel 定理证明的出发点: 找到 $𝐫𝐞𝐩(𝐯)$ 的所有 $G$-轨道.</p>
+</div>
+
+<h3 id="维度公式">维度公式</h3>
+
+<div class="note">
+  <p>涉及 Krull 维度的部分暂不给出证明.</p>
+</div>
+
+<div class="theorem">
+  <p>(Krull 维度公式). 同上, $G$ 是共轭作用在 $𝐫𝐞𝐩(𝐯)$ 上的代数群概型. 一个表示就是一个 $G$-轨道.</p>
+  <ol>
+    <li>所有 $G$-轨道 $[M]$ 都是不可约的局部闭集:       <ol>
+        <li>不可约: 所有开子集稠密, 等价地, 任意两个开集有非空交;</li>
+        <li>局部闭: $X$ 是 $\overline X$ 的开子集, 等价地, $X$ 是开集与闭集的交.</li>
+      </ol>
+    </li>
+    <li>对任意 $M$, 稳定子群 $\mathrm{Stab}_{M}$ 是闭子群.</li>
+    <li>Krull 维度公式: $\dim G = \dim \ [M] + \dim \mathrm{Stab}_{M}$.</li>
+    <li>$(\overline{[M]} ∖ [M])$ 恰是一切 Krull 维度更小的轨道的并 (观察 ses).</li>
+  </ol>
+</div>
+
+<p>对 $𝔸_k^n$, 线性维度就是 Krull 维数.</p>
+
+<div class="lemma">
+  <p>(关键公式, <a href="Key_Lemma_Gabriel">证明</a>). 以下关键公式联系了 Krull 维度与线性空间的维度.</p>
+  <p>$$
+\dim 𝐫𝐞𝐩(𝐯) - \dim \ [M] = \dim \mathrm{Ext}^1(M,M) = \dim \mathrm{End}(M) - q(𝐯).
+$$</p>
+</div>
+
+<div class="proposition">
+  <p>(<a href="Uniqueness_of_Maximal_Orbit">证明</a>) 以下是一些几何的结论.</p>
+  <ol>
+    <li>极大轨道满足以下等价定义:       <ol>
+        <li>$\mathrm{Ext}^1(M,M) =0$;</li>
+        <li>$[M]$ 是开集;</li>
+        <li>$\overline{[M]} = 𝐫𝐞𝐩(𝐝𝐢𝐦 \ M)$.</li>
+      </ol>
+    </li>
+    <li>固定 $𝐯$, 极大轨道若存在则必唯一.</li>
+    <li>极大轨道不存在的必要条件: $q(𝐯) ≤ 0$.</li>
+    <li>(不证明此条). 极小轨道就是半单表示; 等价地, $[X]$ 是闭集.</li>
+    <li>
+      <p>给定 ses $0 →  X →  Y →  Z →  0$, 该 ses 不可裂当且仅当</p>
+      <p>$$
+   [X ⊕ Z] \quad ⊆ \quad \overline {[Y]} ∖ [Y]\quad (\text{视作} \ 𝐫𝐞𝐩(\dim Y) \ \text{中的轨道}).
+   $$</p>
+    </li>
+  </ol>
+</div>
+
+<h3 id="根系与图分类">根系与图分类</h3>
+
+<div class="definition">
+  <p>(根系的基本记号). 给定二次型 $q : ℤ^n × ℤ^n → ℤ$, 定义</p>
+  <ol>
+    <li>
+      <p>(根系) 定义有限型 quiver 的根系为 $q^{-1}(≤ 1)$, 即,</p>
+      <p>$$
+    \Delta := \{ 𝐯 \mid q(𝐯) ≤ 1, 𝐯 \neq \mathbf 0\};
+    $$</p>
+    </li>
+    <li>(虚实) 实根 (虚根) 满足 $q(𝐯)=0$ ($q (𝐯)=1$), 记作 $\Delta ^{\mathrm{Re}}$ ($\Delta ^{\mathrm{Im}}$);</li>
+    <li>(正负) 各项 $\geq 0$ ($\leq 0$) 整数的根称为正根 (负根), 记作 $\Delta _+$ ($\Delta _-$).</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(图分类定理, <a href="Finite_and_Affine_Root_System">图</a>). 对有限, 连通, 无向, 允许重边的图 $Q$, 记 Euler 二次型 $q$. <br /> 记 $\overline Q$ 是 $Q$ 的无向化 (去除箭头), $A$ 是其邻接矩阵, 则 $q$ 对应的对称二次型为 $B: = \frac{1}{2}(2I - A)$. <br /> 以下著名定理分类了正定或几乎正定的邻接矩阵 $B$.</p>
+  <ol>
+    <li>称 $q$ 是有限型的, 当且仅当 $q$ 正定, 当且仅当 $Δ$ 是有限集, 当且仅当 $\overline Q$ 是 Dynkin 图 $A_n$, $D_n$, 以及 $E_{6,7,8}$, 角标 $n$ 是顶点数.</li>
+    <li>称 $q$ 是仿射型的, 当且仅当 $q$ 半正定且 $\dim N(B) = 1$, 当且仅当 $Δ$ 是有限集与 $ℤ⋅ 𝐤$ 的直和, 当且仅当 $\overline Q$ 是 $\widehat{A_n}$, $\widehat{D_n}$, $\widehat{E_{6,7,8}}$.</li>
+  </ol>
+  <p>特别地, $Δ  = Δ  _+ ⊔  Δ  _-$. 换言之, 根系中不存在既正又负的向量.</p>
+</div>
+
+<h3 id="gabriel-定理的证明">Gabriel 定理的证明</h3>
+
+<p>给定有限无自环的 quiver $Q$, 记 $\overline Q$ 是无向化图. 给定特征为 $0$ 的代数闭域 $k$, 记路代数 $kQ$.</p>
+
+<div class="theorem">
+  <p>(<a href="Gabriel_1">证明</a>). 给定 $kQ$, 其中 $\overline Q$ 是有限型 Dynkin quiver. 考虑映射</p>
+  <p>$$
+𝐝𝐢𝐦 : 𝐫𝐞𝐩_k (Q) → \mathbf{rep}_k (Q_0),\quad [M] ↦  𝐝𝐢𝐦 \ M.
+$$</p>
+  <p>这一映射建立了不可分解表示与 $Δ ^+$ 的双射对应:</p>
+  <p>$$
+𝐝𝐢𝐦 : 𝐈𝐧𝐝𝐞𝐜𝐨𝐦𝐩 (Q) ⇆ Δ _+(Q) : \text{Maximal Orbit}.
+$$</p>
+  <ol>
+    <li>给定不可分解模 $M$, 表示 $[M]$ 对应 $𝐝𝐢𝐦 \ M$;</li>
+    <li>给定正根 $𝐯$, 则 $𝐫𝐞𝐩(𝐯)$ 存在极大轨道 $[M]$, 对应不可约表示.</li>
+  </ol>
+</div>
+
+<div class="corollary">
+  <p>(见<a href="Gabriel_1">证明</a>第一部分). $kQ$ 中的不可分解对象恰是 brick. 这些 brick 是 $\mathrm{Ext}^1$ 自垂直的.</p>
+</div>
+
+<div class="theorem">
+  <p>(<a href="Gabriel_2">证明</a>) 一般地, $kQ$ 的不可分解表示有限, 当且仅当 $\overline Q$ 是 Dynkin 图.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#gabriel-定理">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Gabriel 定理</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#轨道">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">轨道</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#维度公式">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">维度公式</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#根系与图分类">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">根系与图分类</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#gabriel-定理的证明">
+        <span class="toc-number">1.4.</span>
+        <span class="toc-title">Gabriel 定理的证明</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Key_Lemma_Gabriel" title="NEXT: $\dim 𝐫𝐞𝐩(𝐯) - \dim \ [M] = \dim \mathrm{Ext}^1(M,M)$">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/gen_and_cog" title="PREV: $𝐜𝐨𝐠$ 与 $𝐠𝐞𝐧$ 的等价定义">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

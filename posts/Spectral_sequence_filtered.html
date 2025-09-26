@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>关于谱序列与滤过复形等
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Spectral_sequence_filtered">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>关于谱序列与滤过复形等</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        April 27, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <ul id="markdown-toc">
+  <li><a href="#abstract" id="markdown-toc-abstract">Abstract</a></li>
+  <li><a href="#谱序列的滤过构造" id="markdown-toc-谱序列的滤过构造">谱序列的滤过构造</a>    <ul>
+      <li><a href="#滤过复形" id="markdown-toc-滤过复形">滤过复形</a></li>
+      <li><a href="#滤过复形构造谱序列" id="markdown-toc-滤过复形构造谱序列">滤过复形构造谱序列</a></li>
+      <li><a href="#双复形" id="markdown-toc-双复形">双复形</a></li>
+      <li><a href="#技巧-从-mathjax_protectedjevfmiqmathjax_protected-看出长正合列" id="markdown-toc-技巧-从-mathjax_protectedjevfmiqmathjax_protected-看出长正合列">技巧: 从 $E_2$ 看出长正合列</a></li>
+      <li><a href="#技巧-eilenburg-cartan-消解" id="markdown-toc-技巧-eilenburg-cartan-消解">技巧: Eilenburg-Cartan 消解</a></li>
+    </ul>
+  </li>
+  <li><a href="#谱序列直接应用" id="markdown-toc-谱序列直接应用">谱序列直接应用</a>    <ul>
+      <li><a href="#同调代数的简单应用" id="markdown-toc-同调代数的简单应用">同调代数的简单应用</a></li>
+      <li><a href="#维数移动" id="markdown-toc-维数移动">维数移动</a></li>
+      <li><a href="#ar-转置与谱序列" id="markdown-toc-ar-转置与谱序列">AR 转置与谱序列</a></li>
+      <li><a href="#kunneth-公式" id="markdown-toc-kunneth-公式">Kunneth 公式</a></li>
+    </ul>
+  </li>
+  <li><a href="#导出函子相关" id="markdown-toc-导出函子相关">导出函子相关</a>    <ul>
+      <li><a href="#grothendieck-谱序列" id="markdown-toc-grothendieck-谱序列">Grothendieck 谱序列</a></li>
+      <li><a href="#导出极限" id="markdown-toc-导出极限">导出极限</a></li>
+      <li><a href="#brenner-butler-理论" id="markdown-toc-brenner-butler-理论">Brenner-Butler 理论</a></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="abstract">
+  <h5 id="abstract">Abstract</h5>
+  <div>
+    <p>本节通过滤过复形构造谱序列, 并将之引申至双复形的谱序列, 以此证明同调代数中的若干的基本定理.</p>
+    <ol>
+      <li>$2 × 2$ 交换图的同调群, 推出拉回等;</li>
+      <li>复形态射基本定理 (包括正合复形的态射, 强形式的 $3 × 3$ 引理, 强形式蛇引理等);</li>
+      <li>AR 公式与高阶导出函子, 主要是 $\mathrm{Tor}$ (见 torsionless 模), 高阶 $\mathrm{Ext}$ (见 Auslander-Bridger 公式);</li>
+      <li>Grothendieck 谱序列 (复合函子求导);</li>
+      <li>投射维度有限的 tilting 模 (广义 tilting 模) 的 Brenner-Butler 定理.</li>
+    </ol>
+    <p>需要一些技巧, 例如:</p>
+    <ol>
+      <li>$E_2$ 步的长正合列;</li>
+      <li>Eilenberg-Cartan 消解;</li>
+      <li>函子同构 $(- ⊗{}_R P) ≃ (P_R, -)$;</li>
+      <li>等等.</li>
+    </ol>
+    <p>关于谱序列早期工作见 <a href="https://www.semanticscholar.org/paper/On-axiomatic-homology-theory.-Milnor/cef00c184979cbcfcc38bb85d2aae53d56013375">Milnor 的综述</a>.</p>
+    <p>特别注释: 没有正合耦.</p>
+  </div>
+</div>
+
+<h2 id="谱序列的滤过构造">谱序列的滤过构造</h2>
+
+<h3 id="滤过复形">滤过复形</h3>
+
+<p>正式介绍谱序列的构造前, 应先明确谱序列的一般格式. 类似链复形与上链复形之别, 谱序列亦有同调类型与上同调类型者.</p>
+
+<div class="definition">
+  <p>(上同调谱序列). 称一组资料 $\{(E_r, f_r)\}$ 是 Abel 范畴的上同调谱序列, 若</p>
+  <ol>
+    <li>(推广复形对象). 所有 $E_r$ 是 $(ℤ × ℤ)$-分次对象,</li>
+    <li>(推广微分). $d_r: E_r → E_r$ 的方向是 $(r, 1-r)$, 满足 $d_r ^2 = 0$,</li>
+    <li>(递推关系) 对 $(E_r, d_r)$ 取 $(ℤ × ℤ)$-分次上同调群, 结果是 $E_r$.</li>
+  </ol>
+  <p>一般地, $E_{r+1}$ 是导出的, 而 $d_r$ 不是内蕴的.</p>
+</div>
+
+<div class="note">
+  <p>以上定义纯粹是一类满足特殊关系的箭头, 仅代表上同调谱序列的合法格式.</p>
+</div>
+
+<p>习惯上, 将页的指标 $r$ 写在 $E_∙^{∙ , ∙}$ 的下方, 即 $E_r$. 对每一 $r$, 再有双分次对象 $E_r^{∙ , ∙}$.</p>
+
+<p>此外, 暂时混同复形与微分分次对象.</p>
+
+<div class="definition">
+  <p>(上滤过, 分次). 给定 Abel 范畴的对象 $X$. 一个 $X$ 的 $ℤ$-上滤过是一族子对象 ${X^p}_{p ∈ ℤ}$, 满足</p>
+  <p>\begin{equation} \cdots F^{n-1}X ↩ F^{n}X ↩ F^{n+1}X ↩ \cdots. \end{equation}</p>
+  <p>特别地, 通常要求 $⋂F^pX = 0$ 以及 $⋃ F^p X= X$. <br /> 给定上滤过 $F^∙X$, 使用以下记号表示分次对象: \begin{equation} \mathrm{Gr}_p (X) := \frac{F^p}{F^{p+1}} X := \frac{F^p X}{F^{p+1}X}. \end{equation}</p>
+</div>
+
+<p>分次化 $\mathrm{Gr}_∙(-)$ 是加法函子. 关于分次化与完备性的关系见<a href="Complete_Z_Filtration">此文</a>.</p>
+
+<h3 id="滤过复形构造谱序列">滤过复形构造谱序列</h3>
+
+<div class="example">
+  <p>(初始状态). 输入上链复形 $(A^∙, d)$ 和滤过 $F^∙$, 朝向为</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_6635dd921130d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="note">
+  <p>特别地, $↘$ 朝向的链是对 $A^{p+q}$ 的滤过. 上图不是 $E_0$!</p>
+</div>
+
+<div class="example">
+  <p>(构造 $E_0$). 在每点取商, 得 $E_0$:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_d9d6c4933b2d9.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此处 \begin{equation} E_0^{p,q} = \frac{F^p A^{p+q}}{F^{p+1}A^{p+q}}, \end{equation} 微分 $d_0$ 继承自 $d$, $(p,q)$-处的同调群是 \begin{equation} H^{p,q}(E_0) = \frac{[F^pA^{p+q} \quad ∩ \quad {\color{red}d^{-1}(F^{p+1}A^{p+q+1})}]\quad + \quad F^{p+1}A^{p+q}}{[F^pA^{p+q} \quad ∩ \quad {\color{blue}d(F^{p}A^{p+q-1})}]\quad + \quad F^{p+1}A^{p+q}}. \end{equation}</p>
+</div>
+
+<div class="note">
+  <p>往后同调群的滤过, 决定于$\color{red}{红处}$与$\color{blue}{蓝处}$的指标变动, 黑处固定!</p>
+</div>
+
+<div class="example">
+  <p>(构造 $E_1$). 将视角从 $ℤ^2$-分次模拓展至 dg-模, 以上同调群整合作 \begin{equation} H_0^{p,∙} := \frac{Z_0^p}{B_0^p} := \frac{[F^p \quad ∩ \quad {\color{red}d^{-1}(F^{p+1})}]\quad + \quad F^{p+1}}{[F^p \quad ∩ \quad {\color{blue}d(F^{p})}]\quad + \quad F^{p+1}}. \end{equation}</p>
+  <p>此处 $F^∙A$ 是 dg-模 $A$ 的滤过, 分次模态射之分次是自明的. 定义</p>
+  <ol>
+    <li>$Z_r^p = F^p \quad ∩ \quad {\color{red}d^{-1}(F^{p+1\color{black}{+r}})}\quad +  \ \quad F^{p+1}$;</li>
+    <li>$B_r^p = F^p \quad ∩ \quad {\color{blue}d(F^{p\color{black}{-r}})}\qquad + \qquad F^{p+1}$.</li>
+  </ol>
+  <p>以上括号之所以可去, 是因为子商间的模恒等式. 此时有滤过 \begin{equation} Z^p_0 ⊃ Z^p_r ⊃ Z^p_∞ ⊃ B^p_∞ ⊃ B^p_r ⊃ B^p_0. \end{equation}</p>
+  <p>示意图如下</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_2d7d65ba5e4bd.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>(构造翻页 $E_{r} → H(E_r) := E_{r+1}$). 取</p>
+  <p>$$
+E_{r+1}^{p, ∙} = H_r^{p, ∙} := {Z_r^{p, ∙} } / {B_r^{p, ∙} },
+$$</p>
+  <p>构造 $d^{p, ∙}_r$ 的满-单分解: \begin{equation} E_{r}^p = \frac{Z_{r-1}^p}{B_{r-1}^p} ↠ \frac{Z_{r-1}^p}{Z_{r}^p} ≃ \frac{B_{r}^{p+r}}{B_{r-1}^{p+r}} ↪ \frac{Z_{r-1}^{p+r}}{B_{r-1}^{p+r}} = E_r^{p+r}. \end{equation} 中间的同构是 Zassenhaus 引理的函子性:</p>
+  <p>$$
+\begin{aligned}
+\frac{Z_{r-1} ^p}{Z_{r} ^p} &= \frac{F^p ∩ (d^{-1}(F^{p+r})) + F^{p+1}}{F^{p} ∩ (d^{-1}(F^{p+r+1})) + F^{p+1}} \\[6pt]
+    \left[\frac{A^♯ ∩ {\color{red} X^♯} + A^♭}{A^♯ ∩ {\color{red} X^♭} + A^♭}\right] \ \ &≃ \frac{d(F^p) ∩ {\color{red} F^{p+r}} + d(F^{p+1})}{d(F^{p}) ∩ {\color{red} F^{p+r+1}} + d(F^{p+1})} \\[6pt]
+    \left[\frac{ {\color{red} X^♯} ∩ A^♯ + {\color{red} X^♭}}{ {\color{red} X^♯} ∩ A^♭ + {\color{red} X^♭}}\right]  \ \  &≃ \frac{ {\color{red} F^{p+r}} ∩ d(F^p) + {\color{red} F^{p+r+1}}}{ {\color{red} F^{p+r}} ∩ d(F^{p+1}) + {\color{red} F^{p+r+1}}} \quad = \frac{B^{p+r}_r}{B^{p+r}_{r-1}}  
+\end{aligned}
+$$</p>
+  <p>考虑链复形的 $(X, \ker , \mathrm{cok}, \mathrm{im}, \mathrm{cim}, H)$-六要件, 得以下翻页:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_2e8cda4f8b12d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>同样地, 同调群之间没有自然诱导的微分, 需借助滤过结构定义.</p>
+</div>
+
+<p>谱序列的微分向 $↘$ 方向移动. 若谱序列在 $↘$ 向有限, 则收敛.</p>
+
+<div class="example">
+  <p>(收敛性). 假定谱序列每项收敛, 此时 $E_∞$ 存在. 由 Zassenhaus 定理得 \begin{equation} E_∞^p = \frac{F^p ∩ {\color{red}{\ker d}} + F^{p+1}}{F^p ∩ {\color{blue}{\mathrm{im} \ d}} + F^{p+1}} ≃ \frac{ {\color{red}{\ker d}} ∩ F^p + {\color{blue}{\mathrm{im} \ d}}}{ {\color{red}{\ker d}} ∩ F^{p+1} + {\color{blue}{\mathrm{im} \ d}}}. \end{equation} 依分次拆解之,<br /> \begin{equation} E_∞^{p,q} = \frac{ {\color{red}{\ker d}} ∩ F^p + {\color{blue}{\mathrm{im} \ d}}\qquad \text{之 $(p+q)$-分次}}{ {\color{red}{\ker d}} ∩ F^{p+1} + {\color{blue}{\mathrm{im} \ d}}\quad \ \text{之 $(p+q)$-分次}}. \end{equation} 依照假定, 滤过终点是 $F^{-∞}A = A$, 且 $F^{+∞} A = A$.</p>
+  <p>依照 Noether 同构取 $H^{l := p+q}(A)$ 之子商如下: \begin{equation} E_∞ ^{t, l-t} = \frac{ {\color{red}{\ker d}} ∩ F^t + {\color{blue}{\mathrm{im} \ d}} \ \text{之 $l$-分次} \ \ /\ \ \mathrm{im}(d)\ \text{之 $l$-分次}}{ {\color{red}{\ker d}} ∩ F^{t+1} + {\color{blue}{\mathrm{im} \ d}}\ \text{之 $l$-分次} \ \ /\ \ \mathrm{im}(d) \ \text{之 $l$-分次}}. \end{equation}</p>
+  <p>因此, 存在 $H^l$ 的滤过 $[ \ \cdots ⊃ F^t H^l ⊃ \cdots \ ]$, 商去相邻子项得 $E_∞^{t,l-t}$.</p>
+</div>
+
+<div class="note">
+  <p>谱序列是逐项计算的. 双复形的局部有限性是指, 每一 $↖↘$ 斜向线上有且仅有有限项非零. 例如 $(p × ∞)$-型, $(∞ × q)$-型, 第一(三)象限型. <br /> 若谱序列在 $↘↖$-方向无限, 则 $E_∙$ 未必收敛至同调群的滤过. <a href="Z_Infty_Spectral_Not_Converge">反例</a>.</p>
+</div>
+
+<h3 id="双复形">双复形</h3>
+
+<div class="definition">
+  <p>双复形 $(A,d_↑, d_→)$ 是 $(ℤ × ℤ)$-微分分次对象. 满足</p>
+  <ol>
+    <li>$d_→ : A^{p,q} → A^{p+1, q}, d_↑ : A^{p,q} → A^{p, q+1}$,</li>
+    <li>$d_↑ ∘ d_↑ = d_→ ∘ d_→ = 0, d_→ ∘ d_↑ + d_↑ ∘ d_→ = 0$.</li>
+  </ol>
+</div>
+
+<p>有时规定 $I:= →$ 与 $II:= ↑$.</p>
+
+<div class="definition">
+  <p>(全复形). 记 $\mathrm{Tot}(X)$ 是双复形 $X$ 的全复形,</p>
+  <ol>
+    <li>$l$-分次为 $∐_{p+q = l} X^{p,q}$;</li>
+    <li>$l$-分次微分为 $∐_{p+q = l}(d^{p,q}_→ + d^{p,q}_↑)$.</li>
+  </ol>
+</div>
+
+<div class="note">
+  <p>依照谱序列的计算, 双复形的符号不重要. 全复形亦可选作 $∏$-复形.</p>
+</div>
+
+<div class="example">
+  <p>(双复形滤过). 考虑全复形 $\mathrm{Tot}(X)$ 的如下滤过</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_e10955ed908e6.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>计算 $E_0$ 与 $E_1$, 结果如下:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_838f796f5d98a.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>以上,</p>
+  <ol>
+    <li>$E_0^{s,t}$ 各项由 $F^s(\mathrm{Tot}(X)^{s+t})$ 商去相邻子对象所得, 即 $X^{s,t}$.</li>
+    <li>$E_1$ 涉及一串 $H_↑^{s,t}(X) → H_↑^{s+1, t}$ 的微分, 我们希望是 $H_↑(d_→)$.</li>
+  </ol>
+  <p>由追图法 (或蝾螈引理等), 问号处的满-单分解为 \begin{equation} \frac{d_\uparrow^{-1}(0^{s,t+1})}{d_\uparrow(X^{s,t-1})} ↠ \frac{d_\uparrow^{-1}(0^{s,t+1})}{d_\to ^{-1}(d_\uparrow(X^{s+1,t-1}))} ≃ \frac{d_\to (d_\uparrow^{-1}(0^{s,t+1}))}{d_\uparrow(X^{s+1,t-1})} ↪ \frac{d_\uparrow^{-1}(0^{s+1,t+1})}{d_\uparrow(X^{s+1,t-1})}. \end{equation} 这就是上同调函子诱导的 $H_↑(d_→)$.</p>
+</div>
+
+<div class="example">
+  <p>(关于纵向谱序列). 相应地, 取转置 $\mathrm{Tot}(X^T)$ 的滤过, $E_1$ 页的微分是 $H_→ (d_↑)$. 谱序列微分方向如下图所示</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_5723aed2b04b4.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="theorem">
+  <p>(双复形能成为谱序列的 $E_2$-项). 给定交换或反交换的双复形 $X^{∙ , ∙ }$.</p>
+  <ol>
+    <li>存在收敛至全复形的谱序列, 满足       <ol>
+        <li>$0$-页是 $X^{∙, ∙}$ 与 $d_↑$;</li>
+        <li>$1$-页是 $H_↑^{∙ , ∙}(X)$ 与 $H_↑(d_→)$;</li>
+        <li>$2$-页是 $H_→ (H_↑)$, 微分从略.</li>
+      </ol>
+    </li>
+    <li>存在收敛至全复形的谱序列, 满足       <ol>
+        <li>$0$-页是 $X^{∙, ∙}$ 与 $d_→$;</li>
+        <li>$1$-页是 $H_→^{∙ , ∙}(X)$ 与 $H_→(d_↑)$;</li>
+        <li>$2$-页是 $H_↑ (H_→)$, 微分从略.</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<h3 id="技巧-从-mathjax_protectedjevfmiqmathjax_protected-看出长正合列">技巧: 从 $E_2$ 看出长正合列</h3>
+
+<p>该技巧来自同调代数基本定理的长正合列.</p>
+
+<div class="lemma">
+  <p>(<a href="E_2_Trick">证明</a>). 假定 $E_3^{p,q} = E_∞^{p,q}$, 且同调群确定. 若 $E_2^{p,q}$ 形如以下</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_edca4d995a944.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此时有长正合列</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_2a4af04006e6d.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="note">
+  <p>这一技巧对 $↘↖$ 向仅两项非零的 $E_2$-谱序列成立. 类似技巧域证明不予赘述.</p>
+</div>
+
+<div class="lemma">
+  <p>(重要应用: 前五项正合列, <a href="First_Five_Terms">证明</a>). 若 $E_2$ 落在第一象限, 则有五项 (左) 短正合列 \begin{equation} \color{cyan}0 → \color{red}E_2^{1,0} → \color{red}H^1 → \color{red}E_2^{0,1} → \color{Green}E_2^{2,0} → \color{Green}H^2. \end{equation} 对第三象限谱序列, 有五项 (右) 短正合列. 证明类似.</p>
+</div>
+
+<h3 id="技巧-eilenburg-cartan-消解">技巧: Eilenburg-Cartan 消解</h3>
+
+<p>假定 Abel 范畴有足够投射对象 (内射对象).</p>
+
+<div class="example">
+  <p>(通常的 Eilenburg-Cartan 分解). 复形 $(X^∙, d^∙)$ 的 Eilenburg-Cartan (余) 分解是指以下 (余) 消解.</p>
+  <ol>
+    <li>对所有 $\color{red}\mathrm{im}$ 与 $\color{red}H^n$ 取投射分解 (内射分解);</li>
+    <li>依照马蹄引理, 对所有 $\color{blue}\ker$ 与 $\color{blue}\operatorname {cok}$ 取投射分解 (内射分解);</li>
+    <li>依照马蹄引理, 对所有 $X$ 取投射分解 (内射分解), 这一步可以从       <ol>
+        <li>$0 → {\color{blue}\ker } → X → {\color{red}\operatorname {im}} → 0$, 或</li>
+        <li>$0 → {\color{red}\operatorname {im}} → X → {\color{blue}\operatorname {cok}} → 0$ 构造. 其结果都是</li>
+      </ol>
+      <p>$$
+   P^k (X^l) = P^k (\operatorname{im}d^l) ⊕ P^k (H^l) ⊕ P^k (\operatorname{im}d^{l-1}).
+   $$</p>
+    </li>
+  </ol>
+  <p>图示如下:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_2b964550d9b91.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>EC 分解来自马蹄引理, 由<a href="Horse_Shoe_Lemma">相对版本的马蹄引理</a>, 得以下相对版本的 EC 分解.</p>
+
+<div class="theorem">
+  <p>(相对版本的 EC 分解). 给定对象类 $𝒳$.</p>
+  <ol>
+    <li>称存在足够 $𝒳$ 出发的满态射, 若对任意 $M ∈ 𝒜$, 总存在 $X ∈ 𝒳$ 使得有满态射 $X ↠ M$;</li>
+    <li>称存在足够 $𝒳$ 收尾的单态射, 若对任意 $N ∈ 𝒜$, 总存在 $X ∈ 𝒳$ 使得有单态射 $N ↪ X$.</li>
+  </ol>
+  <p>此时, 对以上两种情形, 分别有</p>
+  <ol>
+    <li>任意复形存在可裂 $𝒳$-复形的相对投射分解;</li>
+    <li>任意复形存在可裂 $𝒳$-复形的相对内射分解.</li>
+  </ol>
+</div>
+
+<div class="corollary">
+  <p>(推论, <a href="Proj_Epi_Complex">证明</a>). 上有界投射复形存在上有界的投射分解. 若有足够 $𝒳$ 出发的满态射, 则上有界投射复形存在上有界 $𝒳$-复形相对投射分解. 相对内射的情形对偶.</p>
+</div>
+
+<h2 id="谱序列直接应用">谱序列直接应用</h2>
+
+<h3 id="同调代数的简单应用">同调代数的简单应用</h3>
+
+<div class="theorem">
+  <p>(同调代数基本定理, <a href="Fundamental_Thm_Homological_Algebra">证明</a>). 以下是三种常见形式.</p>
+  <ol>
+    <li>(通常形式). 给定上链复形 (dg-模) 的正合列 $0 → K → X → Q → 0$, 此时有长正合列 \begin{equation} \cdots → H^{p-1} (Q) → H^p (K) → H^p (X) → H^p (Q) → H^{p+1} (K) → \cdots. \end{equation}</li>
+    <li>(同伦形式). 给定复形态射 $f : X → Y$, 取全复形 $E : = \mathrm{Cone}(f)$, 此时有长正合列 \begin{equation} \cdots → H^{p-1} (Y) → H^p (X) → H^p (E) → H^p (Y) → H^{p+1} (X) → \cdots. \end{equation}</li>
+    <li>(正合复形的态射). 给定正合复形间的态射 $f : X → Y$, 则 $H^{p+1}(\ker) ≃ H^{p-1}(\mathrm{cok})$. 这是强形式的蛇引理.</li>
+  </ol>
+</div>
+
+<div class="proposition">
+  <p>(蛇引理). 这是正合复形间态射的推论. 特别地, 有以下变式.</p>
+  <ol>
+    <li><a href="Four_Lemma">$2 × 2$ 交换方块</a>, 以及推出拉回等.</li>
+    <li><a href="Five_Lemma">五项引理</a>, 以及单四引理, 满四引理等.</li>
+    <li><a href="Six_Lemma">ker-cok 六项序列</a>, 以及指标公式等.</li>
+    <li><a href="Nine_Lemma">$3 × 3$ 引理</a>, 以及强 $3 × 3$ 引理等.</li>
+  </ol>
+</div>
+
+<h3 id="维数移动">维数移动</h3>
+
+<p>以下考虑投射, 右正合版本的维度移动.</p>
+
+<div class="lemma">
+  <p>任取无环复形 $X$, 使得投射分解满足收敛性条件. 例如以下任意一者:</p>
+  <ol>
+    <li>所有 $\mathrm{im}(d)$ 的投射维度有一致上界;</li>
+    <li>$X$ 上有界.</li>
+  </ol>
+  <p>此时, 任取右正合函子 $F$, 记 $L_{-p}F$ 为 $F$ 的 $p$-次左导出. 此时,</p>
+  <ol>
+    <li>若所有 $(L_{≤ -1}F)(X)$ 是无环复形, 则 $F(X)$ 无环;</li>
+    <li>若仅有 $(L_{-k}F)(X)$ 与 $(L_{-k-r}F)(X)$ 非无环复形, 则 $(L_{-k}F)(X)$ 与 $Σ^{r+1}[(L_{-k-r}F)(X)]$ 有相同的上同调群 (未必由态射连接).</li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>(一致的正合性). 以下是一些常见的结论:</p>
+  <ol>
+    <li>假定 $X^∙$ 是上有界无环复形, 或是 $\mathrm{im}(d)$ 投射维数一致有界的无环复形. 若所有 $\mathrm{Ext}^{≥ 1}(X^∙, M)$ 无环, 则 $(X^∙, M)$ 无环.</li>
+    <li>假定 $X^∙$ 是下有界无环复形, 或是 $\mathrm{im}(d)$ 内射维数一致有界的无环复形. 若所有 $\mathrm{Ext}^{≥ 1}(N, X^∙)$ 无环, 则 $(N, X^∙)$ 无环.</li>
+    <li>假定 $X^∙$ 是上有界无环复形, 或是 $\mathrm{im}(d)$ 平坦维数一致有界的无环复形. 若所有 $\mathrm{Tor}_{ ≥ 1}(X^∙, M)$ 无环, 则 $X^∙ ⊗ M$ 无环.</li>
+  </ol>
+</div>
+
+<h3 id="ar-转置与谱序列">AR 转置与谱序列</h3>
+
+<p>以下所有对象均是 Artin 代数中的有限表面模, 基本记号等见<a href="AR-notes#稳定范畴等价">此处</a>. 本小结证明<a href="AR-notes#ar-定理">此处</a>的同调定理.</p>
+
+<div class="lemma">
+  <p>(缺陷公式, <a href="AR_Defect">证明</a>). 给定 ses \begin{equation} θ : 0 → K → X → Y → 0. \end{equation} 则有长正合列</p>
+  <p>$$
+\begin{aligned}
+  0 →  (-, K) &→ (-, X) → (-, Y)  →  \\[6pt]
+  &→ K ⊗ \mathrm{Tr}(-) → X ⊗ \mathrm{Tr}(-) →  Y ⊗ \mathrm{Tr}(-) → 0.
+\end{aligned}
+$$</p>
+</div>
+
+<div class="note">
+  <p>回顾缺陷公式的<a href="AR_Defect">证明</a>, 可使用投射分解与 AR 转置快速计算一次导出函子.</p>
+</div>
+
+<div class="lemma">
+  <p>($\mathrm{Tor}_{1,2}(Y, \mathrm{Tr}(X))$, 稳定 $\mathrm{Hom}$, <a href="AR_Tor">证明</a>). 存在函子的四项正合列</p>
+  <p>$$
+0 → \mathrm{Tor}_2(Y, \mathrm{Tr}(X)) → Y ⊗ X^∗ → (X, Y) → \mathrm{Tor}_1(Y, \mathrm{Tr}(X)) → 0
+$$</p>
+  <p>此处, $\mathrm{Tor}_1(Y, \mathrm{Tr}(X)) ≃ \underline {(X,Y)}$.</p>
+</div>
+
+<div class="lemma">
+  <p>($\mathrm{Tor}_{≥ 3}(Y, \mathrm{Tr}(X))$, <a href="AR_Tor">证明</a>). $\mathrm{Tor}_{n+3}(Y, \mathrm{Tr}(X)) ≃ \mathrm{Tor}_{n+1}(Y, X^∗)$.</p>
+</div>
+
+<p>以下两条对偶命题证明略.</p>
+
+<div class="lemma">
+  <p>($\mathrm{Ext}^{1,2}(\mathrm{Tr}(M), N)$, AB 公式). 存在函子的四项正合列</p>
+  <p>$$
+0 → \mathrm{Ext}^1(\mathrm{Tr}(M), N) → N ⊗ M → (M^∗, N) → \mathrm{Ext}^2(\mathrm{Tr}(M), N) → 0
+$$</p>
+</div>
+
+<div class="lemma">
+  <p>($\mathrm{Ext}^{≥ 3}(\mathrm{Tr}(M), N)$). $\mathrm{Ext}^{n + 3}(\mathrm{Tr}(M), N) ≃ \mathrm{Ext}^{n}(M^∗, N)$.</p>
+</div>
+
+<div class="note">
+  <p><a href="Torsion_Less">Torsionless 模</a>的等价定义使用了上述 AB (Auslander-Bridger) 公式.</p>
+</div>
+
+<h3 id="kunneth-公式">Kunneth 公式</h3>
+
+<p>称上链复形 $X$</p>
+
+<ol>
+  <li>是正 (负) 的, 若其支撑在 $ℕ_+$ ($ℕ _-$) 上;</li>
+  <li>是 $𝒳$-的, 若 $X$ 在对象类 $𝒳$ 中取值.</li>
+</ol>
+
+<div class="theorem">
+  <p>(Kunneth 谱序列定理, <a href="Kunneth_Spectral_Seq">证明</a>). 记 $A$ 与 $C$ 均是负复形, 一者平坦, 则有</p>
+  <p>$$
+E^{p,q}_2 = ∐\limits_{s + t = q} \mathrm{Tor}_p (H^s(A), H^t(C)) ⇒ H^{p+q} (\mathrm{Tot}(A⊗C)).
+$$</p>
+  <p>记 $A$ 是负复形, $C$ 是正复形, 假定 $A$ 投射或 $C$ 内射, 则存在第一象限谱序列</p>
+  <p>$$
+E_2 ^{p,q} = ∐\limits_{s + t = q} \mathrm{Ext}^p (H^{-s}(A), H^{t}(C)) ⇒ H^{p+q} (ℋ(A,C)).
+$$</p>
+</div>
+
+<p>关于 $\mathrm{Tor}_{≥ 2}$ 消失的特殊结论, 亦见<a href="Kunneth_Spectral_Seq">证明</a>.</p>
+
+<div class="note">
+  <p>Kunneth 谱序列, 本质上是复合函子的谱序列.</p>
+</div>
+
+<h2 id="导出函子相关">导出函子相关</h2>
+
+<h3 id="grothendieck-谱序列">Grothendieck 谱序列</h3>
+
+<div class="definition">
+  <p>(Grothendieck 函子的基本资料). 给定 Abel 范畴间的右正合函子 \begin{equation} 𝒜\xrightarrow F ℬ \xrightarrow G 𝒞. \end{equation} 称 $(F, G)$ 是右正合 Grothendieck 谱序列的基本资料, 若</p>
+  <ol>
+    <li>范畴有足够投射对象;</li>
+    <li>对任意 $P ∈ 𝒫_A$, 对象 $F(P) ∈ ℬ$ 关于 $L_{≤ -1}G$ 消失.</li>
+  </ol>
+  <p>类似地, 可以规定左正合 Grothendieck 谱序列的基本资料.</p>
+</div>
+
+<p>为与上链复形配合, 对固定的 $n ∈ ℕ_{≥ 0}$, 以下选用 $L_{-n}F$ 表示 $F$ 的 $n$ 次左导出; 选用 $R^{n}F$ 表示 $F$ 的 $n$ 次右导出. 简单地说,</p>
+
+<ol>
+  <li>将右导出写至上标, 例如 $R^{≥ 0} F$.</li>
+  <li>将左导出写至下标, 例如 $L_{≤ 0} G$.</li>
+</ol>
+
+<div class="theorem">
+  <p>(Grothendieck 谱序列定理, <a href="Grothendieck_Spectral_Sequence">证明</a>). 给定右正合的 Grothendieck 谱序列资料, 则存在第三象限的谱序列 $E$, 使得</p>
+  <p>\begin{equation} E_2^{p,q} = L_{-p}G (L_{-q} F(X)) ⇒ (L_{-(p+q)} (G ∘ F)) (X). \end{equation}</p>
+  <p>相应地, 对于左正合 Grothendieck 谱序列, 存在第一象限的谱序列 \begin{equation} E_2^{p,q} = (R^p G) ∘ (R^q F) ⇒ R^{p+q} (G ∘ F). \end{equation}</p>
+</div>
+
+<div class="corollary">
+  <p>(前五项, <a href="Grothendieck_Spectral_Sequence#前五项">证明</a>). 对左导出的复合, 有前五项正合列 \begin{equation} L_{-2}(GF) → (L_{-2}G)F → G(L_{-1}F) → L_{-1}(GF) → (L_{-1}G)F → 0. \end{equation} 对右导出的复合, 有前五项正合列 \begin{equation} 0 → (R^1G)F → R^1(GF) → (R^1F)G → (R^2 G)F → R^2(GF). \end{equation}</p>
+</div>
+
+<div class="corollary">
+  <p>(特殊情形: 短正合列, <a href="Grothendieck_Spectral_Sequence#特殊情形">证明</a>). 若复合函子的外侧二次导出消失, 则前五项正合列可延续.</p>
+</div>
+
+<div class="corollary">
+  <p>(特殊情形: 长正合列, <a href="Grothendieck_Spectral_Sequence#特殊情形">证明</a>). 若复合函子的内侧二次导出消失, 则谱序列断作若干 ses.</p>
+</div>
+
+<div class="example">
+  <p><a href="Grothendieck_Spectral_Sequence#前五项态射的描述">前五项态射描述</a>.</p>
+</div>
+
+<h3 id="导出极限">导出极限</h3>
+
+<p>假定 $𝒜$ 是满足 AB4* 的局部小范畴. $\varprojlim_ℕ$ 是二次导出消失的函子, 适用 <a href="Grothendieck_Spectral_Sequence#特殊情形">Gorthendieck 谱序列的特殊情形</a>.</p>
+
+<div class="definition">
+  <p>(塔与极限) 称函子 $Y: ℕ^{\mathrm{op}} → 𝒜$ 是塔, 若 $Y$ 映至 \begin{equation} \cdots → Y_2 → Y_1 → Y_0. \end{equation} 依照<a href="Projlim_1_Vanish">熟知结论</a>, 自同态 $φ : (\mathrm{id} - ∑ Y_{(i+1) → i})$ 给出函子的短正合列</p>
+  <p>$$
+0 → \varprojlim Y → ∏_{ℕ} Y_∙ \xrightarrow φ  ∏_{ℕ} Y_∙ → \varprojlim{} ^1 Y → 0.
+$$</p>
+</div>
+
+<div class="theorem">
+  <p>假定范畴有正合的可数积 (AB4*), 则 $\varprojlim{}^1$ 就是经典导出函子, 且 $\varprojlim^{≥ 2} = 0$.</p>
+</div>
+
+<div class="proposition">
+  <p>($\varprojlim{}_ℕ^1$ 消失的充分条件, <a href="Projlim_1_Vanish">证明</a>). 假定 $𝒜$ 是满足 AB4* 的局部小范畴. 假定范畴存在投射生成元, 则 Mittag-Leffler 条件使得 $\varprojlim ^1 = 0$.</p>
+</div>
+
+<div class="example">
+  <p>(导出极限). 假定 $𝒜$ 是满足 AB4* 的局部小范畴. 取塔 $Y : ℕ^{\mathrm{op}}→ 𝒜$, 则极限的二次导出消失. 取函子</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_a502772235786.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>此处 $GF \xrightarrow ∼ FG$ 是自然同构 (极限的泛性质). 同时有正合列</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_d43ca98eaf111.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<div class="example">
+  <p>($\mathrm{Hom}(X, -)$ 与导出极限). 假定 $Y$ 是逆向极限决定的, 谱序列给纵向 ses 与横向长正合列:</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_24b61b0b21a15.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+  <p>例如,</p>
+  <ol>
+    <li>假定 $M$ 是投射模的逆向极限, 则有 $3$-周期长正合列 \begin{equation} 0 → \mathrm{Ext}^1(X,M) → \varprojlim{}^1 (X,P_∙) → (X, \varprojlim {}^1P_∙) → \cdots . \end{equation}</li>
+    <li>若 $Y_∙$ 是模且满足 Mittag-Leffler 条件, 则有短正合列 \begin{equation} 0 → \varprojlim {}^1\mathrm{Ext}^p(X, Y_∙ ) → \mathrm{Ext}^p(X, \varprojlim {}^1 Y_∙ ) → \varprojlim \mathrm{Ext}^{p+1}(X, Y_∙) → 0. \end{equation}</li>
+    <li>对遗传范畴而言, $\varprojlim{}^1\mathrm{Ext}^1(X, Y_∙ ) ≃ \mathrm{Ext}^1(X, \varprojlim{}^1Y_∙)$.</li>
+  </ol>
+</div>
+
+<div class="example">
+  <p>(导出余极限). 记 $𝒜$ 是满足 AB4 (任意余积正合) 的局部小范畴, 则 $𝒜^{\mathrm{op}}$ 是满足 AB4* 的局部小范畴. 考虑函子</p>
+  <center> <br /> <div class="tikz-diagram">
+      <embed src="/website/svg/Spectral_sequence_filtered/diagram_6a3a5cfe53a7c.svg" type="image/svg+xml" style="display: block; width: 50%; height: 50%;" />
+    </div> <br /> </center>
+</div>
+
+<p>正逆极限在一般的 Abel 范畴中是无趣的对偶. 不妨回归模范畴, 注</p>
+
+<ul>
+  <li>
+    <p>若塔 $A_∙ → A_0$ 满足 Mittag-Leffler 条件, 则有短正合列
+\begin{equation}
+    0 → \varprojlim A_∙ → ∏ A_∙ \xrightarrow{\mathrm{id}-A_{i, i+1}} ∏ A_∙ → 0.
+\end{equation}</p>
+
+    <p>对偶地, 我们希望构造 $[0 → ∐ → ∐ → \varinjlim → 0]$ 类的短正合列.</p>
+  </li>
+</ul>
+
+<div class="slogan">
+  <p>模范畴中, Mittag-Leffler 条件的对偶是 AB5.</p>
+</div>
+
+<div class="proposition">
+  <p>(<a href="AB5_Derived_Limit">证明</a>). 若 $𝒜$ 满足 AB5 (滤过余极限正合), 则对余塔 $A_0 → A_∙$ 总有短正合列 \begin{equation} 0 → ∐ A_∙ \xrightarrow{\mathrm{id}-A_{i+1, i}} ∐ A_∙ → \varinjlim A_∙ → 0. \end{equation}</p>
+</div>
+
+<div class="proposition">
+  <p>(<a href="Injlim_Ext_Seq">证明</a>). 若 $𝒜$ 有正合的滤过余极限, 则逆向塔的 $\varinjlim_{-1}$ 消失. 若进一步假定余积正合, 则有短正合列 ($p ≥ 0$): \begin{equation} 0 → \varprojlim {}^1\mathrm{Ext}^p(X_∙, Y) → \mathrm{Ext}^{p+1}(\varinjlim X_∙,Y) → \varprojlim \mathrm{Ext}^{p+1}(X_∙, Y) → 0. \end{equation}</p>
+</div>
+
+<h3 id="brenner-butler-理论">Brenner-Butler 理论</h3>
+
+<p>见<a href="Happel_Derived_Equivalence#谱序列方法">此章节</a>.</p>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#谱序列的滤过构造">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">谱序列的滤过构造</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#滤过复形">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">滤过复形</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#滤过复形构造谱序列">
+        <span class="toc-number">1.2.</span>
+        <span class="toc-title">滤过复形构造谱序列</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#双复形">
+        <span class="toc-number">1.3.</span>
+        <span class="toc-title">双复形</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#技巧-从-mathjax_protectedjevfmiqmathjax_protected-看出长正合列">
+        <span class="toc-number">1.4.</span>
+        <span class="toc-title">技巧: 从 $E_2$ 看出长正合列</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#技巧-eilenburg-cartan-消解">
+        <span class="toc-number">1.5.</span>
+        <span class="toc-title">技巧: Eilenburg-Cartan 消解</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#谱序列直接应用">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">谱序列直接应用</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#同调代数的简单应用">
+        <span class="toc-number">2.1.</span>
+        <span class="toc-title">同调代数的简单应用</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#维数移动">
+        <span class="toc-number">2.2.</span>
+        <span class="toc-title">维数移动</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#ar-转置与谱序列">
+        <span class="toc-number">2.3.</span>
+        <span class="toc-title">AR 转置与谱序列</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#kunneth-公式">
+        <span class="toc-number">2.4.</span>
+        <span class="toc-title">Kunneth 公式</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#导出函子相关">
+        <span class="toc-number">3.</span>
+        <span class="toc-title">导出函子相关</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#grothendieck-谱序列">
+        <span class="toc-number">3.1.</span>
+        <span class="toc-title">Grothendieck 谱序列</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#导出极限">
+        <span class="toc-number">3.2.</span>
+        <span class="toc-title">导出极限</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#brenner-butler-理论">
+        <span class="toc-number">3.3.</span>
+        <span class="toc-title">Brenner-Butler 理论</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/Complete_Filtration" title="NEXT: 滤过完备当且仅当 $\varprojlim {}^1$ 消失">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Complete_Z_Filtration" title="PREV: 完备化, 滤过复形">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

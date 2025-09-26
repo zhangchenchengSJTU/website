@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>Model Structures on Extriangulated Cateogory
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="Preliminaries">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Model-Extriangulatd">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>Model Structures on Extriangulated Cateogory</h1>
+      <p class="author">
+        ZCC
+        <br/>
+        May 20, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="preliminaries">Preliminaries</h2>
+
+<p>See <a href="Stable_Cat_Analogue">here (en chinois)</a> for an preliminary introduction to extriangulated categories, including</p>
+
+<ul>
+  <li>the basic definition (ET’s), and terminologies:
+    <ul>
+      <li>the additive realisation of an extension element $δ ∈ 𝔼 (Z,X)$ is a class $𝔰 (δ) ⊆ [Z,X]$;</li>
+      <li>an $𝔼$-triangle, or a conflation for a certain $X → Y → Z$ belongs to some $𝔰 (δ)$ for some $δ ∈ 𝔼 (Z,X)$.</li>
+    </ul>
+  </li>
+  <li>the homological long exact sequence:
+    <ul>
+      <li>the exactness at the second $𝔼$-term is shown by ET4,</li>
+      <li>for category with enough projectives, one can define syzygies and so-called derived $𝔼^i$’s ($i ≥ 2$), see <a href="https://link.springer.com/article/10.1007/s11464-021-0953-2">Link1</a> and <a href="https://arxiv.org/abs/1702.00244">Link2</a> for grneray theory.</li>
+    </ul>
+  </li>
+  <li>the diagram theorems, including
+    <ul>
+      <li>trivial conflation (the split case, the term $\binom f x  ∈ 𝐢𝐧𝐟$ for $f ∈ 𝐢𝐧𝐟$);</li>
+      <li>the completion of $2 × 2$ diagrams;</li>
+      <li>the $3 × 3$ lemma.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cotorsion-theory">Cotorsion Theory</h3>
+
+<div class="definition">
+  <p>定义一些对象类的运算 (不要求是加法子范畴).</p>
+  <ol>
+    <li>$\mathrm{Cone}(𝒳 , 𝒴 ) = \{Z ∣ \text{存在三角} \ X → Y → Z\}$;</li>
+    <li>$\mathrm{coCone}(𝒳 , 𝒴 ) = \{Z ∣ \text{存在三角} \ Z → X → Y\}$;</li>
+    <li>$𝒳 ∗ 𝒴 = \{E ∣ \text{存在三角} \ X → E → Y\}$.</li>
+  </ol>
+</div>
+
+<div class="definition">
+  <p>(Cotorison pair). 称对象类 $(𝒰 , 𝒱)$ 是外三角范畴的 cotorsion pair, 若</p>
+  <ol>
+    <li>$𝒰$ 与 $𝒱$ 是同构闭且直和项闭的加法全子范畴;</li>
+    <li>$𝔼 (𝒰 , 𝒱 ) = 0$;</li>
+    <li>任意对象 $X$ 可以嵌入 $𝔼$-三角 $X → V_C → U_C$;</li>
+    <li>任意对象 $Y$ 可以嵌入 $𝔼$-三角 $V^C → U^C → Y$.</li>
+  </ol>
+  <p>此处定义的 cotorsion pair 自动是完备的, 对应正合范畴的特殊右 $𝒱$ 逼近与特殊左 $𝒰$ 逼近.</p>
+</div>
+
+<div class="lemma">
+  <p>(<a href="Enough_Proj_Cotorsion">证明</a>). 若范畴有足够投射对象, 则以上定义的 3. 蕴含 4.; 若范畴有足够内对象, 则以上定义的 4. 蕴含 3..</p>
+</div>
+
+<div class="lemma">
+  <p>(<a href="cp_complete_oth">证明</a>). 以上定义的 $𝒰$ 与 $𝒱$ 满足如下基本性质:</p>
+  <ol>
+    <li>若使用 $⟂$ 表示 $𝔼$-垂直关系, 则 $𝒰 ^⟂ = 𝒱$, 且 $𝒰 = {}^⟂ 𝒱$.</li>
+    <li>$𝒰$ 与 $𝒱$ 关于形变收缩核封闭.</li>
+    <li>$𝒰$ 与 $𝒱$ 关于扩张 (运算 $∗$) 封闭.</li>
+  </ol>
+</div>
+
+<div class="lemma">
+  <p>(<a href="Stable_Adjoint">证明</a>). 上述 $X → V_C$ 与 $U^C → X$ 在稳定范畴中具有函子性. 具体地, 记 $𝒥 := 𝒰 ∩ 𝒱$, 稳定范畴 $𝒞 / 𝒥$ 未必是外三角范畴, 但有如下结论.</p>
+  <ol>
+    <li>对任意 $U ∈ 𝒰$ 与 $V ∈ 𝒱$, 稳定范畴中总有 $\underline {(U,V)} = 0$. 换言之, 任意 $f : U → V$ 通过某一 $M ∈ 𝒥$ 分解.</li>
+    <li>对任意 $C \xrightarrow {l_C} V_C → U_C$ 与 $V ∈ 𝒱$, 作用函子 $\underline {(-, V)}$ 后得到稳定范畴中的映射链: $$\begin{equation}
+   0 = \underline {(U_C, V)} → \underline {(V_C, V)} ≃ \underline {(C, V)}.
+   \end{equation}$$ 中间的同构式诱导了左右伴随函子 $$\begin{equation}
+   V_∙ : 𝒞 / 𝒥  ⇆ 𝒱 / 𝒥 : \text{inclu}.
+   \end{equation}$$ 其单位是 $l_C : C → V_C$, 余单位是 $\mathrm{id}_{𝒱 / 𝒥}$.</li>
+    <li>对任意 $V^C → U^C \xrightarrow {r^C} C$ 与 $U ∈ 𝒰$, 作用函子 $\underline{(U, -)}$ 后得到稳定范畴中的映射链 $$\begin{equation}
+   0 = \underline{(U, V^C)} → \underline{(U, U^C)} ≃ \underline{(U, C)}.
+   \end{equation}$$ 中间的同构式诱导了左右伴随函子 $$\begin{equation}
+    \text{inclu} : 𝒰 / 𝒥  ⇆ 𝒞 / 𝒥 : U^∙ .
+   \end{equation}$$ 其单位是 $\mathrm{id}_{𝒰 / 𝒥}$, 余单位是 $r^C: U^C → C$.</li>
+  </ol>
+</div>
+
+<div class="definition">
+  <p>(Twin cotorsion pairs). 给定两个 cotorsion pair $(𝒮 , 𝒮 ^⟂ )$ 与 $(^⟂ 𝒱 , 𝒱)$. 考虑以下三个性质:</p>
+  <ol>
+    <li>$𝔼 (𝒮 , 𝒱 ) = 0$;</li>
+    <li>$𝒮 ∩ 𝒮 ^⟂ = {}^⟂ 𝒱 ∩ 𝒱$;</li>
+    <li>$\mathrm{Cone}(𝒱 , 𝒮) = \mathrm{coCone}(𝒱 , 𝒮)$.</li>
+  </ol>
+  <p>称之</p>
+  <ul>
+    <li>twin cotorsion pairs, 若满足 1.;</li>
+    <li>concentric twin cotorsion pairs, 若满足 1. 与 2.;</li>
+    <li>Hovey twin cotorsion pairs, 若满足 1., 2., 与 3..</li>
+  </ul>
+</div>
+
+<div class="note">
+  <p>条件 $\mathrm{Cone}(𝒱 , 𝒮) = \mathrm{coCone}(𝒱 , 𝒮)$ 指向模型结构中的对象类 $𝒲$.</p>
+</div>
+
+<div class="lemma">
+  <p>(<a href="Equi_Def_Hovey_CP">证明</a>). 实际上, Hovey twin cotorsion pairs 的条件只需要 1. 与 3., 即 2. 是多余的.</p>
+</div>
+
+<div class="definition">
+  <p>(Hovey twin cotorsion pairs 的标准记号). 使用 $(𝒮 , 𝒮 ^⟂ ; ^⟂ 𝒱 , 𝒱 )$ 表示 Hovey twin cotorsion pairs. 其中,</p>
+  <ul>
+    <li>$(𝒮 , 𝒮 ^ ⟂ )$ 与 $(^⟂ 𝒱 , 𝒱 )$ 是两对 cotorsion pair, 满足 $𝔼 (𝒮 , 𝒱 ) = 0$;</li>
+    <li>$𝒥 := 𝒮 ∩  𝒮 ^ ⟂ = ^⟂ 𝒱 ∩  𝒱$;</li>
+    <li>$𝒩 := \mathrm{Cone}(𝒱 , 𝒮) = \mathrm{coCone}(𝒱 , 𝒮)$.</li>
+  </ul>
+</div>
+
+<div class="lemma">
+  <p>以下等式由 ET4 (ET4’) 证明:</p>
+  <ol>
+    <li>$\mathrm{Cone}(𝒳 , \mathrm{Cone}(𝒴 , 𝒵 )) = \mathrm{Cone}(𝒴 ∗ 𝒳 , 𝒵 )$;       <ul>
+        <li>特别地, $\mathrm{Cone}(𝒱 , 𝒩) = 𝒩$.</li>
+      </ul>
+    </li>
+    <li>$\mathrm{coCone}(\mathrm{coCone}(𝒳 ,𝒴 ), 𝒵 ) = \mathrm{coCone}(𝒳 , 𝒵 ∗ 𝒴 )$;       <ul>
+        <li>特别地, $\mathrm{coCone}(𝒩 , 𝒮 ) = 𝒩$.</li>
+      </ul>
+    </li>
+    <li>$\mathrm{Cone}(𝒳 , \mathrm{coCone}(𝒴, 𝒵 )) = \mathrm{coCone}(\mathrm{Cone}(𝒳 , 𝒴 ), 𝒵 )$;</li>
+    <li>$𝒳 ∗ (𝒴 ∗ 𝒵 ) = (𝒳 ∗ 𝒴 )∗ 𝒵$;</li>
+  </ol>
+  <p>以下不等式由双 inflation 推出 (双 deflation 拉回) 证明:</p>
+  <ol>
+    <li>$\mathrm{coCone}(𝒳 ,𝒵 )∗ 𝒴 ⊆ \mathrm{coCone}(𝒳 ∗ 𝒴 , 𝒵 )⊇ \mathrm{coCone}(𝒴 ,\mathrm{Cone}(𝒳 ,𝒵 ))$;       <ul>
+        <li>特别地, $𝒩 ⊆ 𝒩 ∗ 𝒮 ⊆ \mathrm{coCone}(𝒱 ⊕ 𝒮 , 𝒮 ) ⊆ 𝒩$ 取等.</li>
+        <li>特别地, $𝒩 ∗ 𝒱 = 𝒩$.</li>
+      </ul>
+    </li>
+    <li>$𝒴 ∗ \mathrm{Cone}(𝒳 , 𝒵 ) ⊆ \mathrm{Cone}(𝒳 , 𝒴 ∗ 𝒵 ) ⊇ \mathrm{Cone}(\mathrm{coCone}(𝒳 ,𝒵 ),𝒴 )$.       <ul>
+        <li>特别地, $𝒩 ⊆ 𝒱 ∗ 𝒩 ⊆ \mathrm{Cone}(𝒱 , 𝒱 ⊕ 𝒮) ⊆ 𝒩$ 取等.</li>
+        <li>特别地, $𝒮 ∗ 𝒩 = 𝒩$.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>以上, $𝔼 (𝒮 , 𝒱) = 0$, 故 $𝒱 ∗ 𝒮 = 𝒱 ⊕ 𝒮$.</p>
+</div>
+
+<div class="corollary">
+  <p>特别地, $𝒮 , 𝒱 ⊆ 𝒩$, 因此 $𝒩$ 关于 $𝔼$-三角的二推三封闭. 因此是全子外三角范畴. <br /> <br /> 计算示例: $$\begin{aligned}
+𝒩 ∗ 𝒩 & = 𝒩 ∗ \mathrm{Cone}(𝒱 , 𝒮 ) ⊆ \mathrm{Cone}(𝒱 , 𝒩 ∗ 𝒮)\\
+& = \mathrm{Cone}(𝒱 ,𝒩) = 𝒩.
+\end{aligned}$$</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#preliminaries">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">Preliminaries</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-3">
+      <a href="#cotorsion-theory">
+        <span class="toc-number">1.1.</span>
+        <span class="toc-title">Cotorsion Theory</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/4_times_4_extri" title="NEXT: 外三角范畴的 $4 × 4$ 引理">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/20250516Talk" title="PREV: 2025-05-16-讨论班">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>

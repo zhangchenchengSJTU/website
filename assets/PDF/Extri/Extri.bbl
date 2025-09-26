@@ -1,0 +1,191 @@
+\begin{thebibliography}{May01}
+
+\bibitem[Bas63]{bassBigProjectiveModules1963}
+Hyman Bass.
+\newblock Big projective modules are free.
+\newblock {\em Illinois Journal of Mathematics}, 7(1):24--31, March 1963.
+\newblock \href {https://doi.org/10.1215/ijm/1255637479} {\path{doi:10.1215/ijm/1255637479}}.
+
+\bibitem[BK14]{buhlerElementaryConsiderationsExact}
+Theo B{\"u}hler and Matthias Kunzer.
+\newblock Some elementary considerations in exact categories, July 2014.
+\newblock URL: \url{https://pnp.mathematik.uni-stuttgart.de/lexmath/kuenzer/excounter.pdf}.
+
+\bibitem[BS01]{balmerIdempotentCompletionTriangulated2001}
+Paul Balmer and Marco Schlichting.
+\newblock Idempotent {{Completion}} of {{Triangulated Categories}}.
+\newblock {\em Journal of Algebra}, 236(2):819--834, February 2001.
+\newblock \href {https://doi.org/10.1006/jabr.2000.8529} {\path{doi:10.1006/jabr.2000.8529}}.
+
+\bibitem[B{\"u}h10]{buhlerExactCategories2010a}
+Theo B{\"u}hler.
+\newblock Exact categories.
+\newblock {\em Expositiones Mathematicae}, 28(1):1--69, January 2010.
+\newblock \href {https://doi.org/10.1016/j.exmath.2009.04.004} {\path{doi:10.1016/j.exmath.2009.04.004}}.
+
+\bibitem[Che18]{chenExtensionliftingLemmaTwoterm}
+Xiao-Wu Chen.
+\newblock The {{Extension-lifting Lemma}} via {{Two-term Complexes}}, November 2018.
+\newblock URL: \url{http://home.ustc.edu.cn/~xwchen/USTC%20Algebra%20Notes%20Archiv/The%20Extension-Lifting%20lemma%20via%20two-term%20complexes.pdf}.
+
+\bibitem[Cre21]{crewHomologicalAlgebraLecture2021}
+Richard Crew.
+\newblock Homological {{Algebra Lecture}} 6, 2021.
+\newblock URL: \url{https://people.clas.ufl.edu/rcrew/files/homology-lect6.pdf}.
+
+\bibitem[DG67]{EGA}
+Jean Dieudonn{\'e} and Alexander Grothendieck.
+\newblock \'{E}l\'ements de g\'eom\'etrie alg\'ebrique.
+\newblock {\em Inst. Hautes \'Etudes Sci. Publ. Math.}, 4, 8, 11, 17, 20, 24, 28, 32, 1961--1967.
+
+\bibitem[GZ67]{gabrielCalculusFractionsHomotopy1967}
+Peter Gabriel and Michel Zisman.
+\newblock {\em Calculus of {{Fractions}} and {{Homotopy Theory}}}.
+\newblock Springer, Berlin, Heidelberg, 1967.
+\newblock \href {https://doi.org/10.1007/978-3-642-85844-4} {\path{doi:10.1007/978-3-642-85844-4}}.
+
+\bibitem[Hap88]{happelTriangulatedCategoriesRepresentation1988}
+Dieter Happel.
+\newblock {\em Triangulated {{Categories}} in the {{Representation}} of {{Finite Dimensional Algebras}}}.
+\newblock Cambridge University Press, 1 edition, February 1988.
+\newblock \href {https://doi.org/10.1017/CBO9780511629228} {\path{doi:10.1017/CBO9780511629228}}.
+
+\bibitem[Hel58]{5f74a9f0-3930-3e27-b7cf-0a7de1f54fd0}
+Alex Heller.
+\newblock Homological algebra in abellian categories.
+\newblock {\em Annals of Mathematics}, 68(3):484--525, 1958.
+\newblock URL: \url{http://www.jstor.org/stable/1970153}.
+
+\bibitem[Hov07]{hoveyModelCategories2007}
+Mark Hovey.
+\newblock {\em Model {{Categories}}}.
+\newblock American Mathematical Soc., 2007.
+\newblock URL: \url{https://www.nzdr.ru/data/media/biblio/kolxoz/M/MA/MAct/Hovey%20M.%20Model%20categories%20(LN,%20Wesleyan%20U.,%201998)(213s)_MAct_.pdf}.
+
+\bibitem[Joy08]{joyal}
+Andr\'{e} Joyal.
+\newblock The theory of quasi-categories and its applications.
+\newblock 2008.
+\newblock URL: \url{https://ncatlab.org/nlab/files/JoyalTheoryOfQuasiCategories.pdf}.
+
+\bibitem[JT06]{joyalQuasicategoriesVsSegal2006}
+Andre Joyal and Myles Tierney.
+\newblock Quasi-categories vs {{Segal}} spaces, November 2006.
+\newblock \href {https://arxiv.org/abs/math/0607820} {\path{arXiv:math/0607820}}, \href {https://doi.org/10.48550/arXiv.math/0607820} {\path{doi:10.48550/arXiv.math/0607820}}.
+
+\bibitem[Kel82]{kellyBasicConceptsEnriched1982}
+Gregory~M. Kelly.
+\newblock {\em Basic Concepts of Enriched Category Theory}.
+\newblock Number~64 in London {{Mathematical Society}} Lecture Note Series. Cambridge University Press, Cambridge ; New York, 1982.
+\newblock URL: \url{http://www.tac.mta.ca/tac/reprints/articles/10/tr10abs.html}.
+
+\bibitem[Kel96]{kellerDerivedCategoriesTheir1996a}
+Bernhard Keller.
+\newblock Derived {{Categories}} and {{Their Uses}}.
+\newblock In {\em Handbook of {{Algebra}}}, volume~1, pages 671--701. Elsevier, 1996.
+\newblock \href {https://doi.org/10.1016/S1570-7954(96)80023-4} {\path{doi:10.1016/S1570-7954(96)80023-4}}.
+
+\bibitem[LC07]{leKaroubiannessTriangulatedCategory2007}
+Jue Le and Xiao-Wu Chen.
+\newblock Karoubianness of a triangulated category.
+\newblock {\em Journal of Algebra}, 310(1):452--457, April 2007.
+\newblock \href {https://doi.org/10.1016/j.jalgebra.2006.11.027} {\path{doi:10.1016/j.jalgebra.2006.11.027}}.
+
+\bibitem[Lura]{lurieKerodona}
+Jacob Lurie.
+\newblock Kerodon.
+\newblock https://kerodon.net/tag/0022.
+
+\bibitem[Lurb]{lurieKerodon}
+Jacob Lurie.
+\newblock Kerodon.
+\newblock https://kerodon.net/tag/004N.
+
+\bibitem[May01]{TriangulatedJPMay}
+John~P. May.
+\newblock The axioms for triangulated categories, 2001.
+\newblock URL: \url{https://www.math.uchicago.edu/~may/MISC/Triangulate.pdf}.
+
+\bibitem[Mit65]{mitchellTheoryCategories1965}
+Barry Mitchell.
+\newblock {\em Theory of {{Categories}}}.
+\newblock Academic Press, 1965.
+\newblock URL: \url{https://webhomes.maths.ed.ac.uk/~v1ranick/papers/mitchell.pdf}.
+
+\bibitem[Mur07]{TriangulatedDMurfet}
+Daniel Murfet.
+\newblock Triangulated categories part i, April 2007.
+\newblock URL: \url{http://therisingsea.org/notes/TriangulatedCategories.pdf}.
+
+\bibitem[Nee91]{neemanNewAxiomsTriangulated1991}
+Amnon Neeman.
+\newblock Some new axioms for triangulated categories.
+\newblock {\em Journal of Algebra}, 139(1):221--255, May 1991.
+\newblock \href {https://doi.org/10.1016/0021-8693(91)90292-G} {\path{doi:10.1016/0021-8693(91)90292-G}}.
+
+\bibitem[Nee01]{neemanTriangulatedCategories2001}
+Amnon Neeman.
+\newblock {\em Triangulated Categories}.
+\newblock Number no. 148 in Annals of Mathematics Studies. Princeton University Press, Princeton, 2001.
+\newblock URL: \url{https://homepage.mi-ras.ru/~akuznet/homalg/Neeman%20Triangulated%20categories.pdf}.
+
+\bibitem[NP19]{nakaoka:hal-02136919}
+Hiroyuki Nakaoka and Yann Palu.
+\newblock {Extriangulated categories, Hovey twin cotorsion pairs and model structures}.
+\newblock {\em {Cahiers de topologie et g{\'e}om{\'e}trie diff{\'e}rentielle cat{\'e}goriques}}, LX(2):117--193, 2019.
+\newblock arXiv title ''Mutation via Hovey twin cotorsion pairs and model structures in extriangulated categories''.
+\newblock URL: \url{https://hal.science/hal-02136919}.
+
+\bibitem[Qui67]{quillenHomotopicalAlgebra1967}
+Daniel~G. Quillen.
+\newblock {\em Homotopical {{Algebra}}}, volume~43 of {\em Lecture {{Notes}} in {{Mathematics}}}.
+\newblock Springer, Berlin, Heidelberg, 1967.
+\newblock \href {https://doi.org/10.1007/BFb0097438} {\path{doi:10.1007/BFb0097438}}.
+
+\bibitem[Qui69]{quillenRationalHomotopyTheory1969}
+Daniel Quillen.
+\newblock Rational {{Homotopy Theory}}.
+\newblock {\em The Annals of Mathematics}, 90(2):205, September 1969.
+\newblock \href {https://arxiv.org/abs/1970725} {\path{arXiv:1970725}}, \href {https://doi.org/10.2307/1970725} {\path{doi:10.2307/1970725}}.
+
+\bibitem[Ree73]{reedyHOMOTOPYTHEORYMODEL}
+Christopher~L. Reedy.
+\newblock Homotopy theory of model categories.
+\newblock 1973.
+\newblock URL: \url{https://math.mit.edu/~psh/reedy.pdf}.
+
+\bibitem[RZ21]{rongStrongVersionSnake2021}
+Shi Rong and Pu~Zhang.
+\newblock Strong version of {{Snake Lemma}} in exact categories.
+\newblock {\em Homology, Homotopy and Applications}, 23(2):151--163, 2021.
+\newblock \href {https://doi.org/10.4310/HHA.2021.v23.n2.a9} {\path{doi:10.4310/HHA.2021.v23.n2.a9}}.
+
+\bibitem[Ste67]{steenrodConvenientCategoryTopological1967}
+N.~E. Steenrod.
+\newblock A convenient category of topological spaces.
+\newblock {\em Michigan Mathematical Journal}, 14(2):133--152, May 1967.
+\newblock \href {https://doi.org/10.1307/mmj/1028999711} {\path{doi:10.1307/mmj/1028999711}}.
+
+\bibitem[Ver96]{AST_1996__239__R1_0}
+Jean-Louis Verdier.
+\newblock {\em Des cat\'egories d\'eriv\'ees des cat\'egories ab\'eliennes}.
+\newblock Number 239 in Ast\'erisque. Soci\'et\'e math\'ematique de France, 1996.
+\newblock URL: \url{https://www.numdam.org/item/AST_1996__239__R1_0/}.
+
+\bibitem[Wis11]{wiseNONELEMENTARYPROOFSNAKE}
+Jonathan Wise.
+\newblock A {{A Non-elementary Proof of the Snake Lemma}}, 2011.
+\newblock URL: \url{https://ncatlab.org/nlab/files/Wise-SnakeLemma.pdf}.
+
+\bibitem[Yon60]{MR225854}
+Nobuo Yoneda.
+\newblock On {E}xt and exact sequences.
+\newblock {\em J. Fac. Sci. Univ. Tokyo Sect. I}, 8:507--576, 1960.
+\newblock URL: \url{https://mathscinet.ams.org/mathscinet/article?mr=225854}.
+
+\bibitem[Zho25]{zhouTiltingTheoryExtended2025}
+Yu~Zhou.
+\newblock Tilting theory for extended module categories, January 2025.
+\newblock \href {https://arxiv.org/abs/2411.15473} {\path{arXiv:2411.15473}}, \href {https://doi.org/10.48550/arXiv.2411.15473} {\path{doi:10.48550/arXiv.2411.15473}}.
+
+\end{thebibliography}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+
+
+  <title>稳定加法范畴
+    ·
+    Jekyll Latex</title>
+
+
+<meta name="description" content="稳定加法范畴是局部化范畴">
+
+
+  <meta name="google-site-verification" content="abc123">
+
+
+<link rel="icon" href="/website/assets/favicon.png">
+<link rel="apple-touch-icon" href="/website/assets/touch-icon.png">
+<link rel="stylesheet" href="/website/assets/core.css">
+<link rel="canonical" href="/website/posts/Stable_Add_Cat">
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title="Jekyll Latex"
+  href="/website/feed.xml" />
+
+
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  chtml: {
+    scale: 0.95,  // Adjust size
+    // No need for fontURL if you're using tex-chtml.js — TeX font is default
+  },
+  svg: {
+    scale: 0.95  // Only applies if you switch to tex-svg.js
+  }
+};
+</script>
+
+<script
+  async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+	<!-- 打印设置 -->
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+</head>
+
+<body class="latex-dark">
+
+	<script>
+  // 根据当前页URL动态修改
+  if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+    document.getElementById('logo-link').href = "/website";
+    document.getElementById('logo-prompt').textContent = 'Back to Home';
+  }
+</script>
+
+
+	<main class="container">
+  <!-- Main Content Column -->
+  <article class="content-column">
+    <div class="center">
+      <h1>稳定加法范畴</h1>
+      <p class="author">
+        Chencheng Zhang
+        <br/>
+        May 9, 2025
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="稳定加法范畴是局部化范畴">稳定加法范畴是局部化范畴</h2>
+
+<div class="definition">
+  <p>(稳定加法范畴). 给定 (通常默认局部小) 加法范畴 $𝒜$ 与直和闭的全子范畴 $𝒞$, 定义 $𝒜 / 𝒞$ 是如下范畴:</p>
+  <ol>
+    <li>对象选取 $𝖮𝖻 (𝒜 / 𝒞) = 𝖮𝖻 (𝒜)$;</li>
+    <li>
+      <p>态射选作商群</p>
+      <p>$$\begin{equation}
+   (X,Y)_{𝒜 / 𝒞} := \frac{(X,Y)_𝒜}{\{\text{通过 $𝒞$ 中对象分解的态射}\}}
+   \end{equation}$$</p>
+    </li>
+  </ol>
+</div>
+
+<div class="theorem">
+  <p>以上的稳定加法范畴是局部化.</p>
+</div>
+
+<div class="proof">
+  <p>定义子群 $(X,Y)_0 ≤ (X,Y)$. 称 $f ∈ (X,Y)$ 当且仅当 $f$ 通过 $𝒞$ 中对象分解. 特别地, $(X,Y)_{𝒜 / 𝒞} =\frac{(X,Y)}{(X,Y)_0}$. <br /> <br /> 定义态射类 $S$. 称 $f ∈ S$ 当且仅当存在 $g ∈ (t(f), s(f))$ 使得 $\mathrm{id}_{s(f)} - gf$ 与 $\mathrm{id}_{t(f)} - fg$ 是 $\mathrm{End}_0$-类型的态射.</p>
+  <ul>
+    <li>简而言之, $S$ 中态射几乎为同构.</li>
+  </ul>
+  <p>由 $S$ <a href="Additive_Oplus_Closed_Implies">对直和封闭</a>, 故局部化函子 $Q : 𝒜 → 𝒜 [S^{-1}]$ 是加法函子. 比较泛性质:</p>
+  <ol>
+    <li>加法函子 $F: 𝒜 → ℬ$ 经稳定化函子 $R: 𝒜 → 𝒜 / 𝒞$ 分解, 当且仅当 $F$ 将 $𝒞$ 映至零对象;</li>
+    <li>加法函子 $F: 𝒜 → ℬ$ 经局部化函子 $Q : 𝒜 → 𝒜 [S^{-1}]$ 分解, 当且仅当 $F$ 将 $S$ 中态射映至同构.</li>
+  </ol>
+  <p>一方面, 1. 可以通过 2. 分解. 任取 $f ∈ S$, 依定义取 $g$ 使得 $1-fg$ 与 $1-gf$ 通过 $𝒞$ 中对象封闭. 因此 $R(f)$ 是同构. <br /> <br /> 另一方面, 2. 可以通过 1. 分解. 任取 $X ∈ 𝒞$, 则 $0 → X$ 属于 $S$. 这表明 $Q(X)$ 是零对象.</p>
+</div>
+
+<div class="slogan">
+  <p>不同的泛性质给出同一范畴!</p>
+</div>
+
+<h2 id="复形的同伦范畴">复形的同伦范畴</h2>
+
+<div class="theorem">
+  <p>给定加法范畴 $ℬ$, 复形范畴 $C(ℬ)$ 至同伦范畴 $K(ℬ) := C(ℬ) / 𝒞$ 是局部化. 此处, $𝒞$ 是全体可缩 (可裂无环) 复形构成的对象类.</p>
+</div>
+
+<div class="proof">
+  <p>$𝒞$ 是加法范畴, 从而稳定范畴是局部化.</p>
+</div>
+
+<p>以下构造性的证明避免了对<a href="Additive_Oplus_Closed_Implies">此定理</a>的使用. 记态射类 $S$ 是全体同伦等价.</p>
+
+<div class="proof">
+  <p>一方面, 同伦等价在 $C(ℬ) → K(ℬ) := C(ℬ) / 𝒞$ 中是同构, 遂有分解 $$\begin{equation}
+C(ℬ) → C(ℬ) [S^{-1}] → K(ℬ)
+\end{equation}$$ 另一方面, 只需证明局部化函子关于 $\mathrm{Hom}_0$ 类型的态射映至 $0$. 由拓扑学定义或是简单的代数验证, 以下是一一对应: $$\begin{equation}
+\{(s,f,g)\mid f\overset s\sim g:X\to Y\}\overset {\text{1:1}} ⟷ \mathrm{Hom}_{C(𝒜)}(\mathrm{Cyl}(\mathrm{id}_X),Y).
+\end{equation}$$ 将 $f$ 与 $g$ 写作复合态射的形式:</p>
+  <ul>
+    <li>$f=\left[X\xrightarrow{e_2}\mathrm{Cyl}(\mathrm{id}_X)\xrightarrow{(s,f,g)} Y\right]$,</li>
+    <li>$g=\left[X\xrightarrow{e_3}\mathrm{Cyl}(\mathrm{id}_X)\xrightarrow{(s,f,g)} Y\right]$.</li>
+  </ul>
+  <p>由于 $e_2$ 与 $e_3$ 是同伦等价, 从而 $e_2, e_3 ∈ S$. 因此 $f$ 与 $g$ 是局部化范畴中相同的态射. 这给出分解 $\mathrm{Hom} → \underline{\mathrm{Hom}} → \mathrm{Hom}_{[S^{-1}]}$.</p>
+</div>
+
+  </article>
+
+  <!-- New Sidebar Column -->
+  <aside class="sidebar-column">
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const sections = Array.from(tocLinks).map(link => {
+    return document.querySelector(link.getAttribute('href'));
+  });
+  const headerOffset = 80; // adjust for fixed header
+
+  function onScroll() {
+    const scrollPos = window.scrollY + headerOffset + 5; // small buffer
+    let currentSectionIndex = sections.length - 1;
+
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop > scrollPos) {
+        currentSectionIndex = i - 1;
+        break;
+      }
+    }
+
+    tocLinks.forEach(link => link.classList.remove('active'));
+    if (currentSectionIndex >= 0) {
+      tocLinks[currentSectionIndex].classList.add('active');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // initialize on page load
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.numbered-toc a[href^="#"]');
+  const headerOffset = 80; // Adjust to your fixed header height if any
+
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (!targetElement) return;
+
+      // Calculate scroll position with header offset
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      // Smooth scroll to position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+
+      // Update URL after scrolling (slightly delayed)
+      setTimeout(() => {
+        history.pushState(null, null, targetId);
+      }, 600);
+    });
+  });
+});
+</script>
+
+<div class="sidebar-column">
+
+  <div class="sidebar-section">
+    <h3>Catalog</h3>
+    
+
+
+
+
+
+
+
+<nav class="numbered-toc">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#稳定加法范畴是局部化范畴">
+        <span class="toc-number">1.</span>
+        <span class="toc-title">稳定加法范畴是局部化范畴</span>
+      </a>
+    </div>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="toc-row toc-level-2">
+      <a href="#复形的同伦范畴">
+        <span class="toc-number">2.</span>
+        <span class="toc-title">复形的同伦范畴</span>
+      </a>
+    </div>
+  
+</nav>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Links</h3>
+    <a href="/website/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="home-icon">
+  <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
+    Home Page;
+    </a>
+    <p></p>
+    <a href="#" onclick="window.print(); return false;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print Me;
+    </a>
+    <p></p>
+    <a href="/website/posts/Collection_of_Websites">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="tools-icon">
+  <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+</svg>
+      Useful Tools;
+    </a>
+    <p></p>
+    <a href="https://github.com/zhangchenchengSJTU/jekyll-latex">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"/>
+</svg>
+      Repository;
+    </a>
+    <p></p>
+    <a href="https://www.zotero.org/groups/6107450/zcclib/library">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="repo-icon">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+    File Folder.
+    </a>
+  </p>
+  </div>
+
+</div>
+  <!-- Sidebar content -->
+  </aside>
+
+  <!-- Navigation (below both columns) -->
+  <div class="page-navigation">
+    
+      <a class="next" href="/website/posts/20250425Talk" title="NEXT: 2025-05-09-讨论班">&lt;&lt;</a>
+      <span>&middot;</span>
+    
+    <a class="home" href="/website/" title="Back to Homepage">Home</a>
+    
+      <span>&middot;</span>
+      <a class="prev" href="/website/posts/Gabriel_Zisman" title="PREV: Gabriel-Zisman 局部化">&gt;&gt;</a>
+    
+  </div>
+</main>
+
+	<div class="footer">
+  <span class="block">&copy;
+    2025
+    Chencheng Zhang</span>
+</div>
+
+
+</body>
+
+
+</html>
