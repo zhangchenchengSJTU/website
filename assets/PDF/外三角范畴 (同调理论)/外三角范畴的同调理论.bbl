@@ -1,0 +1,21 @@
+\begin{thebibliography}{GNP21}
+
+\bibitem[GNP21]{gorsky2021positivenegativeextensionsextriangulated}
+Mikhail Gorsky, Hiroyuki Nakaoka, and Yann Palu.
+\newblock Positive and negative extensions in extriangulated categories, 2021.
+\newblock URL: \url{https://arxiv.org/abs/2103.12482}, \href {https://arxiv.org/abs/2103.12482} {\path{arXiv:2103.12482}}.
+
+\bibitem[Kra22]{krauseHomologicalTheoryRepresentations2022}
+Henning Krause.
+\newblock {\em Homological Theory of Representations}.
+\newblock Number 195 in Cambridge Studies in Advanced Mathematics. Cambridge University Press, Cambridge, 2022.
+\newblock \href {https://doi.org/10.1017/9781108979108} {\path{doi:10.1017/9781108979108}}.
+
+\bibitem[Len97]{Lenzing1997Auslander}
+Helmut Lenzing.
+\newblock Auslander's work on artin algebras.
+\newblock In {\em Canadian Mathematical Society Conference Proceedings}. Canadian Mathematical Society, 1997.
+\newblock Lecture notes / reprint of lectures given in Trondheim, July-August.
+\newblock URL: \url{https://www.researchgate.net/profile/Helmut-Lenzing/publication/239437957_Auslander's_work_on_Artin_algebras/links/55ba282008aed621de0ac5cb/Auslanders-work-on-Artin-algebras.pdf}.
+
+\end{thebibliography}

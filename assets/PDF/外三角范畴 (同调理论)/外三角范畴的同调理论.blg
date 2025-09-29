@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 外三角范畴的同调理论.aux
+The style file: alphaurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ref.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 3 entries,
+            3368 wiz_defined-function locations,
+            719 strings with 6408 characters,
+and the built_in function-call counts, 1495 in all, are:
+= -- 159
+> -- 44
+< -- 3
++ -- 13
+- -- 13
+* -- 79
+:= -- 238
+add.period$ -- 14
+call.type$ -- 3
+change.case$ -- 16
+chr.to.int$ -- 3
+cite$ -- 3
+duplicate$ -- 49
+empty$ -- 144
+format.name$ -- 18
+if$ -- 380
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 3
+newline$ -- 21
+num.names$ -- 9
+pop$ -- 40
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 102
+stack$ -- 0
+substring$ -- 23
+swap$ -- 8
+text.length$ -- 5
+text.prefix$ -- 2
+top$ -- 0
+type$ -- 20
+warning$ -- 0
+while$ -- 7
+width$ -- 6
+write$ -- 48
