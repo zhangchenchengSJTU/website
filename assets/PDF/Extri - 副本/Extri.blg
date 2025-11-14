@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Extri.aux
+A level-1 auxiliary file: Sections/Recollection.aux
+A level-1 auxiliary file: Sections/Intro.aux
+A level-1 auxiliary file: Sections/Diagram.aux
+A level-1 auxiliary file: Sections/SpecialExtri.aux
+A level-1 auxiliary file: Sections/Model.aux
+A level-1 auxiliary file: Sections/Homotopy.aux
+A level-1 auxiliary file: Sections/Functor.aux
+A level-1 auxiliary file: Sections/Heller.aux
+The style file: alphaurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ref.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty journal in joyal
+Warning--can't use both author and editor fields in quillenHomotopicalAlgebra1967
+Warning--empty journal in reedyHOMOTOPYTHEORYMODEL
+You've used 33 entries,
+            3368 wiz_defined-function locations,
+            948 strings with 12043 characters,
+and the built_in function-call counts, 15318 in all, are:
+= -- 1653
+> -- 399
+< -- 31
++ -- 104
+- -- 98
+* -- 839
+:= -- 2102
+add.period$ -- 126
+call.type$ -- 33
+change.case$ -- 166
+chr.to.int$ -- 32
+cite$ -- 36
+duplicate$ -- 498
+empty$ -- 1498
+format.name$ -- 156
+if$ -- 3949
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 31
+newline$ -- 191
+num.names$ -- 99
+pop$ -- 382
+preamble$ -- 1
+purify$ -- 206
+quote$ -- 0
+skip$ -- 1144
+stack$ -- 0
+substring$ -- 540
+swap$ -- 81
+text.length$ -- 59
+text.prefix$ -- 25
+top$ -- 0
+type$ -- 232
+warning$ -- 3
+while$ -- 98
+width$ -- 37
+write$ -- 467
+(There were 3 warnings)

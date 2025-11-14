@@ -1,0 +1,1756 @@
+\section{Hovey 对应}
+
+\subsection{余挠对}
+
+余挠对是一门庞大的理论, 本章节仅罗列一些基本定义与结论. 以下选定外三角范畴 $(\mathcal{C}, \mathbb E, \mathfrak s)$.
+
+\begin{definition}
+	($\mathbb E$-垂直). 称两个对象类 $\mathcal{X}$ 与 $\mathcal{Y}$ 是 $\mathbb E$-垂直的 (下简称\textbf{垂直}), 若对任意 $X \in \mathcal{X}$ 与 $Y \in \mathcal{Y}$, 总有 $\mathbb E(X,Y) = 0$. 我们引入以下记号:
+	\begin{enumerate}
+		\item 若 $\mathcal{X}$ 与 $\mathcal{Y}$ 垂直, 则记作 $\mathcal{X}\perp \mathcal{Y}$;
+		\item 记右垂直类 $\mathcal{X}^\perp := \{Y \mid \mathbb E(X,Y) = 0\}$;
+		\item 记左垂直类 ${}^\perp \mathcal{Y} := \{X \mid \mathbb E(X,Y) = 0\}$.
+	\end{enumerate}
+	简便起见, 约定 $\{M\}^\perp = M^\perp$.
+\end{definition}
+
+再引入几则 conflation 决定的类的运算.
+
+\begin{definition}
+	假定 $\mathcal{X}$ 与 $\mathcal{Y}$ 是任意 (非空的) 对象类. 定义如下运算.
+	\begin{enumerate}
+		\item $\mathrm{Cone}(\mathcal{X}, \mathcal{Y}) := \{Z \mid \text{存在 $X \in \mathcal{X}$ 与 $Y \in \mathcal{Y}$, 使得有 conflation} \  X \rightarrowtail Y \twoheadrightarrow Z\}$;
+		\item $\mathrm{coCone}(\mathcal{X}, \mathcal{Y}) := \{W \mid \text{存在 $X \in \mathcal{X}$ 与 $Y \in \mathcal{Y}$, 使得有 conflation} \  W \rightarrowtail X \twoheadrightarrow W\}$;
+		\item $\mathcal{X} \ast \mathcal{Y} := \{E \mid \text{存在 $X \in \mathcal{X}$ 与 $Y \in \mathcal{Y}$, 使得有 conflation} \  X \rightarrowtail E \twoheadrightarrow Y\}$.
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	若 $\mathcal{X} \perp \mathcal{Y}$, 则 $\mathcal{X} \ast \mathcal{Y} = \mathcal{X} \oplus \mathcal{Y}$.
+\end{example}
+
+我们将 ET4 系列公理转化作如下引理.
+
+\begin{lemma}\label{lem:star-asso}
+	对任意对象类 $\mathcal{X}$, $\mathcal{Y}$, 与 $\mathcal{Z}$, 有如下等式.
+	\begin{enumerate}
+		\item $\mathrm{Cone}(\mathcal{X} , \mathrm{Cone}(\mathcal{Y} , \mathcal{Z} )) = \mathrm{Cone}(\mathcal{Y} \ast \mathcal{X} , \mathcal{Z} )$;
+		\item $\mathrm{coCone}(\mathrm{coCone}(\mathcal{X} ,\mathcal{Y} ), \mathcal{Z} ) = \mathrm{coCone}(\mathcal{X} , \mathcal{Z} \ast \mathcal{Y} )$;
+		\item $\mathrm{Cone}(\mathcal{X} , \mathrm{coCone}(\mathcal{Y}, \mathcal{Z} )) = \mathrm{coCone}(\mathrm{Cone}(\mathcal{X} , \mathcal{Y} ), \mathcal{Z} )$;
+		\item $\mathcal{X} \ast (\mathcal{Y} \ast \mathcal{Z} ) = (\mathcal{X} \ast \mathcal{Y} )\ast \mathcal{Z}$.
+	\end{enumerate}
+	\begin{proof}
+		先证明 (1). 观察下图. 若 $M \in \mathrm{Cone}(\mathcal{X} , \mathrm{Cone}(\mathcal{Y} , \mathcal{Z} ))$, 则 $M$ 由实线所示的 $\delta_i$ 决定. 依照 ET4', $M$ 由虚线所示的 $\varepsilon_j$ 决定. 因此 $M \in \mathrm{Cone}(\mathcal{Y} \ast \mathcal{X} , \mathcal{Z} )$. 对偶地, 依照 ET4, 虚线所示的 conflation 决定实所示者.
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsMTIsWzAsMCwiWSJdLFsxLDAsIkYiXSxbMiwwLCJYIl0sWzEsMSwiWiJdLFsxLDIsIk0iXSxbMiwxLCJFIl0sWzIsMiwiTSJdLFswLDEsIlkiXSxbMywxLCJcXCwiXSxbMiwzLCJcXCwiXSxbMSwzLCJcXCwiXSxbMywwLCJcXCwiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDIsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCw2LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDUsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNSw2LCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNywzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsNywiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSw4LCJcXGRlbHRhXzEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiw5LCJcXGRlbHRhXzIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwxMSwiXFx2YXJlcHNpbG9uIF8xIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMTAsIlxcdmFyZXBzaWxvbiBfMiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}
+	Y & F & X & {\,} \\
+	Y & Z & E & {\,} \\
+	& M & M \\
+	& {\,} & {\,}
+	\arrow[dashed, tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[dashed, two heads, from=1-2, to=1-3]
+	\arrow[dashed, tail, from=1-2, to=2-2]
+	\arrow["{\varepsilon _1}", dashed, from=1-3, to=1-4]
+	\arrow[tail, from=1-3, to=2-3]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow[dashed, two heads, from=2-2, to=3-2]
+	\arrow["{\delta_1}", dashed, from=2-3, to=2-4]
+	\arrow[two heads, from=2-3, to=3-3]
+	\arrow[equals, from=3-2, to=3-3]
+	\arrow["{\varepsilon _2}", dashed, from=3-2, to=4-2]
+	\arrow["{\delta_2}", dashed, from=3-3, to=4-3]
+\end{tikzcd}.
+			\end{equation}
+			(2) 是 (1) 在反范畴中的对偶. 证明 (3) ((4)) 所需的交换图分别是下图左 (右).
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsMjQsWzAsMCwiWCJdLFsxLDAsIkUiXSxbMiwwLCJNIl0sWzEsMSwiWSJdLFsxLDIsIloiXSxbMiwxLCJGIl0sWzIsMiwiWiJdLFswLDEsIlgiXSxbMywxLCJcXCwiXSxbMiwzLCJcXCwiXSxbMSwzLCJcXCwiXSxbMywwLCJcXCwiXSxbNCwwLCJYIl0sWzQsMSwiWCJdLFs2LDAsIlkiXSxbNSwxLCJNIl0sWzUsMiwiWiJdLFs2LDIsIloiXSxbNSwwLCJFIl0sWzYsMSwiRiJdLFs3LDAsIlxcLCJdLFs3LDEsIlxcLCJdLFs2LDMsIlxcLCJdLFs1LDMsIlxcLCJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsNCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzQsNiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMyw1LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw2LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzcsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCw3LCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs1LDgsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs2LDksIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDExLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxMCwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEyLDEzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxNiwxNywiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTIsMTgsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEzLDE1LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzE4LDE1LCIiLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxOCwxNCwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxNSwxOSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzE5LDE3LCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTUsMTYsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTYsMjMsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxNywyMiwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzE0LDE5LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzE5LDIxLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTQsMjAsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}
+	X & E & M & {\,} & X & E & Y & {\,} \\
+	X & Y & F & {\,} & X & M & F & {\,} \\
+	& Z & Z &&& Z & Z \\
+	& {\,} & {\,} &&& {\,} & {\,}
+	\arrow[tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[dashed, from=1-3, to=1-4]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow[dashed, tail, from=1-5, to=1-6]
+	\arrow[equals, from=1-5, to=2-5]
+	\arrow[dashed, two heads, from=1-6, to=1-7]
+	\arrow[dashed, tail, from=1-6, to=2-6]
+	\arrow[dashed, from=1-7, to=1-8]
+	\arrow[tail, from=1-7, to=2-7]
+	\arrow[dashed, tail, from=2-1, to=2-2]
+	\arrow[dashed, two heads, from=2-2, to=2-3]
+	\arrow[two heads, from=2-2, to=3-2]
+	\arrow[dashed, from=2-3, to=2-4]
+	\arrow[dashed, two heads, from=2-3, to=3-3]
+	\arrow[tail, from=2-5, to=2-6]
+	\arrow[two heads, from=2-6, to=2-7]
+	\arrow[dashed, two heads, from=2-6, to=3-6]
+	\arrow[dashed, from=2-7, to=2-8]
+	\arrow[two heads, from=2-7, to=3-7]
+	\arrow[equals, from=3-2, to=3-3]
+	\arrow[dashed, from=3-2, to=4-2]
+	\arrow[dashed, from=3-3, to=4-3]
+	\arrow[equals, from=3-6, to=3-7]
+	\arrow[dashed, from=3-6, to=4-6]
+	\arrow[dashed, from=3-7, to=4-7]
+\end{tikzcd}.
+			\end{equation}
+		实线决出的 $M$ 位于左式, 虚线决出的 $M$ 位于右式. 由 ET4 与 ET4' 可证两者互相推导.
+	\end{proof}
+\end{lemma}
+
+结合 \Cref{thm:bi-pullback}, 得如下引理.
+
+\begin{lemma}\label{lem:star-inclu}
+	给定任意对象类 $\mathcal{X}$, $\mathcal{Y}$ 与 $\mathcal{Z}$, 有以下包含关系.
+	\begin{enumerate}
+		\item $\mathrm{coCone}(\mathcal{X} ,\mathcal{Z} )\ast \mathcal{Y} \subseteq \mathrm{coCone}(\mathcal{X} \ast \mathcal{Y} , \mathcal{Z} )\supseteq \mathrm{coCone}(\mathcal{Y} ,\mathrm{Cone}(\mathcal{X} ,\mathcal{Z} ))$;
+		\item $\mathcal{Y} \ast \mathrm{Cone}(\mathcal{X} , \mathcal{Z} ) \subseteq \mathrm{Cone}(\mathcal{X} , \mathcal{Y} \ast \mathcal{Z} ) \supseteq \mathrm{Cone}(\mathrm{coCone}(\mathcal{X} ,\mathcal{Z} ),\mathcal{Y} )$.
+	\end{enumerate}
+	\begin{proof}
+		下证明 (1). 左式对应下图(左)蓝实线, 右式对应下图(右)红实线, 中式对应虚线:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTYsWzAsMSwiWCJdLFsxLDEsIkYiXSxbMiwxLCJNIl0sWzIsMiwiRSJdLFswLDIsIlgiXSxbMSwyLCJaIl0sWzIsMCwiWSJdLFsxLDAsIlkiXSxbMywxLCJYIl0sWzMsMiwiWiJdLFszLDAsIkEiXSxbNCwwLCJZIl0sWzUsMCwiTSJdLFs1LDEsIk0iXSxbNCwyLCJaIl0sWzQsMSwiQiJdLFswLDEsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDIsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsIiIsMCx7ImNvbG91ciI6WzI0MSwxMDAsNjBdfV0sWzAsNCwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw1LCIiLDIseyJjb2xvdXIiOlsyNDEsMTAwLDYwXX1dLFs1LDMsIiIsMix7ImNvbG91ciI6WzI0MSwxMDAsNjBdfV0sWzEsNSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzcsNiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNywxLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiwyLCIiLDAseyJjb2xvdXIiOlsyNDEsMTAwLDYwXX1dLFs4LDksIiIsMCx7ImNvbG91ciI6WzM1NSwxMDAsNjBdfV0sWzEwLDgsIiIsMCx7ImNvbG91ciI6WzM1NSwxMDAsNjBdfV0sWzEwLDExLCIiLDIseyJjb2xvdXIiOlszNTUsMTAwLDYwXX1dLFsxMSwxMiwiIiwyLHsiY29sb3VyIjpbMzU1LDEwMCw2MF19XSxbMTIsMTMsIiIsMix7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzksMTQsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzgsMTUsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxNSwxMywiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzExLDE1LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTUsMTQsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}
+	& Y & Y & A & Y & M \\
+	X & F & M & X & B & M \\
+	X & Z & E & Z & Z
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[dashed, from=1-2, to=2-2]
+	\arrow[color={rgb,255:red,54;green,51;blue,255}, from=1-3, to=2-3]
+	\arrow[color={rgb,255:red,255;green,51;blue,68}, from=1-4, to=1-5]
+	\arrow[color={rgb,255:red,255;green,51;blue,68}, from=1-4, to=2-4]
+	\arrow[color={rgb,255:red,255;green,51;blue,68}, from=1-5, to=1-6]
+	\arrow[dashed, from=1-5, to=2-5]
+	\arrow[equals, from=1-6, to=2-6]
+	\arrow[dashed, from=2-1, to=2-2]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow[dashed, from=2-2, to=2-3]
+	\arrow[dashed, from=2-2, to=3-2]
+	\arrow[color={rgb,255:red,54;green,51;blue,255}, from=2-3, to=3-3]
+	\arrow[dashed, from=2-4, to=2-5]
+	\arrow[color={rgb,255:red,255;green,51;blue,68}, from=2-4, to=3-4]
+	\arrow[dashed, from=2-5, to=2-6]
+	\arrow[dashed, from=2-5, to=3-5]
+	\arrow[color={rgb,255:red,54;green,51;blue,255}, from=3-1, to=3-2]
+	\arrow[color={rgb,255:red,54;green,51;blue,255}, from=3-2, to=3-3]
+	\arrow[equals, from=3-4, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		由\Cref{thm:bi-pullback}, 实线决定虚线; 反之, 虚线未必能决定实线. 上述包含通常无法改作等号. (2) 是 (1) 在反范畴中的对偶结论, 证明从略.
+	\end{proof}
+\end{lemma}
+
+\begin{definition}
+	(余挠对). 称两个对象类 $(\mathcal{U}, \mathcal{V})$ 构成\textbf{余挠对}, 若 $\mathcal{U}^\perp = \mathcal{V}$, 且 $\mathcal{U} = {}^\perp \mathcal{V}$.
+\end{definition}
+
+\begin{remark}
+	余挠对 $(\mathcal{U}, \mathcal{V})$ 中两组对象类的顺序固定. 注意到 $\mathbb E(\mathcal{U}, \mathcal{V}) = 0$.
+\end{remark}
+
+\begin{lemma}\label{lem:cotorsion-pair-generated}
+	对任意对象类 $\mathcal{X}$.
+	\begin{enumerate}
+		\item $(^\perp \mathcal{X}, (^\perp \mathcal{X})^\perp)$ 是余挠对, 称作 $\mathcal{X}$ \textbf{生成}的余挠对;
+		\item $(^\perp(\mathcal{X}^\perp), \mathcal{X}^\perp)$ 是余挠对, 称作 $\mathcal{X}$ \textbf{余生成}的余挠对.
+	\end{enumerate}
+	\begin{proof}
+		依照 Galois 连接, 得 $(^\perp(\mathcal{X}^\perp))^\perp = \mathcal{X}^\perp$, 以及 $^\perp((^\perp \mathcal{X})^\perp) = {}^\perp \mathcal{X}$. 证明细节从略.
+	\end{proof}
+\end{lemma}
+
+\begin{lemma}
+	假定 $(\mathcal{U}, \mathcal{V})$ 是余挠对, 则有如下结论:
+	\begin{enumerate}
+		\item $\mathcal{U}$ 与 $\mathcal{V}$ 关于形变收缩 (\Cref{def:deformation-retract}) 封闭 (特别地, 关于直和项封闭);
+		\item $\mathcal{U}$ 与 $\mathcal{V}$ 关于扩张封闭 (特别地, 关于直和封闭).
+	\end{enumerate}
+	\begin{proof}
+		仅看 $\mathcal{U}$. (1). 记 $U_0 \xrightarrow i U \xrightarrow p U_0$ 复合为恒等, $U \in \mathcal{U}$, 则有恒等自然变换
+		\begin{equation}
+			\mathbb E(U_0, (-)_\mathcal{V}) \xrightarrow{p^\ast} \mathbb E(U, (-)_\mathcal{V}) \xrightarrow{i^\ast} \mathbb E(U_0, (-)_\mathcal{V}).
+		\end{equation}
+		这一恒等自然变换通过零函子 $\mathbb E(U, (-)_\mathcal{V})$ 分解, 从而 $U_0 \in{}^\perp \mathcal{V} = \mathcal{U}$.
+		\\
+		(2). 任取 conflation $U \rightarrowtail W \twoheadrightarrow U' \dashrightarrow$ ($U, U' \in \mathcal{U}$). 将长正合列 (\Cref{eq:ext-tri-6-term-dual}) 限制在 $\mathcal{V}$ 上, 得
+		\begin{equation}
+			0 = \mathbb E(U', (-)|_\mathcal{V}) \to \mathbb E(W, (-)|_\mathcal{V}) \to \mathbb E(U, (-)|_\mathcal{V})= 0 .
+		\end{equation}
+		因此, $\mathbb E(W, (-)|_\mathcal{V}) = 0$, 即 $W \in {}^\perp \mathcal{V} = \mathcal{U}$.
+	\end{proof}
+\end{lemma}
+
+为较自然地引入完备余挠对, 我们介绍以下定义.
+
+\begin{definition}\label{def:precover}
+	(预盖, 右逼近). 给定范畴中的对象类 $\mathcal{X}$. 对象 $M$ 的一个 $\mathcal{X}$-预盖 (或称 右 $\mathcal{X}$-逼近) 是指一个态射 $p : M^X \to M$ ($M^X \in \mathcal{X}$), 使得以下等价表述成立:
+	\begin{itemize}
+		\item (态射语言). 对任意 $q : X \to M$ ($X \in \mathcal{X}$) , 存在 $q' : X \to M^X$, 使得 $p \circ q' = q$.
+		\item (函子语言). $\mathrm{Hom}_\mathcal{X}(-, M^X) \xrightarrow{p \circ - } \mathrm{Hom}_\mathcal{C}((-)|_\mathcal{X}, M)$ 是函子范畴 $\mathrm{Funct}(\mathcal{X}^{\mathrm{op}}, \mathbf{Ab})$ 的满态射.
+	\end{itemize}
+\end{definition}
+
+余挠对给出一类特殊的预盖.
+
+\begin{lemma}
+	假定 $\mathcal{U} \perp \mathcal{V}$. 若存在 $U \in \mathcal{U}$ 与 $V \in \mathcal{V}$ 使得有 conflation $V \overset i \rightarrowtail U \overset p \twoheadrightarrow C \overset{\delta}\dashrightarrow$, 则 $p$ 是 $\mathcal{U}$-预盖. 以此类方法构造的预盖称作\textbf{特殊预盖}.
+	\begin{proof}
+		将长正合列 (\Cref{eq:ext-tri-6-term-dual}) 限制在 $\mathcal{U}$ 上, 得
+		\begin{equation}
+		((-)|_\mathcal{U}, V) \xrightarrow{i \circ -} ((-)|_\mathcal{U}, U) \xrightarrow{p \circ -} ((-)|_\mathcal{U}, C) \xrightarrow{\delta_\sharp} \mathbb E((-), V) = 0.
+		\end{equation}
+		因此, 以上 $p \circ -$ 是满态射, $p$ 满足\Cref{def:precover} 的函子定义式.
+	\end{proof}
+\end{lemma}
+
+对偶地, 可以定义预包 (左逼近) 与特殊预包 (特殊右逼近). 给定余挠对 $(\mathcal{U}, \mathcal{V})$. 任取 $M$ 的特殊预盖 (若存在), 记相应的 conflation 为
+
+\begin{equation}
+	M^V \rightarrowtail M^U \twoheadrightarrow M \dashrightarrow;	
+\end{equation}
+
+任取 $M$ 的特殊预包 (若存在), 记相应的 conflation 为
+\begin{equation}
+	M \rightarrowtail M_V \twoheadrightarrow M_U \dashrightarrow.
+\end{equation}
+
+\begin{definition}
+	(完备余挠对). 称余挠对 $(\mathcal{U}, \mathcal{V})$ 是\textbf{完备}的, 若所有对象均有特殊预盖和特殊预包, 即
+	\begin{equation}
+		\mathrm{Cone}(\mathcal{V},\mathcal{U}) = \mathcal{C} = \mathrm{coCone}(\mathcal{V},\mathcal{U}).
+	\end{equation}
+\end{definition}
+
+给定 $\mathcal{U} \perp \mathcal{V}$, 通常难以直接检验 $\mathcal{U} ^\perp = \mathcal{V}$. 若加入特殊预包 (预盖) 的条件, 则可以基本克服这一困难.
+
+\begin{lemma}\label{lem:cotorsion-pair-criterion}
+	给定 $\mathcal{U} \perp \mathcal{V}$, 并假定 $\mathcal{U}$ 与 $\mathcal{V}$ 对直和项封闭. 有以下结论:
+	\begin{enumerate}
+		\item 若 $\mathrm{Cone}(\mathcal{V}, \mathcal{U})$ 是全范畴, 则 $\mathcal{U} = {}^\perp \mathcal{V}$.
+		\item 若 $\mathrm{coCone}(\mathcal{V}, \mathcal{U})$ 是全范畴, 则 $\mathcal{V} = \mathcal{U}^\perp$.
+	\end{enumerate}
+	\begin{proof}
+		仅证明第一式, 第二式对偶可证. 将任意 $X \in {}^\perp \mathcal{V}$ 写作 conflation $V \rightarrowtail U \twoheadrightarrow X$, 由于 $\mathbb E(X,V) = 0$, 这一 conflation 可裂. 由 $\mathcal{U}$ 关于直和项封闭, 得 $X \in \mathcal{U}$. 
+	\end{proof}
+\end{lemma}
+
+\begin{remark}
+	特别地, \Cref{lem:cotorsion-pair-criterion} 关于直和项封闭的假定不可缺少. 例如, 将模范畴 $\mathcal{A} = \mathbf{Mod}_R$ 与可裂 ses 作成正合范畴, 则 $(\mathcal{A}, \mathcal{A})$ 是余挠对. 记 $\mathcal{A}^{\kappa}$ 是基数大于 $|R|$ 的模构成对象类. Eilenburg 位移技巧 (如 \cite{bassBigProjectiveModules1963}) 表明 $(\mathcal{A}^\kappa, \mathcal{A}^\kappa)$ 满足\Cref{lem:cotorsion-pair-criterion} 的题设, 但显然 $(\mathcal{A}^\kappa)^\perp = \mathcal{A} \neq \mathcal{A}^\kappa$.
+\end{remark}
+
+\begin{theorem}\label{thm:Wakamatsu}
+	(若松技巧). 余挠对 $(\mathcal{U}, \mathcal{V})$ 是完备的, 当且仅当以下两点成立:
+	\begin{enumerate}
+		\item 所有对象有特殊预盖;
+		\item 对任意对象 $X$, 存在 inflation $X \rightarrowtail V$, 其中 $V \in \mathcal{V}$.
+	\end{enumerate}
+	\begin{proof}
+		先说明任意对象 $X$ 存在特殊预包. 先由 (2) 构造 $\delta$, 再由 (1) 构造 $\varepsilon$. 依照\Cref{thm:bi-pullback} 作交换图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTIsWzAsMiwiWCJdLFsxLDIsIlYiXSxbMiwyLCJNIl0sWzMsMiwiXFwsIl0sWzEsMSwiRSJdLFsxLDMsIlxcLCJdLFsyLDEsIk1eVSJdLFszLDEsIlxcLCJdLFsyLDAsIk1eViJdLFsxLDAsIk1eViJdLFswLDEsIlgiXSxbMiwzLCJcXCwiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsMywiXFxkZWx0YSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDEsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDUsIlxcdmFyZXBzaWxvbiAnIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzYsNywiXFxkZWx0YSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbOSw4LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxMCwwLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxMCw0LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzksNCwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs4LDYsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNiwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiwxMSwiXFx2YXJlcHNpbG9uIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {M^V} \& {M^V} \\
+	X \& E \& {M^U} \& {\,} \\
+	X \& V \& M \& {\,} \\
+	\& {\,} \& {\,}
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[tail, from=1-3, to=2-3]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow[two heads, from=2-2, to=3-2]
+	\arrow["{\delta'}", dashed, from=2-3, to=2-4]
+	\arrow[two heads, from=2-3, to=3-3]
+	\arrow[tail, from=3-1, to=3-2]
+	\arrow[two heads, from=3-2, to=3-3]
+	\arrow["{\varepsilon '}", dashed, from=3-2, to=4-2]
+	\arrow["\delta", dashed, from=3-3, to=3-4]
+	\arrow["\varepsilon", dashed, from=3-3, to=4-3]
+\end{tikzcd}.
+		\end{equation}
+		由 $\mathcal{V}$ 关于扩张封闭, 得 $E \in \mathcal{V}$.
+	\end{proof}
+\end{theorem}
+
+\begin{definition}
+	记 $\omega : = \mathcal{U} \cap \mathcal{V}$ 为一类特殊的自垂直对象.
+\end{definition}
+
+\begin{lemma}\label{lem:factor-through-w}
+	假定 $(\mathcal{U},\mathcal{V})$ 是完备余挠对. 对任意 $U \in \mathcal{U}$ 与 $V \in \mathcal{V}$, 任意态射 $f: U \to V$ 通过 $\omega$ 中对象分解.
+	\begin{proof}
+		取 inflation $i : U \rightarrowtail U_V$. 长正合列表明 $(i, V)$ 满, 故 $f$ 通过 $U_V$ 分解. 显然 $U_V \in \mathcal{U} \cap \mathcal{V} = \omega$.
+	\end{proof}
+\end{lemma}
+
+预盖和预包通常不唯一, $(-)_V$ 与 $(-)^U$ 更无法称作函子; 但 $\mathcal{C} / \omega$ 是函子. 实际上, 有以下是更精细的结论.
+
+\begin{theorem}\label{thm:adjoint}
+	假定 $(\mathcal{U},\mathcal{V})$ 是完备余挠对. 全子加法范畴的嵌入 $(\mathcal{U} / \omega) \to (\mathcal{C} / \omega)$ 具有右伴随 $(-)^U$.
+	\begin{proof}
+		对所有对象取定 conflation $M^V \overset i \rightarrowtail M^U \overset p \twoheadrightarrow M \dashrightarrow$. 下证明自然同构
+		\begin{equation}
+			(- \circ p) : \mathrm{Hom}_{\mathcal{U} / \omega}(U, M^U) \simeq \mathrm{Hom}_{\mathcal{C} / \omega}(U, M).
+		\end{equation}
+		由正合列 $(U, M^U) \to (U, M) \to \mathbb E(U, M^V) = 0$, 得 $(U, M^U) \to (U, M)$ 满, 这在加法商范畴中也是满射. 下只需证明对任意 $f : U \to M^U$, $[pf] = 0$ 蕴含 $[f] = 0$. 记 $pf$ 通过 $W \in \omega$ 分解. 由 $\mathbb E(W, M^V) = 0$, 存在 $s$ 使得 $\circlearrowleft$ 所在的三角交换:
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsNixbMCwxLCJNXlYiXSxbMiwxLCJNXlUiXSxbNCwxLCJNIl0sWzUsMSwiXFwsIl0sWzIsMCwiVSJdLFs0LDAsIlciXSxbMSwyLCJwIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwiaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxLCJmIl0sWzQsNSwiYSJdLFs1LDIsImIiXSxbNSwxLCJzIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEyLDIsIlxcY2lyY2xlYXJyb3dsZWZ0IiwxLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwfSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV1d
+\begin{tikzcd}[ampersand replacement=\&]
+	\&\& U \&\& W \\
+	{M^V} \&\& {M^U} \&\& M \& {\,}
+	\arrow["a", from=1-3, to=1-5]
+	\arrow["f", from=1-3, to=2-3]
+	\arrow[""{name=0, anchor=center, inner sep=0}, "s"{description}, dashed, from=1-5, to=2-3]
+	\arrow["b", from=1-5, to=2-5]
+	\arrow["i", tail, from=2-1, to=2-3]
+	\arrow["p", two heads, from=2-3, to=2-5]
+	\arrow[dashed, from=2-5, to=2-6]
+	\arrow["\circlearrowleft"{description}, draw=none, from=0, to=2-5]
+\end{tikzcd}.
+		\end{equation}
+		此时 $p (sa - f) = 0$. 由长正合列, $(sa - f)$ 通过 $i$ 分解. 再由\Cref{lem:factor-through-w}, $(sa - f)$ 通过 $\omega$ 中对象分解. 由于 $sa$ 已通过 $W \in \omega$ 分解, 故 $f$ 通过 $\omega$ 中对象分解. 因此 $[f] = 0$.
+	\end{proof}
+\end{theorem}
+
+\begin{remark}\label{rmk:adjoint}
+	对偶可证, 全子加法范畴的嵌入 $\mathcal{V}/\omega \to \mathcal{C} / \omega$ 存在左伴随. 综合以上结果得
+	\begin{equation}
+		% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhjYWwgVSAvIFxcb21lZ2EiXSxbMiwwLCJcXG1hdGhjYWwgQyAvIFxcb21lZ2EiXSxbNCwwLCJcXG1hdGhjYWwgViAvIFxcb21lZ2EiXSxbMCwxLCJcXHRleHR75YWo5a2Q6IyD55W0fSIsMCx7Im9mZnNldCI6LTEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzEsMCwiKC0pXlUiLDAseyJvZmZzZXQiOi00fV0sWzIsMSwiXFx0ZXh0e+WFqOWtkOiMg+eVtH0iLDAseyJvZmZzZXQiOi0xLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFsxLDIsIigtKV9WIiwwLHsib2Zmc2V0IjotNH1dLFs2LDUsIlxcYm90IiwxLHsic2hvcnRlbiI6eyJzb3VyY2UiOjIwLCJ0YXJnZXQiOjIwfSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsNCwiXFxib3QiLDEseyJzaG9ydGVuIjp7InNvdXJjZSI6MjAsInRhcmdldCI6MjB9LCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	{\mathcal U / \omega} \&\& {\mathcal C / \omega} \&\& {\mathcal V / \omega}
+	\arrow[""{name=0, anchor=center, inner sep=0}, "{\text{全子范畴}}", shift left, hook, from=1-1, to=1-3]
+	\arrow[""{name=1, anchor=center, inner sep=0}, "{(-)^U}", shift left=4, from=1-3, to=1-1]
+	\arrow[""{name=2, anchor=center, inner sep=0}, "{(-)_V}", shift left=4, from=1-3, to=1-5]
+	\arrow[""{name=3, anchor=center, inner sep=0}, "{\text{全子范畴}}", shift left, hook, from=1-5, to=1-3]
+	\arrow["\bot"{description}, draw=none, from=0, to=1]
+	\arrow["\bot"{description}, draw=none, from=2, to=3]
+\end{tikzcd}.
+	\end{equation}
+\end{remark}
+
+\subsection{遗传余挠对}
+
+$(\text{投射对象}, \mathcal{C})$ 与 $(\mathcal{C}, \text{内射对象})$ 是特殊的余挠对, 这类余挠对满足一些额外性质.
+
+\begin{definition}
+	(完备余挠对). 称余挠对 $(\mathcal{U}, \mathcal{V})$ 是\textbf{遗传}的, 若 $\mathcal{U}$ 是消解的, 且 $\mathcal{V}$ 是余消解的. 
+	\begin{enumerate}
+		\item 称全子范畴 $\mathcal{U} \subseteq \mathcal{C}$ 是\textbf{消解}的, 若 $\mathcal{U}$ 包含一切投射对象且 $\mathrm{coCone}(\mathcal{U}, \mathcal{U}) = \mathcal{U}$;
+		\item 称全子范畴 $\mathcal{V} \subseteq \mathcal{C}$ 是\textbf{余消解}的, 若 $\mathcal{V}$ 包含一切内射对象 且 $\mathrm{Cone}(\mathcal{V}, \mathcal{V}) = \mathcal{V}$.
+	\end{enumerate}
+	对余挠对而言, $\mathcal{U}$ ($\mathcal{V}$) 自动包含所有投射对象 (内射对象).
+\end{definition}
+
+\begin{remark}
+    若 $0 \in \mathcal{X}$, 则不必区分 $\mathrm{Cone}(\mathcal{X},\mathcal{X}) \subseteq \mathcal{X}$ 与 $\mathrm{Cone}(\mathcal{X},\mathcal{X}) = \mathcal{X}$. 关于 $\mathrm{coCone}$ 与 $\ast$ 的等式同理.
+\end{remark}
+
+\begin{remark}
+	依照经验, 通常讨论的遗传余挠对往往也是完备的. 当然, 这并非推论. 若 $\mathcal{C}$ 不具有足够投射对象, 则 $(\text{投射对象}, \mathcal{C})$ 是遗传但非完备的.
+\end{remark}
+
+给定完备余挠对 $(\mathcal{U}, \mathcal{V})$. \Cref{lem:factor-through-w} 说明 $\mathrm{Hom}_{\mathcal{C}/\omega} (\mathcal{U}/\omega, \mathcal{V}/\omega) = 0$.
+
+\begin{proposition}\label{prop:U-V-orthogonal}
+	类似\Cref{thm:Wakamatsu}, 我们给出遗传的单边判准. 假定 $(\mathcal{U}, \mathcal{V})$ 是完备余挠对, 则以下六点等价:
+	\begin{enumerate}
+		\item[1.] $\mathcal{V}$ 是余消解的; \qquad \qquad \qquad \qquad \ \ \ 2. $\mathcal{U}$ 是消解的;
+		\item[3.] $\ker \mathrm{Hom}_{\mathcal{C}/\omega} (\mathcal{U}/\omega, - ) = \mathcal{V}/\omega$; \qquad \ \ 4. $\ker \mathrm{Hom}_{\mathcal{C}/\omega} (-, \mathcal{V}/\omega) = \mathcal{U}/\omega$.
+		\item[5.] 对 $V\rightarrowtail \cdot \overset p\twoheadrightarrow \cdot$, $\mathbb E(\mathcal{U}, p)$ 是同构; \qquad 6. 对 $\cdot \overset i\rightarrowtail \cdot \twoheadrightarrow U$, $\mathbb E(i, \mathcal{V})$ 是同构.
+	\end{enumerate}
+	\begin{proof}
+		($2 \to 1$). 对任意 conflation $V_1 \rightarrowtail V_2 \twoheadrightarrow X$, 往证 $X \in \mathcal{V}$, 也就是任意 conflation $X \rightarrowtail A \twoheadrightarrow U$ 可裂. 依照 TR4' 构造下图
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsMTEsWzEsMiwiWCJdLFsyLDIsIkEiXSxbMywyLCJVIl0sWzIsMSwiQV5VIl0sWzIsMCwiQV5WIl0sWzMsMSwiVSJdLFsxLDAsIkFeViJdLFsxLDEsIlciXSxbNCwxLCJcXCwgIl0sWzQsMiwiXFwsICJdLFswLDIsIlZfMiJdLFswLDEsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwyLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwzLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsMSwiIiwxLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzUsMiwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNiw0LCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDcsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzcsMCwicSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMyw1LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzcsMywiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw4LCJcXGRlbHRhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsOSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEwLDAsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs3LDEwLCIiLDAseyJjdXJ2ZSI6Miwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {A^V} \& {A^V} \\
+	\& W \& {A^U} \& U \& {\, } \\
+	{V_2} \& X \& A \& U \& {\, }
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[dashed, tail, from=1-2, to=2-2]
+	\arrow[tail, from=1-3, to=2-3]
+	\arrow[dashed, tail, from=2-2, to=2-3]
+	\arrow[curve={height=12pt}, dashed, from=2-2, to=3-1]
+	\arrow["q"', dashed, two heads, from=2-2, to=3-2]
+	\arrow[dashed, two heads, from=2-3, to=2-4]
+	\arrow[two heads, from=2-3, to=3-3]
+	\arrow["\delta", dashed, from=2-4, to=2-5]
+	\arrow[equals, from=2-4, to=3-4]
+	\arrow[two heads, from=3-1, to=3-2]
+	\arrow[tail, from=3-2, to=3-3]
+	\arrow[two heads, from=3-3, to=3-4]
+	\arrow[dashed, from=3-4, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		由 $\mathcal{U}$ 是消解的, 得 $W \in \mathcal{U}$. 由 $\mathbb E(W, V_1) = 0$, 得 $q$ 关于 $V_2 \twoheadrightarrow X$ 分解. 从而 $q_\ast \delta = 0$. 这说明 conflation $X \rightarrowtail A \twoheadrightarrow U$ 可裂. $(1 \to 2)$ 是对偶的.
+		\\
+		($3 \to 1$). 任取 conflation $V_1 \rightarrowtail V_2 \twoheadrightarrow X$, $U \in \mathcal{U}$ 以及任意态射 $f : U \to X$. 由 $\mathbb E(U, V_1) =0$, 故 $f$ 通过 $V_2$ 分解, 从而通过某一 $\omega$ 中对象分解 (\Cref{lem:factor-through-w}).
+		\\
+		($1 \to 3$). 给定 $X$ 使得任意 $U \to X$ 通过 $\omega$ 分解, 下证明 $X \in \mathcal{V}$. 依照 ET4 作下图
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTEsWzEsMiwiWCJdLFsxLDEsIlheVSJdLFsxLDAsIlheViJdLFsyLDEsIihYXlUpX1YiXSxbMywxLCIoWF5VKV9VIl0sWzIsMCwiWF5WIl0sWzMsMiwiKFheVSlfVSJdLFsyLDIsIkUiXSxbNCwyLCJcXCwiXSxbNCwxLCJcXCwiXSxbMCwyLCJXIl0sWzIsNSwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw2LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzUsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCw3LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDAsInEiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMyw3LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzcsNiwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFszLDQsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs2LDgsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDksIlxcZGVsdGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwxMCwiIiwwLHsiY3VydmUiOjIsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxMCwwLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\& {X^V} \& {X^V} \\
+	\& {X^U} \& {(X^U)_V} \& {(X^U)_U} \& {\,} \\
+	W \& X \& E \& {(X^U)_U} \& {\,}
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow[tail, from=2-2, to=2-3]
+	\arrow[curve={height=12pt}, dashed, from=2-2, to=3-1]
+	\arrow["q", two heads, from=2-2, to=3-2]
+	\arrow[two heads, from=2-3, to=2-4]
+	\arrow[dashed, two heads, from=2-3, to=3-3]
+	\arrow["\delta", dashed, from=2-4, to=2-5]
+	\arrow[equals, from=2-4, to=3-4]
+	\arrow[dashed, from=3-1, to=3-2]
+	\arrow[dashed, tail, from=3-2, to=3-3]
+	\arrow[dashed, two heads, from=3-3, to=3-4]
+	\arrow[dashed, from=3-4, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		由构造, $(X^U)_V \in \omega$. 由 $\mathcal{V}$ 余消解, 得 $E \in \mathcal{V}$. 由假定, $q$ 通过某一 $W \in \omega$ 分解, 从而 $q_\ast \delta = 0$. 这说明 $X$ 是 $E$ 的直和项, 从而 $X \in \mathcal{V}$.
+		\\
+		($2 \leftrightarrow 4$) 的证明是对偶的.
+		\\
+		($5 \to 1$). 对任意 conflation $V_1 \rightarrowtail V_2 \twoheadrightarrow X$, $\mathbb E((-)|_\mathcal{U}, V_2)$ 是零函子, 当且仅当 $\mathbb E((-)|_\mathcal{U}, X) = 0$.
+		\\
+		($1 \to 5$). 给定 conflation $V \rightarrowtail A \overset p\twoheadrightarrow B$. 对任意 $U \in\mathcal{U}$, 长正合列给出
+		\begin{equation}
+			0 = \mathbb E(U, V) \to \mathbb E(U, A) \overset{\mathbb E(U, p)}\longrightarrow \mathbb E(U, B).
+		\end{equation}
+		从而 $\mathbb E(U,p)$ 单. 下证明任意 $\delta \in \mathbb E(U, B)$ 都有 $\mathbb E(U, A)$ 中的原像. 由 ET4 作下图前三行:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTQsWzAsMCwiViJdLFswLDEsIkEiXSxbMCwyLCJCIl0sWzIsMywiVSJdLFsxLDMsIkUiXSxbMywzLCJcXCwiXSxbMSwxLCJBX1YiXSxbMiwxLCJBX1UiXSxbMSwwLCJWIl0sWzEsMiwiRiJdLFsyLDIsIkFfVSJdLFswLDMsIkIiXSxbMywyLCJcXCwiXSxbMywxLCJcXCwiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwicCIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs0LDMsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFszLDUsIlxcZGVsdGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSw2LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzYsNywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzgsMCwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbOCw2LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxMCw3LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsyLDksIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzksMTAsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs2LDksIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCw5LCJcXGJldGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTEsNCwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDExLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDEwLCJcXGdhbW1hIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEwLDEyLCJcXHZhcmVwc2lsb24gIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzcsMTMsIlxcZXRhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\begin{tikzcd}[ampersand replacement=\&]
+	V \& V \\
+	A \& {A_V} \& {A_U} \& {\,} \\
+	B \& F \& {A_U} \& {\,} \\
+	B \& E \& U \& {\,}
+	\arrow[tail, from=1-1, to=2-1]
+	\arrow[equals, from=1-2, to=1-1]
+	\arrow[dashed, tail, from=1-2, to=2-2]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow["p", two heads, from=2-1, to=3-1]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow[dashed, two heads, from=2-2, to=3-2]
+	\arrow["\eta", dashed, from=2-3, to=2-4]
+	\arrow[dashed, tail, from=3-1, to=3-2]
+	\arrow[equals, from=3-1, to=4-1]
+	\arrow[dashed, from=3-2, to=3-3]
+	\arrow[equals, from=3-3, to=2-3]
+	\arrow["{\varepsilon }", dashed, from=3-3, to=3-4]
+	\arrow[tail, from=4-1, to=4-2]
+	\arrow["\beta", dashed, from=4-2, to=3-2]
+	\arrow[two heads, from=4-2, to=4-3]
+	\arrow["\gamma", dashed, from=4-3, to=3-3]
+	\arrow["\delta", dashed, from=4-3, to=4-4]
+\end{tikzcd}.
+		\end{equation}
+		由 $\mathcal{V}$ 余消解, 故 $F \in \mathcal{V}$, 从而存在 $\beta$ 使得下两行交换. 由 ET3 构造 $\gamma$, 则
+		\begin{equation}
+			\delta = \gamma^\ast \varepsilon = \gamma^\ast p_\ast \eta = p_\ast (\gamma^\ast \eta) \in \operatorname{im} p_\ast.
+		\end{equation}
+	\end{proof}
+\end{proposition}
+
+\begin{definition}
+    (余挠三元组). 称 $(\mathcal{T},\mathcal{U},\mathcal{V})$ 是余挠三元组, 若 $(\mathcal{T},\mathcal{U})$ 与 $(\mathcal{U},\mathcal{V})$ 均为余挠对. 称余挠三元组是完备的(遗传的), 若其对应的两个余挠对均是完备的(遗传的).
+\end{definition}
+
+\begin{lemma}
+    给定完备的余挠三元组 $(\mathcal{T},\mathcal{U},\mathcal{V})$. 这一三元组是遗传的, 当且仅当 $\mathcal{U}$ 是 $\mathcal{C}$ 的厚子范畴.
+    \begin{proof}
+        若 $\mathcal{U}$ 是厚子范畴, 则 $\mathrm{Cone}(\mathcal{U}, \mathcal{U}) = \mathcal{U}$. 依照单边定义\Cref{prop:U-V-orthogonal}, 得 $(\mathcal{T}, \mathcal{U})$ 是遗传完备的余挠对. 对偶地, 由 $\mathrm{coCone}(\mathcal{U},\mathcal{U}) = \mathcal{U}$ 知 $(\mathcal{U}, \mathcal{V})$ 也是遗传完备的余挠对.
+        \\
+        反之, 若以上是遗传完备的余挠三元组, 则 $\mathcal{U}$ 是消解且余消解的. 由
+        \begin{equation}
+            \mathcal{U} \ast \mathcal{U} = \mathcal{U},\quad \mathrm{Cone}(\mathcal{U},\mathcal{U}) = \mathcal{U}, \quad \mathrm{coCone}(\mathcal{U},\mathcal{U}) = \mathcal{U}, \quad \mathcal{U}\ \text{对直和项封闭},
+        \end{equation}
+        知 $\mathcal{U}$ 是 $\mathcal{C}$ 的厚子范畴.
+    \end{proof}
+\end{lemma}
+
+遗传完备的余挠三元组有一些精彩的性质.
+
+\begin{theorem}\label{thm:TUV-proj-inj}
+    给定遗传完备的余挠三元组 $(\mathcal{T},\mathcal{U},\mathcal{V})$, 恰好有
+    \begin{equation}
+        \mathcal{T} \cap \mathcal{U} = \text{投射对象},\quad \mathcal{U} \cap \mathcal{V} = \text{内射对象}.
+    \end{equation}
+    \begin{proof}
+        下证明任意 $P \in \mathcal{T} \cap \mathcal{U}$ 是投射对象, 即任意 conflation $A \rightarrowtail B \twoheadrightarrow P$ 可裂. 由 ET4' 构造下图
+        \begin{equation}
+            % https://q.uiver.app/#q=WzAsOCxbMiwyLCJQIl0sWzAsMiwiQSJdLFsxLDIsIkIiXSxbMiwxLCJQIl0sWzAsMSwiRSJdLFsxLDEsIkJeVSJdLFsxLDAsIkJeViJdLFswLDAsIkJeViJdLFsxLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwwLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCwzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs3LDYsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzQsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzYsNSwiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs1LDIsIiIsMSx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs3LDQsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	{B^V} \& {B^V} \\
+	E \& {B^U} \& P \\
+	A \& B \& P
+	\arrow[equals, from=1-1, to=1-2]
+	\arrow[dashed, tail, from=1-1, to=2-1]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[dashed, tail, from=2-1, to=2-2]
+	\arrow[dashed, two heads, from=2-1, to=3-1]
+	\arrow[dashed, two heads, from=2-2, to=2-3]
+	\arrow[two heads, from=2-2, to=3-2]
+	\arrow[tail, from=3-1, to=3-2]
+	\arrow[two heads, from=3-2, to=3-3]
+	\arrow[equals, from=3-3, to=2-3]
+\end{tikzcd}.
+        \end{equation}
+        由 $P \in \mathcal{U}$, 以及 $\mathcal{U}$ 是厚子范畴, 得 $E \in \mathcal{U}$. 由 $\mathbb E(P, E) = 0$, 底行 conflation 可裂. 对偶地可证 $\mathcal{U} \cap \mathcal{V}$ 恰是内射对象.
+    \end{proof}
+
+\end{theorem}
+
+\begin{corollary}
+	若 Frobenius 范畴 $(\mathcal{C}, \mathcal{P})$ 存在遗传完备的余挠三元组 $(\mathcal{T},\mathcal{U},\mathcal{V})$, 则全子范畴的包含 $\mathcal{U} / \mathcal{P} \to \mathcal{C} / \mathcal{P}$ 存在左右伴随 (\Cref{rmk:adjoint}).
+\end{corollary}
+
+\begin{corollary}\label{cor:enough-proj-inj}
+    若范畴存在遗传完备的余挠三元组, 则该范畴有足够的投射对象与内射对象.
+    \begin{proof}
+    对一切 $T \in \mathcal{T}$, 总有特殊的投射预盖 $T^U \twoheadrightarrow T$. 对一切 $V \in \mathcal{V}$, 总有特殊的内射预包 $V \rightarrowtail V_U$. 对 $U \in \mathcal{U}$, 总有特殊的投射预包 $U \rightarrowtail U_T$ 和特殊的内射预盖 $U^V \twoheadrightarrow U$. 特别地, 对任意对象 $X$ 存在投射预盖 (下图左) 与内射预包 (下图右):
+        \begin{equation}
+            % https://q.uiver.app/#q=WzAsMTYsWzIsMiwiWCJdLFsyLDEsIlheVCJdLFsyLDAsIlheVSJdLFsxLDEsIihYXlQpXlUiXSxbMCwxLCIoWF5UKV5WIl0sWzAsMCwiKFheVCleViJdLFsxLDIsIlgiXSxbMSwwLCIoWF5UKV5WIFxcb3BsdXMgWF5VIl0sWzMsMCwiWCJdLFs0LDAsIlgiXSxbMywxLCJYX1YiXSxbMywyLCJYX1UiXSxbNCwxLCIoWF9WKV9VIl0sWzUsMSwiKFhfVilfVCJdLFs1LDIsIihYX1YpX1QiXSxbNCwyLCJYX1UgXFxvcGx1cyAoWF9WKV9UIl0sWzIsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDAsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs0LDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMywxLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNSw0LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDAsIiIsMix7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzUsNywiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNywyLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzcsMywiIiwxLHsiY29sb3VyIjpbMjM4LDEwMCw2MF0sInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNiwiIiwxLHsiY29sb3VyIjpbMjM4LDEwMCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbOCw5LCIiLDEseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs5LDEyLCIiLDEseyJjb2xvdXIiOlszNjAsMTAwLDYwXSwic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTIsMTUsIiIsMSx7ImNvbG91ciI6WzM2MCwxMDAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzExLDE1LCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzE1LDE0LCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTQsMTMsIiIsMSx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzgsMTAsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMTAsMTIsIiIsMSx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEwLDExLCIiLDEseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTIsMTMsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&, column sep = small]
+	{(X^T)^V} \& {(X^T)^V \oplus X^U} \& {X^U} \& X \& X \\
+	{(X^T)^V} \& {(X^T)^U} \& {X^T} \& {X_V} \& {(X_V)_U} \& {(X_V)_T} \\
+	\& X \& X \& {X_U} \& {X_U \oplus (X_V)_T} \& {(X_V)_T}
+	\arrow[dashed, tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[dashed, two heads, from=1-2, to=1-3]
+	\arrow[color={rgb,255:red,51;green,58;blue,255}, dashed, tail, from=1-2, to=2-2]
+	\arrow[tail, from=1-3, to=2-3]
+	\arrow[equals, from=1-4, to=1-5]
+	\arrow[tail, from=1-4, to=2-4]
+	\arrow[color={rgb,255:red,255;green,51;blue,51}, dashed, tail, from=1-5, to=2-5]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow[color={rgb,255:red,51;green,58;blue,255}, dashed, two heads, from=2-2, to=3-2]
+	\arrow[two heads, from=2-3, to=3-3]
+	\arrow[dashed, tail, from=2-4, to=2-5]
+	\arrow[two heads, from=2-4, to=3-4]
+	\arrow[dashed, two heads, from=2-5, to=2-6]
+	\arrow[color={rgb,255:red,255;green,51;blue,51}, dashed, two heads, from=2-5, to=3-5]
+	\arrow[equals, from=3-2, to=3-3]
+	\arrow[tail, from=3-4, to=3-5]
+	\arrow[two heads, from=3-5, to=3-6]
+	\arrow[equals, from=3-6, to=2-6]
+\end{tikzcd}.
+        \end{equation}
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    $\mathcal{C}$ 是 Frobenius 外三角范畴, 当且仅当存在余挠四元组.
+    \begin{proof}
+        ($\to$). 取 $\mathcal{P}$ 为投射对象类, 则 $(\mathcal{C}, \mathcal{P}, \mathcal{C}, \mathcal{P})$ 是余挠四元组.
+        \\
+        ($\gets$). 若由余挠四元组 $(\mathcal{X},\mathcal{Y},\mathcal{Z},\mathcal{W})$, 则 $\mathcal{Y} \cap \mathcal{Z}$ 恰是投射对象, 也恰是内射对象 (\Cref{thm:TUV-proj-inj}). 依照\Cref{cor:enough-proj-inj}, 知 $\mathcal{C}$ 有足够的投射对象与内射对象, 从而是 Frobenius 外三角范畴.
+    \end{proof}
+\end{corollary}
+
+以下引理给出 $\mathcal{T}$ 与 $\mathcal{V}$ 的联系.
+
+\begin{lemma}
+    给定遗传完备的余挠三元组 $(\mathcal{T},\mathcal{U},\mathcal{V})$. $X \in T$ 当且仅当其满足以下性质.
+    \begin{itemize}
+        \item 对任意 $\mathcal{V}$-预包对应的 conflation $M \overset i \rightarrowtail V \overset p \twoheadrightarrow N$, 任意态射 $X \to N$ 经 $p$ 分解.
+    \end{itemize}
+    \begin{proof}
+        ($\to$ 方向). 作以下 conflation 的交换图, 其中 $\lambda$ 由预包的定义选取, 取 $\mu$ 使得 $\star$ 是同伦的推出拉回方块 (细节见\Cref{thm:homotopy-pullback-1}):
+        \begin{equation}
+            % https://q.uiver.app/#q=WzAsNixbMCwwLCJNIl0sWzEsMCwiViJdLFsyLDAsIk4iXSxbMCwxLCJNIl0sWzEsMSwiTV9WIl0sWzIsMSwiTV9VIl0sWzAsMywiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwxLCJpIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsInAiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiw1LCJcXG11Il0sWzMsNCwiaiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCw1LCJxIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEsNCwiXFxsYW1iZGEiXSxbMSw1LCJcXHN0YXIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	M \& V \& N \\
+	M \& {M_V} \& {M_U}
+	\arrow["i", tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow["p", two heads, from=1-2, to=1-3]
+	\arrow["\lambda", from=1-2, to=2-2]
+	\arrow["\star"{description}, draw=none, from=1-2, to=2-3]
+	\arrow["\mu", from=1-3, to=2-3]
+	\arrow["j", tail, from=2-1, to=2-2]
+	\arrow["q", two heads, from=2-2, to=2-3]
+\end{tikzcd}.
+        \end{equation}
+        任取 $X \in \mathcal{T}$ 与态射 $f : X \to N$. 结合\Cref{lem:factor-through-w} 与\Cref{thm:TUV-proj-inj}, 复合态射 $X \xrightarrow f N \xrightarrow \mu M_U$ 通过某一投射对象 $P$ 分解, 记作 $X \xrightarrow a P \xrightarrow b M_U$. 由投射对象的提升性作态射 $c$, 再有弱拉回的性质作态射 $g$:
+        \begin{equation}
+            % https://q.uiver.app/#q=WzAsOCxbMCwxLCJNIl0sWzEsMSwiViJdLFsyLDEsIk4iXSxbMCwyLCJNIl0sWzEsMiwiTV9WIl0sWzIsMiwiTV9VIl0sWzMsMCwiWCJdLFszLDMsIlAiXSxbMCwzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDEsImkiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwicCIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDUsIlxcbXUiXSxbMyw0LCJqIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs0LDUsInEiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMSw0LCJcXGxhbWJkYSJdLFs2LDIsImYiLDJdLFs2LDcsImEiXSxbNyw1LCJiIiwyXSxbNyw0LCJjIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwLCJjdXJ2ZSI6LTJ9XSxbNiwxLCJnIiwyLHsibGFiZWxfcG9zaXRpb24iOjYwLCJjdXJ2ZSI6Mn1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	\&\&\& X \\[-12pt]
+	M \& V \& N \\
+	M \& {M_V} \& {M_U} \\[-12pt]
+	\&\&\& P
+	\arrow["g"'{pos=0.6}, curve={height=12pt}, from=1-4, to=2-2]
+	\arrow["f"', from=1-4, to=2-3]
+	\arrow["a", from=1-4, to=4-4]
+	\arrow["i", tail, from=2-1, to=2-2]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow["p", two heads, from=2-2, to=2-3]
+	\arrow["\lambda", from=2-2, to=3-2]
+	\arrow["\mu", from=2-3, to=3-3]
+	\arrow["j", tail, from=3-1, to=3-2]
+	\arrow["q", two heads, from=3-2, to=3-3]
+	\arrow["c"{pos=0.6}, curve={height=-12pt}, from=4-4, to=3-2]
+	\arrow["b"', from=4-4, to=3-3]
+\end{tikzcd}.
+        \end{equation}
+        $g$ 即为所求.
+        \\
+        ($\gets$ 方向). 若 $X$ 满足上述性质, 下只需证明一切 $U \rightarrowtail E \twoheadrightarrow X$ 可裂. 先取 $U$ 的特殊预包 $\delta$, 其中 $U_V \in \mathcal{U} \cap \mathcal{V}$ 是内射对象. 任取分解 $\lambda$, 依照 ET3 取 $\mu$, 得以下 conflation 的拉回:
+        \begin{equation}
+            % https://q.uiver.app/#q=WzAsOCxbMCwwLCJVIl0sWzEsMCwiRSJdLFsyLDAsIlgiXSxbMCwxLCJVIl0sWzEsMSwiVV9WIl0sWzIsMSwiVV9VIl0sWzMsMCwiXFwsIl0sWzMsMSwiXFwsIl0sWzAsMywiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzMsNCwiaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCw1LCJwIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEsNCwiXFxsYW1iZGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiw1LCJcXG11IiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsNiwiXFxtdV5cXGFzdCBcXGRlbHRhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsNywiXFxkZWx0YSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	U \& E \& X \& {\,} \\
+	U \& {U_V} \& {U_U} \& {\,}
+	\arrow[tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow["\lambda", dashed, from=1-2, to=2-2]
+	\arrow["{\mu^\ast \delta}", dashed, from=1-3, to=1-4]
+	\arrow["\mu", dashed, from=1-3, to=2-3]
+	\arrow["i", tail, from=2-1, to=2-2]
+	\arrow["p", two heads, from=2-2, to=2-3]
+	\arrow["\delta", dashed, from=2-3, to=2-4]
+\end{tikzcd}.
+        \end{equation}
+        由 $\delta$ 是特殊预包, 依照假定知 $\mu$ 通过 $p$ 分解. 因此 $\mu^\ast \delta = 0$.
+    \end{proof}
+\end{lemma}
+
+\subsection{态射观点}
+
+一些经验表明, 研究态射比研究对象更为方便. 例如, \Cref{thm:ext-lifting} 是 $\mathbb E$-垂直关系在态射层面的推广. 若不涉及 conflation 或 $\mathbb E$-函子, 此处的范畴是一般的加法范畴.
+
+\begin{definition}
+	(态射的弱垂直关系). 称态射 $f$ 与 $g$ 是弱垂直的, 若对任意交换方块 (下图左), 总存在虚线态射使得下图右交换:
+	\begin{equation}
+		% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMywwLCJcXGNkb3QiXSxbNCwwLCJcXGNkb3QiXSxbNCwxLCJcXGNkb3QiXSxbMywxLCJcXGNkb3QiXSxbMCwxXSxbMCwyLCJmIiwyXSxbMiwzXSxbMSwzLCJnIl0sWzQsNV0sWzUsNiwiZyJdLFs0LDcsImYiLDJdLFs3LDZdLFs3LDUsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \&\& \cdot \& \cdot \\
+	\cdot \& \cdot \&\& \cdot \& \cdot
+	\arrow[from=1-1, to=1-2]
+	\arrow["f"', from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow[from=1-4, to=1-5]
+	\arrow["f"', from=1-4, to=2-4]
+	\arrow["g", from=1-5, to=2-5]
+	\arrow[from=2-1, to=2-2]
+	\arrow[dashed, from=2-4, to=1-5]
+	\arrow[from=2-4, to=2-5]
+\end{tikzcd}.
+	\end{equation}
+	常用的记号是 $f \pitchfork g$, 或 $f \boxslash g$.
+\end{definition}
+
+\begin{remark}
+	之所以称之弱垂直, 是因为虚线处态射不必唯一. 弱垂直理论详见 \cite{joyal} 的附录 D.
+\end{remark}
+
+\begin{definition}
+	(弱垂直对). 态射类 $(\mathcal{C}, \mathcal{F})$ 是弱垂直对, 若 $\mathcal{C}^\pitchfork = \mathcal{F}$, 且 $\mathcal{C} = {}^\pitchfork \mathcal{F}$. 类似\Cref{lem:cotorsion-pair-generated} 定义
+	\begin{enumerate}
+		\item $(^\pitchfork \mathcal{S}, (^\pitchfork \mathcal{S})^\pitchfork)$ 是由 $\mathcal{S}$ 生成的 (也称\textbf{纤维地生成的}) 弱垂直对;
+		\item $({}^\pitchfork (\mathcal{S}^\pitchfork), \mathcal{S}^\pitchfork)$ 是由 $\mathcal{S}$ 余生成的 (也称\textbf{余纤维地生成}的) 弱垂直对.
+	\end{enumerate}
+	良定义性由 Galois 连接保证.
+\end{definition}
+
+\begin{proposition}\label{prop:adjoint-lifting}
+	(伴随提升). 假定 $F \dashv G$ 是伴随函子, 则 $(Ff) \pitchfork g$ 当且仅当 $f \pitchfork (Gg)$.
+	\begin{proof}
+		从\Cref{eq:ext-tri-lift} 的视角转述命题即可. 自然同构不影响``公共的原像''之选取.
+	\end{proof}
+\end{proposition}
+
+\begin{lemma}\label{lem:basic-functorial-lifting}
+	给定态射类 $\mathcal{S}$, 以下是一些基本事实. 
+	\begin{enumerate}
+		\item ${}^\pitchfork\mathcal{S}$ 包含一切同构, 同时在复合同构的意义下封闭.
+		\item ${}^\pitchfork\mathcal{S}$ 对形变收缩 (态射的形变收缩见\Cref{thm:ext-tri-weakly-idempotent-complete}) 封闭.
+		\begin{proof}
+			假定 $f \pitchfork g$, $f'$ 是 $f$ 的形变收缩. 任取定交换方块 $\square : (\alpha, \beta) : f' \Rightarrow g$. 由 $f \pitchfork g$, 取 $s$ 使得 $gs = \beta q$ 且 $sf = \alpha p$:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsOCxbMiwwLCJcXGNkb3QiXSxbMywwLCJcXGNkb3QiXSxbMywxLCJcXGNkb3QiXSxbMiwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMCwwLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMCwxLCJcXGFscGhhIl0sWzEsMiwiZyJdLFswLDMsImYnIl0sWzMsMiwiXFxiZXRhIl0sWzUsNCwiaiJdLFs2LDUsImYnIl0sWzcsNCwiZiJdLFs3LDAsInAiXSxbNCwzLCJxIl0sWzYsNywiaSJdLFs0LDEsInMiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzAsImNvbG91ciI6WzIzNCwxMDAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19LFsyMzQsMTAwLDYwLDFdXV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& \cdot \& \cdot \\
+	\cdot \& \cdot \& \cdot \& \cdot
+	\arrow["i", from=1-1, to=1-2]
+	\arrow["{f'}", from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=1-3]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow["\alpha", from=1-3, to=1-4]
+	\arrow["{f'}", from=1-3, to=2-3]
+	\arrow["g", from=1-4, to=2-4]
+	\arrow["j", from=2-1, to=2-2]
+	\arrow["s"{pos=0.3}, color={rgb,255:red,51;green,71;blue,255}, dashed, from=2-2, to=1-4]
+	\arrow["q", from=2-2, to=2-3]
+	\arrow["\beta", from=2-3, to=2-4]
+\end{tikzcd}
+			\end{equation}
+			今断言 $s j$ 给出交换方块 $\square$ 的提升. 检验得 $(sj) f' = s f i = \alpha p i = \alpha$, 且 $g (sj) = \beta q j = \beta$.
+		\end{proof}
+		\item ${}^\pitchfork\mathcal{S}$ 对范畴的推出 (若存在) 封闭.
+		\begin{proof}
+			假定 $f \pitchfork g$, 且 $f'$ 是 $f$ 关于 $m$ 的任意推出. 下证明交换方块 $\square : (\alpha, \beta) : f' \Rightarrow g$ 有提升 $t$:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsNixbMSwwLCJcXGNkb3QiXSxbMiwwLCJcXGNkb3QiXSxbMiwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMCwwLCJcXGNkb3QiXSxbMCwxLCJcXGFscGhhIl0sWzEsMiwiZyJdLFswLDMsImYnIl0sWzMsMiwiXFxiZXRhIl0sWzUsNCwiZiJdLFs1LDAsIm0iXSxbNCwzLCJuIl0sWzQsMSwicyIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo0MCwiY29sb3VyIjpbMjM0LDEwMCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX0sWzIzNCwxMDAsNjAsMV1dLFszLDEsInQiLDEseyJjb2xvdXIiOlszNTcsMTAwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fSxbMzU3LDEwMCw2MCwxXV1d
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& \cdot \\
+	\cdot \& \cdot \& \cdot
+	\arrow["m", from=1-1, to=1-2]
+	\arrow["f", from=1-1, to=2-1]
+	\arrow["\alpha", from=1-2, to=1-3]
+	\arrow["{f'}", from=1-2, to=2-2]
+	\arrow["g", from=1-3, to=2-3]
+	\arrow["s"{pos=0.4}, color={rgb,255:red,51;green,71;blue,255}, dashed, from=2-1, to=1-3]
+	\arrow["n", from=2-1, to=2-2]
+	\arrow["t"{description}, color={rgb,255:red,255;green,51;blue,61}, dashed, from=2-2, to=1-3]
+	\arrow["\beta", from=2-2, to=2-3]
+\end{tikzcd}.
+			\end{equation}
+			取 $s$ 为 $f \pitchfork g$ 对应的提升态射, 由推出的泛性质取 $t$ 使得 $t f' = \alpha$ 且 $tn = s$. 为说明 $gt = \beta$, 只需在右侧复合推出诱导的满态射 $(n \ f')$ 即可.
+		\end{proof}
+		\item ${}^\pitchfork\mathcal{S}$ 对任意余积 (若存在) 封闭.
+		\begin{proof}
+			给定一族 $f_i \pitchfork g$. 由\Cref{prop:adjoint-lifting}, 以下提升问题等价:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXGNvcHJvZCBfe2kgXFxpbiBJfVhfaSAiXSxbMiwwLCJBIl0sWzIsMSwiQiJdLFswLDEsIlxcY29wcm9kIF97aSBcXGluIEl9WV9pIl0sWzMsMCwiKFhfaSlfe2kgXFxpbiBJfSJdLFszLDEsIihZX2kpX3tpIFxcaW4gSX0iXSxbNSwwLCIoQSlfe2kgXFxpbiBJfSJdLFs1LDEsIihCKV97aSBcXGluIEl9Il0sWzAsMSwiXFxhbHBoYSJdLFsxLDIsImciXSxbMCwzLCJcXGNvcHJvZCBfe2kgXFxpbiBJfWZfaSIsMl0sWzMsMiwiXFxiZXRhIl0sWzQsNSwiKGZfaSlfe2kgXFxpbiBJfSIsMl0sWzQsNiwiKFxcYWxwaGEgXFxjaXJjIGVfaSlfe2kgXFxpbiBJfSJdLFs1LDcsIihcXGJldGEgXFxjaXJjIGVfaSlfe2kgXFxpbiBJfSIsMl0sWzYsNywiKGcpX3tpIFxcaW4gSX0iXSxbNSw2LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxLCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	{\coprod _{i \in I}X_i } \&\& A \& {(X_i)_{i \in I}} \&\& {(A)_{i \in I}} \\
+	{\coprod _{i \in I}Y_i} \&\& B \& {(Y_i)_{i \in I}} \&\& {(B)_{i \in I}}
+	\arrow["\alpha", from=1-1, to=1-3]
+	\arrow["{\coprod _{i \in I}f_i}"', from=1-1, to=2-1]
+	\arrow["g", from=1-3, to=2-3]
+	\arrow["{(\alpha \circ e_i)_{i \in I}}", from=1-4, to=1-6]
+	\arrow["{(f_i)_{i \in I}}"', from=1-4, to=2-4]
+	\arrow["{(g)_{i \in I}}", from=1-6, to=2-6]
+	\arrow[dashed, from=2-1, to=1-3]
+	\arrow["\beta", from=2-1, to=2-3]
+	\arrow[dashed, from=2-4, to=1-6]
+	\arrow["{(\beta \circ e_i)_{i \in I}}"', from=2-4, to=2-6]
+\end{tikzcd}.
+			\end{equation}
+			右图所示的 $(X_i)_{i \in I}$ 与 $(Y_i)_{i \in I}$ 是离散范畴, 从而提升态射 $(s_i)_{i \in I}$ 可逐次构造.
+		\end{proof}
+		\item ${}^\pitchfork\mathcal{S}$ 对超限复合 (若存在) 封闭.
+		\begin{proof}
+			取定序数 $\alpha$ 与函子 $(X, f) : \alpha \to \mathcal{C}$. 此时 $(X,f)$ 对应图
+			\begin{equation}
+				X_0 \xrightarrow{f_{1,0}} X_1 \xrightarrow{f_{2,1}} X_2 \xrightarrow{f_{3,2}} \cdots \xrightarrow{f_{\beta+1,\beta}} X_{\beta+1} \to \cdots.
+			\end{equation}
+			称之超限复合, 若对极限序数 $\gamma \in \alpha$ (若存在) 总有 $\varinjlim_{\beta \in \gamma} X_\beta = X_\gamma$.
+			\\
+			不妨假定 $\alpha$ 是极限序数, 且恒有 $f_\bullet \pitchfork g$. 下证明 $f_{\alpha, 0} : X_0 \to \varinjlim _{\beta \in \alpha} X_\beta$ 也属于 ${}^\pitchfork g$. 显然恒等态射的超限复合是恒等, 不妨记 $X_0 = \varinjlim _{\beta \in \alpha} (X_0)_\beta$. 以下两个提升问题是等价的:
+			\begin{equation}
+% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXHZhcmluamxpbV97XFxiZXRhIFxcaW4gXFxhbHBoYX0oWF8wKV9cXGJldGEiXSxbMiwwLCJBIl0sWzIsMSwiQiJdLFswLDEsIlxcdmFyaW5qbGltX3tcXGJldGEgXFxpbiBcXGFscGhhfVhfXFxiZXRhIl0sWzMsMCwiKFhfMClfe1xcYmV0YSBcXGluIFxcYWxwaGF9Il0sWzMsMSwiKFlfXFxiZXRhKV97XFxiZXRhIFxcaW4gSX0iXSxbNSwwLCIoQSlfe2kgXFxpbiBJfSJdLFs1LDEsIihCKV97aSBcXGluIEl9Il0sWzAsMSwicCJdLFsxLDIsImciXSxbMCwzLCJcXHZhcmluamxpbSBfe197XFxiZXRhXFxpbiBcXGFscGhhfX0oZl97XFxiZXRhLCAwfSkiLDJdLFszLDIsInEiXSxbNCw1LCIoZl97XFxiZXRhLDB9KV97XFxiZXRhIFxcaW4gXFxhbHBoYX0iLDJdLFs0LDYsIihwIFxcY2lyYyBlX2kpX3tpIFxcaW4gSX0iXSxbNSw3LCIocVxcY2lyYyBlX2kpX3tpIFxcaW4gSX0iLDJdLFs2LDcsIihnKV97aSBcXGluIEl9Il0sWzUsNiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMSwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\begin{tikzcd}
+	{\varinjlim_{\beta \in \alpha}(X_0)_\beta} && A & {(X_0)_{\beta \in \alpha}} && {(A)_{i \in I}} \\
+	{\varinjlim_{\beta \in \alpha}X_\beta} && B & {(Y_\beta)_{\beta \in I}} && {(B)_{i \in I}}
+	\arrow["p", from=1-1, to=1-3]
+	\arrow["{\varinjlim _{_{\beta\in \alpha}}(f_{\beta, 0})}"', from=1-1, to=2-1]
+	\arrow["g", from=1-3, to=2-3]
+	\arrow["{(p \circ e_i)_{i \in I}}", from=1-4, to=1-6]
+	\arrow["{(f_{\beta,0})_{\beta \in \alpha}}"', from=1-4, to=2-4]
+	\arrow["{(g)_{i \in I}}", from=1-6, to=2-6]
+	\arrow[dashed, from=2-1, to=1-3]
+	\arrow["q", from=2-1, to=2-3]
+	\arrow[dashed, from=2-4, to=1-6]
+	\arrow["{(q\circ e_i)_{i \in I}}"', from=2-4, to=2-6]
+\end{tikzcd}.
+			\end{equation}
+			以下对右图归纳地构造 $s_\beta$.
+			\begin{enumerate}
+				\item 若 $\beta = 0$, 则 $f_{\beta, 0} = 1_{X_0}$. 取 $s_0 := \alpha \circ e_0$ 即可.
+				\item 若 $s_{\beta}$ 被构造, 下构造 $s_{\beta + 1} : t_\beta \circ f_{\beta + 1, \beta}$ 如下图所示:
+				\begin{equation}
+					% https://q.uiver.app/#q=WzAsNSxbMCwxLCJYX1xcYmV0YSJdLFs0LDAsIkEiXSxbNCwxLCJCIl0sWzIsMSwiWF97XFxiZXRhICsgMX0iXSxbMCwwLCJYXzAiXSxbMSwyLCJnIl0sWzAsMywiZl97XFxiZXRhICsgMSwgXFxiZXRhfSIsMl0sWzMsMl0sWzAsMSwic19cXGJldGEiXSxbNCwwLCJmX3tcXGJldGEsIDB9IiwyXSxbNCwxLCJzXzAiXSxbMywxLCJzX3tcXGJldGEgKyAxfSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	{X_0} \&\&\&\& A \\
+	{X_\beta} \&\& {X_{\beta + 1}} \&\& B
+	\arrow["{s_0}", from=1-1, to=1-5]
+	\arrow["{f_{\beta, 0}}"', from=1-1, to=2-1]
+	\arrow["g", from=1-5, to=2-5]
+	\arrow["{s_\beta}", from=2-1, to=1-5]
+	\arrow["{f_{\beta + 1, \beta}}"', from=2-1, to=2-3]
+	\arrow["{s_{\beta + 1}}"', dashed, from=2-3, to=1-5]
+	\arrow[from=2-3, to=2-5]
+\end{tikzcd}.
+				\end{equation}
+				\item 若 $\beta$ 是极限序数, 且 $(s_\bullet)_{< \beta}$ 均被构造, 则下图是交换图的滤过极限, 从而显然交换:
+				\begin{equation}
+					% https://q.uiver.app/#q=WzAsNCxbMCwxLCIoWClfezxcXGJldGF9Il0sWzIsMCwiKEEpX3s8XFxiZXRhfSJdLFsyLDEsIihCKV97PFxcYmV0YX0iXSxbMCwwLCIoWF8wKV97PFxcYmV0YX0iXSxbMSwyLCIoZylfezxcXGJldGF9Il0sWzAsMSwic197PFxcYmV0YX0iLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywwLCIoZl97LSwgMH0pX3s8IFxcYmV0YX0iLDJdLFszLDEsIihzXzApX3s8XFxiZXRhfSJdLFswLDIsIihxXFxjaXJjIGUpX3s8XFxiZXRhfSIsMl1d
+\begin{tikzcd}[ampersand replacement=\&]
+	{(X_0)_{<\beta}} \&\& {(A)_{<\beta}} \\
+	{(X)_{<\beta}} \&\& {(B)_{<\beta}}
+	\arrow["{(s_0)_{<\beta}}", from=1-1, to=1-3]
+	\arrow["{(f_{-, 0})_{< \beta}}"', from=1-1, to=2-1]
+	\arrow["{(g)_{<\beta}}", from=1-3, to=2-3]
+	\arrow["{s_{<\beta}}"{description}, dashed, from=2-1, to=1-3]
+	\arrow["{(q\circ e)_{<\beta}}"', from=2-1, to=2-3]
+\end{tikzcd}.
+				\end{equation}
+			\end{enumerate}
+		\end{proof}
+	\end{enumerate}
+\end{lemma}
+
+\begin{example}\label{eg:cotorsion-to-lifting}
+	考虑范畴向态射范畴的两种嵌入 $X \mapsto (0 \to X)$ 与 $X \mapsto (X \to 0)$. 给定余挠对 $(\mathcal{U},\mathcal{V})$, 取 $(0 \to \mathcal{U})$ 余生成的弱垂直对 $(^\pitchfork((0 \to \mathcal{U})^\pitchfork), (0 \to \mathcal{U})^\pitchfork)$. 此时有如下结论.
+	\begin{enumerate}
+		\item 给定 conflation $V \overset i \rightarrowtail B \overset p \twoheadrightarrow C$, $V \in \mathcal{V}$, 则 $p \in (0 \to \mathcal{U})^\pitchfork$. 由长正合列\Cref{eq:ext-tri-6-term} 容易验证.
+		\item 若 $(X \to 0) \in {}^\pitchfork((0 \to \mathcal{U})^\pitchfork)$, 则 $X \in \mathcal{U}$.
+		\begin{proof}
+			对 $X$ 构造特殊预盖 $X^V \rightarrowtail X^U \twoheadrightarrow X$. 由上一条, 以下提升问题有解:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsNSxbMCwxLCJYXlYiXSxbMSwxLCJYXlUiXSxbMiwxLCJYIl0sWzEsMCwiMCJdLFsyLDAsIlgiXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzQsMSwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsMiwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMyw0XSxbMywxXV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\& 0 \& X \\
+	{X^V} \& {X^U} \& X
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[dashed, from=1-3, to=2-2]
+	\arrow[equals, from=1-3, to=2-3]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=2-3]
+\end{tikzcd}.
+			\end{equation}
+			这说明 conflation 可裂, 从而 $X \in \mathcal{U}$.
+		\end{proof}
+	\end{enumerate}
+	这说明, 余挠对理论可以``无损地''嵌入弱垂直对理论中.
+\end{example}
+
+\begin{remark}
+	容易发现, 所有形如 $(Y \to 0)$ 的态射属于 $(0 \to \mathcal{U})^\pitchfork$, 这一态射类的关键信息蕴含在 inflation 的 $\mathrm{coCone}$-项中. 将余生成关系改作生成关系, 则有对偶的结论.
+\end{remark}
+
+\begin{corollary}
+	由\Cref{eg:cotorsion-to-lifting} 与\Cref{lem:basic-functorial-lifting}, $\mathcal{U}$ 对任意余积 (若存在) 封闭.
+\end{corollary}
+
+\begin{remark}
+	弱垂直理论的更多``计算规则''见 \cite{joyalQuasicategoriesVsSegal2006}, 这在涉及幺半范畴或单纯集方法时尤为有用.
+\end{remark}
+
+\begin{definition}
+	(弱分解系统). 弱分解系统 (下简称 \textbf{WFS}) 是一个垂直对 $(\mathcal{C}, \mathcal{F})$, 使得范畴中所有态射可表示为 $p \circ i \in \mathcal{F} \circ \mathcal{C}$.
+\end{definition}
+
+依照经验, 直接计算 $\mathcal{C}^\pitchfork$ 往往是不切实际的. 以下是更常用的等价定义.
+
+\begin{proposition}\label{prop:wfs-equiv}
+	$(\mathcal{C},\mathcal{F})$ 是 WFS 当且仅当下列条件成立.
+	\begin{enumerate}
+		\item $\mathcal{C}$ 与 $\mathcal{F}$ 对形变收缩封闭.
+		\item $\mathcal{C} \pitchfork \mathcal{F}$ 是一对弱垂直的态射.
+		\item 范畴中所有态射可表示为 $p \circ i \in \mathcal{F} \circ \mathcal{C}$
+	\end{enumerate}
+	\begin{proof}
+		($\to$) 方向是显然的. 下证明 ($\gets$) 方向. 对 $f \pitchfork \mathcal{F}$, 任取分解 $f = p \circ i$. 弱垂直性给出分解 $s$ (下图左), 从而 $f$ 是 $i$ 的形变收缩 (下图右):
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTAsWzAsMCwiXFxjZG90Il0sWzAsMSwiXFxjZG90Il0sWzEsMCwiXFxjZG90Il0sWzEsMSwiXFxjZG90Il0sWzIsMCwiXFxjZG90Il0sWzIsMSwiXFxjZG90Il0sWzMsMSwiXFxjZG90Il0sWzMsMCwiXFxjZG90Il0sWzQsMCwiXFxjZG90Il0sWzQsMSwiXFxjZG90Il0sWzAsMSwiZiJdLFswLDIsImkiXSxbMiwzLCJwIl0sWzEsMywiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNCw1LCJmIl0sWzUsNiwicyJdLFsxLDIsInMiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw3LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs3LDgsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzcsNiwiaSJdLFs2LDksInAiXSxbOCw5LCJmIl1d
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& \cdot \& \cdot \& \cdot \\
+	\cdot \& \cdot \& \cdot \& \cdot \& \cdot
+	\arrow["i", from=1-1, to=1-2]
+	\arrow["f", from=1-1, to=2-1]
+	\arrow["p", from=1-2, to=2-2]
+	\arrow[equals, from=1-3, to=1-4]
+	\arrow["f", from=1-3, to=2-3]
+	\arrow[equals, from=1-4, to=1-5]
+	\arrow["i", from=1-4, to=2-4]
+	\arrow["f", from=1-5, to=2-5]
+	\arrow["s", dashed, from=2-1, to=1-2]
+	\arrow[equals, from=2-1, to=2-2]
+	\arrow["s", from=2-3, to=2-4]
+	\arrow["p", from=2-4, to=2-5]
+\end{tikzcd}.
+		\end{equation}
+	\end{proof}
+\end{proposition}
+
+\subsection{模型结构}
+
+模型结构理论的综述与多数经典文献可在 \cite{hoveyModelCategories2007} 中找到. 以下谈论的模型结构都是闭模型结构. 我们使用 $\mathcal{A}$ 表示全范畴. 若不涉及 conflation 或 $\mathbb E$-函子, 此处的范畴是含有零对象的范畴.
+
+\begin{definition}\label{def:model-structure}
+	范畴 $\mathcal{C}$ 上的\textbf{闭模型结构}是指三个态射类 $(\mathsf{Cofib},\mathsf{Weq},\mathsf{Fib})$, 满足如下定义:
+	\begin{enumerate}
+		\item $(\mathsf{Cofib}, \mathsf{Fib} \cap \mathsf{Weq})$ 与 $(\mathsf{Cofib} \cap \mathsf{Weq}, \mathsf{Fib})$ 是 WFS;
+		\item 对任意可复合的态射 $f$, $g$ 与 $g \circ f$. 若两者属于 $\mathsf{Weq}$, 则第三者也属于 $\mathsf{Weq}$;
+		\item $\mathsf{Weq}$ 对形变收缩封闭.
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+	若范畴存在推出, 或者存在拉回, 则\Cref{def:model-structure} 的前两条蕴含第三条.
+	\begin{proof}
+		这一证明基于\Cref{prop:weq-deform-retract} 的思路. 假定范畴存在拉回, 则\Cref{lem:basic-functorial-lifting} 的第三条说明 $\mathsf{TFib}$ 与 $\mathsf{Fib}$ 对拉回封闭. 此时, \Cref{eq:weq-deform-retract-1} 中的方块 $\boxtimes$ 是交换的, 故弱等价 $w$ 存在形变收缩 $a' \in \mathsf{Cofib}$. \Cref{prop:weq-deform-retract} 的后续步骤说明 $a' \in \mathsf{TCofib}$.
+	\end{proof}
+\end{proposition}
+
+\begin{definition}
+	我们规范一些术语. 以下是五类基本态射.
+	\begin{itemize}
+		\item $\mathsf{Cofib}$, $\mathsf{Weq}$ 与 $\mathsf{Fib}$ 三类态射分别称作\textbf{余纤维}, \textbf{弱等价}与\textbf{纤维}.
+		\item 记 $\mathsf{TCofib} := \mathsf{Cofib} \cap \mathsf{Weq}$ 为\textbf{平凡纤维}, $\mathsf{TFib} := \mathsf{Fib} \cap \mathsf{Weq}$ 为\textbf{平凡余纤维}.
+	\end{itemize}
+	以下是五类基本对象.
+	\begin{itemize}
+		\item $X$ 称作\textbf{余纤维对象}, 若 $0 \to X \in \mathsf{Cofib}$. 记作 $X \in \mathcal{C}$.
+		\item $X$ 称作\textbf{纤维对象}, 若 $X \to 0 \in \mathsf{Fib}$. 记作 $X \in \mathcal{F}$.
+		\item $X$ 称作\textbf{平凡余纤维对象}, 若 $0 \to X \in \mathsf{TCofib}$. 记作 $X \in \mathsf{T}\mathcal{C}$.
+		\item $X$ 称作\textbf{平凡纤维对象}, 若 $X \to 0 \in \mathsf{TFib}$. 记作 $X \in \mathsf{T}\mathcal{F}$.
+		\item $X$ 称作\textbf{平凡对象}, 若 $0 \to X \in \mathsf{Weq}$. 记作 $X \in \mathcal{W}$.
+	\end{itemize}
+	直接地, $\mathsf{T}\mathcal{C} = \mathcal{C} \cap \mathcal{W}$, $\mathsf{T}\mathcal{F} = \mathcal{F} \cap \mathcal{W}$.
+\end{definition}
+
+方便起见, 有时使用以下等价定义.
+
+\begin{proposition}\label{prop:model-structure-equiv}
+	态射类 $(\mathsf{Cofib},\mathsf{Weq},\mathsf{Fib})$ 构成闭模型结构, 当且仅当以下成立.
+	\begin{enumerate}
+		\item[CM1] 对任意复合态射 $g \circ f$, 若 $(f,g,gf)$ 中其中两者属于 $\mathsf{Weq}$, 则第三者亦属于 $\mathsf{Weq}$.
+		\item[CM2] 三类态射对形变收缩封闭.
+		\item[CM3] 存在两组提升关系 $\mathsf{Cofib} \pitchfork (\mathsf{Weq} \cap \mathsf{Fib})$ 与 $(\mathsf{TCofib} \cap \mathsf{Weq}) \pitchfork \mathsf{Fib}$.
+		\item[CM4] 范畴中所有态射可表示为 $p \circ i \in (\mathsf{Weq} \cap \mathsf{Fib}) \circ \mathsf{Cofib}$ 与 $p' \circ i' \in \mathsf{Fib} \circ (\mathsf{TCofib} \cap \mathsf{Weq})$.
+	\end{enumerate}
+	\begin{proof}
+		\Cref{def:model-structure} 的第二条即 CM1. \Cref{def:model-structure} 的第一条与第三条等价于 CM2-4 (\Cref{prop:wfs-equiv}).
+	\end{proof}
+\end{proposition}
+
+\begin{remark}
+	\Cref{def:model-structure} 以对偶为先, 性质为后; \Cref{prop:model-structure-equiv} 以性质为先, 对偶为后.
+\end{remark}
+
+\begin{lemma}
+	以下是一些直接的推论.
+	\begin{enumerate}\label{lem:basic-model-structure}
+		\item $\mathcal{W}$ 中对象之间的态射必是 $\mathsf{Weq}$.
+		\begin{proof}
+			对 $X,Y \in \mathcal{W}$, $0 \to X$ 与 $0 \to Y$ 属于 $\mathsf{Weq}$. 由 CM1 可知 $X \to Y$ 也属于 $\mathsf{Weq}$.
+		\end{proof}
+		\item $\mathsf{Weq} = \mathsf{TFib} \circ \mathsf{TCofib}$.
+		\begin{proof}
+			由 $\mathsf{Weq} = \mathsf{Fib} \circ \mathsf{TCofib}$ 与 CM1 得证.
+		\end{proof}
+		\item 若存在 $W \in \mathcal{W}$ 与 $f : X \to W$, 使得 $f \in \mathsf{Weq}$, 则 $X \in \mathcal{W}$. 对偶表述略.
+		\item 模型结构的态射范畴也是模型结构, 态射范畴的 $\mathsf{Cofib}$ ($\mathsf{Weq}$, $\mathsf{Fib}$) 是 $\mathsf{Cofib}^\to$ ($\mathsf{Weq}^\to$, $\mathsf{Fib}^\to$). 更一般地, 部分模型的函子范畴也是模型范畴, 见\cite{reedyHOMOTOPYTHEORYMODEL}.
+		\begin{proof}
+			CM1 与 CM2 是直接的. 下验证 CM3 (的一侧), 取 $(i,i) \in \mathsf{Cofib}^\to$ 与 $(p,p) \in (\mathsf{Weq} \cap \mathsf{Fib})^\to$ 的交换方块, 存在以下虚线所示的态射使得所有胞腔交换:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsOCxbMSwwLCJDXzEiXSxbMSwxLCJDXzIiXSxbMiwwLCJDXzEnIl0sWzIsMSwiQ18yJyJdLFswLDAsIkZfMSJdLFszLDAsIkZfMSciXSxbMCwxLCJGXzIiXSxbMywxLCJGXzInIl0sWzAsMSwiaSIsMCx7ImNvbG91ciI6WzM1OCwxMDAsNjBdfSxbMzU4LDEwMCw2MCwxXV0sWzIsMywiaSciLDAseyJjb2xvdXIiOlszNTgsMTAwLDYwXX0sWzM1OCwxMDAsNjAsMV1dLFswLDIsImYiXSxbMSwzLCJnIl0sWzQsNiwicCIsMCx7ImNvbG91ciI6WzIzOSwxMDAsNjBdfSxbMjM5LDEwMCw2MCwxXV0sWzUsNywicCciLDAseyJjb2xvdXIiOlsyMzksMTAwLDYwXX0sWzIzOSwxMDAsNjAsMV1dLFs0LDUsIm0iLDAseyJjdXJ2ZSI6LTN9XSxbNiw3LCJuIiwwLHsiY3VydmUiOjN9XSxbMCw0XSxbMiw1XSxbMSw2XSxbMyw3XSxbMyw1LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSw0LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	{F_1} \& {C_1} \& {C_1'} \& {F_1'} \\
+	{F_2} \& {C_2} \& {C_2'} \& {F_2'}
+	\arrow["m", curve={height=-18pt}, from=1-1, to=1-4]
+	\arrow["p", color={rgb,255:red,51;green,54;blue,255}, from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-1]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["i", color={rgb,255:red,255;green,51;blue,58}, from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow["{i'}", color={rgb,255:red,255;green,51;blue,58}, from=1-3, to=2-3]
+	\arrow["{p'}", color={rgb,255:red,51;green,54;blue,255}, from=1-4, to=2-4]
+	\arrow["n", curve={height=18pt}, from=2-1, to=2-4]
+	\arrow[dashed, from=2-2, to=1-1]
+	\arrow[from=2-2, to=2-1]
+	\arrow["g", from=2-2, to=2-3]
+	\arrow[dashed, from=2-3, to=1-4]
+	\arrow[from=2-3, to=2-4]
+\end{tikzcd}.
+			\end{equation}
+			最后验证 CM4 (的一侧). 对任意态射范畴的态射 $(\alpha, \beta)$, 取分解 $i, i' \in \mathsf{Cofib}$ 与 $p, p' \in \mathsf{Weq} \cap \mathsf{Fib}$. 由原模型结构的 CM3, 存在虚线处态射使得下图交换:
+			\begin{equation}
+				% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXGNkb3QiXSxbMiwwLCJcXGNkb3QiXSxbMiwxLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMSwyXSxbMCwzXSxbMCw0LCJpIiwyXSxbNCwxLCJwIiwyXSxbMyw1LCJpJyJdLFs1LDIsInAnIl0sWzAsMSwiXFxhbHBoYSIsMCx7Im9mZnNldCI6LTEsImN1cnZlIjotMn1dLFszLDIsIlxcYmV0YSIsMix7Im9mZnNldCI6MSwiY3VydmUiOjJ9XSxbNCw1LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& \cdot \\
+	\cdot \& \cdot \& \cdot
+	\arrow["i"', from=1-1, to=1-2]
+	\arrow["\alpha", shift left, curve={height=-12pt}, from=1-1, to=1-3]
+	\arrow[from=1-1, to=2-1]
+	\arrow["p"', from=1-2, to=1-3]
+	\arrow[dashed, from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow["{i'}", from=2-1, to=2-2]
+	\arrow["\beta"', shift right, curve={height=12pt}, from=2-1, to=2-3]
+	\arrow["{p'}", from=2-2, to=2-3]
+\end{tikzcd}.
+			\end{equation}
+		\end{proof}
+	\end{enumerate}
+\end{lemma}
+
+\begin{example}\label{eg:model-replace}
+	(代换). 引入模型结构的一大动机是构造局部化. 试回忆 (\cite{gabrielCalculusFractionsHomotopy1967} ) 分式给出的局部化范畴 $\mathcal{C} \to S^{-1}\mathcal{C}$, 局部化范畴中的态射 $X \to Y$ 本质上拆解作 $X \Leftrightarrow X' \to Y$. 换言之, 先使用``同构''代换 $X$ 为 $X'$, 使得 $X'$ 至 $Y$ 的态射能被直接描述.
+	\\
+	类似地, 模型范畴中的 $\mathcal{S}$-态射类是 $\mathsf{Weq}$. 对任意对象 $X$, 对 $0 \to X$ 与 $X \to 0$ 使用 CM4 得
+	\begin{equation}\label{eq:model-replace}
+		0 \xrightarrow{\mathsf{Cofib}}F \xrightarrow{\mathsf{TCofib}} X, \quad X \xrightarrow{\mathsf{TFib}} C \xrightarrow{\mathsf{Fib}} 0.
+	\end{equation}
+	换言之, 任意对象 $X$ 可被代换为余纤维对象 $F$ 或纤维对象 $C$.
+\end{example}
+
+\subsection{Hovey 孪生余挠对}
+
+本小节取定外三角范畴 $(\mathcal{A}, \mathbb E, \mathfrak s)$.
+
+\begin{definition}
+	(Hovey 孪生余挠对). 考虑两个完备余挠对 $(\mathcal{S}, \mathcal{S}^\perp)$ 与 $(^\perp \mathcal{V}, \mathcal{V})$. 称资料 $(\mathcal{S}, \mathcal{S}^\perp; {}^\perp \mathcal{V}, \mathcal{V})$ 为 \textbf{Hovey 孪生余挠对}, 若 $\mathcal{S} \perp \mathcal{V}$, 且 $\mathrm{Cone}(\mathcal{V}, \mathcal{S}) = \mathrm{coCone}(\mathcal{V}, \mathcal{S})$.
+\end{definition}
+
+\begin{remark}
+	将 Hovey 孪生余挠对记作 $(\mathcal{S},\mathcal{T};\mathcal{U},\mathcal{V})$, 则 $\mathcal{S} \subseteq \mathcal{U}$, 且 $\mathcal{V} \subseteq \mathcal{T}$.
+\end{remark}
+
+以下引理给出一种由 Hovey 三元组复原 Hovey 孪生余挠对的直接方法.
+
+\begin{lemma}\label{lem:hovey-triangle-1}
+	给定 Hovey 孪生余挠对 $(\mathcal{S}, \mathcal{S}^\perp; {} ^\perp \mathcal{V}, \mathcal{V})$, 有以下等式
+	\begin{equation}\label{eq:hovey-triangle-1}
+		\mathcal{S} = {}^\perp \mathcal{V} \cap \mathrm{coCone}(\mathcal{V}, \mathcal{S}), \quad \mathcal{V} = \mathcal{S}^\perp \cap \mathrm{Cone}(\mathcal{V}, \mathcal{S})
+	\end{equation}
+	\begin{proof}
+		仅证明前一等式. ($\subseteq$ 方向). 由 $\mathcal{S} = {}^\perp \mathcal{V}$ 与 $\mathcal{S} = \mathrm{coCone}(\mathcal{V}, \mathcal{S})$, 得证.
+		\\
+		($\supseteq$ 方向). 任取 $X \in {}^\perp \mathcal{V}\cap \mathrm{coCone}(\mathcal{V}, \mathcal{S})$, 则有 conflation $V \rightarrowtail S \twoheadrightarrow X$. 由 $\mathbb E(X, V) = 0$, 这一 conflation 可裂. 从而 $X$ 是 $S$ 的直和项, 故 $X \in \mathcal{S}$.
+	\end{proof}
+\end{lemma}
+
+\begin{corollary}
+	作为推论, ${}^\perp \mathcal{V} \cap \mathcal{V} = {}^\perp \mathcal{V} \cap \mathcal{N} \cap \mathcal{S}^\perp = \mathcal{S} \cap \mathcal{S} ^\perp$. 
+\end{corollary}
+
+\begin{remark}
+	我们将 $\mathrm{Cone}(\mathcal{V}, \mathcal{S})$ 记作 $\mathcal{N}$. 称 $({}^\perp\mathcal{V}, \mathcal{N}, \mathcal{S}^\perp)$ 为 Hovey 三元组. \Cref{lem:hovey-triangle-1} 说明 Hovey 三元组与 Hovey 孪生余挠对可以等价地转换.
+\end{remark}
+
+\begin{theorem}\label{thm:hovey-triangle}
+	$\mathcal{N}$ 是厚子范畴, 从而也是外三角范畴.
+	\begin{proof}
+		先说明 $\mathcal{N}$ 对直和项封闭. 实际上, $\mathcal{N}$ 对形变收缩封闭. 任取 conflation $V \rightarrowtail S \twoheadrightarrow N \overset \delta \dashrightarrow$ 与形变收缩 $N'$, 得以下交换图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTIsWzAsMSwiViJdLFsxLDEsIlMiXSxbMiwxLCJOIl0sWzAsMCwiViJdLFsyLDAsIk4nIl0sWzIsMiwiTiciXSxbMCwyLCJWIl0sWzEsMCwiUyciXSxbMSwyLCJTJyJdLFszLDAsIlxcLCAiXSxbMywxLCJcXCwgIl0sWzMsMiwiXFwsICJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMSwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMywwLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDYsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsNywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs3LDQsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs0LDIsImkiXSxbMiw1LCJwIl0sWzYsOCwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs4LDUsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs3LDFdLFsxLDhdLFs0LDksImleXFxhc3QgXFxkZWx0YSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDEwLCJcXGRlbHRhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsMTEsImleXFxhc3QgXFxkZWx0YSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	V \& {S'} \& {N'} \& {\, } \\
+	V \& S \& N \& {\, } \\
+	V \& {S'} \& {N'} \& {\, }
+	\arrow[tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{i^\ast \delta}", dashed, from=1-3, to=1-4]
+	\arrow["i", from=1-3, to=2-3]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow["\delta", dashed, from=2-3, to=2-4]
+	\arrow["p", from=2-3, to=3-3]
+	\arrow[tail, from=3-1, to=3-2]
+	\arrow[two heads, from=3-2, to=3-3]
+	\arrow["{i^\ast \delta}", dashed, from=3-3, to=3-4]
+\end{tikzcd}.
+		\end{equation} 
+		复合态射 $S' \to S \to S'$ 必是同构 (\Cref{thm:ext-tri-2-out-of-3}), 从而 $S'$ 是 $S$ 的形变收缩. 因此 $S' \in \mathcal{S}$, 故 $N' \in \mathcal{N}$.
+		\\
+		(证明 $\mathrm{Cone}(\mathcal{N}, \mathcal{N}) \subseteq \mathcal{N}$). 依照\Cref{lem:star-asso}, 总有
+		\begin{equation}\label{eq:star-asso}
+			\mathrm{Cone}(\mathcal{N}, \mathcal{N}) = \mathrm{Cone}(\mathcal{N}, \mathrm{Cone}(\mathcal{V}, \mathcal{S})) = \mathrm{Cone}(\mathcal{V}\ast \mathcal{N}, \mathcal{S}).
+		\end{equation}
+		依照\Cref{lem:star-inclu}, 得
+		\begin{equation}\label{eq:star-inclu}
+			\mathcal{V}\ast \mathcal{N} = \mathcal{V} \ast \mathrm{Cone}(\mathcal{V}, \mathcal{S}) \subseteq \mathrm{Cone}(\mathcal{V}, \mathcal{V} \ast \mathcal{S}) = \mathrm{Cone}(\mathcal{V}, \mathcal{V} \oplus \mathcal{S}) \subseteq \mathrm{Cone}(\mathcal{V}, \mathcal{N}).
+		\end{equation}
+		将\Cref{eq:star-inclu} 代入\Cref{eq:star-asso}, 得
+		\begin{align}
+			\mathrm{Cone}(\mathcal{N}, \mathcal{N}) & \subseteq \mathrm{Cone}(\mathrm{Cone}(\mathcal{V}, \mathcal{N}), \mathcal{S}) = \mathrm{Cone}(\mathrm{Cone}(\mathcal{V}, \mathrm{coCone}(\mathcal{V}, \mathcal{S})), \mathcal{S})\\
+			& = \mathrm{Cone}(\mathrm{Cone}(\mathcal{V} \ast \mathcal{V}, \mathcal{S}), \mathcal{S}) = \mathrm{Cone}(\mathrm{Cone}(\mathcal{V}, \mathcal{S}), \mathcal{S}) \\
+			& = \mathrm{Cone}(\mathrm{coCone}(\mathcal{V}, \mathcal{S}), \mathcal{S}) \subseteq \mathrm{Cone}(\mathcal{V},\mathcal{S} \ast \mathcal{S}) \qquad  = \mathcal{N}.
+		\end{align}
+		(证明 $\mathrm{coCone}(\mathcal{N}, \mathcal{N}) \subseteq \mathcal{N}$). 证明对偶, 从略.
+		\\
+		(证明 $\mathcal{N} \ast \mathcal{N} \subseteq \mathcal{N}$). 由\Cref{lem:star-asso} 与\Cref{lem:star-inclu}, 得
+		\begin{align}
+\mathcal{N} \ast \mathcal{N} &= \mathcal{N} \ast \mathrm{Cone}(\mathcal{V} , \mathcal{S}) \subseteq \mathrm{Cone}(\mathcal{V} , \mathcal{N} \ast \mathcal{S} )\\
+&= \mathrm{Cone}(\mathcal{V} , \mathcal{N} ) = \mathrm{Cone}(\mathcal{V} , \mathrm{Cone}(\mathcal{V}, \mathcal{S})) \\
+&= \mathrm{Cone}(\mathcal{V} \ast \mathcal{V}, \mathcal{S}) = \mathcal{N}.
+\end{align}
+不难发现, 上述 $\subseteq$ 均可取为等号. 直接地,
+\begin{equation}
+	\mathrm{Cone}(\mathcal{N}, \mathcal{N}) = \mathrm{coCone}(\mathcal{N}, \mathcal{N}) = \mathcal{N} \ast \mathcal{N} = \mathcal{N}.
+\end{equation}
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	以上证明步骤暗藏等式 $\mathrm{Cone}(\mathcal{N}, \mathcal{S}) = \mathcal{N} = \mathrm{coCone}(\mathcal{V}, \mathcal{N})$.
+\end{corollary}
+
+\subsection{相容闭模型结构 \texorpdfstring{$\to$}{} Hovey 孪生余挠对}
+
+Hovey 孪生余挠对由一对特殊的闭模型结构诱导, 称作相同闭模型结构.
+
+\begin{definition}\label{def:compatible-model-structure}
+	(相容闭模型结构). 称闭模型结构是\textbf{相容}的, 若存在四个对象类 $(\mathcal{S}, \mathcal{T}; \mathcal{U}, \mathcal{V})$. 使得:
+	\begin{enumerate}
+		\item $f \in \mathsf{Cofib}$, 当且仅当 $f$ 是 inflation, 且有 conflation $\cdot \overset f \rightarrowtail \cdot \twoheadrightarrow U$, 其中 $U \in \mathcal{U}$;
+		\item $f \in \mathsf{TCofib}$, 当且仅当 $f$ 是 inflation, 且有 conflation $\cdot \overset f \rightarrowtail \cdot \twoheadrightarrow S$, 其中 $S \in \mathcal{S}$;
+		\item $g \in \mathsf{Fib}$, 当且仅当 $g$ 是 deflation, 且有 conflation $T \rightarrowtail \cdot \overset g \twoheadrightarrow \cdot$, 其中 $T \in \mathcal{T}$;
+		\item $g \in \mathsf{TFib}$, 当且仅当 $g$ 是 deflation, 且有 conflation $V \rightarrowtail \cdot \overset g \twoheadrightarrow \cdot$, 其中 $V \in \mathcal{V}$.
+	\end{enumerate}
+	特别地, \Cref{lem:basic-model-structure} 第二条说明 $\mathsf{Weq} = \mathsf{TFib} \circ \mathsf{TCofib}$.
+\end{definition}
+
+\begin{example}
+	直接地, 闭相容模型结构中 $(\mathcal{S}, \mathcal{T}; \mathcal{U}, \mathcal{V}) = (\mathsf{T}\mathcal{C}, \mathcal{F}; \mathcal{C}, \mathsf{T}\mathcal{F})$.
+\end{example}
+
+\begin{example}
+	\Cref{eq:model-replace} 给出任意对象 $X$ 的四种分解
+	\begin{equation}\label{eq:model-replace-4}
+% https://q.uiver.app/#q=WzAsMTYsWzIsMSwiWCJdLFsxLDEsIlYiXSxbMiwwLCIwIixbMCwwLDYwLDFdXSxbMCwxLCJUIl0sWzMsMSwiWCJdLFszLDAsIjAiLFswLDAsNjAsMV1dLFs0LDEsIlMiXSxbNSwxLCJVIl0sWzIsMiwiWCJdLFsxLDIsIlQiXSxbMCwyLCJWIl0sWzIsMywiMCIsWzAsMCw2MCwxXV0sWzQsMiwiVSJdLFszLDIsIlgiXSxbMywzLCIwIixbMCwwLDYwLDFdXSxbNSwyLCJTIl0sWzIsMCwiIiwwLHsiY29sb3VyIjpbMCwwLDYwXX1dLFsxLDAsIlxcbWF0aHNme0ZpYn0iLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiwxLCJcXG1hdGhzZntUQ29maWJ9IiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsMCw2MF0sInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19LFswLDAsNjAsMV1dLFszLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCw1LCIiLDAseyJjb2xvdXIiOlswLDAsNjBdfV0sWzQsNiwiXFxtYXRoc2Z7Q29maWJ9IiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs2LDUsIlxcbWF0aHNme1RGaWJ9IiwyLHsiY3VydmUiOjIsImNvbG91ciI6WzAsMCw2MF0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX0sWzAsMCw2MCwxXV0sWzYsNywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEwLDksIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbOSw4LCJcXG1hdGhzZntURmlifSIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxMSw4LCIiLDAseyJjb2xvdXIiOlswLDAsNjBdfV0sWzExLDksIlxcbWF0aHNme0NvZmlifSIsMCx7ImN1cnZlIjotMiwiY29sb3VyIjpbMCwwLDYwXSwic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX0sWzAsMCw2MCwxXV0sWzEzLDEyLCJcXG1hdGhzZntUQ29maWJ9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxMiwxNSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEzLDE0LCIiLDAseyJjb2xvdXIiOlswLDAsNjBdfV0sWzEyLDE0LCJcXG1hdGhzZntGaWJ9IiwwLHsiY3VydmUiOi0yLCJjb2xvdXIiOlswLDAsNjBdLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19LFswLDAsNjAsMV1dXQ==
+\begin{tikzcd}
+	&& \textcolor{rgb,255:red,153;green,153;blue,153}{0} & \textcolor{rgb,255:red,153;green,153;blue,153}{0} \\
+	T & V & X & X & S & U \\
+	V & T & X & X & U & S \\
+	&& \textcolor{rgb,255:red,153;green,153;blue,153}{0} & \textcolor{rgb,255:red,153;green,153;blue,153}{0}
+	\arrow["{\mathsf{TCofib}}"', color={rgb,255:red,153;green,153;blue,153}, curve={height=12pt}, tail, from=1-3, to=2-2]
+	\arrow[draw={rgb,255:red,153;green,153;blue,153}, from=1-3, to=2-3]
+	\arrow[tail, from=2-1, to=2-2]
+	\arrow["{\mathsf{Fib}}"', two heads, from=2-2, to=2-3]
+	\arrow[draw={rgb,255:red,153;green,153;blue,153}, from=2-4, to=1-4]
+	\arrow["{\mathsf{Cofib}}"', tail, from=2-4, to=2-5]
+	\arrow["{\mathsf{TFib}}"', color={rgb,255:red,153;green,153;blue,153}, curve={height=12pt}, two heads, from=2-5, to=1-4]
+	\arrow[two heads, from=2-5, to=2-6]
+	\arrow[tail, from=3-1, to=3-2]
+	\arrow["{\mathsf{TFib}}", two heads, from=3-2, to=3-3]
+	\arrow["{\mathsf{TCofib}}", tail, from=3-4, to=3-5]
+	\arrow[draw={rgb,255:red,153;green,153;blue,153}, from=3-4, to=4-4]
+	\arrow[two heads, from=3-5, to=3-6]
+	\arrow["{\mathsf{Fib}}", color={rgb,255:red,153;green,153;blue,153}, curve={height=-12pt}, two heads, from=3-5, to=4-4]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,153;green,153;blue,153}, curve={height=-12pt}, tail, from=4-3, to=3-2]
+	\arrow[draw={rgb,255:red,153;green,153;blue,153}, from=4-3, to=3-3]
+\end{tikzcd}.
+	\end{equation}
+\end{example}
+
+\begin{theorem}\label{thm:model-to-hovey}
+	给定相容闭模型结构的资料 $(\mathcal{S}, \mathcal{T}; \mathcal{U}, \mathcal{V})$, 则这是 Hovey 孪生余挠对.
+	\begin{proof}
+		将证明拆解作以下几步.
+		\begin{enumerate}
+			\item (证明垂直关系). \Cref{thm:ext-lifting} 与 CM3 说明 $\mathcal{S} \perp \mathcal{T}$, $\mathcal{U} \perp \mathcal{V}$. 特别地, $\mathcal{S} \perp \mathcal{V}$. 
+			\item (证明 $(\mathcal{U}, \mathcal{V})$ 与 $(\mathcal{S}, \mathcal{T})$ 是完备余挠对). 以 $(\mathcal{U}, \mathcal{V})$ 为例. 由\Cref{lem:cotorsion-pair-criterion}, 只需说明 $\mathrm{Cone}(\mathcal{V},\mathcal{U})$ 是全范畴, 且 $\mathcal{U}$ 对直和项封闭. 另一方向对偶.
+			\begin{enumerate}
+				\item ($\mathcal{U}$ 对直和项封闭). 取 $X \overset f \rightarrowtail Y \twoheadrightarrow U$ 与形变收缩 $U_0 \xrightarrow i U \xrightarrow p U_0$. 依照与\Cref{eq:star-asso} 类似的构造, 得 conflation $X \overset {f_0} \rightarrowtail Y_0 \twoheadrightarrow U_0$. 其中, $f_0$ 是 $f$ 的形变收缩, 因此属于 $\mathsf{Cofib}$ (CM2). 根据定义, $U_0 \in \mathcal{U}$.
+				\item ($\mathrm{Cone}(\mathcal{V},\mathcal{U})$ 是全范畴). 见\Cref{eq:model-replace-4}.
+			\end{enumerate}
+			\item (证明 $\mathrm{Cone}(\mathcal{V},\mathcal{S}) = \mathrm{coCone}(\mathcal{V}, \mathcal{S})$). 先观察到以下两条事实.
+			\begin{enumerate}
+				\item 若 $X \in \mathrm{Cone}(\mathcal{V}, \mathcal{S})$, 则有 conflation $V \rightarrowtail S \twoheadrightarrow X$. 此处的 inflation 与 deflation 均是弱等价, 从而合成态射 $0 \to V \to S \to X$ 也是弱等价.
+				\item 假定 $0 \to X$ 是弱等价, 将这一态射分解作 $0 \xrightarrow{\mathsf{TCofib}} S \xrightarrow{\mathsf{TFib}} X$. 考虑 $S \overset{\mathsf{TFib}} \twoheadrightarrow X$ 所在的 conflation, 得 $X \in \mathrm{Cone}(\mathcal{V}, \mathcal{S})$.
+			\end{enumerate}
+			因此, $X \in \mathrm{Cone}(\mathcal{V},\mathcal{S})$ 当且仅当 $0 \to X$ 是弱等价, 亦当且仅当 $X \to 0$ 是弱等价 (CM 1). 依照对偶命题, 这	当且仅当 $X \in \mathrm{coCone}(\mathcal{V}, \mathcal{S})$.
+		\end{enumerate} 
+	\end{proof}
+\end{theorem}
+
+\begin{corollary}
+	\Cref{thm:model-to-hovey} 关于 $\mathrm{Cone}(\mathcal{V},\mathcal{S}) = \mathrm{Cone}(\mathcal{V},\mathcal{S})$ 的证明说明, $\mathcal{N}$ 就是模型结构中的平凡对象类 $\mathcal{W}$.
+\end{corollary}
+
+对外三角范畴上的相容闭模型结构, $\mathsf{Weq}$ 与 $\mathcal{W}$ 满足``互逆''的``二推三''法则. 先观察一则三角范畴的例子.
+
+\begin{example}
+	考虑 TR4 的交换图
+	\begin{equation}
+		% https://q.uiver.app/#q=WzAsMTMsWzAsMCwiXFxjZG90Il0sWzEsMCwiXFxjZG90Il0sWzIsMCwiWCJdLFszLDAsIlxcY2RvdCJdLFszLDEsIlxcY2RvdCJdLFswLDEsIlxcY2RvdCJdLFsxLDMsIlxcY2RvdCJdLFsyLDMsIlxcY2RvdCJdLFsxLDEsIlxcY2RvdCJdLFsyLDEsIlkiXSxbMSwyLCJaIl0sWzIsMiwiWiJdLFszLDIsIlxcY2RvdCJdLFswLDEsImYiXSxbMSwyXSxbMiwzXSxbMyw0LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDUsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzYsN10sWzUsOCwiZ2YiXSxbOCw5XSxbOSw0XSxbMSw4LCJnIl0sWzgsMTBdLFsxMCw2XSxbMiw5XSxbOSwxMV0sWzEwLDExLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxMSwxMl0sWzQsMTJdLFsxMSw3XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& X \& \cdot \\
+	\cdot \& \cdot \& Y \& \cdot \\
+	\& Z \& Z \& \cdot \\
+	\& \cdot \& \cdot
+	\arrow["f", from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[from=1-2, to=1-3]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=2-3]
+	\arrow[equals, from=1-4, to=2-4]
+	\arrow["gf", from=2-1, to=2-2]
+	\arrow[from=2-2, to=2-3]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=2-3, to=2-4]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=2-4, to=3-4]
+	\arrow[equals, from=3-2, to=3-3]
+	\arrow[from=3-2, to=4-2]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=3-3, to=4-3]
+	\arrow[from=4-2, to=4-3]
+\end{tikzcd}.
+	\end{equation}
+	态射 $f$, $gf$ 与 $g$ 分别位于对象 $X$, $Y$ 与 $Z$ 的``对立面''. 依照经验, 若给定一个满足``合成的二推三性质''且对 $\Sigma^\pm$ 封闭的态射类 $\mathcal{M}$, 则有一个三角子范畴与之对应 (TR1-3).
+\end{example}
+
+\begin{theorem}\label{thm:weq-trivial-corr}
+	给定 conflation $X \overset i \rightarrowtail Y \overset p \twoheadrightarrow Z \overset \delta \dashrightarrow$, 则
+	\begin{enumerate}
+		\item $i \in \mathsf{Weq}$ 当且仅当 $Z \in \mathcal{W}$;
+		\item $p \in \mathsf{Weq}$ 当且仅当 $X \in \mathcal{W}$.
+	\end{enumerate}
+	注意, inflation (deflation) 中的弱等价未必是平凡纤维 (平凡余纤维).
+	\begin{proof}
+		我们仅证明第一个命题, 第二个命题对偶可证. 将 $i$ 分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$, 由\Cref{thm:bi-PBPO-variant} 构造交换图
+\begin{equation}
+	% https://q.uiver.app/#q=WzAsOCxbMCwyLCJYIl0sWzEsMiwiWSJdLFsyLDIsIloiXSxbMSwxLCJFIl0sWzIsMSwiVSJdLFsxLDAsIlYiXSxbMCwxLCJYIl0sWzIsMCwiViJdLFswLDEsImkiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsMSwiaV9mIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzMsNCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzUsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsInAiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNiwzLCJpX2MiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsNiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNSw3LCIiLDIseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs3LDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCwyLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XV0=
+\begin{tikzcd}
+	& V & V \\
+	X & E & U \\
+	X & Y & Z
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[tail, from=1-3, to=2-3]
+	\arrow["{i_c}", tail, from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow["{i_f}", two heads, from=2-2, to=3-2]
+	\arrow[two heads, from=2-3, to=3-3]
+	\arrow[equals, from=3-1, to=2-1]
+	\arrow["i", tail, from=3-1, to=3-2]
+	\arrow["p", two heads, from=3-2, to=3-3]
+\end{tikzcd}.
+\end{equation}
+	由上图, $i \in \mathsf{Weq}$ 当且仅当 $i_c \in \mathsf{TCofib}$, 当且仅当 $U \in \mathcal{S}$, 当且仅当 $Z \in \mathcal{W}$.
+	\end{proof}
+\end{theorem}
+
+\begin{proposition}\label{prop:weq-inflation-pullback}
+	给定弱等价 $w$ 与任意 inflation $f$, 则存在同伦的推出拉回方块 $\star$ 使得 $f'$ 是 inflation, 且 $w'$ 是弱等价.
+	\begin{equation}
+		% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMCwxLCJ3Il0sWzAsMiwiZiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzLCJ3JyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDMsImYnIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCwzLCJcXHN0YXIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \\
+	\cdot \& \cdot
+	\arrow["w", from=1-1, to=1-2]
+	\arrow["f"', tail, from=1-1, to=2-1]
+	\arrow["\star"{description}, draw=none, from=1-1, to=2-2]
+	\arrow["{f'}", dashed, tail, from=1-2, to=2-2]
+	\arrow["{w'}"', dashed, from=2-1, to=2-2]
+\end{tikzcd}.
+	\end{equation}
+	\begin{proof}
+		将 $w$ 拆解作 $\mathsf{TFib} \circ \mathsf{TCofib}$. 依照\Cref{thm:bi-pullback} 与 ET4 分解构造同伦的推出拉回方块 $\star$ 与 $\bullet$ 如下:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXGNkb3QiXSxbMiwwLCJcXGNkb3QiXSxbMCwxLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMiwxLCJcXGNkb3QiXSxbMCwxLCJ3IiwwLHsib2Zmc2V0IjotMiwiY3VydmUiOi0xfV0sWzAsMiwiZiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMCwzLCJpIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFszLDEsInAiLDIseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiw0LCJpJyIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzEsNSwiZiciLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDUsInAnIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDQsIlxcc3RhciIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDQsImYnJyIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNSwiXFxidWxsZXQiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\begin{tikzcd}
+	\cdot & \cdot & \cdot \\
+	\cdot & \cdot & \cdot
+	\arrow["i"', tail, from=1-1, to=1-2]
+	\arrow["w", shift left=2, curve={height=-6pt}, from=1-1, to=1-3]
+	\arrow["f"', tail, from=1-1, to=2-1]
+	\arrow["\star"{description}, draw=none, from=1-1, to=2-2]
+	\arrow["p"', two heads, from=1-2, to=1-3]
+	\arrow["{f''}"', dashed, tail, from=1-2, to=2-2]
+	\arrow["\bullet"{description}, draw=none, from=1-2, to=2-3]
+	\arrow["{f'}"', dashed, tail, from=1-3, to=2-3]
+	\arrow["{i'}"', dashed, tail, from=2-1, to=2-2]
+	\arrow["{p'}"', dashed, two heads, from=2-2, to=2-3]
+\end{tikzcd}.
+		\end{equation}
+		依照构造, $i' \in \mathsf{TCofib}$ 且 $p' \in \mathsf{TFib}$, 记 $w' = p' \circ i'$. 依照\Cref{thm:homotopy-pullback-5}, 合成所得的方块也是同伦的推出拉回方块.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:weq-deflation-pushout}
+	对偶地, 任给定去向相同的弱等价 $w$ 与 deflation $p$, 则能够构造同伦的推出拉回方块使得 $p'$ 是 deflation, 且 $w'$ 是弱等价.
+\end{proposition}
+
+\begin{theorem}
+	给定外三角范畴与相容闭模型结构, 任取 $(\alpha, \beta, \gamma)$ 是 conflation 间的态射. 若某两者属于 $\mathsf{Weq}$, 不妨取作 $\alpha$ 和 $\beta$, 则存在 $\widetilde {\gamma} \in \mathsf{Weq}$ 使得 $(\alpha, \beta, \widetilde{\gamma})$ 也是 conflation 间的态射.
+	\begin{proof}
+		下仅证明其中两种情形, 余下一种情形的证明对偶.
+		\\
+		(情形 $1$). 假定 $\alpha, \gamma \in \mathsf{Weq}$. 作同伦的推出拉回方块 $\star$ 使得, 并依照 ET2 取同构 $\varphi$:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTYsWzAsMCwiQSJdLFsyLDAsIkIiXSxbNCwwLCJDIl0sWzQsMSwiQyJdLFswLDEsIkEnIl0sWzIsMSwiRSJdLFswLDMsIkEnIl0sWzIsMywiQiciXSxbNCwzLCJDJyJdLFs0LDIsIkMiXSxbMCwyLCJBJyJdLFsyLDIsIkYiXSxbNSwwLCJcXCwiXSxbNSwxLCJcXCwiXSxbNSwyLCJcXCwiXSxbNSwzLCJcXCwiXSxbMCwxLCJpIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsInAiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiwzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDQsIlxcYWxwaGEiXSxbNCw1LCJqIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCJxIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs2LDcsImknIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs3LDgsInAnIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEsNSwiXFxhbHBoYSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwxMCwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTEsNywiXFxnYW1tYSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbOSw4LCJcXGdhbW1hIl0sWzMsOSwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsMTEsImonIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMTEsOSwicSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzUsMTEsIlxcdmFycGhpICIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDEyLCJcXGRlbHRhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsMTMsIlxcYWxwaGFfXFxhc3QgXFxkZWx0YSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs5LDE0LCJcXGdhbW1hXlxcYXN0IFxcZGVsdGEnIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzgsMTUsIlxcZGVsdGEnIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsNSwiXFxzdGFyIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzExLDgsIlxcc3RhciIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxMCw2LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDQsIlxcbWF0aHNme1dlcX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw1LCJcXG1hdGhzZntXZXF9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzExLDcsIlxcbWF0aHNme1dlcX0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbOSw4LCJcXG1hdGhzZntXZXF9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzUsMTEsIlxcY29uZyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\begin{tikzcd}
+	A && B && C & {\,} \\
+	{A'} && E && C & {\,} \\
+	{A'} && F && C & {\,} \\
+	{A'} && {B'} && {C'} & {\,}
+	\arrow["i", tail, from=1-1, to=1-3]
+	\arrow["\alpha", from=1-1, to=2-1]
+	\arrow["{\mathsf{Weq}}"', draw=none, from=1-1, to=2-1]
+	\arrow["\star"{description}, draw=none, from=1-1, to=2-3]
+	\arrow["p", two heads, from=1-3, to=1-5]
+	\arrow["{\alpha'}", dashed, from=1-3, to=2-3]
+	\arrow["{\mathsf{Weq}}"', draw=none, from=1-3, to=2-3]
+	\arrow["\delta", dashed, from=1-5, to=1-6]
+	\arrow[equals, from=1-5, to=2-5]
+	\arrow["j", dashed, tail, from=2-1, to=2-3]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow["q", dashed, two heads, from=2-3, to=2-5]
+	\arrow["{\varphi }", dashed, from=2-3, to=3-3]
+	\arrow["\cong"', draw=none, from=2-3, to=3-3]
+	\arrow["{\alpha_\ast \delta}", dashed, from=2-5, to=2-6]
+	\arrow[equals, from=2-5, to=3-5]
+	\arrow["{j'}", dashed, tail, from=3-1, to=3-3]
+	\arrow[equals, from=3-1, to=4-1]
+	\arrow["{q'}", dashed, two heads, from=3-3, to=3-5]
+	\arrow["{\gamma'}", dashed, from=3-3, to=4-3]
+	\arrow["{\mathsf{Weq}}"', draw=none, from=3-3, to=4-3]
+	\arrow["\star"{description}, draw=none, from=3-3, to=4-5]
+	\arrow["{\gamma^\ast \delta'}", dashed, from=3-5, to=3-6]
+	\arrow["\gamma", from=3-5, to=4-5]
+	\arrow["{\mathsf{Weq}}"', draw=none, from=3-5, to=4-5]
+	\arrow["{i'}", tail, from=4-1, to=4-3]
+	\arrow["{p'}", two heads, from=4-3, to=4-5]
+	\arrow["{\delta'}", dashed, from=4-5, to=4-6]
+\end{tikzcd}.
+		\end{equation}
+		此时, $\widetilde \beta := \gamma' \circ \varphi \alpha'$ 即为所求.
+		\\
+		(情形 $2$). 假定 $\alpha, \beta \in \mathsf{Weq}$. 先对 $(i, \alpha)$ 作同伦的推出拉回方块, 得弱等价 $\alpha'$. $\beta$ 经 $\alpha'$ 分解所得的 $\beta'$ 也是弱等价 (CM1). 取合适的 $\gamma$ 使得右下方也是同伦的推出拉回方块 (\Cref{thm:homotopy-pullback-2-dual}):
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTIsWzAsMCwiQSJdLFsyLDAsIkIiXSxbNCwwLCJDIl0sWzQsMSwiQyJdLFswLDEsIkEnIl0sWzIsMSwiRSJdLFswLDIsIkEnIl0sWzIsMiwiQiciXSxbNCwyLCJDJyJdLFs1LDAsIlxcLCJdLFs1LDEsIlxcLCJdLFs1LDIsIlxcLCJdLFswLDEsImkiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwicCIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDMsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsNCwiXFxhbHBoYSIsMCx7ImNvbG91ciI6WzIyNiwxMDAsNjBdfSxbMjI2LDEwMCw2MCwxXV0sWzQsNSwiaiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsMywicSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNiw3LCJpJyIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNyw4LCJwJyIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDksIlxcZGVsdGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMywxMCwiXFxhbHBoYV9cXGFzdCBcXGRlbHRhID0gXFxnYW1tYV5cXGFzdCBcXGRlbHRhJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs4LDExLCJcXGRlbHRhJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFswLDUsIlxcc3RhciIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDgsIlxcZ2FtbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCw2LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs1LDcsIlxcYmV0YSciLDAseyJjb2xvdXIiOlsyMjYsMTAwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fSxbMjI2LDEwMCw2MCwxXV0sWzUsOCwiXFxzdGFyIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNywiXFxiZXRhIiwwLHsibGFiZWxfcG9zaXRpb24iOjIwLCJvZmZzZXQiOi0yLCJjdXJ2ZSI6LTMsImNvbG91ciI6WzIyNiwxMDAsNjBdfSxbMjI2LDEwMCw2MCwxXV0sWzEsNSwiXFxhbHBoYSciLDAseyJjb2xvdXIiOlsyMjYsMTAwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fSxbMjI2LDEwMCw2MCwxXV1d
+\begin{tikzcd}
+	A && B && C & {\,} \\
+	{A'} && E && C & {\,} \\
+	{A'} && {B'} && {C'} & {\,}
+	\arrow["i", tail, from=1-1, to=1-3]
+	\arrow["\alpha", color={rgb,255:red,51;green,99;blue,255}, from=1-1, to=2-1]
+	\arrow["\star"{description}, draw=none, from=1-1, to=2-3]
+	\arrow["p", two heads, from=1-3, to=1-5]
+	\arrow["{\alpha'}", color={rgb,255:red,51;green,99;blue,255}, dashed, from=1-3, to=2-3]
+	\arrow["\beta"{pos=0.2}, shift left=2, color={rgb,255:red,51;green,99;blue,255}, curve={height=-18pt}, from=1-3, to=3-3]
+	\arrow["\delta", dashed, from=1-5, to=1-6]
+	\arrow[equals, from=1-5, to=2-5]
+	\arrow["j", dashed, tail, from=2-1, to=2-3]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow["q", dashed, two heads, from=2-3, to=2-5]
+	\arrow["{\beta'}", color={rgb,255:red,51;green,99;blue,255}, dashed, from=2-3, to=3-3]
+	\arrow["\star"{description}, draw=none, from=2-3, to=3-5]
+	\arrow["{\alpha_\ast \delta = \gamma^\ast \delta'}", dashed, from=2-5, to=2-6]
+	\arrow["\gamma", dashed, from=2-5, to=3-5]
+	\arrow["{i'}", tail, from=3-1, to=3-3]
+	\arrow["{p'}", two heads, from=3-3, to=3-5]
+	\arrow["{\delta'}", dashed, from=3-5, to=3-6]
+\end{tikzcd}.
+		\end{equation}
+		将 $\gamma$ 拆解作 $\gamma_f \circ \gamma_c \mathsf{TFib} \circ \mathsf{Cofib}$, 由\Cref{prop:weq-deflation-pushout} 作两次同伦推出拉回:
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsMTIsWzQsMCwiQyJdLFswLDAsIkEnIl0sWzIsMCwiRSJdLFswLDIsIkEnIl0sWzIsMiwiQiciXSxbNCwyLCJDJyJdLFs1LDAsIlxcLCJdLFs1LDIsIlxcLCJdLFs0LDEsIlxcd2lkZXRpbGRlIEMiXSxbMiwxLCJcXHdpZGV0aWxkZSBDIl0sWzAsMSwiQSciXSxbNSwxLCJcXCwiXSxbMSwyLCJqIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwwLCJxIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFszLDQsImknIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs0LDUsInAnIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsNiwiXFxnYW1tYV5cXGFzdCBcXGRlbHRhJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs1LDcsIlxcZGVsdGEnIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsNSwiXFxnYW1tYSIsMix7ImxhYmVsX3Bvc2l0aW9uIjo3MCwib2Zmc2V0IjoxLCJjdXJ2ZSI6M31dLFsyLDQsIlxcYmV0YSciLDIseyJsYWJlbF9wb3NpdGlvbiI6NzAsIm9mZnNldCI6MSwiY3VydmUiOjMsImNvbG91ciI6WzIyNiwxMDAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19LFsyMjYsMTAwLDYwLDFdXSxbMiw4LCJcXHN0YXIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbOCw1LCJcXGdhbW1hX2MiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzAsOCwiXFxnYW1tYV97dGZ9IiwwLHsiY29sb3VyIjpbMjI2LDEwMCw2MF0sInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX0sWzIyNiwxMDAsNjAsMV1dLFs5LDQsIlxcZ2FtbWFfYyciLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs5LDgsInAnJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiw5LCJcXGdhbW1hX3t0Zn0nIiwwLHsiY29sb3VyIjpbMjI2LDEwMCw2MF0sInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19LFsyMjYsMTAwLDYwLDFdXSxbMSwxMCwiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsMywiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTAsOSwiaScnIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbOCwxMSwiKFxcZ2FtbWFfYyleXFxhc3QgXFxkZWx0YSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}
+	{A'} && E && C & {\,} \\
+	{A'} && {\widetilde C} && {\widetilde C} & {\,} \\
+	{A'} && {B'} && {C'} & {\,}
+	\arrow["j", dashed, tail, from=1-1, to=1-3]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow["q", dashed, two heads, from=1-3, to=1-5]
+	\arrow["{\gamma_{tf}'}", color={rgb,255:red,51;green,99;blue,255}, dashed, two heads, from=1-3, to=2-3]
+	\arrow["\star"{description}, draw=none, from=1-3, to=2-5]
+	\arrow["{\beta'}"'{pos=0.7}, shift right, color={rgb,255:red,51;green,99;blue,255}, curve={height=18pt}, dashed, from=1-3, to=3-3]
+	\arrow["{\gamma^\ast \delta'}", dashed, from=1-5, to=1-6]
+	\arrow["{\gamma_{tf}}", color={rgb,255:red,51;green,99;blue,255}, two heads, from=1-5, to=2-5]
+	\arrow["\gamma"'{pos=0.7}, shift right, curve={height=18pt}, from=1-5, to=3-5]
+	\arrow["{i''}", dashed, tail, from=2-1, to=2-3]
+	\arrow[equals, from=2-1, to=3-1]
+	\arrow["{p''}", dashed, two heads, from=2-3, to=2-5]
+	\arrow["{\gamma_c'}", dashed, tail, from=2-3, to=3-3]
+	\arrow["{(\gamma_c)^\ast \delta'}", dashed, from=2-5, to=2-6]
+	\arrow["{\gamma_c}", tail, from=2-5, to=3-5]
+	\arrow["{i'}", tail, from=3-1, to=3-3]
+	\arrow["{p'}", two heads, from=3-3, to=3-5]
+	\arrow["{\delta'}", dashed, from=3-5, to=3-6]
+\end{tikzcd}.
+		\end{equation}
+		由 CM1, $\gamma_c' \in \mathsf{Weq}$, 因此 $\gamma_c' \in \mathsf{TCofib}$. 由 ET4 与相容闭模型结构的定义, 得 $\gamma_c \in \mathsf{TCofib}$. 再由 CM1, 复合所得的 $\gamma$ 也是弱等价.
+	\end{proof}
+\end{theorem}
+
+\subsection{Hovey 孪生余挠对 \texorpdfstring{$\to$}{} 相容闭模型结构}\label{sec:hovey-to-model}
+
+今选定 Hovey 孪生余挠对 $(\mathcal{S}, \mathcal{T}; \mathcal{U}, \mathcal{V})$, 这组资料确定了 (\Cref{def:compatible-model-structure}) 四组态射 $(\mathsf{Cofib},\mathsf{TFib},\mathsf{Fib}\mathsf{TCofib})$, 以及复合所得的 $\mathsf{Weq} := \mathsf{TFib} \circ \mathsf{TCofib}$. 我们希望这是相容闭模型结构.
+
+\begin{remark}
+	通常地, 假定范畴的对象与态射存在某类``相容''的性质. 若态射的性质被形变收缩保持, 则对象的性质也被形变收缩保持; 反之未必. 例如, 在证明相同闭模型结构诱导 Hovey 孪生余挠对时, 可以轻易证明四个对象类关于形变收缩封闭; 反之, 若通过 Hovey 孪生余挠对推导相同闭模型结构时, 我们甚至难以断言恒等态射的形变收缩未必是 deflation.
+\end{remark}
+
+以下假定外三角范畴 $\mathcal{A}$ 是弱幂等完备的, 具体性质见\Cref{thm:ext-tri-weakly-idempotent-complete}. 同时, 可以使用九引理 (\Cref{thm:ext-tri-3x3-lemma}). 
+
+\begin{proposition}\label{prop:cm3-hovey}
+	CM3 成立, 即, $\mathsf{Cofib} \pitchfork \mathsf{TFib}$ 且 $\mathsf{TCofib} \pitchfork \mathsf{Fib}$.
+	\begin{proof}
+		依照\Cref{thm:ext-lifting} 得提升态射.
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:cm4-hovey}
+	CM4 成立, 即, 任意态射能分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$ 与 $\mathsf{Fib} \circ \mathsf{TCofib}$.
+	\begin{proof}
+		下证明任意态射 $f : X \to Y$ 分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$, 另一分解对偶. 取 inflation $i : X \rightarrowtail X_V$, \Cref{cor:inf-def-ex} 表明 $\binom{i}{f} : X \oplus X_V \oplus Y$ 也是 inflation. 依照\Cref{thm:bi-pullback} 构造下图
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTEsWzEsMiwiWCJdLFsxLDEsIlgiXSxbMiwyLCJYX1YgXFxvcGx1cyBZIl0sWzMsMiwiWiJdLFszLDEsIlpeVSJdLFszLDAsIlpeViJdLFsyLDAsIlpeViJdLFsyLDEsIkUiXSxbMSwzLCJZIl0sWzQsMiwiXFwsIl0sWzAsMiwiXFwsIl0sWzAsMiwiXFxiaW5vbSBpZiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwzLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNSw0LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzYsNSwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSwwLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxLDcsIlxcbWF0aHNme0NvZmlifSIsMCx7ImNvbG91ciI6WzIzNywxMDAsNjBdLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX0sWzIzNywxMDAsNjAsMV1dLFs3LDQsIiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9LCJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNiw3LCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn0sImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDgsIigwIFxcIDEpIFxcIChcXGluXFxtYXRoc2Z7VEZpYn0pIiwwLHsibGFiZWxfcG9zaXRpb24iOjAsImNvbG91ciI6WzAsMTAwLDYwXSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fSxbMCwxMDAsNjAsMV1dLFs3LDIsIlxcbWF0aHNme1RGaWJ9IiwwLHsiY29sb3VyIjpbMCwxMDAsNjBdLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fSxbMCwxMDAsNjAsMV1dLFswLDgsImYiLDJdXQ==
+\begin{tikzcd}
+	&& {Z^V} & {Z^V} \\
+	& X & E & {Z^U} \\
+	{\,} & X & {X_V \oplus Y} & Z & {\,} \\
+	& Y
+	\arrow[equals, from=1-3, to=1-4]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow[tail, from=1-4, to=2-4]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,51;green,61;blue,255}, dashed, tail, from=2-2, to=2-3]
+	\arrow[equals, from=2-2, to=3-2]
+	\arrow[dashed, two heads, from=2-3, to=2-4]
+	\arrow["{\mathsf{TFib}}", color={rgb,255:red,255;green,51;blue,51}, dashed, two heads, from=2-3, to=3-3]
+	\arrow[two heads, from=2-4, to=3-4]
+	\arrow["{\binom if}", tail, from=3-2, to=3-3]
+	\arrow["f"', from=3-2, to=4-2]
+	\arrow[two heads, from=3-3, to=3-4]
+	\arrow["{(0 \ 1) \ (\in\mathsf{TFib})}", color={rgb,255:red,255;green,51;blue,51}, dashed, from=3-3, to=4-2]
+\end{tikzcd}.
+		\end{equation}
+		复合态射 $X \rightarrowtail E \twoheadrightarrow X_V \oplus Y \twoheadrightarrow Y$ 即 $f$.
+	\end{proof}
+\end{proposition}
+
+CM1 与 CM2 的证明需要一些准备工作.
+
+\begin{lemma}
+	选定任意态射类 $\mathfrak S \in \{\mathsf{Cofib}, \mathsf{TCofib},\mathsf{Fib},\mathsf{TFib}\}$. $\mathfrak S$ 对合成封闭.
+	\begin{proof}
+		以 $\mathfrak S = \mathsf{Cofib}$ 为例, 剩余命题的证明类似. 记 $i, i' \in \mathsf{Cofib}$, 其中 $i \circ i'$ 可复合. 由 ET4 构造下图
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXGNkb3QiXSxbMSwwLCJcXGNkb3QiXSxbMiwwLCJVJyJdLFsyLDEsIlciXSxbMiwyLCJVIl0sWzEsMSwiXFxjZG90Il0sWzEsMiwiVSJdLFswLDEsIlxcY2RvdCJdLFswLDEsImknIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzMsNCwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDUsImkiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzUsNiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsNywiIiwyLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbNyw1LCJpXFxjaXJjIGknIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSwzLCIiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzYsNCwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& {U'} \\
+	\cdot \& \cdot \& W \\
+	\& U \& U
+	\arrow["{i'}", tail, from=1-1, to=1-2]
+	\arrow[equals, from=1-1, to=2-1]
+	\arrow[two heads, from=1-2, to=1-3]
+	\arrow["i", tail, from=1-2, to=2-2]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow["{i\circ i'}"', dashed, tail, from=2-1, to=2-2]
+	\arrow[dashed, two heads, from=2-2, to=2-3]
+	\arrow[two heads, from=2-2, to=3-2]
+	\arrow[dashed, two heads, from=2-3, to=3-3]
+	\arrow[equals, from=3-2, to=3-3]
+\end{tikzcd}.
+		\end{equation}
+		依照定义, $U, U' \in \mathcal{U}$. 从而 $W \in \mathcal{U}\ast \mathcal{U} = \mathcal{U}$. 依照定义, $i \circ i' \in \mathsf{Cofib}$.
+	\end{proof}
+\end{lemma}
+
+\begin{lemma}\label{lem:weq-composition}
+	$\mathsf{Weq}$ 对合成封闭.
+	\begin{proof}
+		弱等价必然形如 $\mathsf{TFib} \circ \mathsf{TCofib}$. 为证明两个弱等价的合成仍是弱等价, 只需证明 $\mathsf{TCofib} \circ \mathsf{TFib} \subseteq \mathsf{Weq}$. 今取定复合态射 $ip$, 其中 $i \in \mathsf{TCofib}$ 与 $p \in \mathsf{TFib}$. 按照 CM4 (\Cref{prop:cm4-hovey}) 将 $ip$ 分解作 $\mathsf{Fib} \circ \mathsf{TCofib}$, 依照\Cref{thm:ext-tri-3x3-lemma} 作交换图
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTEsWzMsMCwiXFxjZG90Il0sWzQsMCwiXFxjZG90Il0sWzQsMSwiXFxjZG90Il0sWzMsMSwiXFxjZG90Il0sWzIsMCwiViJdLFsyLDEsIlQiXSxbMywyLCJTXzEiXSxbNCwyLCJTXzIiXSxbMiwyLCJMIl0sWzAsMSwiXFwsIl0sWzYsMSwiXFwsIl0sWzAsMSwiXFxtYXRoc2Z7VEZpYn0iLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMSwyLCJcXG1hdGhzZntUQ29maWJ9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDMsIlxcbWF0aHNme1RDb2ZpYn0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsMiwiXFxtYXRoc2Z7RmlifSIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs0LDAsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNSwzLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzMsNiwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsNywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzgsNiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiw3LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzQsNSwiIiwxLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw4LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwicCIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxLDIsImkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMCwzLCJqIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsMiwiZiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\begin{tikzcd}
+	&& V & \cdot & \cdot \\
+	{\,} && T & \cdot & \cdot && {\,} \\
+	&& L & {S_1} & {S_2}
+	\arrow[tail, from=1-3, to=1-4]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow["{\mathsf{TFib}}", two heads, from=1-4, to=1-5]
+	\arrow["p"', draw=none, from=1-4, to=1-5]
+	\arrow["{\mathsf{TCofib}}"', tail, from=1-4, to=2-4]
+	\arrow["j", draw=none, from=1-4, to=2-4]
+	\arrow["{\mathsf{TCofib}}", tail, from=1-5, to=2-5]
+	\arrow["i"', draw=none, from=1-5, to=2-5]
+	\arrow[tail, from=2-3, to=2-4]
+	\arrow[dashed, two heads, from=2-3, to=3-3]
+	\arrow["{\mathsf{Fib}}"', two heads, from=2-4, to=2-5]
+	\arrow["f", draw=none, from=2-4, to=2-5]
+	\arrow[two heads, from=2-4, to=3-4]
+	\arrow[two heads, from=2-5, to=3-5]
+	\arrow[dashed, tail, from=3-3, to=3-4]
+	\arrow[dashed, two heads, from=3-4, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		由 $\mathcal{S}, \mathcal{V} \subseteq \mathcal{N}$, 以及 $\mathcal{N}$ 是厚子范畴 (\Cref{thm:hovey-triangle}), 得 $T \in \mathcal{N} \cap \mathcal{T} = \mathcal{V}$ (\Cref{eq:hovey-triangle-1}).
+	\end{proof}
+\end{lemma}
+
+\begin{proposition}\label{prop:cm1-hovey}
+	CM1 成立, 即, 对任意复合态射 $g \circ f$, 若 $(f,g,gf)$ 中其中两者属于 $\mathsf{Weq}$, 则第三者亦属于 $\mathsf{Weq}$.
+	\begin{proof}
+		\Cref{lem:weq-composition} 说明 $\mathsf{Weq}$ 对合成封闭. 下证明, 若 $g$ 与 $gf$ 属于 $\mathsf{Weq}$, 则 $f$ 亦属于 $\mathsf{Weq}$. 另一对偶命题的表述与证明从略.
+		\\
+		依照 CM4 (\Cref{prop:cm4-hovey}), 将 $f$ 分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$. 将弱等价 $g f$ 与 $f$ 分解作 $\mathsf{TFib} \circ \mathsf{TCofib}$, 整合得到下图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsOCxbMSwwLCJBIl0sWzMsMCwiWCJdLFs1LDAsIkIiXSxbNSwxLCJZIl0sWzUsMiwiQyJdLFsxLDIsIkgiXSxbMCwxLCJcXCwiXSxbNiwxLCJcXCwiXSxbMCw1LCJcXG1hdGhzZntUQ29maWJ9IiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs1LDQsIlxcbWF0aHNme1RGaWJ9IiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzAsMSwiXFxtYXRoc2Z7Q29maWJ9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcbWF0aHNme1RGaWJ9IiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsMywiXFxtYXRoc2Z7VENvZmlifSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMyw0LCJcXG1hdGhzZntURmlifSIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDIsImYiLDIseyJjdXJ2ZSI6NH1dLFsyLDQsImciLDIseyJjdXJ2ZSI6M31dLFswLDQsImdmIiwyLHsiY3VydmUiOjN9XV0=
+\begin{tikzcd}
+	& A && X && B \\
+	{\,} &&&&& Y & {\,} \\
+	& H &&&& C
+	\arrow["{\mathsf{Cofib}}", tail, from=1-2, to=1-4]
+	\arrow["f"', curve={height=24pt}, from=1-2, to=1-6]
+	\arrow["{\mathsf{TCofib}}"', tail, from=1-2, to=3-2]
+	\arrow["gf"', curve={height=18pt}, from=1-2, to=3-6]
+	\arrow["{\mathsf{TFib}}", two heads, from=1-4, to=1-6]
+	\arrow["{\mathsf{TCofib}}", tail, from=1-6, to=2-6]
+	\arrow["g"', curve={height=18pt}, from=1-6, to=3-6]
+	\arrow["{\mathsf{TFib}}", two heads, from=2-6, to=3-6]
+	\arrow["{\mathsf{TFib}}"', two heads, from=3-2, to=3-6]
+\end{tikzcd}.
+		\end{equation}
+		往证上图中的 $A \rightarrowtail X$ 是 $\mathsf{TCofib}$ 即可. 将复合所得的弱等价 $X \twoheadrightarrow B \rightarrowtail Y \twoheadrightarrow C$ 分解作 $\mathsf{TFib} \circ \mathsf{TCofib}$, 得下图中``五边形的黑色外框''所示交换图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsNyxbMCwxLCJBIl0sWzIsMCwiWCJdLFs0LDEsIk0iXSxbNCwzLCJDIl0sWzAsMywiSCJdLFsxLDIsIkUiLFsyMzgsMTAwLDYwLDFdXSxbMywyLCJGIixbMzU4LDEwMCw2MCwxXV0sWzAsNCwiXFxtYXRoc2Z7VENvZmlifSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNCwzLCJcXG1hdGhzZntURmlifSIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDEsIlxcbWF0aHNme0NvZmlifSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzLCJcXG1hdGhzZntURmlifSIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDIsIlxcbWF0aHNme1RDb2ZpYn0iLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsNSwiXFxtYXRoc2Z7Q29maWJ9IiwwLHsiY29sb3VyIjpbMjM4LDEwMCw2MF0sInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19LFsyMzgsMTAwLDYwLDFdXSxbNSw0LCJcXG1hdGhzZntURmlifSIsMCx7ImNvbG91ciI6WzIzOCwxMDAsNjBdLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19LFsyMzgsMTAwLDYwLDFdXSxbMCw1LCJcXG1hdGhzZntDb2ZpYn0iLDAseyJjb2xvdXIiOlsyMzgsMTAwLDYwXSwic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX0sWzIzOCwxMDAsNjAsMV1dLFs1LDYsIlxcbWF0aHNme0NvZmlifSIsMCx7ImNvbG91ciI6WzM1OCwxMDAsNjBdLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fSxbMzU4LDEwMCw2MCwxXV0sWzYsMiwiXFxtYXRoc2Z7VEZpYn0iLDAseyJjb2xvdXIiOlszNTgsMTAwLDYwXSwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fSxbMzU4LDEwMCw2MCwxXV0sWzEsNiwiXFxtYXRoc2Z7Q29maWJ9IiwwLHsiY29sb3VyIjpbMzU4LDEwMCw2MF0sInN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19LFszNTgsMTAwLDYwLDFdXSxbMCw1LCJ7XzF9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzUsNiwie18yfSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFsxLDYsIntfM30iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw1LCJ7XzR9IiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzAsMSwie181fSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\begin{tikzcd}
+	&& X \\
+	A &&&& M \\
+	& \textcolor{rgb,255:red,51;green,58;blue,255}{E} && \textcolor{rgb,255:red,255;green,51;blue,58}{F} \\
+	H &&&& C
+	\arrow["{\mathsf{TCofib}}", tail, from=1-3, to=2-5]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,51;green,58;blue,255}, tail, from=1-3, to=3-2]
+	\arrow["{{_4}}"', draw=none, from=1-3, to=3-2]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,255;green,51;blue,58}, tail, from=1-3, to=3-4]
+	\arrow["{{_3}}"', draw=none, from=1-3, to=3-4]
+	\arrow["{\mathsf{Cofib}}", tail, from=2-1, to=1-3]
+	\arrow["{{_5}}"', draw=none, from=2-1, to=1-3]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,51;green,58;blue,255}, tail, from=2-1, to=3-2]
+	\arrow["{{_1}}"', draw=none, from=2-1, to=3-2]
+	\arrow["{\mathsf{TCofib}}"', tail, from=2-1, to=4-1]
+	\arrow["{\mathsf{TFib}}", two heads, from=2-5, to=4-5]
+	\arrow["{\mathsf{Cofib}}", color={rgb,255:red,255;green,51;blue,58}, tail, from=3-2, to=3-4]
+	\arrow["{{_2}}"', draw=none, from=3-2, to=3-4]
+	\arrow["{\mathsf{TFib}}", color={rgb,255:red,51;green,58;blue,255}, two heads, from=3-2, to=4-1]
+	\arrow["{\mathsf{TFib}}", color={rgb,255:red,255;green,51;blue,58}, two heads, from=3-4, to=2-5]
+	\arrow["{\mathsf{TFib}}"', two heads, from=4-1, to=4-5]
+\end{tikzcd}
+		\end{equation}
+		上图内部染色箭头解释如下:
+		\begin{enumerate}
+			\item (蓝色箭头). 依照\Cref{prop:cm3-hovey} 作提升态射 $X \to H$, 并将之分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$, 再取复合态射 $A \to E$, 得上图的蓝色部分. 蓝色箭头即 $A \rightarrowtail E$, $X \rightarrowtail E$ 与 $E \twoheadrightarrow X$.
+			\item (红色箭头). 依照\Cref{prop:cm3-hovey} 作提升态射 $E \to M$, 并将之分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$, 再取复合态射 $X \to F$, 得上图的红色部分. 红色箭头即 $X \rightarrowtail F$, $E \rightarrowtail F$ 与 $F \twoheadrightarrow M$.
+		\end{enumerate}
+		往后依照指标 $\{n\}_{n=1}^5$ 所示的顺序, 依次证明各箭头是弱等价. 即证,
+		\begin{enumerate}
+			\item[1, 3] 若 $(f,g,gf) \in (\mathsf{Cofib}, \mathsf{TFib}, \mathsf{TCofib})$, 则 $f \in \mathsf{TCofib}$.
+			\item[2] 若 $(f,g,gf) \in (\mathsf{Cofib}, \mathsf{TFib}, \mathsf{TFib})$, 则 $f \in \mathsf{TCofib}$.
+			\item[4, 5] 若 $(f,g,gf) \in (\mathsf{Cofib}, \mathsf{TCofib}, \mathsf{TCofib})$, 则 $f \in \mathsf{TCofib}$.
+		\end{enumerate}
+		先证明 (1, 3). 由\Cref{thm:bi-PBPO-variant} 构造 conflation 的交换图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsOCxbMCwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMSwyLCJcXGNkb3QiXSxbMCwyLCJcXGNkb3QiXSxbMiwxLCJVIl0sWzIsMiwiUyJdLFsxLDAsIlYiXSxbMiwwLCJWIl0sWzAsMSwiXFxtYXRoc2Z7Q29maWJ9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxLDIsIlxcbWF0aHNme1RGaWJ9IiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzMsMiwiXFxtYXRoc2Z7VENvZmlifSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMywwLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs2LDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiw1LCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNiw3LCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs3LDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzQsNSwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn0sImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsxLDQsIiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	\& V \& V \\
+	\cdot \& \cdot \& U \\
+	\cdot \& \cdot \& S
+	\arrow[equals, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[dashed, tail, from=1-3, to=2-3]
+	\arrow["{\mathsf{Cofib}}", tail, from=2-1, to=2-2]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow["{\mathsf{TFib}}", two heads, from=2-2, to=3-2]
+	\arrow[dashed, two heads, from=2-3, to=3-3]
+	\arrow[equals, from=3-1, to=2-1]
+	\arrow["{\mathsf{TCofib}}", tail, from=3-1, to=3-2]
+	\arrow[two heads, from=3-2, to=3-3]
+\end{tikzcd}.
+		\end{equation}
+		由\Cref{thm:hovey-triangle} 与\Cref{eq:hovey-triangle-1} 得 $U \in \mathcal{U} \cap \mathcal{N} = \mathcal{S}$. 从而上图中的 $\mathsf{Cofib}$ 是 $\mathsf{TCofib}$.
+		\\
+		(2) 与 (4, 5) 的证明是类似的. 只需证明以下左, 右两图中 $U \in \mathcal{N}$ 即可:
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsMTYsWzMsMCwiXFxjZG90Il0sWzQsMCwiXFxjZG90Il0sWzQsMSwiXFxjZG90Il0sWzMsMSwiXFxjZG90Il0sWzUsMCwiVSJdLFs1LDEsIlMiXSxbNSwyLCJTJyJdLFs0LDIsIlMnIl0sWzAsMCwiViciXSxbMSwwLCJWIl0sWzIsMCwiVSJdLFsyLDEsIlUiXSxbMCwxLCJcXGNkb3QiXSxbMSwxLCJcXGNkb3QiXSxbMCwyLCJcXGNkb3QiXSxbMSwyLCJcXGNkb3QiXSxbMCwxLCJcXG1hdGhzZntDb2ZpYn0iLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwiXFxtYXRoc2Z7VENvZmlifSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMCwzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDIsIlxcbWF0aHNme1RDb2ZpYn0iLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsNCwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzQsNSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9LCJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNSw2LCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsNSwiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzIsNywiIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzcsNiwiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMTQsMTUsIiIsMCx7ImxldmVsIjoyLCJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEwLDExLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFs4LDksIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifSwiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzksMTMsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbOCwxMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsxMiwxMywiXFxtYXRoc2Z7Q29maWJ9IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs5LDEwLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifSwiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEzLDExLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMTIsMTQsIlxcbWF0aHNme1RGaWJ9IiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzEzLDE1LCJcXG1hdGhzZntURmlifSIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dXQ==
+\begin{tikzcd}[ampersand replacement=\&]
+	{V'} \& V \& U \& \cdot \& \cdot \& U \\
+	\cdot \& \cdot \& U \& \cdot \& \cdot \& S \\
+	\cdot \& \cdot \&\&\& {S'} \& {S'}
+	\arrow[dashed, tail, from=1-1, to=1-2]
+	\arrow[tail, from=1-1, to=2-1]
+	\arrow[dashed, two heads, from=1-2, to=1-3]
+	\arrow[tail, from=1-2, to=2-2]
+	\arrow[equals, from=1-3, to=2-3]
+	\arrow["{\mathsf{Cofib}}", tail, from=1-4, to=1-5]
+	\arrow[equals, from=1-4, to=2-4]
+	\arrow[two heads, from=1-5, to=1-6]
+	\arrow["{\mathsf{TCofib}}", tail, from=1-5, to=2-5]
+	\arrow[dashed, tail, from=1-6, to=2-6]
+	\arrow["{\mathsf{Cofib}}", tail, from=2-1, to=2-2]
+	\arrow["{\mathsf{TFib}}", two heads, from=2-1, to=3-1]
+	\arrow[two heads, from=2-2, to=2-3]
+	\arrow["{\mathsf{TFib}}", two heads, from=2-2, to=3-2]
+	\arrow["{\mathsf{TCofib}}", tail, from=2-4, to=2-5]
+	\arrow[two heads, from=2-5, to=2-6]
+	\arrow[two heads, from=2-5, to=3-5]
+	\arrow[dashed, two heads, from=2-6, to=3-6]
+	\arrow[equals, from=3-1, to=3-2]
+	\arrow[equals, from=3-5, to=3-6]
+\end{tikzcd}.
+		\end{equation}
+	\end{proof}
+\end{proposition}
+
+\begin{proposition}\label{prop:weq-deform-retract}
+	CM2 成立, 即, $\mathsf{Cofib}$, $\mathsf{Fib}$ 与 $\mathsf{Weq}$ 对形变收缩封闭.
+	\begin{proof}
+		先证明 $\mathsf{Cofib}$ 对形变收缩封闭. 对 $\mathsf{Fib}$ 的证明是对偶的. 依照弱幂等完备性, $\mathsf{Cofib}$ 的形变收缩仍是 $\mathsf{Cofib}$ (\Cref{thm:ext-tri-weakly-idempotent-complete}). 记 $f \in \mathsf{Cofib}$, 对应扩张元 $\delta$, 其形变收缩是 $f'$, 对应扩张元 $\delta'$. 依照 ET3 构造 conflation 的态射:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsMTIsWzAsMCwiXFxidWxsZXQiXSxbMSwwLCJcXGJ1bGxldCJdLFsyLDAsIlciXSxbMCwxLCJcXGJ1bGxldCJdLFsxLDEsIlxcYnVsbGV0Il0sWzIsMSwiVSJdLFswLDIsIlxcYnVsbGV0Il0sWzEsMiwiXFxidWxsZXQiXSxbMiwyLCJXIl0sWzMsMSwiXFwsIl0sWzMsMCwiXFwsIl0sWzMsMiwiXFwsIl0sWzAsMSwiZiciLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtb25vIn19fV0sWzEsMiwiZyciLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMyw0LCJmIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs0LDUsImciLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNiw3LCJmJyIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNyw4LCJnJyIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFswLDMsImkiXSxbMyw2LCJwIl0sWzEsNCwiaiJdLFs0LDcsInEiXSxbMiw1LCJhIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsOCwiYiIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDEwLCJcXGRlbHRhJyIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs1LDksIlxcZGVsdGEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbOCwxMSwiXFxkZWx0YSciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}[ampersand replacement=\&]
+	\cdot \& \cdot \& W \& {\,} \\
+	\cdot \& \cdot \& U \& {\,} \\
+	\cdot \& \cdot \& W \& {\,}
+	\arrow["{f'}", tail, from=1-1, to=1-2]
+	\arrow["i", from=1-1, to=2-1]
+	\arrow["{g'}", two heads, from=1-2, to=1-3]
+	\arrow["j", from=1-2, to=2-2]
+	\arrow["{\delta'}", dashed, from=1-3, to=1-4]
+	\arrow["a", dashed, from=1-3, to=2-3]
+	\arrow["f", tail, from=2-1, to=2-2]
+	\arrow["p", from=2-1, to=3-1]
+	\arrow["g", two heads, from=2-2, to=2-3]
+	\arrow["q", from=2-2, to=3-2]
+	\arrow["\delta", dashed, from=2-3, to=2-4]
+	\arrow["b", dashed, from=2-3, to=3-3]
+	\arrow["{f'}", tail, from=3-1, to=3-2]
+	\arrow["{g'}", two heads, from=3-2, to=3-3]
+	\arrow["{\delta'}", dashed, from=3-3, to=3-4]
+\end{tikzcd}.
+		\end{equation}
+		由\Cref{thm:ext-tri-2-out-of-3}, $b \circ a$ 是同构, 从而 $W$ 是 $U$ 的形变收缩. 因此 $W \in \mathcal{U}$. 依照定义, $f' \in \mathsf{Cofib}$.
+		\\
+		最后证明 $\mathsf{Weq}$ 对形变收缩封闭. 假定 $g \in \mathsf{Weq}$ 有形变收缩 $g'$, 并将 $g'$ 分解作 $\mathsf{TFib} \circ \mathsf{Cofib}$, 得下图:
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsOCxbMCwwLCJYJyJdLFsyLDAsIlgiXSxbNCwwLCJYJyJdLFswLDEsIlknIl0sWzQsMSwiWSciXSxbNCwyLCJaJyJdLFswLDIsIlonIl0sWzIsMiwiWiJdLFswLDEsImlfWCJdLFsxLDIsInBfWCJdLFswLDMsImEnIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFsyLDQsImEnIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFs2LDcsImlfWiJdLFs3LDUsInBfWiJdLFszLDYsImMnIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzQsNSwiYyciLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMCw2LCJnJyIsMix7Im9mZnNldCI6MiwiY3VydmUiOjJ9XSxbMiw1LCJnJyIsMix7Im9mZnNldCI6MiwiY3VydmUiOjJ9XSxbMSw3LCJnIiwyLHsiY3VydmUiOjJ9XV0=
+\begin{tikzcd}
+	{X'} && X && {X'} \\
+	{Y'} &&&& {Y'} \\
+	{Z'} && Z && {Z'}
+	\arrow["{i_X}", from=1-1, to=1-3]
+	\arrow["{a'}", tail, from=1-1, to=2-1]
+	\arrow["{g'}"', shift right=2, curve={height=12pt}, from=1-1, to=3-1]
+	\arrow["{p_X}", from=1-3, to=1-5]
+	\arrow["g"', curve={height=12pt}, from=1-3, to=3-3]
+	\arrow["{a'}", tail, from=1-5, to=2-5]
+	\arrow["{g'}"', shift right=2, curve={height=12pt}, from=1-5, to=3-5]
+	\arrow["{c'}", two heads, from=2-1, to=3-1]
+	\arrow["{c'}", two heads, from=2-5, to=3-5]
+	\arrow["{i_Z}", from=3-1, to=3-3]
+	\arrow["{p_Z}", from=3-3, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		往证 $a' \in \mathsf{TCofib}$. 由\Cref{thm:homotopy-pullback-1-dual} 构造同伦的推出拉回方块 $\square$:
+		\begin{equation}\label{eq:weq-deform-retract-1}
+			% https://q.uiver.app/#q=WzAsOSxbMCwwLCJYJyJdLFsyLDAsIlgiXSxbNCwwLCJYJyJdLFswLDEsIlknIl0sWzQsMSwiWSciXSxbNCwyLCJaJyJdLFswLDIsIlonIl0sWzIsMiwiWiJdLFsyLDEsIkYiXSxbMCwxLCJpX1giXSxbMSwyLCJwX1giXSxbMCwzLCJhJyIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiw0LCJhJyIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbNiw3LCJpX1oiXSxbNyw1LCJwX1oiXSxbMyw2LCJjJyIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs0LDUsImMnIiwwLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzgsNywiZiIsMCx7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs4LDQsInFfWSJdLFszLDgsImpfWSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsxLDgsInciLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCw4LCJcXGJveHRpbWVzIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzEsNCwiXFxjaXJjbGVhcnJvd3JpZ2h0IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzMsNywiXFxjaXJjbGVhcnJvd3JpZ2h0IiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoibm9uZSJ9LCJoZWFkIjp7Im5hbWUiOiJub25lIn19fV0sWzgsNSwiXFxzcXVhcmUiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw3LCJnIiwyLHsibGFiZWxfcG9zaXRpb24iOjIwLCJvZmZzZXQiOjIsImN1cnZlIjoyfV1d
+\begin{tikzcd}
+	{X'} && X && {X'} \\
+	{Y'} && F && {Y'} \\
+	{Z'} && Z && {Z'}
+	\arrow["{i_X}", from=1-1, to=1-3]
+	\arrow["{a'}", tail, from=1-1, to=2-1]
+	\arrow["\boxtimes"{description}, draw=none, from=1-1, to=2-3]
+	\arrow["{p_X}", from=1-3, to=1-5]
+	\arrow["w", dashed, from=1-3, to=2-3]
+	\arrow["\circlearrowright"{description}, draw=none, from=1-3, to=2-5]
+	\arrow["g"'{pos=0.2}, shift right=2, curve={height=12pt}, from=1-3, to=3-3]
+	\arrow["{a'}", tail, from=1-5, to=2-5]
+	\arrow["{j_Y}", dashed, from=2-1, to=2-3]
+	\arrow["{c'}", two heads, from=2-1, to=3-1]
+	\arrow["\circlearrowright"{description}, draw=none, from=2-1, to=3-3]
+	\arrow["{q_Y}", from=2-3, to=2-5]
+	\arrow["f", two heads, from=2-3, to=3-3]
+	\arrow["\square"{description}, draw=none, from=2-3, to=3-5]
+	\arrow["{c'}", two heads, from=2-5, to=3-5]
+	\arrow["{i_Z}", from=3-1, to=3-3]
+	\arrow["{p_Z}", from=3-3, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		记 conflation $V \overset x \rightarrowtail F \overset f \twoheadrightarrow Z$. \Cref{thm:homotopy-pullback-1-dual} 的构造表明 $f \in \mathsf{TFib}$. 任取两组弱拉回问题的解:
+		\begin{enumerate}
+			\item (态射 $w : X \dashrightarrow F$). 考虑 $X \xrightarrow g Z \xrightarrow {p_Z} Z'$ 与 $X \xrightarrow {p_X} X' \xrightarrow {g'} Z'$;
+			\item (态射 $j_Y: Y' \dashrightarrow F$). 考虑 $Y' \xrightarrow {c'} Z'$ 与 $Y' \xrightarrow {c'} Z' \xrightarrow {i_Z} Z \xrightarrow {p_Z} Z'$.
+		\end{enumerate}
+		上图 $\circlearrowright$ 交换, 但 $\boxtimes$ 未必交换. 取 $\boxtimes$ 的``缺陷'' $(w \circ i_X - j_Y \circ a')$, 则
+		\begin{equation}
+			f \circ (w \circ i_X - j_Y \circ a') = g \circ i_X - i_Z \circ c' \circ a' = 0.
+		\end{equation}
+		由长正合列, 记 $(w \circ i_X - j_Y \circ a') = x \circ \widetilde l$, 以及 $l = \widetilde l \circ p_X$, 如下图所示:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsNyxbMiwwLCJYJyJdLFs0LDAsIlgiXSxbMiwxLCJZJyJdLFs0LDEsIkYiXSxbNSwwLCJWIl0sWzMsMiwiWiJdLFswLDAsIlgiXSxbMCwxLCJpX1giXSxbMCwyLCJhJyIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1vbm8ifX19XSxbMiwzLCJqX1kiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwzLCJ3IiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMywiXFxib3h0aW1lcyIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFszLDUsImYiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCwzLCJ4IiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibW9ubyJ9fX1dLFswLDQsIlxcd2lkZXRpbGRlIHtcXCBsXFwgfSIsMCx7Im9mZnNldCI6LTEsImN1cnZlIjotMSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzYsMCwicF9YIl0sWzYsNCwibCIsMCx7Im9mZnNldCI6LTIsImN1cnZlIjotNH1dXQ==
+\begin{tikzcd}
+	X && {X'} && X & V \\
+	&& {Y'} && F \\
+	&&& Z
+	\arrow["{p_X}", from=1-1, to=1-3]
+	\arrow["l", shift left=2, curve={height=-36pt}, from=1-1, to=1-6]
+	\arrow["{i_X}", from=1-3, to=1-5]
+	\arrow["{\widetilde {\ l\ }}", shift left, curve={height=-12pt}, dashed, from=1-3, to=1-6]
+	\arrow["{a'}", tail, from=1-3, to=2-3]
+	\arrow["\boxtimes"{description}, draw=none, from=1-3, to=2-5]
+	\arrow["w", dashed, from=1-5, to=2-5]
+	\arrow["x", tail, from=1-6, to=2-5]
+	\arrow["{j_Y}", dashed, from=2-3, to=2-5]
+	\arrow["f", two heads, from=2-5, to=3-4]
+\end{tikzcd}.
+		\end{equation}
+		可以发现, $q_Y \circ x \circ l = q_Y \circ (w \circ i_X - j_Y \circ a') \circ p_X = 0$. 此时可验证下图交换:
+		\begin{equation}
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJYJyJdLFswLDEsIlknIl0sWzIsMCwiWCBcXG9wbHVzIFYiXSxbNCwwLCJYJyJdLFs0LDEsIlknIl0sWzIsMSwiRiBcXG9wbHVzIFYiXSxbMCwxLCJhJyIsMl0sWzMsNCwiYSciLDJdLFswLDIsIlxcYmlub20ge2lfWH17bCBcXGNpcmMgaV9YfSJdLFsyLDMsIihwX1hcXCAgXFwgIDApIl0sWzEsNSwiXFxiaW5vbSB7al9ZfTAiXSxbNSw0LCIocV9ZIFxcICBcXCAtcV9ZIFxcY2lyYyB4KSJdLFsyLDUsIlxcYmlub217XFwgXFwgdyBcXCB4fXtcXCAtbCBcXCAxfSIsMl1d
+\begin{tikzcd}
+	{X'} && {X \oplus V} && {X'} \\
+	{Y'} && {F \oplus V} && {Y'}
+	\arrow["{\binom {i_X}{l \circ i_X}}", from=1-1, to=1-3]
+	\arrow["{a'}"', from=1-1, to=2-1]
+	\arrow["{(p_X\  \  0)}", from=1-3, to=1-5]
+	\arrow["{\binom{\ w \ x}{-l \ 1}}"', from=1-3, to=2-3]
+	\arrow["{a'}"', from=1-5, to=2-5]
+	\arrow["{\binom {j_Y}0}", from=2-1, to=2-3]
+	\arrow["{(q_Y \  \ -q_Y \circ x)}", from=2-3, to=2-5]
+\end{tikzcd}.
+		\end{equation}
+		验证细节如下:
+		\begin{enumerate}
+			\item (左方块). $\binom{\ w \ x}{-l \ 1} \binom {i_X}{l \circ i_X} - \binom{j_Y}{0} \circ a' = \binom{w \circ i_X+x \circ l \circ i_X}{-l \circ i_X+l \circ i_X} - \binom{j_Y \circ a'}{0} = \binom {(w \circ i_X-j_Y \circ a')+x \circ \widetilde l}{0} = 0$;
+			\item (右方块). $q_Y \circ (1 \ \ -x)\binom{\ w \ x}{-l \ 1}-a' \circ (p_X \ \ 0) = q_Y \circ (w+x \circ l \ \ 0) - a' \circ (p_X \ \ 0) = 0$
+		\end{enumerate}
+		下证明 $\binom{\ w \ x}{-l \ 1} \in \mathsf{Weq}$.
+		\begin{quoting}
+		\begin{lemma}
+			$\binom{\ w \ x}{-l \ 1} \in \mathsf{Weq}$.
+			\begin{proof}
+				反复利用\Cref{prop:cm1-hovey} 即可. 由 $g = fw$ 与 $f,g \in \mathsf{Weq}$, 得 $w \in \mathsf{Weq}$. 由 $V \to 0$ 是平凡纤维, 得 $0 \to 0$ 与 $V \to 0$ 是弱等价, 从而 $\binom 1 0 : X \to X \oplus V$ 与 $(1 \ 0) : F \oplus V \to F$ 都是弱等价. 由 $(1 \ 0) \circ \binom{\ w \ x}{-l \ 1} \circ \binom 1 0 = w$, 得证.
+			\end{proof}
+		\end{lemma}
+		\end{quoting}
+		这说明 $a' \in \mathsf{Cofib}$ 是弱等价 $\binom{\ w \ x}{-l \ 1}$ 的形变收缩. 将 $\binom{\ w \ x}{-l \ 1}$ 分解作 $\mathsf{TCofib} \circ \mathsf{TFib}$, 由 CM3 (\Cref{prop:cm3-hovey}) 取提升态射 $s$, 得下图:
+		\begin{equation}
+			% https://q.uiver.app/#q=WzAsNyxbMCwwLCJYJyJdLFswLDIsIlknIl0sWzIsMCwiWCBcXG9wbHVzIFYiXSxbNCwwLCJYJyJdLFs0LDIsIlknIl0sWzIsMiwiRiBcXG9wbHVzIFYiXSxbMiwxLCJcXGNkb3QiXSxbMCwxLCJhJyIsMl0sWzMsNCwiYSciLDJdLFswLDIsIlxcYmlub20ge2lfWH17bCBcXGNpcmMgaV9YfSJdLFsyLDMsIihwX1ggXFwgXFwgIDApIl0sWzEsNSwiXFxiaW5vbSB7al9ZfTAiXSxbNSw0LCIocV9ZIFxcIFxcICAtcV9ZIFxcY2lyYyB4KSJdLFsyLDYsIlxcbWF0aHNme1RDb2ZpYn0iLDJdLFs2LDUsIlxcbWF0aHNme1RGaWJ9IiwyXSxbMSw2LCJzIiwwLHsiY3VydmUiOi0yLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\begin{tikzcd}
+	{X'} && {X \oplus V} && {X'} \\
+	&& \cdot \\
+	{Y'} && {F \oplus V} && {Y'}
+	\arrow["{\binom {i_X}{l \circ i_X}}", from=1-1, to=1-3]
+	\arrow["{a'}"', from=1-1, to=3-1]
+	\arrow["{(p_X \ \  0)}", from=1-3, to=1-5]
+	\arrow["{\mathsf{TCofib}}"', from=1-3, to=2-3]
+	\arrow["{a'}"', from=1-5, to=3-5]
+	\arrow["{\mathsf{TFib}}"', from=2-3, to=3-3]
+	\arrow["s", curve={height=-12pt}, dashed, from=3-1, to=2-3]
+	\arrow["{\binom {j_Y}0}", from=3-1, to=3-3]
+	\arrow["{(q_Y \ \  -q_Y \circ x)}", from=3-3, to=3-5]
+\end{tikzcd}.
+		\end{equation}
+		这说明 $a'$ 是 $\mathsf{TCofib}$ 的形变收缩. 仿照 ``$\mathsf{Cofib}$ 对形变收缩封闭''的证明, 得 $\mathsf{TCofib}$ 对形变收缩封闭. 因此 $a' \in \mathsf{TCofib}$.
+	\end{proof}
+\end{proposition}
